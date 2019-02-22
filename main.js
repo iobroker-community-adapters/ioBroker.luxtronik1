@@ -11,7 +11,12 @@ const adapter = new utils.Adapter('luxtronik1');
 var deviceIpAdress;
 var port;
 var net = require('net');
-var data1800 = [];
+var data1800array = [];
+var temperaturen = [];
+var betriebsstunden =[];
+var fehlerspeicher=[];
+var abschaltungen = [];
+var anlstat =[];
 
 let polling;
 
@@ -113,11 +118,18 @@ function callluxtronik1800() {
   client.on('close', function() {
     adapter.log.debug("Connection closed");
     adapter.log.debug("Datenset: " + datastring);
-    for (var i = 1; i < 8; i++) {
-      data1800[i - 1] = datastring.slice(datastring.indexOf((i + 10) * 100), datastring.indexOf((i + 11) * 100, 10));
-    }
-    for (var y = 0; y < 7; y++) {
-      adapter.log.debug("Array: " + data1800[y]);
-    }
+    data1800array= datastring.split('\r\n');
+     temperaturen = data1800array[2].split(';');
+betriebsstunden =data1800array[6].split(';');
+for (var i=1;i<6;i++){
+     adapter.setState("fehler." + i, (data1800array[7+i].split(';'))[3],true);
+}
+for (var i=1;i<6;i++){
+     adapter.setState("abschaltungen." + i, (data1800array[14+i].split(';'))[3],true);
+}
+
+anlstat = data1800array[21].split(';')
+
+    //edes Element in Array aufteien, damit die Zuordnung über Elemente der Arrays erfolgen kann
   });
 } //callluxtronik1800

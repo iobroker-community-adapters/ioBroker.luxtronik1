@@ -48,20 +48,36 @@
   },
   "objects": [],
   "instanceObjects": [{
-      "_id": "temperatures",
+      "_id": "temperaturen",
       "type": "channel",
       "common": {
-        "name": "Temperatures"
+        "name": "Temperaturen"
       },
       "native": {
 
       }
     },
     {
-      "_id": "temperature.VL",
+      "_id": "temperaturen.AUT",
       "type": "state",
       "common": {
-        "name": "Vorlauftemperatur",
+        "name": "Aussentemperatur",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Aussentemperatur Fühler",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "temperaturen.VL",
+      "type": "state",
+      "common": {
+        "name": "Vorlauf",
         "type": "number",
         "role": "value.temperature",
         "read": true,
@@ -74,10 +90,10 @@
       }
     },
     {
-      "_id": "temperature.RL",
+      "_id": "temperaturen.RL",
       "type": "state",
       "common": {
-        "name": "Ruecklauftemperatur",
+        "name": "Ruecklauf",
         "type": "number",
         "role": "value.temperature",
         "read": true,
@@ -90,10 +106,42 @@
       }
     },
     {
-      "_id": "temperature.WW",
+      "_id": "temperaturen.RLs",
       "type": "state",
       "common": {
-        "name": "Warmwassertemperatur",
+        "name": "Ruecklauf SOLL",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Soll - Ruecklauftemperatur",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "temperaturen.HG",
+      "type": "state",
+      "common": {
+        "name": "Heissgas",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Heissgastemperatur",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "temperaturen.BWi",
+      "type": "state",
+      "common": {
+        "name": "Warmwassertemperatur IST",
         "type": "number",
         "role": "value.temperature",
         "read": true,
@@ -104,7 +152,23 @@
       "native": {
 
       }
-    }
+    },
+    {
+      "_id": "temperaturen.BWs",
+      "type": "state",
+      "common": {
+        "name": "Warmwassertemperatur SOLL",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Soll - Warmwassertemperatur",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
     {
       "_id": "info.connection",
       "type": "state",
@@ -122,6 +186,278 @@
       }
     },
     {
+      "_id": "betriebsstunden",
+      "type": "channel",
+      "common": {
+        "name": "Betriebsstunden"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "betriebsstunden.VD1",
+      "type": "state",
+      "common": {
+        "name": "Betriebsstunden Verdichter 1",
+        "type": "number",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Betriebsstunden Verdichter 1",
+        "unit": "h"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "betriebsstunden.VD2",
+      "type": "state",
+      "common": {
+        "name": "Betriebsstunden Verdichter 2",
+        "type": "number",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Betriebsstunden Verdichter 2",
+        "unit": "h"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "betriebsstunden.ZWE1",
+      "type": "state",
+      "common": {
+        "name": "Betriebsstunden ZWE 1",
+        "type": "number",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Betriebsstunden ZWE 1",
+        "unit": "h"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "betriebsstunden.ZWE2",
+      "type": "state",
+      "common": {
+        "name": "Betriebsstunden ZWE 2",
+        "type": "number",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Betriebsstunden ZWE 2",
+        "unit": "h"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "betriebsstunden.WP",
+      "type": "state",
+      "common": {
+        "name": "Betriebsstunden Waermepumpe",
+        "type": "number",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Betriebsstunden Waermepumpe",
+        "unit": "h"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "fehler",
+      "type": "channel",
+      "common": {
+        "name": "Fehlerspeicher"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "fehler.1",
+      "type": "state",
+      "common": {
+        "name": "Fehler 1",
+        "type": "string",
+        "role": "info.fehler",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "letzer Fehler"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "fehler.2",
+      "type": "state",
+      "common": {
+        "name": "Fehler 2",
+        "type": "string",
+        "role": "info.fehler",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "vorletzer Fehler"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "fehler.3",
+      "type": "state",
+      "common": {
+        "name": "Fehler 3",
+        "type": "string",
+        "role": "info.fehler",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "vorvorletzer Fehler"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "fehler.4",
+      "type": "state",
+      "common": {
+        "name": "Fehler 4",
+        "type": "string",
+        "role": "info.fehler",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "vorvorvorletzer Fehler"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "fehler.5",
+      "type": "state",
+      "common": {
+        "name": "Fehler 5",
+        "type": "string",
+        "role": "info.fehler",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "vor5letzer Fehler"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "abschaltungen",
+      "type": "channel",
+      "common": {
+        "name": "Abschaltungen"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "abschaltungen.1",
+      "type": "state",
+      "common": {
+        "name": "Abschaltung 1",
+        "type": "string",
+        "role": "info.abschaltung",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "letze Abschaltung"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "abschaltungen.2",
+      "type": "state",
+      "common": {
+        "name": "Abschaltung 2",
+        "type": "string",
+        "role": "info.abschaltung",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "vorletze Abschaltung"
+      },
+      "native": {
+
+      }
+    }, {
+      "_id": "abschaltungen.3",
+      "type": "state",
+      "common": {
+        "name": "Abschaltung 3",
+        "type": "string",
+        "role": "info.abschaltung",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "vorvorletze Abschaltung"
+      },
+      "native": {
+
+      }
+    }, {
+      "_id": "abschaltungen.4",
+      "type": "state",
+      "common": {
+        "name": "Abschaltung 4",
+        "type": "string",
+        "role": "info.abschaltung",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "vorvorvorletze Abschaltung"
+      },
+      "native": {
+
+      }
+    }, {
+      "_id": "abschaltungen.5",
+      "type": "state",
+      "common": {
+        "name": "Abschaltung 5",
+        "type": "string",
+        "role": "info.abschaltung",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "vor5letze Abschaltung"
+      },
+      "native": {
+
+      }
+    },
+    {
       "_id": "status",
       "type": "channel",
       "common": {
@@ -132,129 +468,18 @@
       }
     },
     {
-      "_id": "status.filterh",
+      "_id": "status.ANL",
       "type": "state",
       "common": {
-        "name": "Betriebsstunden Filter",
-        "type": "number",
-        "role": "value.hours",
-        "read": true,
-        "write": false,
-        "def": false,
-        "desc": "Betriebsstunden der Filter",
-        "unit": "h"
-      },
-      "native": {
-
-      }
-    },
-    {
-      "_id": "status.bypass",
-      "type": "state",
-      "common": {
-        "name": "bypass",
-        "type": "number",
-        "role": "value.info",
-        "read": true,
-        "write": false,
-        "def": false,
-        "desc": "Klappenstatus Bypass",
-        "unit": "%"
-      },
-      "native": {
-
-      }
-    },
-    {
-      "_id": "status.statstufe",
-      "type": "state",
-      "common": {
-        "name": "Voltage AC",
-        "type": "number",
-        "role": "value.info",
-        "read": true,
-        "write": false,
-        "def": false,
-        "desc": "Aktuelle Stufe"
-      },
-      "native": {
-
-      }
-    },
-
-    {
-      "_id": "control",
-      "type": "channel",
-      "common": {
-        "name": "Steuerung"
-      },
-      "native": {
-
-      }
-    },
-    {
-      "_id": "control.comfort",
-      "type": "state",
-      "common": {
-        "name": "Komforttemperatur",
-        "type": "number",
-        "role": "value.temperature",
-        "read": true,
-        "write": false,
-        "def": false,
-        "desc": "Vorgegebene Komforttemperatur",
-        "unit": "°C"
-      },
-      "native": {
-
-      }
-    },
-    {
-      "_id": "control.stufe",
-      "type": "state",
-      "common": {
-        "name": "Stufe",
-        "type": "number",
-        "role": "value.info",
-        "read": true,
-        "write": false,
-        "def": false,
-        "desc": "Vorgabe Stufe"
-      },
-      "native": {
-
-      }
-    },
-    {
-      "_id": "control.kommando",
-      "type": "state",
-      "common": {
-        "name": "Kommando",
+        "name": "Status Anlage",
         "type": "string",
-        "role": "value.info",
+        "role": "info.status",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Kommando"
+        "desc": "Betriebsmodus Anlage"
       },
       "native": {
-
-      }
-    },
-    {
-      "_id": "control.status",
-      "type": "state",
-      "common": {
-        "name": "status",
-        "type": "string",
-        "role": "value.info",
-        "read": true,
-        "write": false,
-        "def": false,
-        "desc": "Status des letzten Kommandos"
-      },
-      "native": {
-
 
       }
     }
