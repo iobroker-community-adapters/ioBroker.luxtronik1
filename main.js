@@ -11,12 +11,7 @@ const adapter = new utils.Adapter('luxtronik1');
 var deviceIpAdress;
 var port;
 var net = require('net');
-var hexout = [];
-var buffarr = [];
-var buff;
-var cmdi;
-
-var calli = 0;
+var data1800 = [];
 
 let polling;
 
@@ -97,32 +92,32 @@ function main() {
 
 } // endMain
 
-function callvalues() {
-  hexout = statcmdi[calli];
-  adapter.log.debug(hexout);
-  call1800(hexout);
-  calli++;
-  if (calli == statcmdL) {
-    clearInterval(callval);
-  }
+
+
 } //end callvalues
-
-
-function call1800(out) {
-  var client = new net.Socket();
-  client.connect(port, host, function() { //Connection Data ComfoAir
-    adapter.log.debug('Connected');
-
-    client.write(out);
+function callluxtronik1800() {
+  var client = client.connect(port, host, function() {
+    // write out connection details
+    adapter.log.debug('Connected to Luxtronik');
+    datastring = "";
+    client.write('1800\r\n'); // send data to through the client to the host
   });
 
   client.on('data', function(data) {
+    datastring += data;
+    if (datastring.includes("1800;8", 10) === true) {
+      client.destroy();
+    }
+  });
 
-      client.destroy(); // kill client after server's response
-      read1800data(data);
-      });
-
-client.on('close', function() {
-  adapter.log.debug('Connection closed');
-});
-} //end callcomfoair
+  client.on('close', function() {
+    adapter.log.debug("Connection closed");
+    adapter.log.debug("Datenset: " + datastring);
+    for (var i = 1; i < 8; i++) {
+      data1800[i - 1] = datastring.slice(datastring.indexOf((i + 10) * 100), datastring.indexOf((i + 11) * 100, 10));
+    }
+    for (var y = 0; y < 7; y++) {
+      adapter.log.debug("Array: " + data1800[y]);
+    }
+  });
+} //callluxtronik1800
