@@ -140,7 +140,7 @@ function callluxtronik1800(){
         adapter.setState("fehler." + i, setfehlertext(data1800array[7 + i]), true);
       }
       for (var i = 1; i < 6; i++) {
-        adapter.setState("abschaltungen." + i, setabschalttext(data1800array[14 + i], true);
+        adapter.setState("abschaltungen." + i, setabschalttext(data1800array[14 + i]), true);
         }
 
         adapter.setState("status.ANL", setstatustext(data1800array[21]), true);
@@ -193,4 +193,4 @@ function callluxtronik1800(){
         break;
     }
     return statusa;
-  }
+  }//end setstatustext
