@@ -25,7 +25,7 @@
     },
     "platform": "Javascript/Node.js",
     "mode": "daemon",
-"compact": true,
+    "compact": true,
     "icon": "luxtronik1.png",
     "materialize": true,
     "enabled": true,
@@ -201,13 +201,12 @@
       "type": "state",
       "common": {
         "name": "Betriebsstunden Verdichter 1",
-        "type": "number",
+        "type": "string",
         "role": "value.hours",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Betriebsstunden Verdichter 1",
-        "unit": "h"
+        "desc": "Betriebsstunden Verdichter 1"
       },
       "native": {
 
@@ -234,13 +233,12 @@
       "type": "state",
       "common": {
         "name": "Durchschn Laufzeit VD 1",
-        "type": "number",
+        "type": "string",
         "role": "value.hours",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Durchscnittliche Laufzeit Verdichter 1",
-        "unit": "min"
+        "desc": "Durchscnittliche Laufzeit Verdichter 1"
       },
       "native": {
 
@@ -251,13 +249,12 @@
       "type": "state",
       "common": {
         "name": "Betriebsstunden Verdichter 2",
-        "type": "number",
+        "type": "string",
         "role": "value.hours",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Betriebsstunden Verdichter 2",
-        "unit": "h"
+        "desc": "Betriebsstunden Verdichter 2"
       },
       "native": {
 
@@ -273,8 +270,7 @@
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Impulse Verdichter 2",
-        "unit": "h"
+        "desc": "Impulse Verdichter 2"
       },
       "native": {
 
@@ -285,13 +281,12 @@
       "type": "state",
       "common": {
         "name": "Durchschn Laufzeit VD 2",
-        "type": "number",
+        "type": "string",
         "role": "value.hours",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Durchscnittliche Laufzeit Verdichter 2",
-        "unit": "min"
+        "desc": "Durchscnittliche Laufzeit Verdichter 2"
       },
       "native": {
 
@@ -302,13 +297,12 @@
       "type": "state",
       "common": {
         "name": "Betriebsstunden ZWE 1",
-        "type": "number",
+        "type": "string",
         "role": "value.hours",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Betriebsstunden ZWE 1",
-        "unit": "h"
+        "desc": "Betriebsstunden ZWE 1"
       },
       "native": {
 
@@ -319,13 +313,12 @@
       "type": "state",
       "common": {
         "name": "Betriebsstunden ZWE 2",
-        "type": "number",
+        "type": "string",
         "role": "value.hours",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Betriebsstunden ZWE 2",
-        "unit": "h"
+        "desc": "Betriebsstunden ZWE 2"
       },
       "native": {
 
@@ -336,13 +329,12 @@
       "type": "state",
       "common": {
         "name": "Betriebsstunden Waermepumpe",
-        "type": "number",
+        "type": "string",
         "role": "value.hours",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Betriebsstunden Waermepumpe",
-        "unit": "h"
+        "desc": "Betriebsstunden Waermepumpe"
       },
       "native": {
 

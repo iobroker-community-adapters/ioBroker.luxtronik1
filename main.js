@@ -143,15 +143,16 @@ function callluxtronik1800() {
     adapter.setState("temperaturen.BWs", temperaturen[8] / 10, true);
 
     betriebsstunden = data1800array[6].split(';');
-    adapter.setState("betriebsstunden.VD1", betriebsstunden[2] / 3600, true);
+    adapter.setState("betriebsstunden.VD1", toTimeString(betriebsstunden[2]), true);
     adapter.setState("betriebsstunden.Imp1", betriebsstunden[3], true);
-    adapter.setState("betriebsstunden.AvVD1", betriebsstunden[4] / 60, true);
-    adapter.setState("betriebsstunden.VD2", betriebsstunden[5] / 3600, true);
+    adapter.setState("betriebsstunden.AvVD1", toTimeString(betriebsstunden[4]), true);
+    adapter.setState("betriebsstunden.VD2", toTimeString(betriebsstunden[5]), true);
     adapter.setState("betriebsstunden.Imp2", betriebsstunden[6], true);
-    adapter.setState("betriebsstunden.AvVD2", betriebsstunden[7] / 60, true);
-    adapter.setState("betriebsstunden.ZWE1", betriebsstunden[8] / 3600, true);
-    adapter.setState("betriebsstunden.ZWE2", betriebsstunden[9] / 3600, true);
-    adapter.setState("betriebsstunden.WP", betriebsstunden[10] / 3600, true);
+    adapter.setState("betriebsstunden.AvVD2", toTimeString(betriebsstunden[7]), true);
+    adapter.setState("betriebsstunden.ZWE1", toTimeString(betriebsstunden[8]), true);
+    adapter.setState("betriebsstunden.ZWE2", toTimeString(betriebsstunden[9]), true);
+    adapter.setState("betriebsstunden.WP", toTimeString(betriebsstunden[10]), true);
+adapter.log.debug("BWP"+toTimeString(betriebsstunden[10])+"hhhh");
 
 
     for (var i = 1; i < 6; i++) {
@@ -221,6 +222,15 @@ function setstatustext(statuscode) {
   }
   return statusa;
 } //end setstatustext
+
+function toTimeString(totalseconds) {
+  var totalNumberOfSeconds = totalseconds;
+  var hours = parseInt(totalNumberOfSeconds / 3600);
+  var minutes = parseInt((totalNumberOfSeconds - (hours * 3600)) / 60);
+  var seconds = Math.floor((totalNumberOfSeconds - ((hours * 3600) + (minutes * 60))));
+  var result = (hours < 10 ? "0" + hours : hours) + "h " + (minutes < 10 ? "0" + minutes : minutes) + "min " + (seconds < 10 ? "0" + seconds : seconds) + "s";
+  return result;
+} //end toTimeString
 
 // If started as allInOne/compact mode => return function to create instance
 if (module && module.parent) {
