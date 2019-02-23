@@ -11,6 +11,7 @@ let adapter;
 var deviceIpAdress;
 var port;
 var net = require('net');
+var datastring = "";
 var data1800array = [];
 var temperaturen = [];
 var betriebsstunden = [];
@@ -92,11 +93,11 @@ function main() {
   adapter.log.debug('[INFO] Configured polling interval: ' + pollingTime);
   adapter.log.debug('[START] Started Adapter with: ' + adapter.config.host);
 
-  callval = setInterval(callvalues, 2000);
+  callluxtronik1800();
 
   if (!polling) {
     polling = setTimeout(function repeat() { // poll states every [30] seconds
-      callval = setInterval(callvalues, 2000); //DATAREQUEST;
+      callluxtronik1800(); //DATAREQUEST;
       setTimeout(repeat, pollingTime);
     }, pollingTime);
   } // endIf
@@ -110,7 +111,9 @@ function main() {
 
 
 function callluxtronik1800() {
-  var client = client.connect(port, host, function() {
+  var client = new net.Socket();
+
+  var client = client.connect(port, deviceIpAdress, function() {
     // write out connection details
     adapter.log.debug('Connected to Luxtronik');
     datastring = "";
@@ -128,6 +131,7 @@ function callluxtronik1800() {
     adapter.log.debug("Connection closed");
     adapter.log.debug("Datenset: " + datastring);
     data1800array = datastring.split('\r\n');
+    adapter.log.debug("Datensatz 1800: " + data1800array);
     temperaturen = data1800array[2].split(';');
     adapter.setState("temperaturen.AUT", temperaturen[6] / 10, true);
     adapter.setState("temperaturen.RL", temperaturen[3] / 10, true);
@@ -154,7 +158,7 @@ function callluxtronik1800() {
 
     adapter.setState("status.ANL", setstatustext(data1800array[21]), true);
 
-
+adapter.log.debug("Daten 1800 fertig verarbeitet.")
   });
 } //callluxtronik1800
 
@@ -167,6 +171,8 @@ function setfehlertext(fehlerinfo) {
     case "11":
       fehlercodetext = "kein Fehler, ";
       break;
+    default:
+      fehlercodetext = fehlercode;
   }
   var fehlertext = fehlercodetext + fehlerzeit;
   return fehlertext;
@@ -179,7 +185,13 @@ function setabschalttext(abschaltinfo) {
   var abschaltcodetext;
   switch (abschaltcode) {
     case "010":
-      abschaltcodetext = "weniger Wärme, ";
+      abschaltcodetext = "weniger Waerme, ";
+      break;
+    case "001":
+      abschaltcodetext = "Waermepumpenstoerung, ";
+      break;
+    case "002":
+      abschaltcodetext = "Anlagenstoerung, ";
       break;
   }
   var abschalttext = abschaltcodetext + abschaltzeit;
@@ -187,6 +199,7 @@ function setabschalttext(abschaltinfo) {
 } //end setabschalttext
 
 function setstatustext(statuscode) {
+var statusa;
   switch ((statuscode.split(';'))[5]) {
     case "0":
       statusa = "Heizung";
