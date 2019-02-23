@@ -132,6 +132,7 @@ function callluxtronik1800() {
     adapter.log.debug("Datenset: " + datastring);
     data1800array = datastring.split('\r\n');
     adapter.log.debug("Datensatz 1800: " + data1800array);
+
     temperaturen = data1800array[2].split(';');
     adapter.setState("temperaturen.AUT", temperaturen[6] / 10, true);
     adapter.setState("temperaturen.RL", temperaturen[3] / 10, true);
@@ -143,7 +144,11 @@ function callluxtronik1800() {
 
     betriebsstunden = data1800array[6].split(';');
     adapter.setState("betriebsstunden.VD1", betriebsstunden[2] / 3600, true);
+    adapter.setState("betriebsstunden.Imp1", betriebsstunden[3], true);
+    adapter.setState("betriebsstunden.AvVD1", betriebsstunden[4] / 60, true);
     adapter.setState("betriebsstunden.VD2", betriebsstunden[5] / 3600, true);
+    adapter.setState("betriebsstunden.Imp2", betriebsstunden[6], true);
+    adapter.setState("betriebsstunden.AvVD2", betriebsstunden[7] / 60, true);
     adapter.setState("betriebsstunden.ZWE1", betriebsstunden[8] / 3600, true);
     adapter.setState("betriebsstunden.ZWE2", betriebsstunden[9] / 3600, true);
     adapter.setState("betriebsstunden.WP", betriebsstunden[10] / 3600, true);
@@ -158,7 +163,7 @@ function callluxtronik1800() {
 
     adapter.setState("status.ANL", setstatustext(data1800array[21]), true);
 
-adapter.log.debug("Daten 1800 fertig verarbeitet.")
+    adapter.log.debug("Daten 1800 fertig verarbeitet.")
   });
 } //callluxtronik1800
 
@@ -199,7 +204,7 @@ function setabschalttext(abschaltinfo) {
 } //end setabschalttext
 
 function setstatustext(statuscode) {
-var statusa;
+  var statusa;
   switch ((statuscode.split(';'))[5]) {
     case "0":
       statusa = "Heizung";

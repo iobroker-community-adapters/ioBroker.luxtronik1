@@ -214,6 +214,39 @@
       }
     },
     {
+      "_id": "betriebsstunden.Imp1",
+      "type": "state",
+      "common": {
+        "name": "Impulse Verdichter 1",
+        "type": "number",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Imulse Verdichter 1"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "betriebsstunden.AvVD1",
+      "type": "state",
+      "common": {
+        "name": "Durchschn Laufzeit VD 1",
+        "type": "number",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Durchscnittliche Laufzeit Verdichter 1",
+        "unit": "min"
+      },
+      "native": {
+
+      }
+    },
+    {
       "_id": "betriebsstunden.VD2",
       "type": "state",
       "common": {
@@ -225,6 +258,40 @@
         "def": false,
         "desc": "Betriebsstunden Verdichter 2",
         "unit": "h"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "betriebsstunden.Imp2",
+      "type": "state",
+      "common": {
+        "name": "Impulse Verdichter 2",
+        "type": "number",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Impulse Verdichter 2",
+        "unit": "h"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "betriebsstunden.AvVD2",
+      "type": "state",
+      "common": {
+        "name": "Durchschn Laufzeit VD 2",
+        "type": "number",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Durchscnittliche Laufzeit Verdichter 2",
+        "unit": "min"
       },
       "native": {
 
