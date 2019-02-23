@@ -7,6 +7,7 @@
 'use strict';
 
 const utils = require(__dirname + '/lib/utils'); // Get common adapter utils
+let adapter;
 var deviceIpAdress;
 var port;
 var net = require('net');
