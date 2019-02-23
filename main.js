@@ -7,7 +7,6 @@
 'use strict';
 
 const utils = require(__dirname + '/lib/utils'); // Get common adapter utils
-const adapter = new utils.Adapter('luxtronik1');
 var deviceIpAdress;
 var port;
 var net = require('net');
@@ -20,6 +19,13 @@ var anlstat = [];
 
 let polling;
 
+function startAdapter(options) {
+  options = options || {};
+  Object.assign(options, {
+    name: 'luxtronik1'
+  });
+
+  adapter = new utils.Adapter(options);
 
 // when adapter shuts down
 adapter.on('unload', function(callback) {
@@ -72,6 +78,8 @@ adapter.on('ready', function() {
   } else adapter.log.warn('[START] No IP-address set');
 });
 
+return adapter;
+} // endStartAdapter
 
 function main() {
   // Vars
@@ -194,3 +202,11 @@ function callluxtronik1800(){
     }
     return statusa;
   }//end setstatustext
+
+  // If started as allInOne/compact mode => return function to create instance
+  if (module && module.parent) {
+    module.exports = startAdapter;
+  } else {
+    // or start the instance directly
+    startAdapter();
+  } // endElse
