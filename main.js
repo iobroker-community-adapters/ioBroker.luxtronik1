@@ -13,10 +13,10 @@ var port;
 var net = require('net');
 var data1800array = [];
 var temperaturen = [];
-var betriebsstunden =[];
-var fehlerspeicher=[];
+var betriebsstunden = [];
+var fehlerspeicher = [];
 var abschaltungen = [];
-var anlstat =[];
+var anlstat = [];
 
 let polling;
 
@@ -118,18 +118,59 @@ function callluxtronik1800() {
   client.on('close', function() {
     adapter.log.debug("Connection closed");
     adapter.log.debug("Datenset: " + datastring);
-    data1800array= datastring.split('\r\n');
-     temperaturen = data1800array[2].split(';');
-betriebsstunden =data1800array[6].split(';');
-for (var i=1;i<6;i++){
-     adapter.setState("fehler." + i, (data1800array[7+i].split(';'))[3],true);
-}
-for (var i=1;i<6;i++){
-     adapter.setState("abschaltungen." + i, (data1800array[14+i].split(';'))[3],true);
-}
+    data1800array = datastring.split('\r\n');
+    temperaturen = data1800array[2].split(';');
+    adapter.setState("temperaturen.AUT", temperaturen[6] / 10, true);
+    adapter.setState("temperaturen.RL", temperaturen[3] / 10, true);
+    adapter.setState("temperaturen.VL", temperaturen[2] / 10, true);
+    adapter.setState("temperaturen.RLs", temperaturen[4] / 10, true);
+    adapter.setState("temperaturen.HG", temperaturen[5] / 10, true);
+    adapter.setState("temperaturen.BWi", temperaturen[7] / 10, true);
+    adapter.setState("temperaturen.BWs", temperaturen[8] / 10, true);
 
-anlstat = data1800array[21].split(';')
+    betriebsstunden = data1800array[6].split(';');
+    adapter.setState("betriebsstunden.VD1", betriebsstunden[2] / 3600, true);
+    adapter.setState("betriebsstunden.VD2", betriebsstunden[5] / 3600, true);
+    adapter.setState("betriebsstunden.ZWE1", betriebsstunden[8] / 3600, true);
+    adapter.setState("betriebsstunden.ZWE2", betriebsstunden[9] / 3600, true);
+    adapter.setState("betriebsstunden.WP", betriebsstunden[10] / 3600, true);
+
+
+    for (var i = 1; i < 6; i++) {
+      adapter.setState("fehler." + i, setfehlertext(data1800array[7 + i]), true);
+    }
+    for (var i = 1; i < 6; i++) {
+      adapter.setState("abschaltungen." + i, (data1800array[14 + i].split(';'))[3], true);
+    }
+
+    anlstat = data1800array[21].split(';')
 
     //edes Element in Array aufteien, damit die Zuordnung über Elemente der Arrays erfolgen kann
   });
 } //callluxtronik1800
+
+function setfehlertext(fehlerinfo) {
+  var fehlercode = fehlerinfo[3];
+  var fehlerzeit = fehlerinfo[4] + "." + fehlerinfo[5] + ", " + fehlerinfo[6] + ":" + fehlerinfo[7] + ":" + fehlerinfo[8];
+  var fehlercodetext;
+  switch (fehlercode) {
+    case "11":
+      fehlercodetext = "kein Fehler, ";
+      break;
+  }
+  var fehlertext = fehlercodetext + fehlerzeit;
+  return fehlertext;
+} //end setfehlertext
+
+function setabschalttext(abschaltinfo) {
+  var abschaltcode = abschaltinfo[3];
+  var abschaltzeit = abschaltinfo[4] + "." + abschaltinfo[5] + ", " + abschaltinfo[6] + ":" + abschaltinfo[7] + ":" + abschaltinfo[8];
+  var abschaltcodetext;
+  switch (abschaltcode) {
+    case "010":
+      abschaltcodetext = "weniger Wärme, ";
+      break;
+  }
+  var abschalttext = abschaltcodetext + abschaltzeit;
+  return abschalttext;
+} //end setabschalttext
