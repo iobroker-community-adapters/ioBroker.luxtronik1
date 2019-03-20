@@ -1,6 +1,11 @@
 ![Logo](admin/luxtronik1.png)
+
 # ioBroker.luxtronik1
 
+![Number of Installations](http://iobroker.live/badges/luxtronik1-installed.svg) ![Number of Installations](http://iobroker.live/badges/luxtronik1-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.luxtronik1.svg)](https://www.npmjs.com/package/iobroker.luxtronik1)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.luxtronik1.svg)](https://www.npmjs.com/package/iobroker.luxtronik1)
+
+[![NPM](https://nodei.co/npm/iobroker.luxtronik1.png?downloads=true)](https://nodei.co/npm/iobroker.luxtronik1/)
 
 An ioBroker adapter for Luxtronik 1 - heatpump - controllers (i.e. Alpha Innotec, Siemens...)
 
@@ -11,7 +16,6 @@ RS232 to LAN converter: USR TCP232 – 302.
 Settings serial interface : 57600/8/N/1 , Mode :TCP-Server
 Reset Timeout:0
 
-
 Set comfoair - IP-adress, port and polling - intervall
 
 Tested on luxtronik 1 and AlphaInnotec heatpump
@@ -19,17 +23,18 @@ Tested on luxtronik 1 and AlphaInnotec heatpump
 Reads different values and stats of your heatpump (temperatures, errors, running time,...).
 Planned: additional stats and values and control functions (set temperatures, heat-curve, mode).
 
-
 ## Changelog
 
 ### 0.0.2
-- First published version
+
+-   First published version
 
 ### 0.0.1
-- In development stage
 
+-   In development stage
 
 ## License
+
 The MIT License (MIT)
 
 Copyright (c) 2018-2019 forelleblau marceladam@gmx.ch
