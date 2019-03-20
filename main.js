@@ -152,7 +152,7 @@ function callluxtronik1800() {
     adapter.setState("betriebsstunden.ZWE1", toTimeString(betriebsstunden[8]), true);
     adapter.setState("betriebsstunden.ZWE2", toTimeString(betriebsstunden[9]), true);
     adapter.setState("betriebsstunden.WP", toTimeString(betriebsstunden[10]), true);
-adapter.log.debug("BWP"+toTimeString(betriebsstunden[10])+"hhhh");
+    adapter.log.debug("BWP" + toTimeString(betriebsstunden[10]) + "hhhh");
 
 
     for (var i = 1; i < 6; i++) {
@@ -171,16 +171,58 @@ adapter.log.debug("BWP"+toTimeString(betriebsstunden[10])+"hhhh");
 function setfehlertext(fehlerinfo) {
   var fehlerarray = fehlerinfo.split(';');
   var fehlercode = fehlerarray[3];
-  var fehlerzeit = fehlerarray[4] + "." + fehlerarray[5] + ", " + fehlerarray[6] + ":" + fehlerarray[7] + ":" + fehlerarray[8];
-  var fehlercodetext;
-  switch (fehlercode) {
-    case "11":
-      fehlercodetext = "kein Fehler, ";
-      break;
-    default:
-      fehlercodetext = fehlercode;
-  }
-  var fehlertext = fehlercodetext + fehlerzeit;
+  var fehlerzeit = ('00' + fehlerarray[4]).slice(-2) + "." + ('00' + fehlerarray[5]).slice(-2) + "." + ('00' + fehlerarray[6]).slice(-2) + ", " + ('00' + fehlerarray[7]).slice(-2) + ":" + ('00' + fehlerarray[8]).slice(-2);
+  var errorcodes = {
+    "11": "kein Fehler",
+    "701": "Niederdruckstörung",
+    "702": "Niederdrucksperre",
+    "703": "Frostschutz",
+    "704": "Heissgasstörung",
+    "705": "Motorschutz VEN",
+    "706": "",
+    "707": "Codierung WP",
+    "708": "Fühler Rücklauf",
+    "709": "Fühler Vorlauf",
+    "710": "Fühler Heissgas",
+    "711": "Fühler Aussentemp.",
+    "712": "Fühler Brauchwasser",
+    "713": "Fühler WQ-Ein",
+    "714": "Heissgas BW",
+    "715": "Hochdruck-Abschalt.",
+    "716": "Hochdruckstörung",
+    "717": "Durchfluss-WQ",
+    "718": "Max. Aussentemp.",
+    "719": "Min. Aussentemp.",
+    "720": "WQ-Temperatur",
+    "721": "Niederdruckabschaltung",
+    "722": "Tempdiff Heizwasser",
+    "723": "Tempdiff Brauchw.",
+    "724": "Tempdiff Abtauen",
+    "725": "Anlagefehler BW",
+    "726": "Fühler Mischkreis 1",
+    "727": "Soledruck",
+    "728": "Fühler WQ-Aus",
+    "729": "Drehfeldfehler",
+    "730": "Leistung Ausheizen",
+    "731": "",
+    "732": "Störung Kühlung",
+    "733": "Störung Anode",
+    "734": "Störung Anode",
+    "735": "Fühler Ext. En",
+    "736": "Fühler Solarkollektor",
+    "737": "Fühler Solarspeicher",
+    "738": "Fühler Mischkreis2",
+    "739": "CAN-Fehler: WP fehlt",
+    "740": "CAN-Fehler: Timeout",
+    "741": "CAN-Fehler: Bus off",
+    "742": "CAN-Fehler: Daten",
+    "743": "CAN-Fehler: Adresse",
+    "744": "",
+    "745": "Modem-Fehler"
+  };
+
+  var fehlercodetext = errorcodes[fehlercode];
+  var fehlertext = fehlerzeit + " " + fehlercodetext;
   return fehlertext;
 } //end setfehlertext
 

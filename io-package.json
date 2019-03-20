@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "luxtronik1",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "news": {
+      "0.0.2": {
+        "en": "First published version (latest repo)",
+        "de": "Erste veröffentlichte Version (latest repo)"
+      },
       "0.0.1": {
         "en": "development edition",
         "de": "Entwicklungsversion"
