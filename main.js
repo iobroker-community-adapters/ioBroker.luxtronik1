@@ -156,10 +156,10 @@ function callluxtronik1800() {
 
 
     for (var i = 1; i < 6; i++) {
-      adapter.setState("fehler." + i, setfehlertext(data1800array[7 + i]), true);
+      adapter.setState("fehler." + (6-i), setfehlertext(data1800array[7 + i]), true);
     }
     for (var i = 1; i < 6; i++) {
-      adapter.setState("abschaltungen." + i, setabschalttext(data1800array[14 + i]), true);
+      adapter.setState("abschaltungen." + (6-i), setabschalttext(data1800array[14 + i]), true);
     }
 
     adapter.setState("status.ANL", setstatustext(data1800array[21]), true);
@@ -222,14 +222,14 @@ function setfehlertext(fehlerinfo) {
   };
 
   var fehlercodetext = errorcodes[fehlercode];
-  var fehlertext = fehlerzeit + " " + fehlercodetext;
+  var fehlertext = fehlercodetext + " " + fehlerzeit;
   return fehlertext;
 } //end setfehlertext
 
 function setabschalttext(abschaltinfo) {
   var abschaltarray = abschaltinfo.split(';');
   var abschaltcode = abschaltarray[3];
-  var abschaltzeit = abschaltarray[4] + "." + abschaltarray[5] + ", " + abschaltarray[6] + ":" + abschaltarray[7] + ":" + abschaltarray[8];
+  var abschaltzeit = ('00' + abschaltarray[4]).slice(-2) + "." + ('00' + abschaltarray[5]).slice(-2) + "." + ('00' + abschaltarray[6]).slice(-2) + ", " + ('00' + abschaltarray[7]).slice(-2) + ":" + ('00' + abschaltarray[8]).slice(-2);
   var abschaltcodetext;
   switch (abschaltcode) {
     case "010":
@@ -242,7 +242,7 @@ function setabschalttext(abschaltinfo) {
       abschaltcodetext = "Anlagenstoerung, ";
       break;
   }
-  var abschalttext = abschaltcodetext + abschaltzeit;
+  var abschalttext = abschaltcodetext + " " + abschaltzeit;
   return abschalttext;
 } //end setabschalttext
 
