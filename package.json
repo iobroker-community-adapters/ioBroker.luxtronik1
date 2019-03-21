@@ -1,47 +1,50 @@
 {
-	"name": "iobroker.luxtronik1",
-	"version": "0.0.2",
-	"engines": {
-    	"node": ">=6.0.0"
-	},
-	"description": "luxtronik1",
-	"author": {
-		"name": "Marcel Adam",
-		"email": "marceladam@gmx.ch"
-	},
-	"contributors": [
-		{
-			"name": "Marcel Adam",
-			"email": "marceladam@gmx.ch"
-		}
-	],
-	"homepage": "https://github.com/forelleblau/ioBroker.luxtronik1",
-	"license": "MIT",
-	"keywords": [
-		"ioBroker",
-		"luxtronik",
-		"Smart Home",
-		"home automation"
-	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/forelleblau/ioBroker.luxtronik1"
-	},
-	"dependencies": {
-"@iobroker/adapter-core": "^1.0.3"
-	},
-	"devDependencies": {
-		"chai": "^4.2.0",
+  "name": "iobroker.luxtronik1",
+  "version": "0.0.2",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "description": "luxtronik1",
+  "author": {
+    "name": "Marcel Adam",
+    "email": "marceladam@gmx.ch"
+  },
+  "contributors": [
+    {
+      "name": "Marcel Adam",
+      "email": "marceladam@gmx.ch"
+    }
+  ],
+  "homepage": "https://github.com/forelleblau/ioBroker.luxtronik1",
+  "license": "MIT",
+  "keywords": [
+    "ioBroker",
+    "luxtronik",
+    "Smart Home",
+    "home automation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/forelleblau/ioBroker.luxtronik1"
+  },
+  "dependencies": {
+    "@iobroker/adapter-core": "^1.0.3"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
     "gulp": "^4.0.0",
-    "mocha": "^6.0.2"
-
-	},
-	"main": "main.js",
-	"scripts": {
-		"test": "node node_modules/mocha/bin/mocha --exit"
-	},
-	"bugs": {
-		"url": "https://github.com/forelleblau/ioBroker.luxtronik1/issues"
-	},
-	"readmeFilename": "README.md"
+    "mocha": "^6.0.2",
+    "@iobroker/testing": "^1.1.10"
+  },
+  "main": "main.js",
+  "scripts": {
+    "test": "npm run test:package && npm run test:unit",
+    "test:package": "mocha test/package --exit",
+    "test:unit": "mocha test/unit --exit",
+    "test:integration": "mocha test/integration --exit"
+  },
+  "bugs": {
+    "url": "https://github.com/forelleblau/ioBroker.luxtronik1/issues"
+  },
+  "readmeFilename": "README.md"
 }
