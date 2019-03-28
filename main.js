@@ -108,10 +108,11 @@ function main() {
 
 } // endMain
 
-fucion pollluxtronik() {
+function pollluxtronik() {
   callluxtronik1800();
   setTimeout(callluxtronik3405, 1000);
   setTimeout(callluxtronik3505, 2000);
+  setTimeout(callluxtronik3400, 2000);
 } //endPollluxtronik
 
 
