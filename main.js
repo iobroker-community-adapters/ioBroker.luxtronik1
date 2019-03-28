@@ -18,7 +18,7 @@ var betriebsstunden = [];
 var fehlerspeicher = [];
 var abschaltungen = [];
 var anlstat = [];
-var modus = [AUTO, ZWE, Party, Ferien, Aus];
+var modus = ['AUTO', 'ZWE', 'Party', 'Ferien', 'Aus'];
 
 let polling;
 
