@@ -18,7 +18,7 @@ var betriebsstunden = [];
 var fehlerspeicher = [];
 var abschaltungen = [];
 var anlstat = [];
-var modus = ['AUTO', 'ZWE', 'Party', 'Ferien', 'Aus'];
+var modus = ['AUTO', 'ZWE', 'Party', 'Ferien', 'Aus', 'Aus'];
 
 let polling;
 
@@ -110,9 +110,9 @@ function main() {
 
 function pollluxtronik() {
   callluxtronik1800();
-  setTimeout(callluxtronik3405, 1000);
-  setTimeout(callluxtronik3505, 2000);
-  setTimeout(callluxtronik3400, 2000);
+  setTimeout(callluxtronik3405, 1500);
+  setTimeout(callluxtronik3505, 3000);
+  setTimeout(callluxtronik3400, 4500);
 } //endPollluxtronik
 
 
@@ -194,12 +194,12 @@ function callluxtronik3405() {
   client.on('close', function() {
     adapter.log.debug("Connection closed");
     adapter.log.debug("Datenset: " + datastring);
-    data3405 = datastring.slice(-1);
-    adapter.log.debug("Datensatz 3405: " + data3405);
-    adapter.log.debug("Modus Heizung: " + modus[data3405]);
+    var data3405array = datastring.split(';');
+    adapter.log.debug("Datensatz 3405: " + data3405array[2]);
+    adapter.log.debug("Modus Heizung: " + modus[parseInt(data3405array[2])]);
 
 
-    adapter.setState("status.ModusHeizung", modus[data3405], true);
+    adapter.setState("status.ModusHeizung", modus[parseInt(data3405array[2])], true);
 
     adapter.log.debug("Daten 3405 fertig verarbeitet.")
   });
@@ -225,11 +225,11 @@ function callluxtronik3505() {
   client.on('close', function() {
     adapter.log.debug("Connection closed");
     adapter.log.debug("Datenset: " + datastring);
-    data3505 = datastring.slice(-1);
-    adapter.log.debug("Datensatz 3505: " + data3505);
-    adapter.log.debug("Modus Warmwasser: " + modus[data3505]);
+    var data3505array = datastring.split(';');
+    adapter.log.debug("Datensatz 3505: " + data3505array[2]);
+    adapter.log.debug("Modus Warmwasser: " + modus[parseInt(data3505array[2])]);
 
-    adapter.setState("status.ModusWW", modus[data3505], true);
+    adapter.setState("status.ModusWW", modus[parseInt(data3505array[2])], true);
 
     adapter.log.debug("Daten 3505 fertig verarbeitet.")
   });
@@ -255,7 +255,7 @@ function callluxtronik3400() {
   client.on('close', function() {
     adapter.log.debug("Connection closed");
     adapter.log.debug("Datenset: " + datastring);
-    data3400array = datastring.split(';');
+    var data3400array = datastring.split(';');
     adapter.log.debug("Datensatz 3400: " + data3400array);
     adapter.log.debug("Abweichung Rücklauf Soll: " + data3400array[2]);
     adapter.log.debug("Endpunkt: " + data3400array[3]);
@@ -263,8 +263,8 @@ function callluxtronik3400() {
     adapter.log.debug("Nachtabsenkung: " + data3400array[5]);
 
     adapter.setState("heizkurve.AbwRLs", data3400array[2], true);
-    adapter.setState("heizkurve.Endpunkt", data3400array[3], true);
-    adapter.setState("heizkurve.ParaV", data3400array[4], true);
+    adapter.setState("heizkurve.Endpunkt", data3400array[3] / 10, true);
+    adapter.setState("heizkurve.ParaV", data3400array[4] / 10, true);
     adapter.setState("heizkurve.NachtAbs", data3400array[5], true);
 
     adapter.log.debug("Daten 3400 fertig verarbeitet.")
