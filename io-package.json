@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "luxtronik1",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "news": {
+      "0.0.3": {
+        "en": "Reads also mode heating, water and heating-curve",
+        "de": "Liest auch Modus Heizung und Warmwasser sowie die Heizkurve"
+      },
       "0.0.2": {
         "en": "First published version (latest repo)",
         "de": "Erste veröffentlichte Version (latest repo)"
@@ -542,6 +546,111 @@
         "write": false,
         "def": false,
         "desc": "Betriebsmodus Anlage"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "status.ModusHeizung",
+      "type": "state",
+      "common": {
+        "name": "Betriebsmodus Heizung",
+        "type": "string",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Betriebsmodus Heizung"
+      },
+      "native": {
+
+      }
+    }, {
+      "_id": "status.ModusWW",
+      "type": "state",
+      "common": {
+        "name": "Betriebsmodus Warmwasser",
+        "type": "string",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Betriebsmodus Warmwasser"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "heizkurve",
+      "type": "channel",
+      "common": {
+        "name": "Heizkurve"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "heizkurve.AbwRLs",
+      "type": "state",
+      "common": {
+        "name": "Soll-Abweichung Rücklauf",
+        "type": "number",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Soll-Abweichung Rücklauf (Startbildschirm)"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "heizkurve.Endpunkt",
+      "type": "state",
+      "common": {
+        "name": "Endpunkt",
+        "type": "number",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Endpunkt Heizkurve"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "heizkurve.ParaV",
+      "type": "state",
+      "common": {
+        "name": "Parallelverschiebung",
+        "type": "number",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Parallelverschiebung Heizkurve"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "heizkurve.NachtAbs",
+      "type": "state",
+      "common": {
+        "name": "Nachtabsenkung",
+        "type": "number",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Nachtabsenkung Heizkurve"
       },
       "native": {
 

@@ -18,6 +18,7 @@ var betriebsstunden = [];
 var fehlerspeicher = [];
 var abschaltungen = [];
 var anlstat = [];
+var modus = [AUTO;ZWE;Party;Ferien;Aus];
 
 let polling;
 
@@ -93,11 +94,11 @@ function main() {
   adapter.log.debug('[INFO] Configured polling interval: ' + pollingTime);
   adapter.log.debug('[START] Started Adapter with: ' + adapter.config.host);
 
-  callluxtronik1800();
+  pollluxtronik();
 
   if (!polling) {
     polling = setTimeout(function repeat() { // poll states every [30] seconds
-      callluxtronik1800(); //DATAREQUEST;
+      pollluxtronik(); //DATAREQUEST;
       setTimeout(repeat, pollingTime);
     }, pollingTime);
   } // endIf
@@ -107,7 +108,11 @@ function main() {
 
 } // endMain
 
-
+fucion pollluxtronik() {
+  callluxtronik1800();
+  setTimeout(callluxtronik3405, 1000);
+  setTimeout(callluxtronik3505, 2000);
+} //endPollluxtronik
 
 
 function callluxtronik1800() {
@@ -156,10 +161,10 @@ function callluxtronik1800() {
 
 
     for (var i = 1; i < 6; i++) {
-      adapter.setState("fehler." + (6-i), setfehlertext(data1800array[7 + i]), true);
+      adapter.setState("fehler." + (6 - i), setfehlertext(data1800array[7 + i]), true);
     }
     for (var i = 1; i < 6; i++) {
-      adapter.setState("abschaltungen." + (6-i), setabschalttext(data1800array[14 + i]), true);
+      adapter.setState("abschaltungen." + (6 - i), setabschalttext(data1800array[14 + i]), true);
     }
 
     adapter.setState("status.ANL", setstatustext(data1800array[21]), true);
@@ -167,6 +172,103 @@ function callluxtronik1800() {
     adapter.log.debug("Daten 1800 fertig verarbeitet.")
   });
 } //callluxtronik1800
+
+function callluxtronik3405() {
+  var client = new net.Socket();
+
+  var client = client.connect(port, deviceIpAdress, function() {
+    // write out connection details
+    adapter.log.debug('Connected to Luxtronik');
+    datastring = "";
+    client.write('3405\r\n'); // send data to through the client to the host
+  });
+
+  client.on('data', function(data) {
+    datastring += data;
+    if (datastring.includes("3405;1") === true) {
+      client.destroy();
+    }
+  });
+
+  client.on('close', function() {
+    adapter.log.debug("Connection closed");
+    adapter.log.debug("Datenset: " + datastring);
+    data3405 = datastring.slice(-1);
+    adapter.log.debug("Datensatz 3405: " + data3405);
+    adapter.log.debug("Modus Heizung: " + modus[data3405]);
+
+
+    adapter.setState("status.ModusHeizung", modus[data3405], true);
+
+    adapter.log.debug("Daten 3405 fertig verarbeitet.")
+  });
+} //endcallluxtronik3405
+
+function callluxtronik3505() {
+  var client = new net.Socket();
+
+  var client = client.connect(port, deviceIpAdress, function() {
+    // write out connection details
+    adapter.log.debug('Connected to Luxtronik');
+    datastring = "";
+    client.write('3505\r\n'); // send data to through the client to the host
+  });
+
+  client.on('data', function(data) {
+    datastring += data;
+    if (datastring.includes("3505;1") === true) {
+      client.destroy();
+    }
+  });
+
+  client.on('close', function() {
+    adapter.log.debug("Connection closed");
+    adapter.log.debug("Datenset: " + datastring);
+    data3505 = datastring.slice(-1);
+    adapter.log.debug("Datensatz 3505: " + data3505);
+    adapter.log.debug("Modus Warmwasser: " + modus[data3505]);
+
+    adapter.setState("status.ModusWW", modus[data3505], true);
+
+    adapter.log.debug("Daten 3505 fertig verarbeitet.")
+  });
+} //endcallluxtronik3505
+
+function callluxtronik3400() {
+  var client = new net.Socket();
+
+  var client = client.connect(port, deviceIpAdress, function() {
+    // write out connection details
+    adapter.log.debug('Connected to Luxtronik');
+    datastring = "";
+    client.write('3400\r\n'); // send data to through the client to the host
+  });
+
+  client.on('data', function(data) {
+    datastring += data;
+    if (datastring.includes("3400;9") === true) {
+      client.destroy();
+    }
+  });
+
+  client.on('close', function() {
+    adapter.log.debug("Connection closed");
+    adapter.log.debug("Datenset: " + datastring);
+    data3400array = datastring.split(';');
+    adapter.log.debug("Datensatz 3400: " + data3400array);
+    adapter.log.debug("Abweichung Rücklauf Soll: " + data3400array[2]);
+    adapter.log.debug("Endpunkt: " + data3400array[3]);
+    adapter.log.debug("Parallelverschiebung: " + data3400array[4]);
+    adapter.log.debug("Nachtabsenkung: " + data3400array[5]);
+
+    adapter.setState("heizkurve.AbwRLs", data3400array[2], true);
+    adapter.setState("heizkurve.Endpunkt", data3400array[3], true);
+    adapter.setState("heizkurve.ParaV", data3400array[4], true);
+    adapter.setState("heizkurve.NachtAbs", data3400array[5], true);
+
+    adapter.log.debug("Daten 3400 fertig verarbeitet.")
+  });
+} //endcallluxtronik3400
 
 function setfehlertext(fehlerinfo) {
   var fehlerarray = fehlerinfo.split(';');
