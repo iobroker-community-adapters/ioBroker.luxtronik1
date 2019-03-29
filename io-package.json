@@ -679,8 +679,8 @@
         "type": "number",
         "role": "info.status",
         "read": true,
-        "write": false,
-        "def": false,
+        "write": true,
+        "def": 0,
         "desc": "Soll-Abweichung Rücklauf (Startbildschirm) setzen",
         "unit": "°C"
       },
@@ -696,7 +696,7 @@
         "type": "number",
         "role": "info.status",
         "read": true,
-        "write": false,
+        "write": true,
         "def": false,
         "desc": "Endpunkt Heizkurve setzen",
         "unit": "°C"
@@ -713,7 +713,7 @@
         "type": "number",
         "role": "info.status",
         "read": true,
-        "write": false,
+        "write": true,
         "def": false,
         "desc": "Parallelverschiebung Heizkurve setzen",
         "unit": "°C"
@@ -730,7 +730,7 @@
         "type": "number",
         "role": "info.status",
         "read": true,
-        "write": false,
+        "write": true,
         "def": false,
         "desc": "Nachtabsenkung setzen",
         "unit": "°C"
@@ -747,12 +747,14 @@
         "type": "string",
         "role": "info.status",
         "read": true,
-        "write": false,
+        "write": true,
         "def": false,
         "states": {
-          "0": "OFF",
-          "1": "ON",
-          "2": "AUTO"
+          "0": "AUTO",
+          "1": "ZWE",
+          "2": "Party",
+          "3": "Ferien",
+          "4": "AUS"
         },
         "desc": "Betriebsmodus Heizung setzen"
       },
@@ -767,11 +769,13 @@
         "type": "number",
         "role": "info.status",
         "read": true,
-        "write": false,
+        "write": true,
         "states": {
-          "0": "OFF",
-          "1": "ON",
-          "2": "AUTO"
+          "0": "AUTO",
+          "1": "ZWE",
+          "2": "Party",
+          "3": "Ferien",
+          "4": "AUS"
         },
         "def": false,
         "desc": "Betriebsmodus Warmwasser setzen"
@@ -788,7 +792,7 @@
         "type": "number",
         "role": "value.temperature",
         "read": true,
-        "write": false,
+        "write": true,
         "desc": "Soll - Warmwassertemperatur setzen",
         "unit": "°C"
       },

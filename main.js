@@ -51,13 +51,28 @@ function startAdapter(options) {
   // is called if a subscribed state changes
   adapter.on('stateChange', function(id, state) {
     // Warning, state can be null if it was deleted
-    adapter.log.debug('stateChange ' + id + ' ' + JSON.stringify(state));
+    try {
+      adapter.log.debug('stateChange ' + id + ' ' + JSON.stringify(state));
+      //adapter.log.debug("Adapter=" + adapter.toString());
 
-    // you can use the ack flag to detect if it is status (true) or command (false)
-    if (state && !state.ack) {
-      adapter.log.info('ack is not set!');
+      if (!id || state.ack) return; // Ignore acknowledged state changes or error states
+      id = id.substring(adapter.namespace.length + 1); // remove instance name and id
+      state = state.val;
+      adapter.log.debug("id=" + id);
+
+      controlluxtronik(id, state);
+
+
+      // you can use the ack flag to detect if it is status (true) or command (false)
+      if (state && !state.ack) {
+        adapter.log.info('ack is not set!');
+      }
+    } catch (e) {
+      adapter.log.debug("Fehler Befehlsauswertung: " + e);
     }
   });
+
+
 
   // Some message was sent to adapter instance over message box. Used by email, pushover, text2speech, ...
   adapter.on('message', function(obj) {
@@ -115,6 +130,43 @@ function pollluxtronik() {
   setTimeout(callluxtronik3400, 4500);
 } //endPollluxtronik
 
+function controlluxtronik(id, state) {
+  try {
+    switch (id) {
+      case "control.BWs":
+        adapter.log.debug("Setze Warmwasser-Soll auf: " + state);
+        //Befehl
+        break;
+      case "control.ModusWW":
+        adapter.log.debug("Setze Modus Warmwasser auf: " + state);
+        //Befehl
+        break;
+      case "control.ModusHeizung":
+        adapter.log.debug("Setze Modus Heizung auf: " + state);
+        //Befehl
+        break;
+      case "control.NachtAbs":
+        adapter.log.debug("Setze Nachtabsenkung auf: " + state + "°C");
+        //Befehl
+        break;
+      case "control.ParaVHK":
+        adapter.log.debug("Setze Parallelverschiebung Heizkurve auf: " + state + "°C");
+        //Befehl
+        break;
+      case "control.EndpunktHK":
+        adapter.log.debug("Setze Endpunkt Heizkurve auf: " + state + "°C");
+        //Befehl
+        break;
+      case "control.AbwRLs":
+        adapter.log.debug("Setze Abweichung Rücklauf SOLL auf: " + state + "°C");
+        //Befehl
+        break;
+    }
+  } catch (e) {
+    adapter.log.warn("controlluxtronik-Fehler: " + e)
+  }
+
+} //end controlluxtronik
 
 function callluxtronik1800() {
   var client = new net.Socket();
