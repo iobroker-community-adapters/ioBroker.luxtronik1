@@ -603,7 +603,8 @@
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Soll-Abweichung Rücklauf (Startbildschirm)"
+        "desc": "Soll-Abweichung Rücklauf (Startbildschirm)",
+        "unit": "°C"
       },
       "native": {
 
@@ -619,7 +620,8 @@
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Endpunkt Heizkurve"
+        "desc": "Endpunkt Heizkurve",
+        "unit": "°C"
       },
       "native": {
 
@@ -635,7 +637,8 @@
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Parallelverschiebung Heizkurve"
+        "desc": "Parallelverschiebung Heizkurve",
+        "unit": "°C"
       },
       "native": {
 
@@ -651,7 +654,143 @@
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Nachtabsenkung Heizkurve"
+        "desc": "Nachtabsenkung Heizkurve",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "control",
+      "type": "channel",
+      "common": {
+        "name": "Steuerung"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "control.AbwRLs",
+      "type": "state",
+      "common": {
+        "name": "Soll-Abweichung Rücklauf",
+        "type": "number",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Soll-Abweichung Rücklauf (Startbildschirm) setzen",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "control.EndpunktHK",
+      "type": "state",
+      "common": {
+        "name": "Endpunkt Heizkurve",
+        "type": "number",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Endpunkt Heizkurve setzen",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "control.ParaVHK",
+      "type": "state",
+      "common": {
+        "name": "Parallelverschiebung Heizkurve",
+        "type": "number",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Parallelverschiebung Heizkurve setzen",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "control.NachtAbs",
+      "type": "state",
+      "common": {
+        "name": "Nachtabsenkung",
+        "type": "number",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Nachtabsenkung setzen",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "control.ModusHeizung",
+      "type": "state",
+      "common": {
+        "name": "Betriebsmodus Heizung",
+        "type": "string",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "def": false,
+        "states": {
+          "0": "OFF",
+          "1": "ON",
+          "2": "AUTO"
+        },
+        "desc": "Betriebsmodus Heizung setzen"
+      },
+      "native": {
+
+      }
+    }, {
+      "_id": "control.ModusWW",
+      "type": "state",
+      "common": {
+        "name": "Betriebsmodus Warmwasser",
+        "type": "number",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "OFF",
+          "1": "ON",
+          "2": "AUTO"
+        },
+        "def": false,
+        "desc": "Betriebsmodus Warmwasser setzen"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "control.BWs",
+      "type": "state",
+      "common": {
+        "name": "Warmwassertemperatur SOLL",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Soll - Warmwassertemperatur setzen",
+        "unit": "°C"
       },
       "native": {
 
