@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "luxtronik1",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "news": {
+      "0.0.4": {
+        "en": "error-handling optimized",
+        "de": "Fehlerhandling verbessert"
+      },
       "0.0.3": {
         "en": "Reads also mode heating, water and heating-curve",
         "de": "Liest auch Modus Heizung und Warmwasser sowie die Heizkurve"
