@@ -557,10 +557,17 @@
       "type": "state",
       "common": {
         "name": "Betriebsmodus Heizung",
-        "type": "string",
+        "type": "number",
         "role": "info.status",
         "read": true,
         "write": false,
+        "states": {
+          "0": "AUTO",
+          "1": "ZWE",
+          "2": "Party",
+          "3": "Ferien",
+          "4": "AUS"
+        },
         "def": false,
         "desc": "Betriebsmodus Heizung"
       },
@@ -572,10 +579,17 @@
       "type": "state",
       "common": {
         "name": "Betriebsmodus Warmwasser",
-        "type": "string",
+        "type": "number",
         "role": "info.status",
         "read": true,
         "write": false,
+        "states": {
+          "0": "AUTO",
+          "1": "ZWE",
+          "2": "Party",
+          "3": "Ferien",
+          "4": "AUS"
+        },
         "def": false,
         "desc": "Betriebsmodus Warmwasser"
       },

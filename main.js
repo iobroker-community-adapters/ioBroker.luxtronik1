@@ -139,11 +139,11 @@ function controlluxtronik(id, state) {
         break;
       case "control.ModusWW":
         adapter.log.debug("Setze Modus Warmwasser auf: " + state);
-        //Befehl
+        callluxtronik3506(state)
         break;
       case "control.ModusHeizung":
         adapter.log.debug("Setze Modus Heizung auf: " + state);
-        //Befehl
+        callluxtronik3406(state);
         break;
       case "control.NachtAbs":
         adapter.log.debug("Setze Nachtabsenkung auf: " + state + "°C");
@@ -334,6 +334,88 @@ function callluxtronik3400() {
     adapter.log.debug("Daten 3400 fertig verarbeitet.")
   });
 } //endcallluxtronik3400
+
+function callluxtronik3406(mode) {
+  var client = new net.Socket();
+
+  var client = client.connect(port, deviceIpAdress, function() {
+    // write out connection details
+    adapter.log.debug('Connected to Luxtronik');
+    datastring = "";
+    client.write('3406\r\n'); // send data to through the client to the host
+    setTimeout(function() {
+      client.write('3406;1;' + mode + '\r\n');
+    }, 2000);
+    setTimeout(function() {
+      client.write('999\r\n');
+    }, 4000);
+
+  });
+
+  client.on('data', function(data) {
+    datastring += data;
+    if (datastring.includes("993") === true) {
+      client.destroy();
+    }
+  });
+
+  client.on('close', function() {
+    try {
+      adapter.log.debug("Connection closed");
+      adapter.log.debug("Datenset: " + datastring);
+
+      var data3406array = datastring.split('\r\n');
+      adapter.log.debug("Modus Heizung neu: " + data3406array[2].slice(-1));
+
+      adapter.setState("status.ModusHeizung", mode, true);
+
+    } catch (e) {
+      adapter.log.warn("callluxtronik3406 - Feher: " + e);
+    }
+    adapter.log.debug("Daten 3406 fertig verarbeitet.")
+  });
+} //endcallluxtronik3406
+
+function callluxtronik3506(mode) {
+  var client = new net.Socket();
+
+  var client = client.connect(port, deviceIpAdress, function() {
+    // write out connection details
+    adapter.log.debug('Connected to Luxtronik');
+    datastring = "";
+    client.write('3506\r\n'); // send data to through the client to the host
+    setTimeout(function() {
+      client.write('3506;1;' + mode + '\r\n');
+    }, 2000);
+    setTimeout(function() {
+      client.write('999\r\n');
+    }, 4000);
+
+  });
+
+  client.on('data', function(data) {
+    datastring += data;
+    if (datastring.includes("993") === true) {
+      client.destroy();
+    }
+  });
+
+  client.on('close', function() {
+    try {
+      adapter.log.debug("Connection closed");
+      adapter.log.debug("Datenset: " + datastring);
+
+      var data3506array = datastring.split('\r\n');
+      adapter.log.debug("Modus Warmwasser neu: " + data3506array[2].slice(-1));
+
+      adapter.setState("status.ModusWW", mode, true);
+
+    } catch (e) {
+      adapter.log.warn("callluxtronik3506 - Feher: " + e);
+    }
+    adapter.log.debug("Daten 3506 fertig verarbeitet.")
+  });
+} //endcallluxtronik3506
 
 function setfehlertext(fehlerinfo) {
   try {
