@@ -255,7 +255,7 @@ function callluxtronik3405() {
       adapter.log.debug("Modus Heizung: " + modus[parseInt(data3405array[2])]);
 
 
-      adapter.setState("status.ModusHeizung", modus[parseInt(data3405array[2])], true);
+      adapter.setState("status.ModusHeizung", parseInt(data3405array[2]), true);
     } catch (e) {
       adapter.log.warn("callluxtronik3405 - Feher: " + e);
     }
@@ -288,9 +288,9 @@ function callluxtronik3505() {
       adapter.log.debug("Datensatz 3505: " + data3505array[2]);
       adapter.log.debug("Modus Warmwasser: " + modus[parseInt(data3505array[2])]);
 
-      adapter.setState("status.ModusWW", modus[parseInt(data3505array[2])], true);
+      adapter.setState("status.ModusWW", parseInt(data3505array[2]), true);
     } catch (e) {
-      adapter.log.warn("callluxtronik3505 - Feher: " + e);
+      adapter.log.warn("callluxtronik3505 - Fehler: " + e);
     }
     adapter.log.debug("Daten 3505 fertig verarbeitet.")
   });
