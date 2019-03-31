@@ -692,6 +692,8 @@
         "name": "Soll-Abweichung Rücklauf",
         "type": "number",
         "role": "info.status",
+        "min": -5.5,
+        "max": 5.5,
         "read": true,
         "write": true,
         "def": 0,

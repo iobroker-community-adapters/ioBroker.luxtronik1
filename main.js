@@ -19,6 +19,9 @@ var fehlerspeicher = [];
 var abschaltungen = [];
 var anlstat = [];
 var modus = ['AUTO', 'ZWE', 'Party', 'Ferien', 'Aus', 'Aus'];
+var data3400array = [];
+var instance;
+var errorcount;
 
 let polling;
 
@@ -29,6 +32,7 @@ function startAdapter(options) {
   });
 
   adapter = new utils.Adapter(options);
+
 
   // when adapter shuts down
   adapter.on('unload', function(callback) {
@@ -56,6 +60,8 @@ function startAdapter(options) {
       //adapter.log.debug("Adapter=" + adapter.toString());
 
       if (!id || state.ack) return; // Ignore acknowledged state changes or error states
+      instance = id.substring(0, adapter.namespace.length);
+      adapter.log.debug("Instanz: " + instance);
       id = id.substring(adapter.namespace.length + 1); // remove instance name and id
       state = state.val;
       adapter.log.debug("id=" + id);
@@ -91,6 +97,8 @@ function startAdapter(options) {
   adapter.on('ready', function() {
     if (adapter.config.host) {
       adapter.log.info('[START] Starting luxtronik adapter');
+      instance = adapter.namespace.toString()
+      adapter.log.debug("Instanz " + instance + " gestartet");
       adapter.setState('info.connection', true, true);
       main();
     } else adapter.log.warn('[START] No IP-address set');
@@ -135,31 +143,55 @@ function controlluxtronik(id, state) {
     switch (id) {
       case "control.BWs":
         adapter.log.debug("Setze Warmwasser-Soll auf: " + state);
-        //Befehl
+        callluxtronik3501(state * 10);
         break;
       case "control.ModusWW":
-        adapter.log.debug("Setze Modus Warmwasser auf: " + state);
+        adapter.log.debug("Setze Modus Warmwasser auf: " + modus[state]);
         callluxtronik3506(state)
         break;
       case "control.ModusHeizung":
-        adapter.log.debug("Setze Modus Heizung auf: " + state);
+        adapter.log.debug("Setze Modus Heizung auf: " + modus[state]);
         callluxtronik3406(state);
         break;
       case "control.NachtAbs":
         adapter.log.debug("Setze Nachtabsenkung auf: " + state + "°C");
-        //Befehl
+        callluxtronik3400();
+        setTimeout(function() {
+          var dataHK = data3400array;
+          dataHK[0] = 3401;
+          dataHK[5] = state * 10;
+          callluxtronik3401(dataHK);
+        }, 2000);
         break;
       case "control.ParaVHK":
         adapter.log.debug("Setze Parallelverschiebung Heizkurve auf: " + state + "°C");
-        //Befehl
+        callluxtronik3400();
+        setTimeout(function() {
+          var dataHK = data3400array;
+          dataHK[0] = 3401;
+          dataHK[4] = state + 10;
+          callluxtronik3401(dataHK);
+        }, 2000);
         break;
       case "control.EndpunktHK":
         adapter.log.debug("Setze Endpunkt Heizkurve auf: " + state + "°C");
-        //Befehl
+        callluxtronik3400();
+        setTimeout(function() {
+          var dataHK = data3400array;
+          dataHK[0] = 3401;
+          dataHK[3] = state * 10;
+          callluxtronik3401(dataHK);
+        }, 2000);
         break;
       case "control.AbwRLs":
         adapter.log.debug("Setze Abweichung Rücklauf SOLL auf: " + state + "°C");
-        //Befehl
+        callluxtronik3400();
+        setTimeout(function() {
+          var dataHK = data3400array;
+          dataHK[0] = 3401;
+          dataHK[2] = state * 10;
+          callluxtronik3401(dataHK);
+        }, 2000);
         break;
     }
   } catch (e) {
@@ -317,7 +349,7 @@ function callluxtronik3400() {
     adapter.log.debug("Connection closed");
     adapter.log.debug("Datenset: " + datastring);
     try {
-      var data3400array = datastring.split(';');
+      data3400array = datastring.split(';');
       adapter.log.debug("Datensatz 3400: " + data3400array);
       adapter.log.debug("Abweichung Rücklauf Soll: " + data3400array[2]);
       adapter.log.debug("Endpunkt: " + data3400array[3]);
@@ -334,6 +366,72 @@ function callluxtronik3400() {
     adapter.log.debug("Daten 3400 fertig verarbeitet.")
   });
 } //endcallluxtronik3400
+
+function callluxtronik3401(hkdata) {
+  var client = new net.Socket();
+
+  var client = client.connect(port, deviceIpAdress, function() {
+    // write out connection details
+    adapter.log.debug('Connected to Luxtronik');
+    datastring = "";
+    errorcount = 0;
+    client.write('3401\r\n'); // send data to through the client to the host
+    setTimeout(function() {
+      client.write(hkdata.toString().replace(/,/g, ';') + '\r\n');
+    }, 2000);
+    setTimeout(function() {
+      client.write('999\r\n');
+    }, 4000);
+
+  });
+
+  client.on('data', function(data) {
+    datastring += data;
+    try {
+      if (datastring.includes("779") === true && errorcount == 0) {
+        errorcount = 1;
+        adapter.log.warn("Befehlsverarbeitung unvollständig, bitte nochmal starten");
+        adapter.log.warn("Kommunikationsstörung wird behoben gestartet");
+
+        client.write('3401\r\n'); // send data to through the client to the host
+        setTimeout(function() {
+          client.write('3401;0\r\n');
+        }, 100);
+        setTimeout(function() {
+          client.write('999\r\n');
+
+        }, 200);
+
+      }
+
+      if (datastring.includes("993") === true) {
+        client.destroy();
+      }
+    } catch (e) {
+      adapter.log.debug("Fehler Störungsbehebung " + e);
+    }
+  });
+
+  client.on('close', function() {
+    try {
+      adapter.log.debug("Connection closed");
+      adapter.log.debug("Datenset: " + datastring);
+
+      var data3401array = datastring.split('\r\n');
+      adapter.log.debug("Heizkurvenwerte neu: " + data3401array);
+      if (errorcount == 1) {
+        errorcount = 0;
+      } else {
+        callluxtronik3400();
+      }
+
+
+    } catch (e) {
+      adapter.log.warn("callluxtronik3401 - Feher: " + e);
+    }
+    adapter.log.debug("Daten 3401 fertig verarbeitet.")
+  });
+} //endcallluxtronik3401
 
 function callluxtronik3406(mode) {
   var client = new net.Socket();
@@ -416,6 +514,47 @@ function callluxtronik3506(mode) {
     adapter.log.debug("Daten 3506 fertig verarbeitet.")
   });
 } //endcallluxtronik3506
+
+function callluxtronik3501(mode) {
+  var client = new net.Socket();
+
+  var client = client.connect(port, deviceIpAdress, function() {
+    // write out connection details
+    adapter.log.debug('Connected to Luxtronik');
+    datastring = "";
+    client.write('3501\r\n'); // send data to through the client to the host
+    setTimeout(function() {
+      client.write('3501;1;' + mode + '\r\n');
+    }, 2000);
+    setTimeout(function() {
+      client.write('999\r\n');
+    }, 4000);
+
+  });
+
+  client.on('data', function(data) {
+    datastring += data;
+    if (datastring.includes("993") === true) {
+      client.destroy();
+    }
+  });
+
+  client.on('close', function() {
+    try {
+      adapter.log.debug("Connection closed");
+      adapter.log.debug("Datenset: " + datastring);
+
+      var data3501array = datastring.split('\r\n');
+      adapter.log.debug("Warmwasser soll neu: " + data3501array[2].slice(-1));
+
+      adapter.setState("temperaturen.BWs", mode, true);
+
+    } catch (e) {
+      adapter.log.warn("callluxtronik3501 - Feher: " + e);
+    }
+    adapter.log.debug("Daten 3501 fertig verarbeitet.")
+  });
+} //endcallluxtronik3501
 
 function setfehlertext(fehlerinfo) {
   try {
