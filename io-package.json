@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "luxtronik1",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "news": {
+      "0.0.6": {
+        "en": "risk of multiple connection diminished, small bugfixes.",
+        "de": "Risiko gleichzeitiger Verbindungen minimiert, kleiner Fehlerkorrekturen."
+      },
       "0.0.5": {
         "en": "controls hotwater-temperature, heating- & hotwater - mode and heating-curve setting.",
         "de": "Steuerung von Warmwasser-Soll, Heizungs- und Warmwasser-Modus sowie der Heizkurven-Werte."
