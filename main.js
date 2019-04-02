@@ -244,6 +244,7 @@ function controlabwrls(stateabwrls) {
     dataHK[2] = stateabwrls;
     callluxtronik3401(dataHK);
   }, 2000);
+  setTimeout(callluxtronik3400, 7000);
 } //end controlabwrls
 
 function controlnachtabs(statenachtabs) {
@@ -284,6 +285,7 @@ function controlparavhk(stateparavhk) {
     dataHK[4] = stateparavhk;
     callluxtronik3401(dataHK);
   }, 2000);
+  setTimeout(callluxtronik3400, 7000);
 } //end controlparavhk
 
 function controlendpunkthk(stateendpunkthk) {
@@ -304,6 +306,7 @@ function controlendpunkthk(stateendpunkthk) {
     dataHK[3] = stateendpunkthk;
     callluxtronik3401(dataHK);
   }, 2000);
+  setTimeout(callluxtronik3400, 7000);
 } //end controlendpunkthk
 
 function callluxtronik1800() {
