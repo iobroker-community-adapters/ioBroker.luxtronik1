@@ -687,7 +687,7 @@ function callluxtronik3501(statebws) {
       var data3501array = datastring.split('\r\n');
       adapter.log.debug("Warmwasser soll neu: " + data3501array[2].slice(-1));
 
-      adapter.setState("temperaturen.BWs", statebws, true);
+      adapter.setState("temperaturen.BWs", statebws / 10, true);
 
     } catch (e) {
       adapter.log.warn("callluxtronik3501 - Feher: " + e);
