@@ -15,7 +15,7 @@
       "email": "marceladam@gmx.ch"
     }
   ],
-  "homepage": "https://github.com/forelleblau/ioBroker.luxtronik1",
+  "homepage": "https://github.com/iobroker-community-adapters/ioBroker.luxtronik1",
   "license": "MIT",
   "keywords": [
     "ioBroker",
@@ -25,7 +25,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/forelleblau/ioBroker.luxtronik1"
+    "url": "https://github.com/iobroker-community-adapters/ioBroker.luxtronik1"
   },
   "dependencies": {
     "@iobroker/adapter-core": "^1.0.3"
@@ -44,7 +44,7 @@
     "test:integration": "mocha test/integration --exit"
   },
   "bugs": {
-    "url": "https://github.com/forelleblau/ioBroker.luxtronik1/issues"
+    "url": "https://github.com/iobroker-community-adapters/ioBroker.luxtronik1/issues"
   },
   "readmeFilename": "README.md"
 }
