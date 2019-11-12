@@ -50,14 +50,14 @@
     "icon": "luxtronik1.png",
     "materialize": true,
     "enabled": true,
-    "extIcon": "https://raw.githubusercontent.com/forelleblau/ioBroker.luxtronik1/master/admin/luxtronik1.png",
+    "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.luxtronik1/master/admin/luxtronik1.png",
     "keywords": [
       "luxtronik",
       "heatpump",
       "smart",
       "home"
     ],
-    "readme": "https://github.com/forelleblau/ioBroker.luxtronik1/blob/master/README.md",
+    "readme": "https://github.com/iobroker-community-adapters/ioBroker.luxtronik1/blob/master/README.md",
     "loglevel": "info",
     "type": "climate-control",
     "license": "MIT",
