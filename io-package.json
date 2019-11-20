@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "luxtronik1",
-    "version": "0.0.7",
+    "version": "0.1.0",
     "news": {
+      "0.1.0": {
+        "en": "error - handling on communication errors optimized, adapter restart in case ofmultiple communication errors.",
+        "de": "Fehlerhandling für Kommunikationsfehler verbessert, automatischer Adapter - Neustart bei Kommunikationstörungen."
+      },
       "0.0.7": {
         "en": "error-handling on connections added.",
         "de": "Fehlerhandling für Verbindungsfehler hinzugefügt."

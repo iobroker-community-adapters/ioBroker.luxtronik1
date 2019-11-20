@@ -13,6 +13,10 @@ var port;
 var net = require('net');
 var datastring = "";
 var data1800array = [];
+var data1800error = 0;
+var data3405error = 0;
+var data3505error = 0;
+var data3400error = 0;
 var temperaturen = [];
 var betriebsstunden = [];
 var fehlerspeicher = [];
@@ -334,42 +338,57 @@ function callluxtronik1800() {
   client.on('close', function() {
     adapter.log.debug("Connection closed");
     adapter.log.debug("Datenset: " + datastring);
+    adapter.log.debug("Anzahl Elemente Datenset: " + datastring.length);
     try {
-      if (datastring != "") {
+      if (datastring.length > 500) {
         data1800array = datastring.split('\r\n');
         adapter.log.debug("Datensatz 1800: " + data1800array);
+        adapter.log.debug("Anzahl Elemente data1800array: " + data1800array.length);
+        if (data1800array.length > 21) {
 
-        temperaturen = data1800array[2].split(';');
-        adapter.setState("temperaturen.AUT", temperaturen[6] / 10, true);
-        adapter.setState("temperaturen.RL", temperaturen[3] / 10, true);
-        adapter.setState("temperaturen.VL", temperaturen[2] / 10, true);
-        adapter.setState("temperaturen.RLs", temperaturen[4] / 10, true);
-        adapter.setState("temperaturen.HG", temperaturen[5] / 10, true);
-        adapter.setState("temperaturen.BWi", temperaturen[7] / 10, true);
-        adapter.setState("temperaturen.BWs", temperaturen[8] / 10, true);
+          temperaturen = data1800array[2].split(';');
+          adapter.setState("temperaturen.AUT", temperaturen[6] / 10, true);
+          adapter.setState("temperaturen.RL", temperaturen[3] / 10, true);
+          adapter.setState("temperaturen.VL", temperaturen[2] / 10, true);
+          adapter.setState("temperaturen.RLs", temperaturen[4] / 10, true);
+          adapter.setState("temperaturen.HG", temperaturen[5] / 10, true);
+          adapter.setState("temperaturen.BWi", temperaturen[7] / 10, true);
+          adapter.setState("temperaturen.BWs", temperaturen[8] / 10, true);
 
-        betriebsstunden = data1800array[6].split(';');
-        adapter.setState("betriebsstunden.VD1", toTimeString(betriebsstunden[2]), true);
-        adapter.setState("betriebsstunden.Imp1", betriebsstunden[3], true);
-        adapter.setState("betriebsstunden.AvVD1", toTimeString(betriebsstunden[4]), true);
-        adapter.setState("betriebsstunden.VD2", toTimeString(betriebsstunden[5]), true);
-        adapter.setState("betriebsstunden.Imp2", betriebsstunden[6], true);
-        adapter.setState("betriebsstunden.AvVD2", toTimeString(betriebsstunden[7]), true);
-        adapter.setState("betriebsstunden.ZWE1", toTimeString(betriebsstunden[8]), true);
-        adapter.setState("betriebsstunden.ZWE2", toTimeString(betriebsstunden[9]), true);
-        adapter.setState("betriebsstunden.WP", toTimeString(betriebsstunden[10]), true);
-        adapter.log.debug("BWP" + toTimeString(betriebsstunden[10]) + "hhhh");
+          betriebsstunden = data1800array[6].split(';');
+          adapter.setState("betriebsstunden.VD1", toTimeString(betriebsstunden[2]), true);
+          adapter.setState("betriebsstunden.Imp1", betriebsstunden[3], true);
+          adapter.setState("betriebsstunden.AvVD1", toTimeString(betriebsstunden[4]), true);
+          adapter.setState("betriebsstunden.VD2", toTimeString(betriebsstunden[5]), true);
+          adapter.setState("betriebsstunden.Imp2", betriebsstunden[6], true);
+          adapter.setState("betriebsstunden.AvVD2", toTimeString(betriebsstunden[7]), true);
+          adapter.setState("betriebsstunden.ZWE1", toTimeString(betriebsstunden[8]), true);
+          adapter.setState("betriebsstunden.ZWE2", toTimeString(betriebsstunden[9]), true);
+          adapter.setState("betriebsstunden.WP", toTimeString(betriebsstunden[10]), true);
+          adapter.log.debug("BWP" + toTimeString(betriebsstunden[10]) + "hhhh");
 
 
-        for (var i = 1; i < 6; i++) {
-          adapter.setState("fehler." + (6 - i), setfehlertext(data1800array[7 + i]), true);
+          for (var i = 1; i < 6; i++) {
+            adapter.setState("fehler." + (6 - i), setfehlertext(data1800array[7 + i]), true);
+          }
+          for (var i = 1; i < 6; i++) {
+            adapter.setState("abschaltungen." + (6 - i), setabschalttext(data1800array[14 + i]), true);
+          }
+
+          adapter.setState("status.ANL", setstatustext(data1800array[21]), true);
+          data1800error = 0;
+        } else {
+          adapter.log.debug("Datenarray1800 unvollständig, keine Werte gesetzt");
+          data1800error++;
         }
-        for (var i = 1; i < 6; i++) {
-          adapter.setState("abschaltungen." + (6 - i), setabschalttext(data1800array[14 + i]), true);
-        }
-
-        adapter.setState("status.ANL", setstatustext(data1800array[21]), true);
-
+      } else {
+        adapter.log.debug("Datensatz1800 unvollständig, keine Werte gesetzt");
+        data1800error++;
+      }
+      if (data1800error > 4) {
+        adapter.log.warn("Achtung, mehrfach unvollständiger Datensatz 1800");
+        adapter.log.warn("Adapter wird neu gestartet");
+        restartAdapter();
       }
     } catch (e) {
       adapter.log.warn("callluxtronik1800 - Feher: " + e);
@@ -406,14 +425,30 @@ function callluxtronik3405() {
   client.on('close', function() {
     adapter.log.debug("Connection closed");
     adapter.log.debug("Datenset: " + datastring);
+    adapter.log.debug("Anzahl Elemente Datenset: " + datastring.length);
     try {
-      if (datastring != "") {
+      if (datastring.length > 10) {
         var data3405array = datastring.split(';');
-        adapter.log.debug("Datensatz 3405: " + data3405array[2]);
-        adapter.log.debug("Modus Heizung: " + modus[parseInt(data3405array[2])]);
+        if (data3405array.length == 3) {
+          adapter.log.debug("Anzahl Elemente data3405array: " + data3405array.length);
+          adapter.log.debug("Datensatz 3405: " + data3405array[2]);
+          adapter.log.debug("Modus Heizung: " + modus[parseInt(data3405array[2])]);
 
 
-        adapter.setState("status.ModusHeizung", parseInt(data3405array[2]), true);
+          adapter.setState("status.ModusHeizung", parseInt(data3405array[2]), true);
+          data3405error = 0;
+        } else {
+          adapter.log.debug("Datenarray3405 unvollständig, keine Werte gesetzt")
+          data3405error++;
+        }
+      } else {
+        adapter.log.debug("Datensatz3405 unvollständig, keine Werte gesetzt")
+        data3405error++;
+      }
+      if (data3405error > 4) {
+        adapter.log.warn("Achtung, mehrfach unvollständiger Datensatz 3405");
+        adapter.log.warn("Adapter wird neu gestartet");
+        restartAdapter();
       }
     } catch (e) {
       adapter.log.warn("callluxtronik3405 - Feher: " + e);
@@ -451,13 +486,28 @@ function callluxtronik3505() {
   client.on('close', function() {
     adapter.log.debug("Connection closed");
     adapter.log.debug("Datenset: " + datastring);
+    adapter.log.debug("Anzahl Elemente Datenset: " + datastring.length);
     try {
-      if (datastring != "") {
+      if (datastring.length > 10) {
         var data3505array = datastring.split(';');
-        adapter.log.debug("Datensatz 3505: " + data3505array[2]);
-        adapter.log.debug("Modus Warmwasser: " + modus[parseInt(data3505array[2])]);
+        if (data3505array.length == 3) {
+          adapter.log.debug("Datensatz 3505: " + data3505array[2]);
+          adapter.log.debug("Modus Warmwasser: " + modus[parseInt(data3505array[2])]);
 
-        adapter.setState("status.ModusWW", parseInt(data3505array[2]), true);
+          adapter.setState("status.ModusWW", parseInt(data3505array[2]), true);
+          data3505error = 0;
+        } else {
+          adapter.log.debug("Datenarray3505 unvollständig, keine Werte gesetzt");
+          data3505error++;
+        }
+      } else {
+        adapter.log.debug("Datensatz3505 unvollständig, keine Werte gesetzt");
+        data3505error++;
+      }
+      if (data3505error > 4) {
+        adapter.log.warn("Achtung, mehrfach unvollständiger Datensatz 3505");
+        adapter.log.warn("Adapter wird neu gestartet");
+        restartAdapter();
       }
     } catch (e) {
       adapter.log.warn("callluxtronik3505 - Fehler: " + e);
@@ -494,19 +544,37 @@ function callluxtronik3400() {
   client.on('close', function() {
     adapter.log.debug("Connection closed");
     adapter.log.debug("Datenset: " + datastring);
+    adapter.log.debug("Anzahl Elemente Datenset: " + datastring.length);
     try {
-      if (datastring != "") {
+      if (datastring.length > 20) {
         data3400array = datastring.split(';');
-        adapter.log.debug("Datensatz 3400: " + data3400array);
-        adapter.log.debug("Abweichung Rücklauf Soll: " + data3400array[2]);
-        adapter.log.debug("Endpunkt: " + data3400array[3]);
-        adapter.log.debug("Parallelverschiebung: " + data3400array[4]);
-        adapter.log.debug("Nachtabsenkung: " + data3400array[5]);
 
-        adapter.setState("heizkurve.AbwRLs", data3400array[2] / 10, true);
-        adapter.setState("heizkurve.Endpunkt", data3400array[3] / 10, true);
-        adapter.setState("heizkurve.ParaV", data3400array[4] / 10, true);
-        adapter.setState("heizkurve.NachtAbs", data3400array[5] / 10, true);
+        adapter.log.debug("Datensatz 3400: " + data3400array);
+        adapter.log.debug("Anzahl Elemente Datensatz3400: " + data3400array.length);
+        if (data3400array.length == 11) {
+
+          adapter.log.debug("Abweichung Rücklauf Soll: " + data3400array[2]);
+          adapter.log.debug("Endpunkt: " + data3400array[3]);
+          adapter.log.debug("Parallelverschiebung: " + data3400array[4]);
+          adapter.log.debug("Nachtabsenkung: " + data3400array[5]);
+
+          adapter.setState("heizkurve.AbwRLs", data3400array[2] / 10, true);
+          adapter.setState("heizkurve.Endpunkt", data3400array[3] / 10, true);
+          adapter.setState("heizkurve.ParaV", data3400array[4] / 10, true);
+          adapter.setState("heizkurve.NachtAbs", data3400array[5] / 10, true);
+          data3400error = 0;
+        } else {
+          adapter.log.debug("Datenarray3400 unvollständig, keine Werte gesetzt");
+          data3400error++;
+        }
+      } else {
+        adapter.log.debug("Datensatz3400 unvollständig, keine Werte gesetzt");
+        data3400error++;
+      }
+      if (data3400error > 4) {
+        adapter.log.warn("Achtung, mehrfach unvollständiger Datensatz 3400");
+        adapter.log.warn("Adapter wird neu gestartet");
+        restartAdapter();
       }
     } catch (e) {
       adapter.log.warn("callluxtronik3400 - Feher: " + e);
@@ -576,9 +644,11 @@ function callluxtronik3401(hkdata) {
   });
 
   client.on('close', function() {
+    adapter.log.debug("Connection closed");
+    adapter.log.debug("Datenset: " + datastring);
+    adapter.log.debug("Anzahl Elemente Datenset: " + datastring.length);
     try {
-      adapter.log.debug("Connection closed");
-      adapter.log.debug("Datenset: " + datastring);
+
       if (datastring != "") {
         var data3401array = datastring.split('\r\n');
         adapter.log.debug("Heizkurvenwerte neu: " + data3401array);
@@ -623,10 +693,12 @@ function callluxtronik3406(statemodusheizung) {
   });
 
   client.on('close', function() {
+    adapter.log.debug("Connection closed");
+    adapter.log.debug("Datenset: " + datastring);
+    adapter.log.debug("Anzahl Elemente Datenset: " + datastring.length);
     try {
       if (datastring != "") {
-        adapter.log.debug("Connection closed");
-        adapter.log.debug("Datenset: " + datastring);
+
 
         var data3406array = datastring.split('\r\n');
         adapter.log.debug("Modus Heizung neu: " + data3406array[2].slice(-1));
@@ -716,10 +788,11 @@ function callluxtronik3501(statebws) {
   });
 
   client.on('close', function() {
+    adapter.log.debug("Connection closed");
+    adapter.log.debug("Datenset: " + datastring);
+    adapter.log.debug("Anzahl Elemente Datenset: " + datastring.length);
     try {
       if (datastring != "") {
-        adapter.log.debug("Connection closed");
-        adapter.log.debug("Datenset: " + datastring);
 
         var data3501array = datastring.split('\r\n');
         adapter.log.debug("Warmwasser soll neu: " + data3501array[2].slice(-1));
@@ -856,6 +929,12 @@ function toTimeString(totalseconds) {
     adapter.log.warn("toTimeString - Feher: " + e);
   }
 } //end toTimeString
+
+function restartAdapter() {
+  adapter.getForeignObject('system.adapter.' + adapter.namespace, (err, obj) => {
+    if (obj) adapter.setForeignObject('system.adapter.' + adapter.namespace, obj);
+  });
+} // endFunctionRestartAdapter
 
 // If started as allInOne/compact mode => return function to create instance
 if (module && module.parent) {
