@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "luxtronik1",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "news": {
+      "0.2.0": {
+        "en": "missing temperature values added",
+        "de": "Fehlende Temperaturwerte ergänzt (Wärmequelle, Mischkreis, Raumstation)."
+      },
       "0.1.0": {
         "en": "error - handling on communication errors optimized, adapter restart in case ofmultiple communication errors.",
         "de": "Fehlerhandling für Kommunikationsfehler verbessert, automatischer Adapter - Neustart bei Kommunikationstörungen."
@@ -189,6 +193,82 @@
         "read": true,
         "write": false,
         "desc": "Soll - Warmwassertemperatur",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "temperaturen.WQe",
+      "type": "state",
+      "common": {
+        "name": "Waermequellen Eintrittstemperatur",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Waermequellen Eintrittstemperatur, Zulauf",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    }, {
+      "_id": "temperaturen.WQa",
+      "type": "state",
+      "common": {
+        "name": "Waermequellen Austtstemperatur",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Waermequellen Austtstemperatur, Ablauf",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    }, {
+      "_id": "temperaturen.MK1VLi",
+      "type": "state",
+      "common": {
+        "name": "Mischkreis1 Vorlauf Ist",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "IST Vorlauftemperatur im Mischkreis 1",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    }, {
+      "_id": "temperaturen.MK1VLs",
+      "type": "state",
+      "common": {
+        "name": "Mischkreis1 Vorlauf Soll",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "SOLL Vorlauftemperatur Mischkreis 1",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    }, {
+      "_id": "temperaturen.RS",
+      "type": "state",
+      "common": {
+        "name": "Raumstation",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Temperatur Raumstation",
         "unit": "°C"
       },
       "native": {

@@ -354,6 +354,11 @@ function callluxtronik1800() {
           adapter.setState("temperaturen.HG", temperaturen[5] / 10, true);
           adapter.setState("temperaturen.BWi", temperaturen[7] / 10, true);
           adapter.setState("temperaturen.BWs", temperaturen[8] / 10, true);
+          adapter.setState("temperaturen.WQe", temperaturen[9] / 10, true);
+          adapter.setState("temperaturen.WQa", temperaturen[10] / 10, true);
+          adapter.setState("temperaturen.MK1VLi", temperaturen[11] / 10, true);
+          adapter.setState("temperaturen.MK1VLs", temperaturen[12] / 10, true);
+          adapter.setState("temperaturen.RS", temperaturen[13] / 10, true);
 
           betriebsstunden = data1800array[6].split(';');
           adapter.setState("betriebsstunden.VD1", toTimeString(betriebsstunden[2]), true);
