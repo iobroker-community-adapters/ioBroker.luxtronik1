@@ -34,7 +34,7 @@ Values in the 'control' - channel have to be set with ack=false to trigger an ac
 
 ### 0.2.0
 
--   missing temperature values added, displays now all available temperature values. 
+-   missing temperature values added, displays now all available temperature values.
 
 ### 0.1.0
 
@@ -72,7 +72,7 @@ Values in the 'control' - channel have to be set with ack=false to trigger an ac
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2019 forelleblau marceladam@gmx.ch
+Copyright (c) 2018-2020 forelleblau marceladam@gmx.ch
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
