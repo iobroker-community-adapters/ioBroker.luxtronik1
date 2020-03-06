@@ -32,6 +32,10 @@ Values in the 'control' - channel have to be set with ack=false to trigger an ac
 
 ## Changelog
 
+### 0.2.1
+
+-   Readme / License update.
+
 ### 0.2.0
 
 -   missing temperature values added, displays now all available temperature values.
