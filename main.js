@@ -45,7 +45,7 @@ function startAdapter(options) {
   // when adapter shuts down
   adapter.on('unload', function(callback) {
     try {
-      clearInterval(polling);
+      clearTimeout(polling);
       adapter.log.info('[END] Stopping luxtronik adapter...');
       adapter.setState('info.connection', false, true);
       callback();
