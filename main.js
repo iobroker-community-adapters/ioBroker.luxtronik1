@@ -30,6 +30,7 @@ var errorcount;
 var clientconnection = false;
 var hkfunction = false;
 var pollfunction = false;
+var warteauf = "";
 
 let polling;
 
@@ -141,7 +142,7 @@ function main() {
 
 function pollluxtronik() {
   if (clientconnection == true) {
-    adapter.log.debug("warte");
+    adapter.log.debug("warte auf " + warteauf);
     setTimeout(pollluxtronik, 1000);
     return;
   }
@@ -198,7 +199,7 @@ function controlluxtronik(id, state) {
 
 function controlbws(statebws) {
   if (clientconnection == true) {
-    adapter.log.debug("warte");
+    adapter.log.debug("warte auf " + warteauf);
     setTimeout(function() {
       controlbws(statebws);
     }, 1000);
@@ -209,7 +210,7 @@ function controlbws(statebws) {
 
 function controlmodusww(statemodusww) {
   if (clientconnection == true) {
-    adapter.log.debug("warte");
+    adapter.log.debug("warte auf " + warteauf);
     setTimeout(function() {
       controlmodusww(statemodusww);
     }, 1000);
@@ -220,7 +221,7 @@ function controlmodusww(statemodusww) {
 
 function controlmodusheizung(statemodusheizung) {
   if (clientconnection == true) {
-    adapter.log.debug("warte");
+    adapter.log.debug("warte auf " + warteauf);
     setTimeout(function() {
       controlmodusheizung(statemodusheizung);
     }, 1000);
@@ -231,7 +232,7 @@ function controlmodusheizung(statemodusheizung) {
 
 function controlabwrls(stateabwrls) {
   if (clientconnection == true) {
-    adapter.log.debug("warte");
+    adapter.log.debug("warte auf " + warteauf);
     setTimeout(function() {
       controlabwrls(stateabwrls);
     }, 1000);
@@ -253,7 +254,7 @@ function controlabwrls(stateabwrls) {
 
 function controlnachtabs(statenachtabs) {
   if (clientconnection == true) {
-    adapter.log.debug("warte");
+    adapter.log.debug("warte auf " + warteauf);
     setTimeout(function() {
       controlnachtabs(statenachtabs);
     }, 1000);
@@ -273,7 +274,7 @@ function controlnachtabs(statenachtabs) {
 
 function controlparavhk(stateparavhk) {
   if (clientconnection == true) {
-    adapter.log.debug("warte")
+    adapter.log.debug("warte auf " + warteauf)
     setTimeout(function() {
       controlparavhk(stateparavhk);
     }, 1000);
@@ -294,7 +295,7 @@ function controlparavhk(stateparavhk) {
 
 function controlendpunkthk(stateendpunkthk) {
   if (clientconnection == true) {
-    adapter.log.debug("warte");
+    adapter.log.debug("warte auf " + warteauf);
     setTimeout(function() {
       controlendpunkthk(stateendpunkthk);
     }, 1000);
@@ -315,6 +316,7 @@ function controlendpunkthk(stateendpunkthk) {
 
 function callluxtronik1800() {
   clientconnection = true;
+  warteauf = "callluxtronik1800";
   var client = new net.Socket();
 
   var client = client.connect(port, deviceIpAdress, function() {
@@ -407,6 +409,7 @@ function callluxtronik1800() {
 
 function callluxtronik3405() {
   clientconnection = true;
+  warteauf = "callluxtronik3405";
   var client = new net.Socket();
 
   var client = client.connect(port, deviceIpAdress, function() {
@@ -468,6 +471,7 @@ function callluxtronik3405() {
 
 function callluxtronik3505() {
   clientconnection = true;
+  warteauf = "callluxtronik3505";
   var client = new net.Socket();
 
   var client = client.connect(port, deviceIpAdress, function() {
@@ -526,6 +530,7 @@ function callluxtronik3505() {
 
 function callluxtronik3400() {
   clientconnection = true;
+  warteauf = "callluxtronik3400";
   var client = new net.Socket();
 
   var client = client.connect(port, deviceIpAdress, function() {
@@ -601,6 +606,7 @@ function callluxtronik3400() {
 
 function callluxtronik3401(hkdata) {
   clientconnection = true;
+  warteauf = "callluxtronik3401";
   var client = new net.Socket();
 
   var client = client.connect(port, deviceIpAdress, function() {
@@ -671,6 +677,7 @@ function callluxtronik3401(hkdata) {
 
 function callluxtronik3406(statemodusheizung) {
   clientconnection = true;
+  warteauf = "callluxtronik3406";
   var client = new net.Socket();
 
   var client = client.connect(port, deviceIpAdress, function() {
@@ -720,6 +727,7 @@ function callluxtronik3406(statemodusheizung) {
 
 function callluxtronik3506(statemodusww) {
   clientconnection = true;
+  warteauf = "callluxtronik3506";
   var client = new net.Socket();
 
   var client = client.connect(port, deviceIpAdress, function() {
@@ -766,6 +774,7 @@ function callluxtronik3506(statemodusww) {
 
 function callluxtronik3501(statebws) {
   clientconnection = true;
+  warteauf = "callluxtronik3501";
   var client = new net.Socket();
 
   var client = client.connect(port, deviceIpAdress, function() {
