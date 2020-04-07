@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "luxtronik1",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "news": {
+      "0.2.3": {
+        "en": "adapter - restarte in case of connection - problems added.",
+        "de": "Adapter - Neustart bei Verbindungsproblemen hinzugefügt."
+      },
       "0.2.2": {
         "en": ".npmignore and .gitignore added, small bugfix.",
         "de": ".npmignore and .gitignore ergänzt, kleine Fehlerbehebung."

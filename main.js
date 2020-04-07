@@ -31,6 +31,7 @@ var clientconnection = false;
 var hkfunction = false;
 var pollfunction = false;
 var warteauf = "";
+var clientconnectionerror = 0;
 
 let polling;
 
@@ -143,14 +144,21 @@ function main() {
 function pollluxtronik() {
   if (clientconnection == true) {
     adapter.log.debug("warte auf " + warteauf);
-    setTimeout(pollluxtronik, 1000);
+    clientconnectionerror++;
+    if (clientconnectionerror > 3) {
+      adapter.log.warn("Verbindungsprobleme, starte Adapter neu");
+      restartAdapter();
+    }
+    adapter.log.debug("Daten werden mit nächstem Polling gelesen");
+    //setTimeout(pollluxtronik, 5000);
     return;
   }
+  clientconnectionerror = 0;
   pollfunction = true;
   callluxtronik1800();
-  setTimeout(callluxtronik3405, 1500);
-  setTimeout(callluxtronik3505, 3000);
-  setTimeout(callluxtronik3400, 4500);
+  setTimeout(callluxtronik3405, 2000);
+  setTimeout(callluxtronik3505, 4000);
+  setTimeout(callluxtronik3400, 6000);
 } //endPollluxtronik
 
 function controlluxtronik(id, state) {
@@ -200,44 +208,68 @@ function controlluxtronik(id, state) {
 function controlbws(statebws) {
   if (clientconnection == true) {
     adapter.log.debug("warte auf " + warteauf);
+    clientconnectionerror++;
+    if (clientconnectionerror > 10) {
+      adapter.log.warn("Verbindungsprobleme, starte Adapter neu");
+      restartAdapter();
+    }
     setTimeout(function() {
       controlbws(statebws);
     }, 1000);
     return;
   }
+  clientconnectionerror = 0;
   callluxtronik3501(statebws);
 } //end controlbws
 
 function controlmodusww(statemodusww) {
   if (clientconnection == true) {
     adapter.log.debug("warte auf " + warteauf);
+    clientconnectionerror++;
+    if (clientconnectionerror > 10) {
+      adapter.log.warn("Verbindungsprobleme, starte Adapter neu");
+      restartAdapter();
+    }
     setTimeout(function() {
       controlmodusww(statemodusww);
     }, 1000);
     return;
   }
+  clientconnectionerror = 0;
   callluxtronik3506(statemodusww);
 } //end controlmodusww
 
 function controlmodusheizung(statemodusheizung) {
   if (clientconnection == true) {
     adapter.log.debug("warte auf " + warteauf);
+    clientconnectionerror++;
+    if (clientconnectionerror > 10) {
+      adapter.log.warn("Verbindungsprobleme, starte Adapter neu");
+      restartAdapter();
+    }
     setTimeout(function() {
       controlmodusheizung(statemodusheizung);
     }, 1000);
     return;
   }
+  clientconnectionerror = 0;
   callluxtronik3406(statemodusheizung);
 } //end controlmodusheizung
 
 function controlabwrls(stateabwrls) {
   if (clientconnection == true) {
     adapter.log.debug("warte auf " + warteauf);
+    clientconnectionerror++;
+    if (clientconnectionerror > 10) {
+      adapter.log.warn("Verbindungsprobleme, starte Adapter neu");
+      restartAdapter();
+    }
     setTimeout(function() {
       controlabwrls(stateabwrls);
     }, 1000);
     return;
   }
+  clientconnectionerror = 0;
   hkfunction = true;
   adapter.log.debug("Heizkurvenfunktion aktiviert");
 
@@ -255,11 +287,17 @@ function controlabwrls(stateabwrls) {
 function controlnachtabs(statenachtabs) {
   if (clientconnection == true) {
     adapter.log.debug("warte auf " + warteauf);
+    clientconnectionerror++;
+    if (clientconnectionerror > 10) {
+      adapter.log.warn("Verbindungsprobleme, starte Adapter neu");
+      restartAdapter();
+    }
     setTimeout(function() {
       controlnachtabs(statenachtabs);
     }, 1000);
     return;
   }
+  clientconnectionerror = 0;
   hkfunction = true;
   adapter.log.debug("Heizkurvenfunktion aktiviert");
   callluxtronik3400();
@@ -274,12 +312,18 @@ function controlnachtabs(statenachtabs) {
 
 function controlparavhk(stateparavhk) {
   if (clientconnection == true) {
-    adapter.log.debug("warte auf " + warteauf)
+    adapter.log.debug("warte auf " + warteauf);
+    clientconnectionerror++;
+    if (clientconnectionerror > 10) {
+      adapter.log.warn("Verbindungsprobleme, starte Adapter neu");
+      restartAdapter();
+    }
     setTimeout(function() {
       controlparavhk(stateparavhk);
     }, 1000);
     return;
   }
+  clientconnectionerror = 0;
   hkfunction = true;
   adapter.log.debug("Heizkurvenfunktion aktiviert");
 
@@ -296,11 +340,17 @@ function controlparavhk(stateparavhk) {
 function controlendpunkthk(stateendpunkthk) {
   if (clientconnection == true) {
     adapter.log.debug("warte auf " + warteauf);
+    clientconnectionerror++;
+    if (clientconnectionerror > 10) {
+      adapter.log.warn("Verbindungsprobleme, starte Adapter neu");
+      restartAdapter();
+    }
     setTimeout(function() {
       controlendpunkthk(stateendpunkthk);
     }, 1000);
     return;
   }
+  clientconnectionerror = 0;
   hkfunction = true;
   adapter.log.debug("Heizkurvenfunktion aktiviert");
 
@@ -314,8 +364,7 @@ function controlendpunkthk(stateendpunkthk) {
   setTimeout(callluxtronik3400, 7000);
 } //end controlendpunkthk
 
-function callluxtronik1800() {
-  clientconnection = true;
+function callluxtronik1800() {  clientconnection = true;
   warteauf = "callluxtronik1800";
   var client = new net.Socket();
 
@@ -796,7 +845,7 @@ function callluxtronik3501(statebws) {
 
   client.on('data', function(data) {
     datastring += data;
-    if (datastring.includes("993") === true) {
+    if (datastring.includes("993\r\n999") === true) {
       client.destroy();
     }
   });
