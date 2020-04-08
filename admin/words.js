@@ -55,23 +55,23 @@ systemDictionary = {
   },
   "luxtronik1 adapter settings": {
     "en": "Luxtronik 1 adapter settings",
-    "de": "Luxtronik 1 Adapter Einstellungen",
-    "ru": "Luxtronik 1 adapter settings",
-    "pt": "Luxtronik 1 adapter settings",
-    "nl": "Luxtronik 1 adapter settings",
-    "fr": "Luxtronik 1 adapter settings",
-    "it": "Luxtronik 1 adapter settings",
-    "es": "Luxtronik 1 adapter settings"
+    "de": "Luxtronik 1 Adaptereinstellungen",
+    "ru": "Настройки адаптера Luxtronik 1",
+    "pt": "Configurações do adaptador Luxtronik 1",
+    "nl": "Luxtronik 1 adapterinstellingen",
+    "fr": "Paramètres de l'adaptateur Luxtronik 1",
+    "it": "Impostazioni dell'adattatore Luxtronik 1",
+    "es": "Configuración del adaptador Luxtronik 1"
   },
   "port": {
-    "en": "Port",
+    "en": "port",
     "de": "Port",
-    "ru": "Port",
-    "pt": "Port",
-    "nl": "Port",
+    "ru": "порт",
+    "pt": "porta",
+    "nl": "haven",
     "fr": "Port",
-    "it": "Port",
-    "es": "Port"
+    "it": "porta",
+    "es": "Puerto"
   },
   "host": {
     "en": "Luxtronik1 IP:",
@@ -84,13 +84,13 @@ systemDictionary = {
     "es": "Luxtronik1 IP:"
   },
   "pollInterval": {
-    "en": "Polling - Intervall (ms):",
-    "de": "Abfrage - Intervall (ms):",
-    "ru": "Abfrage - Intervall (ms):",
-    "pt": "Polling - Intervall (ms):",
-    "nl": "Polling - Intervall (ms):",
-    "fr": "Polling - Intervall (ms):",
-    "it": "Polling - Intervall (ms):",
-    "es": "Polling - Intervall (ms):"
+    "en": "Polling - intervall (ms):",
+    "de": "Polling - Intervall (ms):",
+    "ru": "Опрос - интервал (мс):",
+    "pt": "Intervalo de pesquisa - (ms):",
+    "nl": "Polling - intervall (ms):",
+    "fr": "Interrogation - intervalle (ms):",
+    "it": "Polling - intervall (ms):",
+    "es": "Sondeo - intervalo (ms):"
   }
 }
