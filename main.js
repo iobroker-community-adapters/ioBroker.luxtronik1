@@ -364,7 +364,8 @@ function controlendpunkthk(stateendpunkthk) {
   setTimeout(callluxtronik3400, 7000);
 } //end controlendpunkthk
 
-function callluxtronik1800() {  clientconnection = true;
+function callluxtronik1800() {
+  clientconnection = true;
   warteauf = "callluxtronik1800";
   var client = new net.Socket();
 
@@ -595,7 +596,8 @@ function callluxtronik3400() {
 
   client.on('data', function(data) {
     datastring += data;
-    if (datastring.includes("3400;9") === true) {
+    adapter.log.debug("Datastringlänge: " + datastring.length)
+    if (datastring.includes("3400;9") === true && datastring.length > 40) {
       client.destroy();
     }
   });
