@@ -697,7 +697,7 @@ function callluxtronik3401(hkdata) {
 
       }
 
-      if (datastring.includes("993") === true) {
+      if (datastring.includes("993\r\n999") === true) {
         client.destroy();
       }
     } catch (e) {
@@ -750,7 +750,7 @@ function callluxtronik3406(statemodusheizung) {
 
   client.on('data', function(data) {
     datastring += data;
-    if (datastring.includes("993") === true) {
+    if (datastring.includes("993\r\n999") === true) {
       client.destroy();
     }
   });
@@ -800,7 +800,7 @@ function callluxtronik3506(statemodusww) {
 
   client.on('data', function(data) {
     datastring += data;
-    if (datastring.includes("993") === true) {
+    if (datastring.includes("993\r\n999") === true) {
       client.destroy();
     }
   });
@@ -860,7 +860,7 @@ function callluxtronik3501(statebws) {
       if (datastring != "") {
 
         var data3501array = datastring.split('\r\n');
-        adapter.log.debug("Warmwasser soll neu: " + data3501array[2].slice(-1));
+        adapter.log.debug("Warmwasser soll neu: " + data3501array[2].slice(7,9));
 
         adapter.setState("temperaturen.BWs", statebws / 10, true);
 
