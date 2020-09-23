@@ -406,6 +406,7 @@ function callluxtronik1800() {
           adapter.setState("temperaturen.HG", temperaturen[5] / 10, true);
           adapter.setState("temperaturen.BWi", temperaturen[7] / 10, true);
           adapter.setState("temperaturen.BWs", temperaturen[8] / 10, true);
+          adapter.setState("control.BWs", temperaturen[8] / 10, true);
           adapter.setState("temperaturen.WQe", temperaturen[9] / 10, true);
           adapter.setState("temperaturen.WQa", temperaturen[10] / 10, true);
           adapter.setState("temperaturen.MK1VLi", temperaturen[11] / 10, true);
@@ -494,6 +495,7 @@ function callluxtronik3405() {
 
 
           adapter.setState("status.ModusHeizung", parseInt(data3405array[2]), true);
+          adapter.setState("control.ModusHeizung", parseInt(data3405array[2]), true);
           data3405error = 0;
         } else {
           adapter.log.debug("Datenarray3405 unvollständig, keine Werte gesetzt")
@@ -554,6 +556,7 @@ function callluxtronik3505() {
           adapter.log.debug("Modus Warmwasser: " + modus[parseInt(data3505array[2])]);
 
           adapter.setState("status.ModusWW", parseInt(data3505array[2]), true);
+          adapter.setState("control.ModusWW", parseInt(data3505array[2]), true);
           data3505error = 0;
         } else {
           adapter.log.debug("Datenarray3505 unvollständig, keine Werte gesetzt");
@@ -623,6 +626,10 @@ function callluxtronik3400() {
           adapter.setState("heizkurve.Endpunkt", data3400array[3] / 10, true);
           adapter.setState("heizkurve.ParaV", data3400array[4] / 10, true);
           adapter.setState("heizkurve.NachtAbs", data3400array[5] / 10, true);
+          adapter.setState("control.AbwRLs", data3400array[2] / 10, true);
+          adapter.setState("control.EndpunktHK", data3400array[3] / 10, true);
+          adapter.setState("control.ParaVHK", data3400array[4] / 10, true);
+          adapter.setState("control.NachtAbs", data3400array[5] / 10, true);
           data3400error = 0;
         } else {
           adapter.log.debug("Datenarray3400 unvollständig, keine Werte gesetzt");
@@ -968,6 +975,12 @@ function setstatustext(statuscode) {
         break;
       case "1":
         statusa = "Warmwasser";
+        break;
+      case "2":
+        statusa = "Schwimmbad";
+        break;
+      case "3":
+        statusa = "EVU-Sperre";
         break;
       case "5":
         statusa = "Bereitschaft";

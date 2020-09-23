@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "luxtronik1",
-    "version": "0.2.3",
+    "version": "0.2.4",
     "news": {
+      "0.2.4": {
+        "en": "Comm-errors cleard, 'contro'-values are updated",
+        "de": "Kommunikationsfehler behoben, 'contro'-Werte werden laufend nachgeführt."
+      },
       "0.2.3": {
         "en": "adapter - restarte in case of connection - problems added.",
         "de": "Adapter - Neustart bei Verbindungsproblemen hinzugefügt."
@@ -674,7 +678,8 @@
           "1": "ZWE",
           "2": "Party",
           "3": "Ferien",
-          "4": "AUS"
+          "4": "AUS",
+          "224": "Ausheizprogramm"
         },
         "def": false,
         "desc": "Betriebsmodus Heizung"
@@ -878,7 +883,8 @@
           "1": "ZWE",
           "2": "Party",
           "3": "Ferien",
-          "4": "AUS"
+          "4": "AUS",
+          "224": "Ausheizprogramm - hier nicht auswählen!!"
         },
         "desc": "Betriebsmodus Heizung setzen"
       },
