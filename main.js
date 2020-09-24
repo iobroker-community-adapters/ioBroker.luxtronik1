@@ -425,6 +425,20 @@ function callluxtronik1800() {
           adapter.setState("betriebsstunden.WP", toTimeString(betriebsstunden[10]), true);
           adapter.log.debug("BWP" + toTimeString(betriebsstunden[10]) + "hhhh");
 
+          ausgaenge = data1800array[4].split(';');
+          adapter.setState("ausgaenge.Abtauventil", ausgaenge[2], true);
+          adapter.setState("ausgaenge.Brauchwarmwasserumwaelzpumpe", ausgaenge[3], true);
+          adapter.setState("ausgaenge.Fussbodenheizungsumwaelzpumpe", ausgaenge[4], true);
+          adapter.setState("ausgaenge.Heizungsumwaelzpumpe", ausgaenge[5], true);
+          adapter.setState("ausgaenge.Mischer_1_Auf", ausgaenge[6], true);
+          adapter.setState("ausgaenge.Mischer_1_Zu", ausgaenge[7], true);
+          adapter.setState("ausgaenge.Ventilation_des_Waermepumpengehaeuses", ausgaenge[8], true);
+          adapter.setState("ausgaenge.Ventilator_Brunnen_oder_Soleumwaelzpu", ausgaenge[9], true);
+          adapter.setState("ausgaenge.Verdichter_1_in_Waermepumpe", ausgaenge[10], true);
+          adapter.setState("ausgaenge.Verdichter_2_in_Waermepumpe", ausgaenge[11], true);
+          adapter.setState("ausgaenge.Zusatzumwaelzpumpe_Zirkulationspumpe", ausgaenge[12], true);
+          adapter.setState("ausgaenge.Zweiter_Waermeerzeuger_1", ausgaenge[13], true);
+          adapter.setState("ausgaenge.Zweiter_Waermeerzeuger_2_Sammelstoerung", ausgaenge[14], true);
 
           for (var i = 1; i < 6; i++) {
             adapter.setState("fehler." + (6 - i), setfehlertext(data1800array[7 + i]), true);
