@@ -18,6 +18,7 @@ var data3405error = 0;
 var data3505error = 0;
 var data3400error = 0;
 var temperaturen = [];
+var ausgaenge = [];
 var betriebsstunden = [];
 var fehlerspeicher = [];
 var abschaltungen = [];
