@@ -1,6 +1,6 @@
 {
   "name": "iobroker.luxtronik1",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "engines": {
     "node": ">=10.0.0"
   },
@@ -11,7 +11,8 @@
   },
   "contributors": [{
     "name": "Marcel Adam",
-    "email": "marceladam@gmx.ch"
+    "email": "marceladam@gmx.ch",
+    "name": "pingus01"
   }],
   "homepage": "https://github.com/iobroker-community-adapters/ioBroker.luxtronik1",
   "license": "MIT",

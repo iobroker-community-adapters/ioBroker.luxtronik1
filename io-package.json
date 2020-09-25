@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "luxtronik1",
-    "version": "0.2.4",
+    "version": "0.2.5",
     "news": {
+      "0.2.5": {
+        "en": "outlet - data added",
+        "de": "Daten zu Ausgängen ergänzt."
+      },
       "0.2.4": {
         "en": "Comm-errors cleard, 'contro'-values are updated",
         "de": "Kommunikationsfehler behoben, 'contro'-Werte werden laufend nachgeführt."
@@ -292,223 +296,223 @@
       }
     },
     {
-        "_id": "ausgaenge",
-        "type": "channel",
-        "common": {
-          "name": "Ausgänge"
-        },
-        "native": {
-
-        }
+      "_id": "ausgaenge",
+      "type": "channel",
+      "common": {
+        "name": "Ausgänge"
       },
-      {
-        "_id": "ausgaenge.Abtauventil",
-        "type": "state",
-        "common": {
-          "name": "Abtauventil",
-          "type": "boolean",
-          "role": "",
-          "read": true,
-          "write": false,
-          "def": false,
-          "desc": "Abtauventil ein/aus"
-        },
-        "native": {
+      "native": {
 
-        }
+      }
+    },
+    {
+      "_id": "ausgaenge.Abtauventil",
+      "type": "state",
+      "common": {
+        "name": "Abtauventil",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Abtauventil ein/aus"
       },
-      {
-        "_id": "ausgaenge.Brauchwarmwasserumwaelzpumpe",
-        "type": "state",
-        "common": {
-          "name": "Brauchwarmwasserumwaelzpumpe",
-          "type": "boolean",
-          "role": "",
-          "read": true,
-          "write": false,
-          "def": false,
-          "desc": "Brauchwarmwasserumwaelzpumpe ein/aus"
-        },
-        "native": {
+      "native": {
 
-        }
+      }
+    },
+    {
+      "_id": "ausgaenge.Brauchwarmwasserumwaelzpumpe",
+      "type": "state",
+      "common": {
+        "name": "Brauchwarmwasserumwaelzpumpe",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Brauchwarmwasserumwaelzpumpe ein/aus"
       },
-      {
-        "_id": "ausgaenge.Fussbodenheizungsumwaelzpumpe",
-        "type": "state",
-        "common": {
-          "name": "Fussbodenheizungsumwaelzpumpe",
-          "type": "boolean",
-          "role": "",
-          "read": true,
-          "write": false,
-          "def": false,
-          "desc": "Fussbodenheizungsumwaelzpumpe ein/aus"
-        },
-        "native": {
+      "native": {
 
-        }
+      }
+    },
+    {
+      "_id": "ausgaenge.Fussbodenheizungsumwaelzpumpe",
+      "type": "state",
+      "common": {
+        "name": "Fussbodenheizungsumwaelzpumpe",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Fussbodenheizungsumwaelzpumpe ein/aus"
       },
-      {
-        "_id": "ausgaenge.Heizungsumwaelzpumpe",
-        "type": "state",
-        "common": {
-          "name": "Heizungsumwaelzpumpe",
-          "type": "boolean",
-          "role": "",
-          "read": true,
-          "write": false,
-          "def": false,
-          "desc": "Heizungsumwaelzpumpe ein/aus"
-        },
-        "native": {
+      "native": {
 
-        }
+      }
+    },
+    {
+      "_id": "ausgaenge.Heizungsumwaelzpumpe",
+      "type": "state",
+      "common": {
+        "name": "Heizungsumwaelzpumpe",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Heizungsumwaelzpumpe ein/aus"
       },
-      {
-        "_id": "ausgaenge.Mischer_1_Auf",
-        "type": "state",
-        "common": {
-          "name": "Mischer_1_Auf",
-          "type": "boolean",
-          "role": "",
-          "read": true,
-          "write": false,
-          "def": false,
-          "desc": "Mischer_1_Auf ein/aus"
-        },
-        "native": {
+      "native": {
 
-        }
+      }
+    },
+    {
+      "_id": "ausgaenge.Mischer_1_Auf",
+      "type": "state",
+      "common": {
+        "name": "Mischer_1_Auf",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Mischer_1_Auf ein/aus"
       },
-      {
-        "_id": "ausgaenge.Mischer_1_Zu",
-        "type": "state",
-        "common": {
-          "name": "Mischer_1_Zu",
-          "type": "boolean",
-          "role": "",
-          "read": true,
-          "write": false,
-          "def": false,
-          "desc": "Mischer_1_Zu ein/aus"
-        },
-        "native": {
+      "native": {
 
-        }
+      }
+    },
+    {
+      "_id": "ausgaenge.Mischer_1_Zu",
+      "type": "state",
+      "common": {
+        "name": "Mischer_1_Zu",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Mischer_1_Zu ein/aus"
       },
-      {
-        "_id": "ausgaenge.Ventilation_des_Waermepumpengehaeuses",
-        "type": "state",
-        "common": {
-          "name": "Ventilation_des_Waermepumpengehaeuses",
-          "type": "boolean",
-          "role": "",
-          "read": true,
-          "write": false,
-          "def": false,
-          "desc": "Ventilation_des_Waermepumpengehaeuses ein/aus"
-        },
-        "native": {
+      "native": {
 
-        }
+      }
+    },
+    {
+      "_id": "ausgaenge.Ventilation_des_Waermepumpengehaeuses",
+      "type": "state",
+      "common": {
+        "name": "Ventilation_des_Waermepumpengehaeuses",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Ventilation_des_Waermepumpengehaeuses ein/aus"
       },
-      {
-        "_id": "ausgaenge.Ventilator_Brunnen_oder_Soleumwaelzpumpe",
-        "type": "state",
-        "common": {
-          "name": "Ventilator_Brunnen_oder_Soleumwaelzpumpe",
-          "type": "boolean",
-          "role": "",
-          "read": true,
-          "write": false,
-          "def": false,
-          "desc": "Ventilator_Brunnen_oder_Soleumwaelzpumpe ein/aus"
-        },
-        "native": {
+      "native": {
 
-        }
+      }
+    },
+    {
+      "_id": "ausgaenge.Ventilator_Brunnen_oder_Soleumwaelzpumpe",
+      "type": "state",
+      "common": {
+        "name": "Ventilator_Brunnen_oder_Soleumwaelzpumpe",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Ventilator_Brunnen_oder_Soleumwaelzpumpe ein/aus"
       },
-      {
-        "_id": "ausgaenge.Verdichter_1_in_Waermepumpe",
-        "type": "state",
-        "common": {
-          "name": "Verdichter_1_in_Waermepumpe",
-          "type": "boolean",
-          "role": "",
-          "read": true,
-          "write": false,
-          "def": false,
-          "desc": "Verdichter_1_in_Waermepumpe ein/aus"
-        },
-        "native": {
+      "native": {
 
-        }
+      }
+    },
+    {
+      "_id": "ausgaenge.Verdichter_1_in_Waermepumpe",
+      "type": "state",
+      "common": {
+        "name": "Verdichter_1_in_Waermepumpe",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Verdichter_1_in_Waermepumpe ein/aus"
       },
-      {
-        "_id": "ausgaenge.Verdichter_2_in_Waermepumpe",
-        "type": "state",
-        "common": {
-          "name": "Verdichter_2_in_Waermepumpe",
-          "type": "boolean",
-          "role": "",
-          "read": true,
-          "write": false,
-          "def": false,
-          "desc": "Verdichter_2_in_Waermepumpe ein/aus"
-        },
-        "native": {
+      "native": {
 
-        }
+      }
+    },
+    {
+      "_id": "ausgaenge.Verdichter_2_in_Waermepumpe",
+      "type": "state",
+      "common": {
+        "name": "Verdichter_2_in_Waermepumpe",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Verdichter_2_in_Waermepumpe ein/aus"
       },
-      {
-        "_id": "ausgaenge.Zusatzumwaelzpumpe_Zirkulationspumpe",
-        "type": "state",
-        "common": {
-          "name": "Zusatzumwaelzpumpe_Zirkulationspumpe",
-          "type": "boolean",
-          "role": "",
-          "read": true,
-          "write": false,
-          "def": false,
-          "desc": "Zusatzumwaelzpumpe_Zirkulationspumpe ein/aus"
-        },
-        "native": {
+      "native": {
 
-        }
+      }
+    },
+    {
+      "_id": "ausgaenge.Zusatzumwaelzpumpe_Zirkulationspumpe",
+      "type": "state",
+      "common": {
+        "name": "Zusatzumwaelzpumpe_Zirkulationspumpe",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Zusatzumwaelzpumpe_Zirkulationspumpe ein/aus"
       },
-      {
-        "_id": "ausgaenge.Zweiter_Waermeerzeuger_1",
-        "type": "state",
-        "common": {
-          "name": "Zweiter_Waermeerzeuger_1",
-          "type": "boolean",
-          "role": "",
-          "read": true,
-          "write": false,
-          "def": false,
-          "desc": "Zweiter_Waermeerzeuger_1 ein/aus"
-        },
-        "native": {
+      "native": {
 
-        }
+      }
+    },
+    {
+      "_id": "ausgaenge.Zweiter_Waermeerzeuger_1",
+      "type": "state",
+      "common": {
+        "name": "Zweiter_Waermeerzeuger_1",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Zweiter_Waermeerzeuger_1 ein/aus"
       },
-      {
-        "_id": "ausgaenge.Zweiter_Waermeerzeuger_2_Sammelstoerung",
-        "type": "state",
-        "common": {
-          "name": "Zweiter_Waermeerzeuger_2_Sammelstoerung",
-          "type": "boolean",
-          "role": "",
-          "read": true,
-          "write": false,
-          "def": false,
-          "desc": "Zweiter_Waermeerzeuger_2_Sammelstoerung ein/aus"
-        },
-        "native": {
+      "native": {
 
-        }
+      }
+    },
+    {
+      "_id": "ausgaenge.Zweiter_Waermeerzeuger_2_Sammelstoerung",
+      "type": "state",
+      "common": {
+        "name": "Zweiter_Waermeerzeuger_2_Sammelstoerung",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Zweiter_Waermeerzeuger_2_Sammelstoerung ein/aus"
       },
+      "native": {
+
+      }
+    },
     {
       "_id": "info.connection",
       "type": "state",
