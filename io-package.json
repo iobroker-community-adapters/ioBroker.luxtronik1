@@ -296,6 +296,138 @@
       }
     },
     {
+      "_id": "eingaenge",
+      "type": "channel",
+      "common": {
+        "name": "Eingänge"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "eingaenge.ASD",
+      "type": "state",
+      "common": {
+        "name": "Eingang ASD",
+        "type": "boolean",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "AUS",
+          "1": "EIN"
+        },
+        "def": false,
+        "desc": "Eingang ASD"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "eingaenge.EVU",
+      "type": "state",
+      "common": {
+        "name": "Eingang EVU",
+        "type": "boolean",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "AUS",
+          "1": "EIN"
+        },
+        "def": false,
+        "desc": "Eingang EVU"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "eingaenge.HD",
+      "type": "state",
+      "common": {
+        "name": "Eingang HD",
+        "type": "boolean",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "AUS",
+          "1": "EIN"
+        },
+        "def": false,
+        "desc": "Eingang HD"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "eingaenge.MOT",
+      "type": "state",
+      "common": {
+        "name": "Eingang MOT",
+        "type": "boolean",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "AUS",
+          "1": "EIN"
+        },
+        "def": false,
+        "desc": "Eingang MOT"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "eingaenge.ND",
+      "type": "state",
+      "common": {
+        "name": "Eingang ND",
+        "type": "boolean",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "AUS",
+          "1": "EIN"
+        },
+        "def": false,
+        "desc": "Eingang ND"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "eingaenge.PEX",
+      "type": "state",
+      "common": {
+        "name": "Eingang PEX",
+        "type": "boolean",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "AUS",
+          "1": "EIN"
+        },
+        "def": false,
+        "desc": "Eingang PEX"
+      },
+      "native": {
+
+      }
+    },
+
+
+    {
       "_id": "ausgaenge",
       "type": "channel",
       "common": {
@@ -909,7 +1041,8 @@
       "native": {
 
       }
-    }, {
+    },
+    {
       "_id": "status.ModusWW",
       "type": "state",
       "common": {
