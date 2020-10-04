@@ -443,12 +443,12 @@ function callluxtronik1800() {
           adapter.setState("ausgaenge.Zweiter_Waermeerzeuger_2_Sammelstoerung", ausgaenge[14], true);
 
           eingaenge = data1800array[3].split(';');
-          adapter.setStat("eingaenge.ASD", eingaenge[2], true);
-          adapter.setStat("eingaenge.EVU", eingaenge[3], true);
-          adapter.setStat("eingaenge.HD", eingaenge[4], true);
-          adapter.setStat("eingaenge.MOT", eingaenge[5], true);
-          adapter.setStat("eingaenge.ND", eingaenge[6], true);
-          adapter.setStat("eingaenge.PEX", eingaenge[7], true);
+          adapter.setState("eingaenge.ASD", eingaenge[2], true);
+          adapter.setState("eingaenge.EVU", eingaenge[3], true);
+          adapter.setState("eingaenge.HD", eingaenge[4], true);
+          adapter.setState("eingaenge.MOT", eingaenge[5], true);
+          adapter.setState("eingaenge.ND", eingaenge[6], true);
+          adapter.setState("eingaenge.PEX", eingaenge[7], true);
 
           for (var i = 1; i < 6; i++) {
             adapter.setState("fehler." + (6 - i), setfehlertext(data1800array[7 + i]), true);
