@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "luxtronik1",
-    "version": "0.2.6",
+    "version": "0.2.7",
     "news": {
+      "0.2.7": {
+        "en": "status-info added",
+        "de": "Statusinformation erweitert."
+      },
       "0.2.6": {
         "en": "input - data and timers added",
         "de": "Daten zu Eingängen und Ablaufzeiten ergänzt."

@@ -32,6 +32,10 @@ Values in the 'control' - channel have to be set with ack=false to trigger an ac
 
 ## Changelog
 
+### 0.2.7
+
+-   status-info added.
+
 ### 0.2.6
 
 -   input-data and timers (Eingänge & Ablaufzeiten) added.
