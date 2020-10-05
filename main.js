@@ -440,17 +440,17 @@ function callluxtronik1800() {
           adapter.setState("ausgaenge.Zweiter_Waermeerzeuger_2_Sammelstoerung", ausgaenge[14], true);
 
           ablaufzeiten = data1800array[5].split(';'); //1400
-          adapter.setState("ablaufzeiten.WPseit", (ablaufzeiten[2] + ':' + ablaufzeiten[3] + ':' + ablaufzeiten[4]), true);
-          adapter.setState("ablaufzeiten.ZWE1seit", (ablaufzeiten[5] + ':' + ablaufzeiten[6] + ':' + ablaufzeiten[7]), true);
-          adapter.setState("ablaufzeiten.ZWE2seit", (ablaufzeiten[8] + ':' + ablaufzeiten[9] + ':' + ablaufzeiten[10]), true);
-          adapter.setState("ablaufzeiten.Netzeinv", (ablaufzeiten[11]), true);
-          adapter.setState("ablaufzeiten.SSPstand", (ablaufzeiten[12] + ':' + ablaufzeiten[13]), true);
-          adapter.setState("ablaufzeiten.SSPverz", (ablaufzeiten[14] + ':' + ablaufzeiten[15]), true);
-          adapter.setState("ablaufzeiten.VDstand", (ablaufzeiten[16] + ':' + ablaufzeiten[17] + ':' + ablaufzeiten[18]), true);
-          adapter.setState("ablaufzeiten.HRM", (ablaufzeiten[19] + ':' + ablaufzeiten[20] + ':' + ablaufzeiten[21]), true);
-          adapter.setState("ablaufzeiten.HRW", (ablaufzeiten[22] + ':' + ablaufzeiten[23] + ':' + ablaufzeiten[24]), true);
-          adapter.setState("ablaufzeiten.TDIseit", (ablaufzeiten[25] + ':' + ablaufzeiten[26] + ':' + ablaufzeiten[27]), true);
-          adapter.setState("ablaufzeiten.BWsperre", (ablaufzeiten[28] + ':' + ablaufzeiten[29] + ':' + ablaufzeiten[30]), true);
+          adapter.setState("ablaufzeiten.WPseit", (parseInt(ablaufzeiten[2]) * 3600 + parseInt(ablaufzeiten[3]) * 60 + parseInt(ablaufzeiten[4])), true);
+          adapter.setState("ablaufzeiten.ZWE1seit", (parseInt(ablaufzeiten[5]) * 3600 + parseInt(ablaufzeiten[6]) * 60 + parseInt(ablaufzeiten[7])), true);
+          adapter.setState("ablaufzeiten.ZWE2seit", (parseInt(ablaufzeiten[8]) * 3600 + parseInt(ablaufzeiten[9]) * 60 + parseInt(ablaufzeiten[10])), true);
+          adapter.setState("ablaufzeiten.Netzeinv", (parseInt(ablaufzeiten[11)]), true);
+          adapter.setState("ablaufzeiten.SSPstand", (parseInt(ablaufzeiten[12]) * 60 + parseInt(ablaufzeiten[13])), true);
+          adapter.setState("ablaufzeiten.SSPverz", (parseInt(ablaufzeiten[14]) * 60 + parseInt(ablaufzeiten[15])), true);
+          adapter.setState("ablaufzeiten.VDstand", (parseInt(ablaufzeiten[16]) * 3600 + parseInt(ablaufzeiten[17]) * 60 + parseInt(ablaufzeiten[18])), true);
+          adapter.setState("ablaufzeiten.HRM", (parseInt(ablaufzeiten[19]) * 3600 + parseInt(ablaufzeiten[20]) * 60 + parseInt(ablaufzeiten[21])), true);
+          adapter.setState("ablaufzeiten.HRW", (parseInt(ablaufzeiten[22]) * 3600 + parseInt(ablaufzeiten[23]) * 60 + parseInt(ablaufzeiten[24])), true);
+          adapter.setState("ablaufzeiten.TDIseit", (parseInt(ablaufzeiten[25]) * 3600 + parseInt(ablaufzeiten[26]) * 60 + parseInt(ablaufzeiten[27])), true);
+          adapter.setState("ablaufzeiten.BWsperre", (parseInt(ablaufzeiten[28]) * 3600 + parseInt(ablaufzeiten[29]) * 60 + parseInt(ablaufzeiten[30])), true);
 
           betriebsstunden = data1800array[6].split(';');
           adapter.setState("betriebsstunden.VD1", toTimeString(betriebsstunden[2]), true);

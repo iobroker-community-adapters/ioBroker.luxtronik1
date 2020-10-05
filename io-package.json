@@ -680,12 +680,13 @@
       "type": "state",
       "common": {
         "name": "Wärmepumpe läuft seit",
-        "type": "string",
-        "role": "value.hours",
+        "type": "number",
+        "role": "value.seconds",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Wärmepumpe läuft seit"
+        "desc": "Wärmepumpe läuft seit",
+        "unit": "s"
       },
       "native": {
 
@@ -696,12 +697,13 @@
       "type": "state",
       "common": {
         "name": "ZWE1 läuft seit",
-        "type": "string",
-        "role": "value.hours",
+        "type": "number",
+        "role": "value.seconds",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Zweiter Wärmeerzeuger 1 läuft seit"
+        "desc": "Zweiter Wärmeerzeuger 1 läuft seit",
+        "unit": "s"
       },
       "native": {
 
@@ -712,12 +714,13 @@
       "type": "state",
       "common": {
         "name": "ZWE2 läuft seit",
-        "type": "string",
-        "role": "value.hours",
+        "type": "number",
+        "role": "value.seconds",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Zweiter Wärmeerzeuger 2 läuft seit"
+        "desc": "Zweiter Wärmeerzeuger 2 läuft seit",
+        "unit": "s"
       },
       "native": {
 
@@ -728,12 +731,13 @@
       "type": "state",
       "common": {
         "name": "Netzeinschaltverzögerung",
-        "type": "string",
-        "role": "value.hours",
+        "type": "number",
+        "role": "value.seconds",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Netzeinschaltverzögerung"
+        "desc": "Netzeinschaltverzögerung",
+        "unit": "s"
       },
       "native": {
 
@@ -744,12 +748,13 @@
       "type": "state",
       "common": {
         "name": "SSP-Zeit-Standzeit",
-        "type": "string",
-        "role": "value.hours",
+        "type": "number",
+        "role": "value.seconds",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Schaltspielsperre Standzeit"
+        "desc": "Schaltspielsperre Standzeit",
+        "unit": "s"
       },
       "native": {
 
@@ -760,12 +765,13 @@
       "type": "state",
       "common": {
         "name": "SSP-Zeit-Einschaltverzögerung",
-        "type": "string",
-        "role": "value.hours",
+        "type": "number",
+        "role": "value.seconds",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Schaltspielsperre Einschaltverzögerung"
+        "desc": "Schaltspielsperre Einschaltverzögerung",
+        "unit": "s"
       },
       "native": {
 
@@ -776,12 +782,13 @@
       "type": "state",
       "common": {
         "name": "Verdichter-Standzeit",
-        "type": "string",
-        "role": "value.hours",
+        "type": "number",
+        "role": "value.seconds",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Verdichter-Standzeit"
+        "desc": "Verdichter-Standzeit",
+        "unit": "s"
       },
       "native": {
 
@@ -792,12 +799,13 @@
       "type": "state",
       "common": {
         "name": "Heizungsregler Mehr-Zeit",
-        "type": "string",
-        "role": "value.hours",
+        "type": "number",
+        "role": "value.seconds",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Heizungsregler Mehr-Zeit"
+        "desc": "Heizungsregler Mehr-Zeit",
+        "unit": "s"
       },
       "native": {
 
@@ -808,12 +816,13 @@
       "type": "state",
       "common": {
         "name": "Heizungsregler Weniger-Zeit",
-        "type": "string",
-        "role": "value.hours",
+        "type": "number",
+        "role": "value.seconds",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Heizungsregler Weniger-Zeit"
+        "desc": "Heizungsregler Weniger-Zeit",
+        "unit": "s"
       },
       "native": {
 
@@ -824,12 +833,13 @@
       "type": "state",
       "common": {
         "name": "Thermische Desinfektion seit",
-        "type": "string",
-        "role": "value.hours",
+        "type": "number",
+        "role": "value.seconds",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Thermische Desinfektion seit"
+        "desc": "Thermische Desinfektion seit",
+        "unit": "s"
       },
       "native": {
 
@@ -840,12 +850,13 @@
       "type": "state",
       "common": {
         "name": "Sperre BW",
-        "type": "string",
-        "role": "value.hours",
+        "type": "number",
+        "role": "value.seconds",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Sperre Brauchwarmwasser"
+        "desc": "Sperre Brauchwarmwasser",
+        "unit": "s"
       },
       "native": {
 
