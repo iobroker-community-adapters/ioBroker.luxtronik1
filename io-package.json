@@ -649,13 +649,199 @@
       "_id": "info.connection",
       "type": "state",
       "common": {
-        "name": "comfoair connected",
+        "name": "luxtronik connected",
         "type": "boolean",
         "role": "indicator.connected",
         "read": true,
         "write": false,
         "def": false,
-        "desc": "Is comfoair connected?"
+        "desc": "Is luxtronik connected?"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "ablaufzeiten",
+      "type": "channel",
+      "common": {
+        "name": "Ablaufzeiten"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "ablaufzeiten.WPseit",
+      "type": "state",
+      "common": {
+        "name": "Wärmepumpe läuft seit",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Wärmepumpe läuft seit"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "ablaufzeiten.ZWE1seit",
+      "type": "state",
+      "common": {
+        "name": "ZWE1 läuft seit",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Zweiter Wärmeerzeuger 1 läuft seit"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "ablaufzeiten.ZWE2seit",
+      "type": "state",
+      "common": {
+        "name": "ZWE2 läuft seit",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Zweiter Wärmeerzeuger 2 läuft seit"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "ablaufzeiten.Netzeinv",
+      "type": "state",
+      "common": {
+        "name": "Netzeinschaltverzögerung",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Netzeinschaltverzögerung"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "ablaufzeiten.SSPstand",
+      "type": "state",
+      "common": {
+        "name": "SSP-Zeit-Standzeit",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Schaltspielsperre Standzeit"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "ablaufzeiten.SSPverz",
+      "type": "state",
+      "common": {
+        "name": "SSP-Zeit-Einschaltverzögerung",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Schaltspielsperre Einschaltverzögerung"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "ablaufzeiten.VDstand",
+      "type": "state",
+      "common": {
+        "name": "Verdichter-Standzeit",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Verdichter-Standzeit"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "ablaufzeiten.HRM",
+      "type": "state",
+      "common": {
+        "name": "Heizungsregler Mehr-Zeit",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Heizungsregler Mehr-Zeit"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "ablaufzeiten.HRW",
+      "type": "state",
+      "common": {
+        "name": "Heizungsregler Weniger-Zeit",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Heizungsregler Weniger-Zeit"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "ablaufzeiten.TDIseit",
+      "type": "state",
+      "common": {
+        "name": "Thermische Desinfektion seit",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Thermische Desinfektion seit"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "ablaufzeiten.BWsperre",
+      "type": "state",
+      "common": {
+        "name": "Sperre BW",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Sperre Brauchwarmwasser"
       },
       "native": {
 
@@ -1159,7 +1345,7 @@
       "common": {
         "name": "Soll-Abweichung Rücklauf",
         "type": "number",
-        "role": "info.status",
+        "role": "control.temperature",
         "min": -5.5,
         "max": 5.5,
         "read": true,
@@ -1178,7 +1364,7 @@
       "common": {
         "name": "Endpunkt Heizkurve",
         "type": "number",
-        "role": "info.status",
+        "role": "control.temperature",
         "read": true,
         "write": true,
         "def": false,
@@ -1195,7 +1381,7 @@
       "common": {
         "name": "Parallelverschiebung Heizkurve",
         "type": "number",
-        "role": "info.status",
+        "role": "control.temperature",
         "read": true,
         "write": true,
         "def": false,
@@ -1212,7 +1398,7 @@
       "common": {
         "name": "Nachtabsenkung",
         "type": "number",
-        "role": "info.status",
+        "role": "control.temperature",
         "read": true,
         "write": true,
         "def": false,
@@ -1229,7 +1415,7 @@
       "common": {
         "name": "Betriebsmodus Heizung",
         "type": "string",
-        "role": "info.status",
+        "role": "control.status",
         "read": true,
         "write": true,
         "def": false,
@@ -1252,7 +1438,7 @@
       "common": {
         "name": "Betriebsmodus Warmwasser",
         "type": "number",
-        "role": "info.status",
+        "role": "control.status",
         "read": true,
         "write": true,
         "states": {
@@ -1275,7 +1461,7 @@
       "common": {
         "name": "Warmwassertemperatur SOLL",
         "type": "number",
-        "role": "value.temperature",
+        "role": "control.temperature",
         "read": true,
         "write": true,
         "desc": "Soll - Warmwassertemperatur setzen",

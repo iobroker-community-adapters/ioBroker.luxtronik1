@@ -17,9 +17,10 @@ var data1800error = 0;
 var data3405error = 0;
 var data3505error = 0;
 var data3400error = 0;
-var temperaturen = [];
-var ausgaenge = [];
-var eingaenge = [];
+var temperaturen = []; //1100
+var eingaenge = []; //1200
+var ausgaenge = []; //1300
+var ablaufzeiten = []; //1400
 var betriebsstunden = [];
 var fehlerspeicher = [];
 var abschaltungen = [];
@@ -400,7 +401,7 @@ function callluxtronik1800() {
         adapter.log.debug("Anzahl Elemente data1800array: " + data1800array.length);
         if (data1800array.length > 21) {
 
-          temperaturen = data1800array[2].split(';');
+          temperaturen = data1800array[2].split(';'); //1100
           adapter.setState("temperaturen.AUT", temperaturen[6] / 10, true);
           adapter.setState("temperaturen.RL", temperaturen[3] / 10, true);
           adapter.setState("temperaturen.VL", temperaturen[2] / 10, true);
@@ -415,19 +416,15 @@ function callluxtronik1800() {
           adapter.setState("temperaturen.MK1VLs", temperaturen[12] / 10, true);
           adapter.setState("temperaturen.RS", temperaturen[13] / 10, true);
 
-          betriebsstunden = data1800array[6].split(';');
-          adapter.setState("betriebsstunden.VD1", toTimeString(betriebsstunden[2]), true);
-          adapter.setState("betriebsstunden.Imp1", betriebsstunden[3], true);
-          adapter.setState("betriebsstunden.AvVD1", toTimeString(betriebsstunden[4]), true);
-          adapter.setState("betriebsstunden.VD2", toTimeString(betriebsstunden[5]), true);
-          adapter.setState("betriebsstunden.Imp2", betriebsstunden[6], true);
-          adapter.setState("betriebsstunden.AvVD2", toTimeString(betriebsstunden[7]), true);
-          adapter.setState("betriebsstunden.ZWE1", toTimeString(betriebsstunden[8]), true);
-          adapter.setState("betriebsstunden.ZWE2", toTimeString(betriebsstunden[9]), true);
-          adapter.setState("betriebsstunden.WP", toTimeString(betriebsstunden[10]), true);
-          adapter.log.debug("BWP" + toTimeString(betriebsstunden[10]) + "hhhh");
+          eingaenge = data1800array[3].split(';'); //1200
+          adapter.setState("eingaenge.ASD", eingaenge[2], true);
+          adapter.setState("eingaenge.EVU", eingaenge[3], true);
+          adapter.setState("eingaenge.HD", eingaenge[4], true);
+          adapter.setState("eingaenge.MOT", eingaenge[5], true);
+          adapter.setState("eingaenge.ND", eingaenge[6], true);
+          adapter.setState("eingaenge.PEX", eingaenge[7], true);
 
-          ausgaenge = data1800array[4].split(';');
+          ausgaenge = data1800array[4].split(';'); //1300
           adapter.setState("ausgaenge.Abtauventil", ausgaenge[2], true);
           adapter.setState("ausgaenge.Brauchwarmwasserumwaelzpumpe", ausgaenge[3], true);
           adapter.setState("ausgaenge.Fussbodenheizungsumwaelzpumpe", ausgaenge[4], true);
@@ -442,13 +439,33 @@ function callluxtronik1800() {
           adapter.setState("ausgaenge.Zweiter_Waermeerzeuger_1", ausgaenge[13], true);
           adapter.setState("ausgaenge.Zweiter_Waermeerzeuger_2_Sammelstoerung", ausgaenge[14], true);
 
-          eingaenge = data1800array[3].split(';');
-          adapter.setState("eingaenge.ASD", eingaenge[2], true);
-          adapter.setState("eingaenge.EVU", eingaenge[3], true);
-          adapter.setState("eingaenge.HD", eingaenge[4], true);
-          adapter.setState("eingaenge.MOT", eingaenge[5], true);
-          adapter.setState("eingaenge.ND", eingaenge[6], true);
-          adapter.setState("eingaenge.PEX", eingaenge[7], true);
+          ablaufzeiten = data1800array[5].split(';'); //1400
+          adapter.setState("ablaufzeiten.WPseit", (ablaufzeiten[2] + ':' + ablaufzeiten[3] + ':' + ablaufzeiten[4]), true);
+          adapter.setState("ablaufzeiten.ZWE1seit", (ablaufzeiten[5] + ':' + ablaufzeiten[6] + ':' + ablaufzeiten[7]), true);
+          adapter.setState("ablaufzeiten.ZWE2seit", (ablaufzeiten[8] + ':' + ablaufzeiten[9] + ':' + ablaufzeiten[10]), true);
+          adapter.setState("ablaufzeiten.Netzeinv", (ablaufzeiten[11]), true);
+          adapter.setState("ablaufzeiten.SSPstand", (ablaufzeiten[12] + ':' + ablaufzeiten[13]), true);
+          adapter.setState("ablaufzeiten.SSPverz", (ablaufzeiten[14] + ':' + ablaufzeiten[15]), true);
+          adapter.setState("ablaufzeiten.VDstand", (ablaufzeiten[16] + ':' + ablaufzeiten[17] + ':' + ablaufzeiten[18]), true);
+          adapter.setState("ablaufzeiten.HRM", (ablaufzeiten[19] + ':' + ablaufzeiten[20] + ':' + ablaufzeiten[21]), true);
+          adapter.setState("ablaufzeiten.HRW", (ablaufzeiten[22] + ':' + ablaufzeiten[23] + ':' + ablaufzeiten[24]), true);
+          adapter.setState("ablaufzeiten.TDIseit", (ablaufzeiten[25] + ':' + ablaufzeiten[26] + ':' + ablaufzeiten[27]), true);
+          adapter.setState("ablaufzeiten.BWsperre", (ablaufzeiten[28] + ':' + ablaufzeiten[29] + ':' + ablaufzeiten[30]), true);
+
+          betriebsstunden = data1800array[6].split(';');
+          adapter.setState("betriebsstunden.VD1", toTimeString(betriebsstunden[2]), true);
+          adapter.setState("betriebsstunden.Imp1", betriebsstunden[3], true);
+          adapter.setState("betriebsstunden.AvVD1", toTimeString(betriebsstunden[4]), true);
+          adapter.setState("betriebsstunden.VD2", toTimeString(betriebsstunden[5]), true);
+          adapter.setState("betriebsstunden.Imp2", betriebsstunden[6], true);
+          adapter.setState("betriebsstunden.AvVD2", toTimeString(betriebsstunden[7]), true);
+          adapter.setState("betriebsstunden.ZWE1", toTimeString(betriebsstunden[8]), true);
+          adapter.setState("betriebsstunden.ZWE2", toTimeString(betriebsstunden[9]), true);
+          adapter.setState("betriebsstunden.WP", toTimeString(betriebsstunden[10]), true);
+          adapter.log.debug("BWP" + toTimeString(betriebsstunden[10]) + "hhhh");
+
+
+
 
           for (var i = 1; i < 6; i++) {
             adapter.setState("fehler." + (6 - i), setfehlertext(data1800array[7 + i]), true);
