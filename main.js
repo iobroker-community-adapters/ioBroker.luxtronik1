@@ -443,7 +443,7 @@ function callluxtronik1800() {
           adapter.setState("ablaufzeiten.WPseit", (parseInt(ablaufzeiten[2]) * 3600 + parseInt(ablaufzeiten[3]) * 60 + parseInt(ablaufzeiten[4])), true);
           adapter.setState("ablaufzeiten.ZWE1seit", (parseInt(ablaufzeiten[5]) * 3600 + parseInt(ablaufzeiten[6]) * 60 + parseInt(ablaufzeiten[7])), true);
           adapter.setState("ablaufzeiten.ZWE2seit", (parseInt(ablaufzeiten[8]) * 3600 + parseInt(ablaufzeiten[9]) * 60 + parseInt(ablaufzeiten[10])), true);
-          adapter.setState("ablaufzeiten.Netzeinv", (parseInt(ablaufzeiten[11)]), true);
+          adapter.setState("ablaufzeiten.Netzeinv", (parseInt(ablaufzeiten[11])), true);
           adapter.setState("ablaufzeiten.SSPstand", (parseInt(ablaufzeiten[12]) * 60 + parseInt(ablaufzeiten[13])), true);
           adapter.setState("ablaufzeiten.SSPverz", (parseInt(ablaufzeiten[14]) * 60 + parseInt(ablaufzeiten[15])), true);
           adapter.setState("ablaufzeiten.VDstand", (parseInt(ablaufzeiten[16]) * 3600 + parseInt(ablaufzeiten[17]) * 60 + parseInt(ablaufzeiten[18])), true);
@@ -474,7 +474,11 @@ function callluxtronik1800() {
             adapter.setState("abschaltungen." + (6 - i), setabschalttext(data1800array[14 + i]), true);
           }
 
+          adapter.setState("status.WPtyp", ((data1800array[21].split(';'))[2]), true);
+          adapter.setState("status.SW", ((data1800array[21].split(';'))[3]), true);
+          adapter.setState("status.BivStufe", ((data1800array[21].split(';'))[4]), true);
           adapter.setState("status.ANL", setstatustext(data1800array[21]), true);
+
           data1800error = 0;
         } else {
           adapter.log.debug("Datenarray1800 unvollständig, keine Werte gesetzt");

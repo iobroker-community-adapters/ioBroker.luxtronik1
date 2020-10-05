@@ -1220,6 +1220,76 @@
       }
     },
     {
+      "_id": "status.WPtyp",
+      "type": "state",
+      "common": {
+        "name": "Wärmepumpentyp",
+        "type": "string",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "ERC nicht belegt",
+          "1": "SW1 Sole/Wasser 1 Verdichter",
+          "2": "SW2 Sole/Wasser 2 Veridchter",
+          "3": "WW1 Wasser/Wasser 1 Verdichter",
+          "4": "WW2 Wasser/Wasser 2 Verichter",
+          "5": "L1I Luft/Wasser 1 Verdichter Innen",
+          "6": "L2I Luft/Wasser 2 Verdichter Innen",
+          "7": "L1A Luft/Wasser 1 Verdichter Aussen",
+          "8": "L2A Luft/Wasser 2 Verdichter Aussen",
+          "9": "KSW Kompaktheizzentrale Sole/Wasser",
+          "10": "KLW Kompaktheizzentrale Luft/Wasser",
+          "11": "SWC Sole/Wasser Compact",
+          "12": "LWC Luft/Wasser Compact",
+          "13": "L2G Luft/Wasser Grossgerät 2 Verdichter",
+          "14": "WZS Wärmezentrale Sole/Wasser"
+        },
+        "def": false,
+        "desc": "Wärmepumpentyp"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "status.SW",
+      "type": "state",
+      "common": {
+        "name": "Software-Version",
+        "type": "string",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Stand Software - Version"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "status.BivStufe",
+      "type": "state",
+      "common": {
+        "name": "Bivalenzstufe",
+        "type": "number",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "states": {
+          "1": "ein Verdichter darf laufen",
+          "2": "zwei Verdichter dürfen laufen",
+          "3": "zus. Wärmeerz. darf mitlaufen"
+        },
+        "def": false,
+        "desc": "Bivalenzstufe"
+      },
+      "native": {
+
+      }
+    },
+    {
       "_id": "status.ModusHeizung",
       "type": "state",
       "common": {
