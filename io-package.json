@@ -1559,6 +1559,262 @@
       "native": {
 
       }
+    },
+    {
+      "_id": "temperaturen.einstellungen.RLBegr",
+      "type": "state",
+      "common": {
+        "name": "Rücklauf Begrenzung (35-70, +/-0.5)",
+        "type": "number",
+        "role": "einstellungen.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Rücklauf Begrenzung setzen",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "temperaturen.einstellungen.HystHR",
+      "type": "state",
+      "common": {
+        "name": "Hysterese HR (0.5-3, +/-0.5)",
+        "type": "number",
+        "role": "einstellungen.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Hysterese Heizkreis",
+        "unit": "°K"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "temperaturen.einstellungen.TRErhMax",
+      "type": "state",
+      "common": {
+        "name": "Rücklauferhöhung maximal (1-10, +/-1)",
+        "type": "number",
+        "role": "einstellungen.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Rücklauferhöhung maximal setzen",
+        "unit": "°K"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "temperaturen.einstellungen.Freig2VD",
+      "type": "state",
+      "common": {
+        "name": "Freigabe 2. Verdichter",
+        "type": "number",
+        "role": "einstellungen.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Minmale Temperatur für Freigabe VD2",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "temperaturen.einstellungen.FreigZWE",
+      "type": "state",
+      "common": {
+        "name": "Freigabe ZWE",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Minimale Temperatur für Freigabe ZWE",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "temperaturen.einstellungen.T-Luftabt",
+      "type": "state",
+      "common": {
+        "name": "Temperatur-Luftabtauung",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Minimale Temperatur für Luftabtauung",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "temperaturen.einstellungen.TDIsoll",
+      "type": "state",
+      "common": {
+        "name": "Solltemperatur thermische Desinfektion",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Solltemperatur thermische Desinfektion Brauchwarmwasser",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "temperaturen.einstellungen.HystBW",
+      "type": "state",
+      "common": {
+        "name": "Hysterese BW (0.5-3, +/-0.5)",
+        "type": "number",
+        "role": "einstellungen.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Hysterese Brauchwarmwasser",
+        "unit": "°K"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "temperaturen.einstellungen.VL2VDBW",
+      "type": "state",
+      "common": {
+        "name": "VL 2. Verdichter BW",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Vorlauftemperatur für Einsatz 2. Verdichter zur Erzeugung Brauchwarmwasser",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "temperaturen.einstellungen.TAussenMax",
+      "type": "state",
+      "common": {
+        "name": "maximale Aussentemperatur",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "maximale Aussentemperatur über der die WP gesperrt ist",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "temperaturen.einstellungen.TAussenMin",
+      "type": "state",
+      "common": {
+        "name": "minimale Aussentemperatur",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "minimale Aussentemperatur unter der die WP gesperrt ist",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    }, ,
+    {
+      "_id": "temperaturen.einstellungen.TWQMin",
+      "type": "state",
+      "common": {
+        "name": "minimale Wärmequellentemperatur",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "minimale Wärmequellentemperatur unter der die WP gesperrt ist",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "temperaturen.einstellungen.THGMax",
+      "type": "state",
+      "common": {
+        "name": "maximale Heissgastemperatur",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "maximale Heissgastemperatur",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "temperaturen.einstellungen.TLAbtEnde",
+      "type": "state",
+      "common": {
+        "name": "Temperatur Luftabtauung Ende",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Temperatur, bei der die Luftabtauung beendet wird",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "temperaturen.einstellungen.AbsenkBis",
+      "type": "state",
+      "common": {
+        "name": "maximale Absenkung",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "minimale Aussentemperatur, bei welcher eine Nachtabsenkung noch gemacht wird",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "temperaturen.einstellungen.VLmax",
+      "type": "state",
+      "common": {
+        "name": "maximale Vorlauftemperatur",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Vorlauftemperatur bei deren Erreichen der Kompressor ausgeschaltet wird.",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
     }
   ]
 }

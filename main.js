@@ -14,6 +14,7 @@ var net = require('net');
 var datastring = "";
 var data1800array = [];
 var data1800error = 0;
+var data2100error = 0;
 var data3405error = 0;
 var data3505error = 0;
 var data3400error = 0;
@@ -160,8 +161,9 @@ function pollluxtronik() {
   pollfunction = true;
   callluxtronik1800();
   setTimeout(callluxtronik3405, 2000);
-  setTimeout(callluxtronik3505, 4000);
-  setTimeout(callluxtronik3400, 6000);
+  setTimeout(callluxtronik3405, 4000);
+  setTimeout(callluxtronik3505, 6000);
+  setTimeout(callluxtronik3400, 8000);
 } //endPollluxtronik
 
 function controlluxtronik(id, state) {
@@ -502,6 +504,84 @@ function callluxtronik1800() {
     }
   });
 } //callluxtronik1800
+
+
+function callluxtronik2100() {
+  clientconnection = true;
+  warteauf = "callluxtronik2100";
+  var client = new net.Socket();
+
+  var client = client.connect(port, deviceIpAdress, function() {
+    // write out connection details
+    adapter.log.debug('Connected to Luxtronik');
+    datastring = "";
+    client.write('2100\r\n'); // send data to through the client to the host
+  });
+
+  client.on('error', function(ex) {
+    adapter.log.warn("2100 connection error: " + ex);
+  });
+
+  client.on('data', function(data) {
+    datastring += data;
+    if (datastring.includes("2100;16") === true) {
+      client.destroy();
+    }
+  });
+
+  client.on('close', function() {
+    adapter.log.debug("Connection closed");
+    adapter.log.debug("Datenset: " + datastring);
+    adapter.log.debug("Anzahl Elemente Datenset: " + datastring.length);
+    try {
+      if (datastring.length > 10) {
+        var data2100array = datastring.split(';');
+        adapter.log.debug("Anzahl Elemente data2100array: " + data2100array.length);
+        if (data2100array.length == 19) {
+          adapter.log.debug("Anzahl Elemente data2100array: " + data2100array.length);
+          adapter.log.debug("Datensatz 2100: " + data2100array);
+
+          adapter.setState("temperaturen.einstellungen.RLBegr", einsttemp[2], true);
+          adapter.setState("temperaturen.einstellungen.HystHR", einsttemp[3], true);
+          adapter.setState("temperaturen.einstellungen.TRErhMax", einsttemp[4], true);
+          adapter.setState("temperaturen.einstellungen.Freig2VD", einsttemp[5], true);
+          adapter.setState("temperaturen.einstellungen.FreigZWE", einsttemp[6], true);
+          adapter.setState("temperaturen.einstellungen.T-Luftabt", einsttemp[7], true);
+          adapter.setState("temperaturen.einstellungen.TDIsoll", einsttemp[8], true);
+          adapter.setState("temperaturen.einstellungen.HystBW", einsttemp[9], true);
+          adapter.setState("temperaturen.einstellungen.VL2VDBW", einsttemp[10], true);
+          adapter.setState("temperaturen.einstellungen.TAussenMax", einsttemp[11], true);
+          adapter.setState("temperaturen.einstellungen.TAussenMin", einsttemp[12], true);
+          adapter.setState("temperaturen.einstellungen.TWQMin", einsttemp[13], true);
+          adapter.setState("temperaturen.einstellungen.THGMax", einsttemp[14], true);
+          adapter.setState("temperaturen.einstellungen.TLAbtEnde", einsttemp[15], true);
+          adapter.setState("temperaturen.einstellungen.AbsenkBis", einsttemp[16], true);
+          adapter.setState("temperaturen.einstellungen.VLmax", einsttemp[17], true);
+          data2100error = 0;
+        } else {
+          adapter.log.debug("Datenarray2100 unvollständig, keine Werte gesetzt")
+          data2100error++;
+        }
+      } else {
+        adapter.log.debug("Datensatz2100 unvollständig, keine Werte gesetzt")
+        data2100error++;
+      }
+      if (data2100error > 4) {
+        adapter.log.warn("Achtung, mehrfach unvollständiger Datensatz 2100");
+        adapter.log.warn("Adapter wird neu gestartet");
+        restartAdapter();
+      }
+    } catch (e) {
+      adapter.log.warn("callluxtronik2100 - Feher: " + e);
+    }
+    adapter.log.debug("Daten 2100 fertig verarbeitet.")
+
+    if (pollfunction == false) {
+      clientconnection = false;
+    }
+  });
+
+} //end callluxtronik2100
 
 function callluxtronik3405() {
   clientconnection = true;
