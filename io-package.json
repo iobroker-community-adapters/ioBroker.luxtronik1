@@ -1735,7 +1735,7 @@
       "native": {
 
       }
-    }, ,
+    },
     {
       "_id": "temperaturen.einstellungen.TWQMin",
       "type": "state",
