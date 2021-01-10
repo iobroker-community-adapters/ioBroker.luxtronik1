@@ -33,6 +33,7 @@ var instance;
 var errorcount;
 var clientconnection = false;
 var hkfunction = false;
+var hystfunction = false;
 var pollfunction = false;
 var warteauf = "";
 var clientconnectionerror = 0;
@@ -160,7 +161,7 @@ function pollluxtronik() {
   clientconnectionerror = 0;
   pollfunction = true;
   callluxtronik1800();
-  setTimeout(callluxtronik3405, 2000);
+  setTimeout(callluxtronik2100, 2000);
   setTimeout(callluxtronik3405, 4000);
   setTimeout(callluxtronik3505, 6000);
   setTimeout(callluxtronik3400, 8000);
@@ -202,7 +203,16 @@ function controlluxtronik(id, state) {
       case "control.AbwRLs":
         adapter.log.debug("Setze Abweichung Rücklauf SOLL auf: " + state + "°C");
         controlabwrls(state * 10);
+        break;
 
+      case "control.HystBWs":
+        adapter.log.debug("Setze Hystere Brauchwasser auf: " + state + "°C");
+        controlhystbw(state * 10);
+        break;
+
+      case "control.HystHKs":
+        adapter.log.debug("Setze Hystere Brauchwasser auf: " + state + "°C");
+        controlhysthk(state * 10);
         break;
     }
   } catch (e) {
@@ -369,6 +379,65 @@ function controlendpunkthk(stateendpunkthk) {
   setTimeout(callluxtronik3400, 7000);
 } //end controlendpunkthk
 
+
+
+function controlhystbw(statehystbw) {
+  if (clientconnection == true) {
+    adapter.log.debug("warte auf " + warteauf);
+    clientconnectionerror++;
+    if (clientconnectionerror > 10) {
+      adapter.log.warn("Verbindungsprobleme, starte Adapter neu");
+      restartAdapter();
+    }
+    setTimeout(function() {
+      controlhystbw(statehystbw);
+    }, 1000);
+    return;
+  }
+  clientconnectionerror = 0;
+  hystfunction = true;
+  adapter.log.debug("Hysteresefunktion aktiviert");
+
+  callluxtronik2100();
+  setTimeout(function() {
+    var dataHyst = data2100array;
+    dataHyst[0] = 2101;
+    dataHyst[9] = statehystbw;
+    callluxtronik2101(dataHyst);
+  }, 2000);
+  setTimeout(callluxtronik2100, 7000);
+} //end controlhystbw
+
+function controlhysthk(statehysthk) {
+  if (clientconnection == true) {
+    adapter.log.debug("warte auf " + warteauf);
+    clientconnectionerror++;
+    if (clientconnectionerror > 10) {
+      adapter.log.warn("Verbindungsprobleme, starte Adapter neu");
+      restartAdapter();
+    }
+    setTimeout(function() {
+      controlhysthk(statehysthk);
+    }, 1000);
+    return;
+  }
+  clientconnectionerror = 0;
+  hystfunction = true;
+  adapter.log.debug("Hysteresefunktion aktiviert");
+
+  callluxtronik2100();
+  setTimeout(function() {
+    var dataHyst = data2100array;
+    dataHyst[0] = 2101;
+    dataHyst[3] = statehysthk;
+    callluxtronik2101(dataHyst);
+  }, 2000);
+  setTimeout(callluxtronik2100, 7000);
+} //end controlhysthk
+
+
+
+
 function callluxtronik1800() {
   clientconnection = true;
   warteauf = "callluxtronik1800";
@@ -443,6 +512,19 @@ function callluxtronik1800() {
 
           ablaufzeiten = data1800array[5].split(';'); //1400
           adapter.setState("ablaufzeiten.WPseit", (parseInt(ablaufzeiten[2]) * 3600 + parseInt(ablaufzeiten[3]) * 60 + parseInt(ablaufzeiten[4])), true);
+
+          adapter.getState('ablaufzeiten.WPseitlast', function(err, state) {
+            if (state) {
+              if ((parseInt(ablaufzeiten[2]) * 3600 + parseInt(ablaufzeiten[3]) * 60 + parseInt(ablaufzeiten[4])) > state.val) {
+                adapter.setState('ablaufzeiten.WPseitlast', state.val, true);
+              } else if ((parseInt(ablaufzeiten[2]) * 3600 + parseInt(ablaufzeiten[3]) * 60 + parseInt(ablaufzeiten[4])) == 0) {
+                adapter.log.debug("WPseit = 0, letzte Laufzeit bleibt stehen")
+              } else {
+                adapter.setState('ablaufzeiten.WPseitlast', state.val, true);
+              }
+            }
+          });
+
           adapter.setState("ablaufzeiten.ZWE1seit", (parseInt(ablaufzeiten[5]) * 3600 + parseInt(ablaufzeiten[6]) * 60 + parseInt(ablaufzeiten[7])), true);
           adapter.setState("ablaufzeiten.ZWE2seit", (parseInt(ablaufzeiten[8]) * 3600 + parseInt(ablaufzeiten[9]) * 60 + parseInt(ablaufzeiten[10])), true);
           adapter.setState("ablaufzeiten.Netzeinv", (parseInt(ablaufzeiten[11])), true);
@@ -537,26 +619,26 @@ function callluxtronik2100() {
       if (datastring.length > 10) {
         var data2100array = datastring.split(';');
         adapter.log.debug("Anzahl Elemente data2100array: " + data2100array.length);
-        if (data2100array.length == 19) {
+        if (data2100array.length == 18) {
           adapter.log.debug("Anzahl Elemente data2100array: " + data2100array.length);
           adapter.log.debug("Datensatz 2100: " + data2100array);
 
-          adapter.setState("temperaturen.einstellungen.RLBegr", einsttemp[2], true);
-          adapter.setState("temperaturen.einstellungen.HystHR", einsttemp[3], true);
-          adapter.setState("temperaturen.einstellungen.TRErhMax", einsttemp[4], true);
-          adapter.setState("temperaturen.einstellungen.Freig2VD", einsttemp[5], true);
-          adapter.setState("temperaturen.einstellungen.FreigZWE", einsttemp[6], true);
-          adapter.setState("temperaturen.einstellungen.T-Luftabt", einsttemp[7], true);
-          adapter.setState("temperaturen.einstellungen.TDIsoll", einsttemp[8], true);
-          adapter.setState("temperaturen.einstellungen.HystBW", einsttemp[9], true);
-          adapter.setState("temperaturen.einstellungen.VL2VDBW", einsttemp[10], true);
-          adapter.setState("temperaturen.einstellungen.TAussenMax", einsttemp[11], true);
-          adapter.setState("temperaturen.einstellungen.TAussenMin", einsttemp[12], true);
-          adapter.setState("temperaturen.einstellungen.TWQMin", einsttemp[13], true);
-          adapter.setState("temperaturen.einstellungen.THGMax", einsttemp[14], true);
-          adapter.setState("temperaturen.einstellungen.TLAbtEnde", einsttemp[15], true);
-          adapter.setState("temperaturen.einstellungen.AbsenkBis", einsttemp[16], true);
-          adapter.setState("temperaturen.einstellungen.VLmax", einsttemp[17], true);
+          adapter.setState("temperaturen.einstellungen.RLBegr", data2100array[2] / 10, true);
+          adapter.setState("temperaturen.einstellungen.HystHR", data2100array[3] / 10, true);
+          adapter.setState("temperaturen.einstellungen.TRErhMax", data2100array[4] / 10, true);
+          adapter.setState("temperaturen.einstellungen.Freig2VD", data2100array[5] / 10, true);
+          adapter.setState("temperaturen.einstellungen.FreigZWE", data2100array[6] / 10, true);
+          adapter.setState("temperaturen.einstellungen.T-Luftabt", data2100array[7] / 10, true);
+          adapter.setState("temperaturen.einstellungen.TDIsoll", data2100array[8] / 10, true);
+          adapter.setState("temperaturen.einstellungen.HystBW", data2100array[9] / 10, true);
+          adapter.setState("temperaturen.einstellungen.VL2VDBW", data2100array[10] / 10, true);
+          adapter.setState("temperaturen.einstellungen.TAussenMax", data2100array[11] / 10, true);
+          adapter.setState("temperaturen.einstellungen.TAussenMin", data2100array[12] / 10, true);
+          adapter.setState("temperaturen.einstellungen.TWQMin", data2100array[13] / 10, true);
+          adapter.setState("temperaturen.einstellungen.THGMax", data2100array[14] / 10, true);
+          adapter.setState("temperaturen.einstellungen.TLAbtEnde", data2100array[15] / 10, true);
+          adapter.setState("temperaturen.einstellungen.AbsenkBis", data2100array[16] / 10, true);
+          adapter.setState("temperaturen.einstellungen.VLmax", data2100array[17] / 10, true);
           data2100error = 0;
         } else {
           adapter.log.debug("Datenarray2100 unvollständig, keine Werte gesetzt")
@@ -857,6 +939,81 @@ function callluxtronik3401(hkdata) {
     clientconnection = false;
   });
 } //end callluxtronik3401
+
+
+function callluxtronik2101(dataHyst) {
+  clientconnection = true;
+  warteauf = "callluxtronik2101";
+  var client = new net.Socket();
+
+  var client = client.connect(port, deviceIpAdress, function() {
+    // write out connection details
+    adapter.log.debug('Connected to Luxtronik');
+    datastring = "";
+    errorcount = 0;
+    client.write('2101\r\n'); // send data to through the client to the host
+    setTimeout(function() {
+      client.write(dataHyst.toString().replace(/,/g, ';') + '\r\n');
+    }, 2000);
+    setTimeout(function() {
+      client.write('999\r\n');
+    }, 4000);
+  });
+
+  client.on('error', function(ex) {
+    adapter.log.warn("2101 connection error: " + ex);
+  });
+
+  client.on('data', function(data) {
+    datastring += data;
+    try {
+      if (datastring.includes("779") === true && errorcount == 0) {
+        errorcount = 1;
+        adapter.log.warn("Befehlsverarbeitung unvollständig, bitte nochmal starten");
+        adapter.log.warn("Kommunikationsstörung wird behoben gestartet");
+
+        client.write('2101\r\n'); // send data to through the client to the host
+        setTimeout(function() {
+          client.write('2101;0\r\n');
+        }, 100);
+        setTimeout(function() {
+          client.write('999\r\n');
+
+        }, 200);
+
+      }
+
+      if (datastring.includes("993\r\n999") === true) {
+        client.destroy();
+      }
+    } catch (e) {
+      adapter.log.debug("Fehler Störungsbehebung " + e);
+    }
+  });
+
+  client.on('close', function() {
+    adapter.log.debug("Connection closed");
+    adapter.log.debug("Datenset: " + datastring);
+    adapter.log.debug("Anzahl Elemente Datenset: " + datastring.length);
+    try {
+
+      if (datastring != "") {
+        var data2101array = datastring.split('\r\n');
+        adapter.log.debug("Heizkurvenwerte neu: " + data2101array);
+        if (errorcount == 1) {
+          errorcount = 0;
+        }
+      }
+    } catch (e) {
+      adapter.log.warn("callluxtronik2101 - Feher: " + e);
+    }
+    adapter.log.debug("Daten 2101 fertig verarbeitet.");
+    clientconnection = false;
+  });
+} //end callluxtronik2101
+
+
+
 
 function callluxtronik3406(statemodusheizung) {
   clientconnection = true;

@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "luxtronik1",
-    "version": "0.2.7",
+    "version": "0.3.0",
     "news": {
+      "0.3.0": {
+        "en": "info on temperature - settings and hysteresis - control added",
+        "de": "Menu Einstellungen-Temperaturen abgebildet und Hysterese-Werte setzen"
+      },
       "0.2.7": {
         "en": "status-info added",
         "de": "Statusinformation erweitert."
@@ -696,6 +700,25 @@
 
       }
     },
+
+    {
+      "_id": "ablaufzeiten.WPseitlast",
+      "type": "state",
+      "common": {
+        "name": "Wärmepumpe letzte Laufzeit",
+        "type": "number",
+        "role": "value.seconds",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Wärmepumpe letzte Laufzeit (+/- Abfrageintervall)",
+        "unit": "s"
+      },
+      "native": {
+
+      }
+    },
+
     {
       "_id": "ablaufzeiten.ZWE1seit",
       "type": "state",
@@ -1560,6 +1583,40 @@
 
       }
     },
+
+    {
+      "_id": "control.HystBWs",
+      "type": "state",
+      "common": {
+        "name": "Hysterese Brauchwasser Soll  (0.5-3, +/-0.5)",
+        "type": "number",
+        "role": "control.temperature",
+        "read": true,
+        "write": true,
+        "desc": "Hysterese Brauchwasser setzen",
+        "unit": "°C"
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "control.HystHKs",
+      "type": "state",
+      "common": {
+        "name": "Hysterese Heizkreis SOLL (0.5-3, +/-0.5)",
+        "type": "number",
+        "role": "control.temperature",
+        "read": true,
+        "write": true,
+        "desc": "Hysterese Heizkreis setzen",
+        "unit": "°C"
+
+      },
+      "native": {
+
+      }
+    },
     {
       "_id": "temperaturen.einstellungen.RLBegr",
       "type": "state",
@@ -1580,7 +1637,7 @@
       "_id": "temperaturen.einstellungen.HystHR",
       "type": "state",
       "common": {
-        "name": "Hysterese HR (0.5-3, +/-0.5)",
+        "name": "Hysterese HR",
         "type": "number",
         "role": "einstellungen.temperature",
         "read": true,
@@ -1676,7 +1733,7 @@
       "_id": "temperaturen.einstellungen.HystBW",
       "type": "state",
       "common": {
-        "name": "Hysterese BW (0.5-3, +/-0.5)",
+        "name": "Hysterese BW",
         "type": "number",
         "role": "einstellungen.temperature",
         "read": true,
