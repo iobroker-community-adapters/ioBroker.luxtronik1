@@ -692,7 +692,7 @@
         "role": "value.seconds",
         "read": true,
         "write": false,
-        "def": false,
+        "def": 0,
         "desc": "Wärmepumpe läuft seit",
         "unit": "s"
       },
@@ -710,7 +710,7 @@
         "role": "value.seconds",
         "read": true,
         "write": false,
-        "def": false,
+        "def": 0,
         "desc": "Wärmepumpe letzte Laufzeit (+/- Abfrageintervall)",
         "unit": "s"
       },
@@ -728,7 +728,7 @@
         "role": "value.seconds",
         "read": true,
         "write": false,
-        "def": false,
+        "def": 0,
         "desc": "Zweiter Wärmeerzeuger 1 läuft seit",
         "unit": "s"
       },
@@ -745,7 +745,7 @@
         "role": "value.seconds",
         "read": true,
         "write": false,
-        "def": false,
+        "def": 0,
         "desc": "Zweiter Wärmeerzeuger 2 läuft seit",
         "unit": "s"
       },
@@ -762,7 +762,7 @@
         "role": "value.seconds",
         "read": true,
         "write": false,
-        "def": false,
+        "def": 0,
         "desc": "Netzeinschaltverzögerung",
         "unit": "s"
       },
@@ -779,7 +779,7 @@
         "role": "value.seconds",
         "read": true,
         "write": false,
-        "def": false,
+        "def": 0,
         "desc": "Schaltspielsperre Standzeit",
         "unit": "s"
       },
@@ -796,7 +796,7 @@
         "role": "value.seconds",
         "read": true,
         "write": false,
-        "def": false,
+        "def": 0,
         "desc": "Schaltspielsperre Einschaltverzögerung",
         "unit": "s"
       },
@@ -813,7 +813,7 @@
         "role": "value.seconds",
         "read": true,
         "write": false,
-        "def": false,
+        "def": 0,
         "desc": "Verdichter-Standzeit",
         "unit": "s"
       },
@@ -830,7 +830,7 @@
         "role": "value.seconds",
         "read": true,
         "write": false,
-        "def": false,
+        "def": 0,
         "desc": "Heizungsregler Mehr-Zeit",
         "unit": "s"
       },
@@ -847,7 +847,7 @@
         "role": "value.seconds",
         "read": true,
         "write": false,
-        "def": false,
+        "def": 0,
         "desc": "Heizungsregler Weniger-Zeit",
         "unit": "s"
       },
@@ -864,7 +864,7 @@
         "role": "value.seconds",
         "read": true,
         "write": false,
-        "def": false,
+        "def": 0,
         "desc": "Thermische Desinfektion seit",
         "unit": "s"
       },
@@ -881,7 +881,7 @@
         "role": "value.seconds",
         "read": true,
         "write": false,
-        "def": false,
+        "def": 0,
         "desc": "Sperre Brauchwarmwasser",
         "unit": "s"
       },
@@ -908,7 +908,7 @@
         "role": "value.hours",
         "read": true,
         "write": false,
-        "def": false,
+        "def": 0,
         "desc": "Betriebsstunden Verdichter 1"
       },
       "native": {
@@ -924,7 +924,7 @@
         "role": "value.hours",
         "read": true,
         "write": false,
-        "def": false,
+        "def": 0,
         "desc": "Imulse Verdichter 1"
       },
       "native": {
@@ -952,11 +952,11 @@
       "type": "state",
       "common": {
         "name": "Betriebsstunden Verdichter 2",
-        "type": "string",
+        "type": "number",
         "role": "value.hours",
         "read": true,
         "write": false,
-        "def": false,
+        "def": 0,
         "desc": "Betriebsstunden Verdichter 2"
       },
       "native": {
@@ -972,7 +972,7 @@
         "role": "value.hours",
         "read": true,
         "write": false,
-        "def": false,
+        "def": 0,
         "desc": "Impulse Verdichter 2"
       },
       "native": {
@@ -1309,7 +1309,6 @@
           "2": "zwei Verdichter dürfen laufen",
           "3": "zus. Wärmeerz. darf mitlaufen"
         },
-        "def": false,
         "desc": "Bivalenzstufe"
       },
       "native": {
@@ -1333,7 +1332,6 @@
           "4": "AUS",
           "224": "Ausheizprogramm"
         },
-        "def": false,
         "desc": "Betriebsmodus Heizung"
       },
       "native": {
@@ -1356,7 +1354,6 @@
           "3": "Ferien",
           "4": "AUS"
         },
-        "def": false,
         "desc": "Betriebsmodus Warmwasser"
       },
       "native": {
@@ -1382,7 +1379,7 @@
         "role": "info.status",
         "read": true,
         "write": false,
-        "def": false,
+        "def": 0,
         "desc": "Soll-Abweichung Rücklauf (Startbildschirm)",
         "unit": "°C"
       },
@@ -1416,7 +1413,7 @@
         "role": "info.status",
         "read": true,
         "write": false,
-        "def": false,
+        "def": 0,
         "desc": "Parallelverschiebung Heizkurve",
         "unit": "°C"
       },
@@ -1479,7 +1476,7 @@
         "role": "control.temperature",
         "read": true,
         "write": true,
-        "def": false,
+        "def": 0,
         "desc": "Endpunkt Heizkurve setzen",
         "unit": "°C"
       },
@@ -1496,7 +1493,7 @@
         "role": "control.temperature",
         "read": true,
         "write": true,
-        "def": false,
+        "def": 0,
         "desc": "Parallelverschiebung Heizkurve setzen",
         "unit": "°C"
       },
@@ -1560,7 +1557,6 @@
           "3": "Ferien",
           "4": "AUS"
         },
-        "def": false,
         "desc": "Betriebsmodus Warmwasser setzen"
       },
       "native": {
