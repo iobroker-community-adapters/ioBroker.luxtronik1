@@ -28,6 +28,7 @@ var abschaltungen = [];
 var anlstat = [];
 var modus = ['AUTO', 'ZWE', 'Party', 'Ferien', 'Aus', 'Aus'];
 var data3400array = [];
+var data2100array = [];
 var hkdata;
 var instance;
 var errorcount;
@@ -515,13 +516,17 @@ function callluxtronik1800() {
 
           adapter.getState('ablaufzeiten.WPseitlast', function(err, state) {
             if (state) {
-              if ((parseInt(ablaufzeiten[2]) * 3600 + parseInt(ablaufzeiten[3]) * 60 + parseInt(ablaufzeiten[4])) > state.val) {
-                adapter.setState('ablaufzeiten.WPseitlast', state.val, true);
-              } else if ((parseInt(ablaufzeiten[2]) * 3600 + parseInt(ablaufzeiten[3]) * 60 + parseInt(ablaufzeiten[4])) == 0) {
-                adapter.log.debug("WPseit = 0, letzte Laufzeit bleibt stehen")
+              adapter.log.debug("Letzte Laufzeit:" + state.val + " Vorwert: " + state.lastval);
+              if (state.val == 0 && state.lastval > 0) {
+                adapter.setState('ablaufzeiten.WPseitlast', state.lastval, true);
+                adapter.log.debug("neue letzte Laufzeit gesetzt");
+              } else if (state.val > state.lastval) {
+                adapter.log.debug("WP läuft, WPseitlast wird ersetzt, wenn WP wieder steht");
               } else {
-                adapter.setState('ablaufzeiten.WPseitlast', state.val, true);
+                adapter.log.debug("keine Änderung");
               }
+            } else {
+              adapterl.log.debug("kein State");
             }
           });
 
