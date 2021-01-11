@@ -481,7 +481,9 @@ function callluxtronik1800() {
           adapter.setState("temperaturen.HG", temperaturen[5] / 10, true);
           adapter.setState("temperaturen.BWi", temperaturen[7] / 10, true);
           adapter.setState("temperaturen.BWs", temperaturen[8] / 10, true);
-          adapter.setState("control.BWs", temperaturen[8] / 10, true);
+          if (pollfunction == true) {
+            adapter.setState("control.BWs", temperaturen[8] / 10, true);
+          }
           adapter.setState("temperaturen.WQe", temperaturen[9] / 10, true);
           adapter.setState("temperaturen.WQa", temperaturen[10] / 10, true);
           adapter.setState("temperaturen.MK1VLi", temperaturen[11] / 10, true);
@@ -512,21 +514,24 @@ function callluxtronik1800() {
           adapter.setState("ausgaenge.Zweiter_Waermeerzeuger_2_Sammelstoerung", ausgaenge[14], true);
 
           ablaufzeiten = data1800array[5].split(';'); //1400
-          adapter.setState("ablaufzeiten.WPseit", (parseInt(ablaufzeiten[2]) * 3600 + parseInt(ablaufzeiten[3]) * 60 + parseInt(ablaufzeiten[4])), true);
 
-          adapter.getState('ablaufzeiten.WPseitlast', function(err, state) {
+          adapter.getState('ablaufzeiten.WPseit', function(err, state) {
             if (state) {
-              adapter.log.debug("Letzte Laufzeit:" + state.val + " Vorwert: " + state.lastval);
-              if (state.val == 0 && state.lastval > 0) {
-                adapter.setState('ablaufzeiten.WPseitlast', state.lastval, true);
+              adapter.log.debug("Laufzeit:" + (parseInt(ablaufzeiten[2]) * 3600 + parseInt(ablaufzeiten[3]) * 60 + parseInt(ablaufzeiten[4])) + " Vorwert: " + state.val);
+              if ((parseInt(ablaufzeiten[2]) * 3600 + parseInt(ablaufzeiten[3]) * 60 + parseInt(ablaufzeiten[4])) == 0 && state.val > 0) {
+                adapter.setState('ablaufzeiten.WPseitlast', state.val, true);
+                adapter.setState("ablaufzeiten.WPseit", (parseInt(ablaufzeiten[2]) * 3600 + parseInt(ablaufzeiten[3]) * 60 + parseInt(ablaufzeiten[4])), true);
                 adapter.log.debug("neue letzte Laufzeit gesetzt");
-              } else if (state.val > state.lastval) {
+              } else if ((parseInt(ablaufzeiten[2]) * 3600 + parseInt(ablaufzeiten[3]) * 60 + parseInt(ablaufzeiten[4])) > state.val) {
                 adapter.log.debug("WP läuft, WPseitlast wird ersetzt, wenn WP wieder steht");
+                adapter.setState("ablaufzeiten.WPseit", (parseInt(ablaufzeiten[2]) * 3600 + parseInt(ablaufzeiten[3]) * 60 + parseInt(ablaufzeiten[4])), true);
               } else {
                 adapter.log.debug("keine Änderung");
+                adapter.setState("ablaufzeiten.WPseit", (parseInt(ablaufzeiten[2]) * 3600 + parseInt(ablaufzeiten[3]) * 60 + parseInt(ablaufzeiten[4])), true);
               }
             } else {
               adapterl.log.debug("kein State");
+              adapter.setState("ablaufzeiten.WPseit", (parseInt(ablaufzeiten[2]) * 3600 + parseInt(ablaufzeiten[3]) * 60 + parseInt(ablaufzeiten[4])), true);
             }
           });
 
@@ -567,6 +572,9 @@ function callluxtronik1800() {
           adapter.setState("status.SW", ((data1800array[21].split(';'))[3]), true);
           adapter.setState("status.BivStufe", ((data1800array[21].split(';'))[4]), true);
           adapter.setState("status.ANL", setstatustext(data1800array[21]), true);
+
+
+
 
           data1800error = 0;
         } else {
@@ -630,12 +638,18 @@ function callluxtronik2100() {
 
           adapter.setState("temperaturen.einstellungen.RLBegr", data2100array[2] / 10, true);
           adapter.setState("temperaturen.einstellungen.HystHR", data2100array[3] / 10, true);
+          if (pollfunction == true) {
+            adapter.setState("control.HystHKs", data2100array[3] / 10, true);
+          }
           adapter.setState("temperaturen.einstellungen.TRErhMax", data2100array[4] / 10, true);
           adapter.setState("temperaturen.einstellungen.Freig2VD", data2100array[5] / 10, true);
           adapter.setState("temperaturen.einstellungen.FreigZWE", data2100array[6] / 10, true);
           adapter.setState("temperaturen.einstellungen.T-Luftabt", data2100array[7] / 10, true);
           adapter.setState("temperaturen.einstellungen.TDIsoll", data2100array[8] / 10, true);
           adapter.setState("temperaturen.einstellungen.HystBW", data2100array[9] / 10, true);
+          if (pollfunction == true) {
+            adapter.setState("control.HystBWs", data2100array[9] / 10, true);
+          }
           adapter.setState("temperaturen.einstellungen.VL2VDBW", data2100array[10] / 10, true);
           adapter.setState("temperaturen.einstellungen.TAussenMax", data2100array[11] / 10, true);
           adapter.setState("temperaturen.einstellungen.TAussenMin", data2100array[12] / 10, true);
@@ -707,7 +721,9 @@ function callluxtronik3405() {
 
 
           adapter.setState("status.ModusHeizung", parseInt(data3405array[2]), true);
-          adapter.setState("control.ModusHeizung", parseInt(data3405array[2]), true);
+          if (pollfunction == true) {
+            adapter.setState("control.ModusHeizung", parseInt(data3405array[2]), true);
+          }
           data3405error = 0;
         } else {
           adapter.log.debug("Datenarray3405 unvollständig, keine Werte gesetzt")
@@ -768,7 +784,9 @@ function callluxtronik3505() {
           adapter.log.debug("Modus Warmwasser: " + modus[parseInt(data3505array[2])]);
 
           adapter.setState("status.ModusWW", parseInt(data3505array[2]), true);
-          adapter.setState("control.ModusWW", parseInt(data3505array[2]), true);
+          if (pollfunction == true) {
+            adapter.setState("control.ModusWW", parseInt(data3505array[2]), true);
+          }
           data3505error = 0;
         } else {
           adapter.log.debug("Datenarray3505 unvollständig, keine Werte gesetzt");
@@ -838,10 +856,12 @@ function callluxtronik3400() {
           adapter.setState("heizkurve.Endpunkt", data3400array[3] / 10, true);
           adapter.setState("heizkurve.ParaV", data3400array[4] / 10, true);
           adapter.setState("heizkurve.NachtAbs", data3400array[5] / 10, true);
-          adapter.setState("control.AbwRLs", data3400array[2] / 10, true);
-          adapter.setState("control.EndpunktHK", data3400array[3] / 10, true);
-          adapter.setState("control.ParaVHK", data3400array[4] / 10, true);
-          adapter.setState("control.NachtAbs", data3400array[5] / 10, true);
+          if (pollfunction == true) {
+            adapter.setState("control.AbwRLs", data3400array[2] / 10, true);
+            adapter.setState("control.EndpunktHK", data3400array[3] / 10, true);
+            adapter.setState("control.ParaVHK", data3400array[4] / 10, true);
+            adapter.setState("control.NachtAbs", data3400array[5] / 10, true);
+          }
           data3400error = 0;
         } else {
           adapter.log.debug("Datenarray3400 unvollständig, keine Werte gesetzt");
@@ -1044,8 +1064,28 @@ function callluxtronik3406(statemodusheizung) {
 
   client.on('data', function(data) {
     datastring += data;
-    if (datastring.includes("993\r\n999") === true) {
-      client.destroy();
+    try {
+      if (datastring.includes("779") === true && errorcount == 0) {
+        errorcount = 1;
+        adapter.log.warn("Befehlsverarbeitung unvollständig, bitte nochmal starten");
+        adapter.log.warn("Kommunikationsstörung wird behoben gestartet");
+
+        client.write('3406\r\n'); // send data to through the client to the host
+        setTimeout(function() {
+          client.write('3406;0\r\n');
+        }, 100);
+        setTimeout(function() {
+          client.write('999\r\n');
+
+        }, 200);
+
+      }
+
+      if (datastring.includes("993\r\n999") === true) {
+        client.destroy();
+      }
+    } catch (e) {
+      adapter.log.debug("Fehler Störungsbehebung " + e);
     }
   });
 
@@ -1094,8 +1134,28 @@ function callluxtronik3506(statemodusww) {
 
   client.on('data', function(data) {
     datastring += data;
-    if (datastring.includes("993\r\n999") === true) {
-      client.destroy();
+    try {
+      if (datastring.includes("779") === true && errorcount == 0) {
+        errorcount = 1;
+        adapter.log.warn("Befehlsverarbeitung unvollständig, bitte nochmal starten");
+        adapter.log.warn("Kommunikationsstörung wird behoben gestartet");
+
+        client.write('3506\r\n'); // send data to through the client to the host
+        setTimeout(function() {
+          client.write('3506;0\r\n');
+        }, 100);
+        setTimeout(function() {
+          client.write('999\r\n');
+
+        }, 200);
+
+      }
+
+      if (datastring.includes("993\r\n999") === true) {
+        client.destroy();
+      }
+    } catch (e) {
+      adapter.log.debug("Fehler Störungsbehebung " + e);
     }
   });
 
@@ -1141,8 +1201,28 @@ function callluxtronik3501(statebws) {
 
   client.on('data', function(data) {
     datastring += data;
-    if (datastring.includes("993\r\n999") === true) {
-      client.destroy();
+    try {
+      if (datastring.includes("779") === true && errorcount == 0) {
+        errorcount = 1;
+        adapter.log.warn("Befehlsverarbeitung unvollständig, bitte nochmal starten");
+        adapter.log.warn("Kommunikationsstörung wird behoben gestartet");
+
+        client.write('3501\r\n'); // send data to through the client to the host
+        setTimeout(function() {
+          client.write('3501;0\r\n');
+        }, 100);
+        setTimeout(function() {
+          client.write('999\r\n');
+
+        }, 200);
+
+      }
+
+      if (datastring.includes("993\r\n999") === true) {
+        client.destroy();
+      }
+    } catch (e) {
+      adapter.log.debug("Fehler Störungsbehebung " + e);
     }
   });
 
