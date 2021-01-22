@@ -506,7 +506,7 @@ function callluxtronik1800() {
           adapter.setState("ausgaenge.Mischer_1_Auf", ausgaenge[6], true);
           adapter.setState("ausgaenge.Mischer_1_Zu", ausgaenge[7], true);
           adapter.setState("ausgaenge.Ventilation_des_Waermepumpengehaeuses", ausgaenge[8], true);
-          adapter.setState("ausgaenge.Ventilator_Brunnen_oder_Soleumwaelzpu", ausgaenge[9], true);
+          adapter.setState("ausgaenge.Ventilator_Brunnen_oder_Soleumwaelzpumpe", ausgaenge[9], true);
           adapter.setState("ausgaenge.Verdichter_1_in_Waermepumpe", ausgaenge[10], true);
           adapter.setState("ausgaenge.Verdichter_2_in_Waermepumpe", ausgaenge[11], true);
           adapter.setState("ausgaenge.Zusatzumwaelzpumpe_Zirkulationspumpe", ausgaenge[12], true);
