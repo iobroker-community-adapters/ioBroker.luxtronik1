@@ -499,6 +499,8 @@ function callluxtronik1800() {
           adapter.setState("eingaenge.PEX", eingaenge[7], true);
 
           ausgaenge = data1800array[4].split(';'); //1300
+
+          var solpu ="Ventilator_Brunnen_oder_Soleumwaelzpumpe";
           adapter.setState("ausgaenge.Abtauventil", ausgaenge[2], true);
           adapter.setState("ausgaenge.Brauchwarmwasserumwaelzpumpe", ausgaenge[3], true);
           adapter.setState("ausgaenge.Fussbodenheizungsumwaelzpumpe", ausgaenge[4], true);
@@ -506,7 +508,7 @@ function callluxtronik1800() {
           adapter.setState("ausgaenge.Mischer_1_Auf", ausgaenge[6], true);
           adapter.setState("ausgaenge.Mischer_1_Zu", ausgaenge[7], true);
           adapter.setState("ausgaenge.Ventilation_des_Waermepumpengehaeuses", ausgaenge[8], true);
-          adapter.setState("ausgaenge.Ventilator_Brunnen_oder_Soleumwaelzpumpe", ausgaenge[9], true);
+          adapter.setState("ausgaenge." + solpu, ausgaenge[9], true);
           adapter.setState("ausgaenge.Verdichter_1_in_Waermepumpe", ausgaenge[10], true);
           adapter.setState("ausgaenge.Verdichter_2_in_Waermepumpe", ausgaenge[11], true);
           adapter.setState("ausgaenge.Zusatzumwaelzpumpe_Zirkulationspumpe", ausgaenge[12], true);
