@@ -922,7 +922,7 @@
       "type": "state",
       "common": {
         "name": "Impulse Verdichter 1",
-        "type": "number",
+        "type": "string",
         "role": "value.hours",
         "read": true,
         "write": false,
@@ -954,7 +954,7 @@
       "type": "state",
       "common": {
         "name": "Betriebsstunden Verdichter 2",
-        "type": "number",
+        "type": "string",
         "role": "value.hours",
         "read": true,
         "write": false,
@@ -970,7 +970,7 @@
       "type": "state",
       "common": {
         "name": "Impulse Verdichter 2",
-        "type": "number",
+        "type": "string",
         "role": "value.hours",
         "read": true,
         "write": false,
@@ -1302,7 +1302,7 @@
       "type": "state",
       "common": {
         "name": "Bivalenzstufe",
-        "type": "number",
+        "type": "string",
         "role": "info.status",
         "read": true,
         "write": false,
@@ -1535,7 +1535,7 @@
       "type": "state",
       "common": {
         "name": "Betriebsmodus Heizung",
-        "type": "string",
+        "type": "number",
         "role": "control.status",
         "read": true,
         "write": true,

@@ -491,27 +491,27 @@ function callluxtronik1800() {
           adapter.setState("temperaturen.RS", temperaturen[13] / 10, true);
 
           eingaenge = data1800array[3].split(';'); //1200
-          adapter.setState("eingaenge.ASD", eingaenge[2], true);
-          adapter.setState("eingaenge.EVU", eingaenge[3], true);
-          adapter.setState("eingaenge.HD", eingaenge[4], true);
-          adapter.setState("eingaenge.MOT", eingaenge[5], true);
-          adapter.setState("eingaenge.ND", eingaenge[6], true);
-          adapter.setState("eingaenge.PEX", eingaenge[7], true);
+          adapter.setState("eingaenge.ASD", !!+eingaenge[2], true);
+          adapter.setState("eingaenge.EVU", !!+eingaenge[3], true);
+          adapter.setState("eingaenge.HD", !!+eingaenge[4], true);
+          adapter.setState("eingaenge.MOT", !!+eingaenge[5], true);
+          adapter.setState("eingaenge.ND", !!+eingaenge[6], true);
+          adapter.setState("eingaenge.PEX", !!+eingaenge[7], true);
 
           ausgaenge = data1800array[4].split(';'); //1300
 
-          var solpu ="Ventilator_Brunnen_oder_Soleumwaelzpumpe";
-          adapter.setState("ausgaenge.Abtauventil", ausgaenge[2], true);
-          adapter.setState("ausgaenge.Brauchwarmwasserumwaelzpumpe", ausgaenge[3], true);
-          adapter.setState("ausgaenge.Fussbodenheizungsumwaelzpumpe", ausgaenge[4], true);
-          adapter.setState("ausgaenge.Heizungsumwaelzpumpe", ausgaenge[5], true);
-          adapter.setState("ausgaenge.Mischer_1_Auf", ausgaenge[6], true);
-          adapter.setState("ausgaenge.Mischer_1_Zu", ausgaenge[7], true);
-          adapter.setState("ausgaenge.Ventilation_des_Waermepumpengehaeuses", ausgaenge[8], true);
-          adapter.setState("ausgaenge." + solpu, ausgaenge[9], true);
-          adapter.setState("ausgaenge.Verdichter_1_in_Waermepumpe", ausgaenge[10], true);
-          adapter.setState("ausgaenge.Verdichter_2_in_Waermepumpe", ausgaenge[11], true);
-          adapter.setState("ausgaenge.Zusatzumwaelzpumpe_Zirkulationspumpe", ausgaenge[12], true);
+          var solpu = "Ventilator_Brunnen_oder_Soleumwaelzpumpe";
+          adapter.setState("ausgaenge.Abtauventil", !!+ausgaenge[2], true);
+          adapter.setState("ausgaenge.Brauchwarmwasserumwaelzpumpe", !!+ausgaenge[3], true);
+          adapter.setState("ausgaenge.Fussbodenheizungsumwaelzpumpe", !!+ausgaenge[4], true);
+          adapter.setState("ausgaenge.Heizungsumwaelzpumpe", !!+ausgaenge[5], true);
+          adapter.setState("ausgaenge.Mischer_1_Auf", !!+ausgaenge[6], true);
+          adapter.setState("ausgaenge.Mischer_1_Zu", !!+ausgaenge[7], true);
+          adapter.setState("ausgaenge.Ventilation_des_Waermepumpengehaeuses", !!+ausgaenge[8], true);
+          adapter.setState("ausgaenge." + solpu, !!+ausgaenge[9], true);
+          adapter.setState("ausgaenge.Verdichter_1_in_Waermepumpe", !!+ausgaenge[10], true);
+          adapter.setState("ausgaenge.Verdichter_2_in_Waermepumpe", !!+ausgaenge[11], true);
+          adapter.setState("ausgaenge.Zusatzumwaelzpumpe_Zirkulationspumpe", !!+ausgaenge[12], true);
           adapter.setState("ausgaenge.Zweiter_Waermeerzeuger_1", ausgaenge[13], true);
           adapter.setState("ausgaenge.Zweiter_Waermeerzeuger_2_Sammelstoerung", ausgaenge[14], true);
 
