@@ -512,8 +512,8 @@ function callluxtronik1800() {
           adapter.setState("ausgaenge.Verdichter_1_in_Waermepumpe", !!+ausgaenge[10], true);
           adapter.setState("ausgaenge.Verdichter_2_in_Waermepumpe", !!+ausgaenge[11], true);
           adapter.setState("ausgaenge.Zusatzumwaelzpumpe_Zirkulationspumpe", !!+ausgaenge[12], true);
-          adapter.setState("ausgaenge.Zweiter_Waermeerzeuger_1", ausgaenge[13], true);
-          adapter.setState("ausgaenge.Zweiter_Waermeerzeuger_2_Sammelstoerung", ausgaenge[14], true);
+          adapter.setState("ausgaenge.Zweiter_Waermeerzeuger_1", !!+ausgaenge[13], true);
+          adapter.setState("ausgaenge.Zweiter_Waermeerzeuger_2_Sammelstoerung", !!+ausgaenge[14], true);
 
           ablaufzeiten = data1800array[5].split(';'); //1400
 
