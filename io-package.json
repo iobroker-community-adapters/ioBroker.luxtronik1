@@ -329,8 +329,8 @@
         "read": true,
         "write": false,
         "states": {
-          "0": "AUS",
-          "1": "EIN"
+          "false": "AUS",
+          "true": "EIN"
         },
         "def": false,
         "desc": "Eingang ASD"
@@ -349,8 +349,8 @@
         "read": true,
         "write": false,
         "states": {
-          "0": "AUS",
-          "1": "EIN"
+          "false": "AUS",
+          "true": "EIN"
         },
         "def": false,
         "desc": "Eingang EVU"
@@ -369,8 +369,8 @@
         "read": true,
         "write": false,
         "states": {
-          "0": "AUS",
-          "1": "EIN"
+          "false": "AUS",
+          "true": "EIN"
         },
         "def": false,
         "desc": "Eingang HD"
@@ -389,8 +389,8 @@
         "read": true,
         "write": false,
         "states": {
-          "0": "AUS",
-          "1": "EIN"
+          "false": "AUS",
+          "true": "EIN"
         },
         "def": false,
         "desc": "Eingang MOT"
@@ -409,8 +409,8 @@
         "read": true,
         "write": false,
         "states": {
-          "0": "AUS",
-          "1": "EIN"
+          "false": "AUS",
+          "true": "EIN"
         },
         "def": false,
         "desc": "Eingang ND"
@@ -429,8 +429,8 @@
         "read": true,
         "write": false,
         "states": {
-          "0": "AUS",
-          "1": "EIN"
+          "false": "AUS",
+          "true": "EIN"
         },
         "def": false,
         "desc": "Eingang PEX"
