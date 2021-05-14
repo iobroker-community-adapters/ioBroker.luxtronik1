@@ -469,6 +469,7 @@
         "states": {
           "false": "AUS",
           "true": "EIN"
+        }
       },
       "native": {
 
@@ -488,6 +489,7 @@
         "states": {
           "false": "AUS",
           "true": "EIN"
+        }
       },
       "native": {
 
@@ -507,6 +509,7 @@
         "states": {
           "false": "AUS",
           "true": "EIN"
+        }
       },
       "native": {
 
@@ -526,6 +529,7 @@
         "states": {
           "false": "AUS",
           "true": "EIN"
+        }
       },
       "native": {
 
@@ -545,6 +549,7 @@
         "states": {
           "false": "AUS",
           "true": "EIN"
+        }
       },
       "native": {
 
@@ -564,6 +569,7 @@
         "states": {
           "false": "AUS",
           "true": "EIN"
+        }
       },
       "native": {
 
@@ -583,6 +589,7 @@
         "states": {
           "false": "AUS",
           "true": "EIN"
+        }
       },
       "native": {
 
@@ -602,6 +609,7 @@
         "states": {
           "false": "AUS",
           "true": "EIN"
+        }
       },
       "native": {
 
@@ -621,6 +629,7 @@
         "states": {
           "false": "AUS",
           "true": "EIN"
+        }
       },
       "native": {
 
@@ -640,6 +649,7 @@
         "states": {
           "false": "AUS",
           "true": "EIN"
+        }
       },
       "native": {
 
@@ -659,6 +669,7 @@
         "states": {
           "false": "AUS",
           "true": "EIN"
+        }
       },
       "native": {
 
@@ -678,6 +689,7 @@
         "states": {
           "false": "AUS",
           "true": "EIN"
+        }
       },
       "native": {
 
@@ -697,6 +709,7 @@
         "states": {
           "false": "AUS",
           "true": "EIN"
+        }
       },
       "native": {
 
@@ -1219,7 +1232,8 @@
       "native": {
 
       }
-    }, {
+    },
+    {
       "_id": "abschaltungen.3",
       "type": "state",
       "common": {
@@ -1234,7 +1248,8 @@
       "native": {
 
       }
-    }, {
+    },
+    {
       "_id": "abschaltungen.4",
       "type": "state",
       "common": {
@@ -1249,7 +1264,8 @@
       "native": {
 
       }
-    }, {
+    },
+    {
       "_id": "abschaltungen.5",
       "type": "state",
       "common": {
@@ -1596,7 +1612,8 @@
       "native": {
 
       }
-    }, {
+    },
+    {
       "_id": "control.ModusWW",
       "type": "state",
       "common": {
