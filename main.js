@@ -606,6 +606,7 @@ function callluxtronik1800() {
 function callluxtronik2100() {
   clientconnection = true;
   warteauf = "callluxtronik2100";
+  var datacount = 0;
   var client = new net.Socket();
 
   var client = client.connect(port, deviceIpAdress, function() {
@@ -621,7 +622,12 @@ function callluxtronik2100() {
 
   client.on('data', function(data) {
     datastring += data;
-    if (datastring.includes("2100;16") === true) {
+    datacount++;
+    if (datastring.includes("2100;16") === true && (datastring.split(';')).length === 18) {
+      datacount = 0;
+      client.destroy();
+    } else if (datacount > 5) {
+      datacount = 0;
       client.destroy();
     }
   });
