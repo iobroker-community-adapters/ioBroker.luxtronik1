@@ -570,7 +570,7 @@ function callluxtronik1800() {
             adapter.setState("abschaltungen." + (6 - i), setabschalttext(data1800array[14 + i]), true);
           }
 
-          adapter.setState("status.WPtyp", String(([21].split(';'))[2]), true);
+          adapter.setState("status.WPtyp", String((data1800array[21].split(';'))[2]), true);
           adapter.setState("status.SW", String((data1800array[21].split(';'))[3]), true);
           adapter.setState("status.BivStufe", String((data1800array[21].split(';'))[4]), true);
           adapter.setState("status.ANL", setstatustext(String(data1800array[21])), true);
