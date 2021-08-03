@@ -570,10 +570,10 @@ function callluxtronik1800() {
             adapter.setState("abschaltungen." + (6 - i), setabschalttext(data1800array[14 + i]), true);
           }
 
-          adapter.setState("status.WPtyp", ((data1800array[21].split(';'))[2]), true);
-          adapter.setState("status.SW", ((data1800array[21].split(';'))[3]), true);
-          adapter.setState("status.BivStufe", ((data1800array[21].split(';'))[4]), true);
-          adapter.setState("status.ANL", setstatustext(data1800array[21]), true);
+          adapter.setState("status.WPtyp", String(([21].split(';'))[2]), true);
+          adapter.setState("status.SW", String((data1800array[21].split(';'))[3]), true);
+          adapter.setState("status.BivStufe", String((data1800array[21].split(';'))[4]), true);
+          adapter.setState("status.ANL", setstatustext(String(data1800array[21])), true);
 
 
 
@@ -670,6 +670,7 @@ function callluxtronik2100() {
         data2100error++;
       }
       if (data2100error > 4) {
+        data2100error = 0;
         adapter.log.warn("Achtung, mehrfach unvollständiger Datensatz 2100");
         adapter.log.warn("Adapter wird neu gestartet");
         restartAdapter();
@@ -1357,6 +1358,8 @@ function setstatustext(statuscode) {
       case "4":
         statusa = "Abtauen";
         break;
+      default:
+        statusa = "Status unklar";
     }
     return statusa;
   } catch (e) {

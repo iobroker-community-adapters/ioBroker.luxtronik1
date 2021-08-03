@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "luxtronik1",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "news": {
+      "0.3.2": {
+        "en": "bugfixes",
+        "de": "Behebung von Fehlern"
+      },
       "0.3.1": {
         "en": "bugfixes related to js-controller 3.3x",
         "de": "Behebung von Fehlern bei update auf js-controller 3.3x"
