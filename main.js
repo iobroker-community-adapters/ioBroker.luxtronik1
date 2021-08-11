@@ -622,9 +622,11 @@ function callluxtronik2100() {
 
   client.on('data', function(data) {
     datastring += data;
+    adapter.log.debug("Datastring: " + datastring);
     datacount++;
-    if (datastring.includes("2100;16") === true && (datastring.split(';')).length === 18) {
+    if ((datastring.split(';')).length === (parseInt((datastring.split(';'))[1]) + 2)) {
       datacount = 0;
+      adapter.log.debug("Data complete, destroy connection")
       client.destroy();
     } else if (datacount > 5) {
       datacount = 0;
@@ -640,7 +642,8 @@ function callluxtronik2100() {
       if (datastring.length > 10) {
         var data2100array = datastring.split(';');
         adapter.log.debug("Anzahl Elemente data2100array: " + data2100array.length);
-        if (data2100array.length == 18) {
+        adapter.log.debug("Anzahl Elemente data2100array SOLL: " + (parseInt(data2100array[1]) + 2))
+        if (data2100array.length === parseInt(data2100array[1]) + 2) {
           adapter.log.debug("Anzahl Elemente data2100array: " + data2100array.length);
           adapter.log.debug("Datensatz 2100: " + data2100array);
 
