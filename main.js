@@ -443,7 +443,6 @@ function callluxtronik1800() {
   clientconnection = true;
   warteauf = "callluxtronik1800";
   var client = new net.Socket();
-
   var client = client.connect(port, deviceIpAdress, function() {
     // write out connection details
     adapter.log.debug('Connected to Luxtronik');
@@ -606,7 +605,7 @@ function callluxtronik1800() {
 function callluxtronik2100() {
   clientconnection = true;
   warteauf = "callluxtronik2100";
-  var datacount = 0;
+  var datacount2100 = 0;
   var client = new net.Socket();
 
   var client = client.connect(port, deviceIpAdress, function() {
@@ -623,13 +622,14 @@ function callluxtronik2100() {
   client.on('data', function(data) {
     datastring += data;
     adapter.log.debug("Datastring: " + datastring);
-    datacount++;
-    if ((datastring.split(';')).length === (parseInt((datastring.split(';'))[1]) + 2)) {
-      datacount = 0;
+    datacount2100++;
+    if (datastring.includes("2100") === true && (datastring.split(';')).length === (parseInt((datastring.split(';'))[1]) + 2)) {
+      datacount2100 = 0;
       adapter.log.debug("Data complete, destroy connection")
       client.destroy();
-    } else if (datacount > 5) {
-      datacount = 0;
+    } else if (datacount2100 > 5) {
+      datacount2100 = 0;
+      adapter.log.debug("Data2100 NOT complete, destroy connection")
       client.destroy();
     }
   });
@@ -699,6 +699,7 @@ function callluxtronik2100() {
 function callluxtronik3405() {
   clientconnection = true;
   warteauf = "callluxtronik3405";
+  var datacount3405 = 0;
   var client = new net.Socket();
 
   var client = client.connect(port, deviceIpAdress, function() {
@@ -714,7 +715,14 @@ function callluxtronik3405() {
 
   client.on('data', function(data) {
     datastring += data;
-    if (datastring.includes("3405;1") === true) {
+    datacount3405++;
+    if (datastring.includes("3405") === true && (datastring.split(';')).length === (parseInt((datastring.split(';'))[1]) + 2)) {
+      datacount3405 = 0;
+      adapter.log.debug("Data complete, destroy connection")
+      client.destroy();
+    } else if (datacount3405 > 5) {
+      datacount3405 = 0;
+      adapter.log.debug("Data3405 NOT complete, destroy connection")
       client.destroy();
     }
   });
@@ -724,10 +732,11 @@ function callluxtronik3405() {
     adapter.log.debug("Datenset: " + datastring);
     adapter.log.debug("Anzahl Elemente Datenset: " + datastring.length);
     try {
-      if (datastring.length > 10) {
+      if (datastring.length > 7) {
         var data3405array = datastring.split(';');
-        if (data3405array.length == 3) {
-          adapter.log.debug("Anzahl Elemente data3405array: " + data3405array.length);
+        adapter.log.debug("Anzahl Elemente data3405array: " + data3405array.length);
+        adapter.log.debug("Anzahl Elemente data3405array SOLL: " + (parseInt(data3405array[1]) + 2))
+        if (data3405array.length === parseInt(data3405array[1]) + 2) {
           adapter.log.debug("Datensatz 3405: " + data3405array[2]);
           adapter.log.debug("Modus Heizung: " + modus[parseInt(data3405array[2])]);
 
@@ -764,6 +773,7 @@ function callluxtronik3405() {
 function callluxtronik3505() {
   clientconnection = true;
   warteauf = "callluxtronik3505";
+  var datacount3505 = 0;
   var client = new net.Socket();
 
   var client = client.connect(port, deviceIpAdress, function() {
@@ -779,7 +789,14 @@ function callluxtronik3505() {
 
   client.on('data', function(data) {
     datastring += data;
-    if (datastring.includes("3505;1") === true) {
+    datacount3505++;
+    if (datastring.includes("3505;1") === true && (datastring.split(';')).length === (parseInt((datastring.split(';'))[1]) + 2)) {
+      datacount3505 = 0;
+      adapter.log.debug("Data complete, destroy connection")
+      client.destroy();
+    } else if (datacount3505 > 5) {
+      datacount3505 = 0;
+      adapter.log.debug("Data3505 NOT complete, destroy connection")
       client.destroy();
     }
   });
@@ -789,9 +806,11 @@ function callluxtronik3505() {
     adapter.log.debug("Datenset: " + datastring);
     adapter.log.debug("Anzahl Elemente Datenset: " + datastring.length);
     try {
-      if (datastring.length > 10) {
+      if (datastring.length > 7) {
         var data3505array = datastring.split(';');
-        if (data3505array.length == 3) {
+        adapter.log.debug("Anzahl Elemente data3505array: " + data3505array.length);
+        adapter.log.debug("Anzahl Elemente data3505array SOLL: " + (parseInt(data3505array[1]) + 2));
+        if (data3505array.length === parseInt(data3505array[1]) + 2) {
           adapter.log.debug("Datensatz 3505: " + data3505array[2]);
           adapter.log.debug("Modus Warmwasser: " + modus[parseInt(data3505array[2])]);
 
@@ -826,6 +845,7 @@ function callluxtronik3505() {
 function callluxtronik3400() {
   clientconnection = true;
   warteauf = "callluxtronik3400";
+  var datacount3400 = 0;
   var client = new net.Socket();
 
   var client = client.connect(port, deviceIpAdress, function() {
@@ -841,8 +861,14 @@ function callluxtronik3400() {
 
   client.on('data', function(data) {
     datastring += data;
-    adapter.log.debug("Datastringlänge: " + datastring.length)
-    if (datastring.includes("3400;9") === true && datastring.length > 40) {
+    datacount3400++;
+    if (datastring.includes("3400;9") === true && (datastring.split(';')).length === (parseInt((datastring.split(';'))[1]) + 2)) {
+      datacount3400 = 0;
+      adapter.log.debug("Data complete, destroy connection")
+      client.destroy();
+    } else if (datacount3400 > 5) {
+      datacount3400 = 0;
+      adapter.log.debug("Data3400 NOT complete, destroy connection")
       client.destroy();
     }
   });
@@ -853,12 +879,11 @@ function callluxtronik3400() {
     adapter.log.debug("Anzahl Elemente Datenset: " + datastring.length);
     try {
       if (datastring.length > 20) {
-        data3400array = datastring.split(';');
-
-        adapter.log.debug("Datensatz 3400: " + data3400array);
-        adapter.log.debug("Anzahl Elemente Datensatz3400: " + data3400array.length);
+        var data3400array = datastring.split(';');
+        adapter.log.debug("Anzahl Elemente data3400array: " + data3400array.length);
+        adapter.log.debug("Anzahl Elemente data3400array SOLL: " + (parseInt(data3400array[1]) + 2));
         if (data3400array.length == 11) {
-
+          adapter.log.debug("Datensatz 3400: " + data3400array);
           adapter.log.debug("Abweichung Rücklauf Soll: " + data3400array[2]);
           adapter.log.debug("Endpunkt: " + data3400array[3]);
           adapter.log.debug("Parallelverschiebung: " + data3400array[4]);
