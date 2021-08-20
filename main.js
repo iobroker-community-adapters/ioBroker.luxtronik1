@@ -13,6 +13,7 @@ var port;
 var net = require('net');
 var datastring = "";
 var data1800array = [];
+var data1100error = 0;
 var data1800error = 0;
 var data2100error = 0;
 var data3405error = 0;
@@ -38,6 +39,7 @@ var hystfunction = false;
 var pollfunction = false;
 var warteauf = "";
 var clientconnectionerror = 0;
+var lastsetbws;
 
 let polling;
 
@@ -157,15 +159,16 @@ function pollluxtronik() {
     }
     adapter.log.debug("Daten werden mit nächstem Polling gelesen");
     //setTimeout(pollluxtronik, 5000);
-    return;
+
+  } else {
+    clientconnectionerror = 0;
+    pollfunction = true;
+    callluxtronik1800();
+    setTimeout(callluxtronik2100, 2000);
+    setTimeout(callluxtronik3405, 4000);
+    setTimeout(callluxtronik3505, 6000);
+    setTimeout(callluxtronik3400, 8000);
   }
-  clientconnectionerror = 0;
-  pollfunction = true;
-  callluxtronik1800();
-  setTimeout(callluxtronik2100, 2000);
-  setTimeout(callluxtronik3405, 4000);
-  setTimeout(callluxtronik3505, 6000);
-  setTimeout(callluxtronik3400, 8000);
 } //endPollluxtronik
 
 function controlluxtronik(id, state) {
@@ -173,6 +176,7 @@ function controlluxtronik(id, state) {
     switch (id) {
       case "control.BWs":
         adapter.log.debug("Setze Warmwasser-Soll auf: " + state);
+        lastsetbws = state * 10;
         controlbws(state * 10);
         break;
 
@@ -436,8 +440,95 @@ function controlhysthk(statehysthk) {
   setTimeout(callluxtronik2100, 7000);
 } //end controlhysthk
 
+function callluxtronik1100() {
+  clientconnection = true;
+  warteauf = "callluxtronik1100";
+  var datacount1100 = 0;
+  var client = new net.Socket();
+  var client = client.connect(port, deviceIpAdress, function() {
+    // write out connection details
+    adapter.log.debug('Connected to Luxtronik');
+    datastring = "";
+    client.write('1100\r\n'); // send data to through the client to the host
+  });
 
+  client.on('error', function(ex) {
+    adapter.log.warn("1100 connection error: " + ex);
+  });
 
+  client.on('data', function(data) {
+    datastring += data;
+    datacount1100++;
+    if (datastring.includes("1100") === true && (datastring.split(';')).length === (parseInt((datastring.split(';'))[1]) + 2)) {
+      datacount1100 = 0;
+      adapter.log.debug("Data1100 complete, destroy connection")
+      client.destroy();
+    } else if (datacount1100 > 5) {
+      datacount1100 = 0;
+      adapter.log.debug("Data1100 NOT complete, destroy connection")
+      client.destroy();
+    }
+  });
+
+  client.on('close', function() {
+    adapter.log.debug("Connection closed");
+    adapter.log.debug("Datenset: " + datastring);
+    adapter.log.debug("Anzahl Elemente Datenset: " + datastring.length);
+    try {
+      if (datastring.length > 40) {
+        var data1100array = datastring.split(';');
+
+        adapter.log.debug("Anzahl Elemente data1100array: " + data1100array.length);
+        adapter.log.debug("Anzahl Elemente data1100array SOLL: " + (parseInt(data1100array[1]) + 2))
+
+        if (data1100array.length === parseInt(data1100array[1]) + 2) {
+          adapter.log.debug("Datensatz 1100: " + data1100array);
+
+          if (data1100array[8] != lastsetbws) {
+            adapter.log.info("BW-Solltemperatur nicht korrekt gesetzt, Vorgang wird wiederholt");
+            data1100error++;
+            if (data1100error < 6) {
+              controlbws(lastsetbws);
+            } else {
+              adapter.log.warn("Achtung, Setzen korrekter BW-Solltemperatur mehrmals fehlgeschlagen");
+              adapter.log.warn("Adapter wird neu gestartet");
+              restartAdapter();
+            }
+          } else {
+            data1100error = 0;
+            adapter.setState("temperaturen.AUT", data1100array[6] / 10, true);
+            adapter.setState("temperaturen.RL", data1100array[3] / 10, true);
+            adapter.setState("temperaturen.VL", data1100array[2] / 10, true);
+            adapter.setState("temperaturen.RLs", data1100array[4] / 10, true);
+            adapter.setState("temperaturen.HG", data1100array[5] / 10, true);
+            adapter.setState("temperaturen.BWi", data1100array[7] / 10, true);
+            adapter.setState("temperaturen.BWs", data1100array[8] / 10, true);
+            adapter.setState("temperaturen.WQe", data1100array[9] / 10, true);
+            adapter.setState("temperaturen.WQa", data1100array[10] / 10, true);
+            adapter.setState("temperaturen.MK1VLi", data1100array[11] / 10, true);
+            adapter.setState("temperaturen.MK1VLs", data1100array[12] / 10, true);
+            adapter.setState("temperaturen.RS", data1100array[13] / 10, true);
+          }
+        } else {
+          adapter.log.debug("Datenarray1100 unvollständig, keine Werte gesetzt");
+          data1100error++;
+        }
+      } else {
+        adapter.log.debug("Datensatz1100 unvollständig, keine Werte gesetzt");
+        data1100error++;
+      }
+      if (data1100error > 4) {
+        adapter.log.warn("Achtung, mehrfach unvollständiger Datensatz 1100");
+        adapter.log.warn("Adapter wird neu gestartet");
+        restartAdapter();
+      }
+    } catch (e) {
+      adapter.log.warn("callluxtronik1100 - Feher: " + e);
+    }
+    adapter.log.debug("Daten 1100 fertig verarbeitet.")
+    clientconnection = false;
+  });
+} //callluxtronik1100
 
 function callluxtronik1800() {
   clientconnection = true;
@@ -1222,6 +1313,8 @@ function callluxtronik3501(statebws) {
   var client = client.connect(port, deviceIpAdress, function() {
     // write out connection details
     adapter.log.debug('Connected to Luxtronik');
+    adapter.log.debug("statebws = " + statebws);
+
     datastring = "";
     client.write('3501\r\n'); // send data to through the client to the host
     setTimeout(function() {
@@ -1271,15 +1364,22 @@ function callluxtronik3501(statebws) {
       if (datastring != "") {
 
         var data3501array = datastring.split('\r\n');
-        adapter.log.debug("Warmwasser soll neu: " + data3501array[2].slice(7, 9));
+        adapter.log.debug("data3501array = " + data3501array);
 
-        adapter.setState("temperaturen.BWs", statebws / 10, true);
 
+        if (((data3501array[3].split(';'))[2]) == lastsetbws) {
+          adapter.log.debug("Warmwasser soll neu: " + ((data3501array[3].split(';'))[2]) / 10);
+          adapter.setState("temperaturen.BWs", ((data3501array[3].split(';'))[2]) / 10, true);
+          setTimeout(callluxtronik1100, 3000);
+        } else {
+          adapter.log.debug("BW-Solltemperatur setzen nicht erfolgreich, wird wiederholt");
+          controlbws(lastsetbws);
+        }
       }
     } catch (e) {
       adapter.log.warn("callluxtronik3501 - Feher: " + e);
     }
-    adapter.log.debug("Daten 3501 fertig verarbeitet.")
+    adapter.log.debug("Daten 3501 fertig verarbeitet.");
     clientconnection = false;
   });
 } //endcallluxtronik3501
