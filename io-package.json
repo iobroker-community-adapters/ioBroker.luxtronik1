@@ -11,10 +11,6 @@
         "en": "data exchange optimized",
         "de": "Datenaustausch verbessert"
       },
-      "0.3.2": {
-        "en": "bugfixes",
-        "de": "Behebung von Fehlern"
-      },
       "0.3.1": {
         "en": "bugfixes related to js-controller 3.3x",
         "de": "Behebung von Fehlern bei update auf js-controller 3.3x"
@@ -35,22 +31,7 @@
         "en": "outlet - data added",
         "de": "Daten zu Ausgängen ergänzt."
       },
-      "0.2.4": {
-        "en": "Comm-errors cleard, 'contro'-values are updated",
-        "de": "Kommunikationsfehler behoben, 'contro'-Werte werden laufend nachgeführt."
-      },
-      "0.2.3": {
-        "en": "adapter - restarte in case of connection - problems added.",
-        "de": "Adapter - Neustart bei Verbindungsproblemen hinzugefügt."
-      },
-      "0.2.2": {
-        "en": ".npmignore and .gitignore added, small bugfix.",
-        "de": ".npmignore and .gitignore ergänzt, kleine Fehlerbehebung."
-      },
-      "0.2.1": {
-        "en": "Readme / License update.",
-        "de": "Readme / License update."
-      },
+
       "0.2.0": {
         "en": "missing temperature values added",
         "de": "Fehlende Temperaturwerte ergänzt (Wärmequelle, Mischkreis, Raumstation)."
@@ -59,21 +40,9 @@
         "en": "error - handling on communication errors optimized, adapter restart in case ofmultiple communication errors.",
         "de": "Fehlerhandling für Kommunikationsfehler verbessert, automatischer Adapter - Neustart bei Kommunikationstörungen."
       },
-      "0.0.7": {
-        "en": "error-handling on connections added.",
-        "de": "Fehlerhandling für Verbindungsfehler hinzugefügt."
-      },
-      "0.0.6": {
-        "en": "risk of multiple connection diminished, small bugfixes.",
-        "de": "Risiko gleichzeitiger Verbindungen minimiert, kleiner Fehlerkorrekturen."
-      },
       "0.0.5": {
         "en": "controls hotwater-temperature, heating- & hotwater - mode and heating-curve setting.",
         "de": "Steuerung von Warmwasser-Soll, Heizungs- und Warmwasser-Modus sowie der Heizkurven-Werte."
-      },
-      "0.0.4": {
-        "en": "error-handling optimized",
-        "de": "Fehlerhandling verbessert"
       },
       "0.0.3": {
         "en": "Reads also mode heating, water and heating-curve",
@@ -82,10 +51,6 @@
       "0.0.2": {
         "en": "First published version (latest repo)",
         "de": "Erste veröffentlichte Version (latest repo)"
-      },
-      "0.0.1": {
-        "en": "development edition",
-        "de": "Entwicklungsversion"
       }
     },
     "title": "luxtronik1",
