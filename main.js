@@ -18,6 +18,7 @@ var data1800error = 0;
 var data2100error = 0;
 var data3405error = 0;
 var data3505error = 0;
+var data3200error = 0;
 var data3400error = 0;
 var temperaturen = []; //1100
 var eingaenge = []; //1200
@@ -226,20 +227,20 @@ function controlluxtronik(id, state) {
 
         adapter.getState("control.SchaltzWoBW.Start1", function(err, state) {
           if (state) {
-            data3201array[2] = (state.val).slice(0, 2);
-            data3201array[3] = (state.val).slice(-2);
+            data3201array[2] = Number((state.val).slice(0, 2));
+            data3201array[3] = Number((state.val).slice(-2));
             adapter.getState("control.SchaltzWoBW.Ende1", function(err, state) {
               if (state) {
-                data3201array[4] = (state.val).slice(0, 2);
-                data3201array[5] = (state.val).slice(-2);
+                data3201array[4] = Number((state.val).slice(0, 2));
+                data3201array[5] = Number((state.val).slice(-2));
                 adapter.getState("control.SchaltzWoBW.Start2", function(err, state) {
                   if (state) {
-                    data3201array[6] = (state.val).slice(0, 2);
-                    data3201array[7] = (state.val).slice(-2);
+                    data3201array[6] = Number((state.val).slice(0, 2));
+                    data3201array[7] = Number((state.val).slice(-2));
                     adapter.getState("control.SchaltzWoBW.Ende2", function(err, state) {
                       if (state) {
-                        data3201array[8] = (state.val).slice(0, 2);
-                        data3201array[9] = (state.val).slice(-2);
+                        data3201array[8] = Number((state.val).slice(0, 2));
+                        data3201array[9] = Number((state.val).slice(-2));
                       } else {
                         adapterl.log.debug("Fehler beim Auslesen der BW-Schaltzeiten Woche");
                       }
@@ -580,7 +581,7 @@ function callluxtronik1100() {
         restartAdapter();
       }
     } catch (e) {
-      adapter.log.warn("callluxtronik1100 - Feher: " + e);
+      adapter.log.warn("callluxtronik1100 - Fehler: " + e);
     }
     adapter.log.debug("Daten 1100 fertig verarbeitet.")
     clientconnection = false;
@@ -740,7 +741,7 @@ function callluxtronik1800() {
         restartAdapter();
       }
     } catch (e) {
-      adapter.log.warn("callluxtronik1800 - Feher: " + e);
+      adapter.log.warn("callluxtronik1800 - Fehler: " + e);
     }
     adapter.log.debug("Daten 1800 fertig verarbeitet.")
     if (pollfunction == false) {
@@ -833,7 +834,7 @@ function callluxtronik2100() {
         restartAdapter();
       }
     } catch (e) {
-      adapter.log.warn("callluxtronik2100 - Feher: " + e);
+      adapter.log.warn("callluxtronik2100 - Fehler: " + e);
     }
     adapter.log.debug("Daten 2100 fertig verarbeitet.")
 
@@ -908,7 +909,7 @@ function callluxtronik3405() {
         restartAdapter();
       }
     } catch (e) {
-      adapter.log.warn("callluxtronik3405 - Feher: " + e);
+      adapter.log.warn("callluxtronik3405 - Fehler: " + e);
     }
     adapter.log.debug("Daten 3405 fertig verarbeitet.")
 
@@ -1009,13 +1010,13 @@ function callluxtronik3200() {
 
   client.on('data', function(data) {
     datastring += data;
-    datacount3400++;
+    datacount3200++;
     if (datastring.includes("3200;8") === true && (datastring.split(';')).length === (parseInt((datastring.split(';'))[1]) + 2)) {
       datacount3200 = 0;
       adapter.log.debug("Data complete, destroy connection")
       client.destroy();
     } else if (datacount3200 > 5) {
-      datacount3400 = 0;
+      datacount3200 = 0;
       adapter.log.debug("Data3200 NOT complete, destroy connection")
       client.destroy();
     }
@@ -1027,21 +1028,21 @@ function callluxtronik3200() {
     adapter.log.debug("Anzahl Elemente Datenset: " + datastring.length);
     try {
       if (datastring.length > 15) {
-        var data3200array = datastring.split(';');
-        adapter.log.debug("Anzahl Elemente datacount3200array: " + data3400array.length);
+        var data3200array = (datastring.replace(/(\r\n|\n|\r)/gm, "")).split(';');
+        adapter.log.debug("Anzahl Elemente datacount3200array: " + data3200array.length);
         adapter.log.debug("Anzahl Elemente data3200array SOLL: " + (parseInt(data3200array[1]) + 2));
         if ((datastring.split(';')).length === (parseInt((datastring.split(';'))[1]) + 2)) {
           adapter.log.debug("Datensatz 3200: " + data3200array);
           adapter.log.debug("Schaltzeiten BW Woche: ");
-          adapter.log.debug("Start1: " + data3200array[2] + ":" + data3200array[3]);
-          adapter.log.debug("Ende1: " + data3200array[4] + ":" + data3200array[5]);
-          adapter.log.debug("Start2: " + data3200array[6] + ":" + data3200array[7]);
-          adapter.log.debug("Ende1: " + data3200array[8] + ":" + data3200array[9]);
+          adapter.log.debug("Start1: " + data3200array[2].padStart(2, '0') + ":" + data3200array[3].padStart(2, '0'));
+          adapter.log.debug("Ende1: " + data3200array[4].padStart(2, '0') + ":" + data3200array[5].padStart(2, '0'));
+          adapter.log.debug("Start2: " + data3200array[6].padStart(2, '0') + ":" + data3200array[7].padStart(2, '0'));
+          adapter.log.debug("Ende2: " + data3200array[8].padStart(2, '0') + ":" + data3200array[9].padStart(2, '0'));
 
-          adapter.setState("control.SchaltzWoBW.Start1", data3200array[2] + ":" + data3200array[3], true);
-          adapter.setState("control.SchaltzWoBW.Ende1", data3200array[4] + ":" + data3200array[5], true);
-          adapter.setState("control.SchaltzWoBW.Start2", data3200array[6] + ":" + data3200array[7], true);
-          adapter.setState("control.SchaltzWoBW.Ende2", data3200array[8] + ":" + data3200array[9], true);
+          adapter.setState("control.SchaltzWoBW.Start1", data3200array[2].padStart(2, '0') + ":" + data3200array[3].padStart(2, '0'), true);
+          adapter.setState("control.SchaltzWoBW.Ende1", data3200array[4].padStart(2, '0') + ":" + data3200array[5].padStart(2, '0'), true);
+          adapter.setState("control.SchaltzWoBW.Start2", data3200array[6].padStart(2, '0') + ":" + data3200array[7].padStart(2, '0'), true);
+          adapter.setState("control.SchaltzWoBW.Ende2", data3200array[8].padStart(2, '0') + ":" + data3200array[9].padStart(2, '0'), true);
 
           data3200error = 0;
         } else {
@@ -1049,29 +1050,21 @@ function callluxtronik3200() {
           data3200error++;
         }
       } else {
-        adapter.log.debug("Datensatz3400 unvollständig, keine Werte gesetzt");
+        adapter.log.debug("Datensatz3200 unvollständig, keine Werte gesetzt");
         data3200error++;
       }
       if (data3400error > 4) {
-        adapter.log.warn("Achtung, mehrfach unvollständiger Datensatz 3400");
+        adapter.log.warn("Achtung, mehrfach unvollständiger Datensatz 3200");
         adapter.log.warn("Adapter wird neu gestartet");
         restartAdapter();
       }
     } catch (e) {
-      adapter.log.warn("callluxtronik3400 - Feher: " + e);
+      adapter.log.warn("callluxtronik3200 - Fehler: " + e);
     }
-    adapter.log.debug("Daten 3400 fertig verarbeitet.")
-    if (hkfunction == true) {
-      hkfunction = false;
-      adapter.log.debug("Heizkurvenfunktion beendet");
+    adapter.log.debug("Daten 3200 fertig verarbeitet.")
 
-    } else {
-      clientconnection = false;
-    }
-    if (pollfunction == true) {
-      pollfunction = false;
-      clientconnection = false;
-    }
+    clientconnection = false;
+
   });
 } //endcallluxtronik3200
 
@@ -1147,7 +1140,7 @@ function callluxtronik3400() {
         restartAdapter();
       }
     } catch (e) {
-      adapter.log.warn("callluxtronik3400 - Feher: " + e);
+      adapter.log.warn("callluxtronik3400 - Fehler: " + e);
     }
     adapter.log.debug("Daten 3400 fertig verarbeitet.")
     if (hkfunction == true) {
@@ -1228,7 +1221,7 @@ function callluxtronik3401(hkdata) {
         }
       }
     } catch (e) {
-      adapter.log.warn("callluxtronik3401 - Feher: " + e);
+      adapter.log.warn("callluxtronik3401 - Fehler: " + e);
     }
     adapter.log.debug("Daten 3401 fertig verarbeitet.");
     clientconnection = false;
@@ -1300,7 +1293,7 @@ function callluxtronik2101(dataHyst) {
         }
       }
     } catch (e) {
-      adapter.log.warn("callluxtronik2101 - Feher: " + e);
+      adapter.log.warn("callluxtronik2101 - Fehler: " + e);
     }
     adapter.log.debug("Daten 2101 fertig verarbeitet.");
     clientconnection = false;
@@ -1373,7 +1366,7 @@ function callluxtronik3406(statemodusheizung) {
         adapter.setState("status.ModusHeizung", statemodusheizung, true);
       }
     } catch (e) {
-      adapter.log.warn("callluxtronik3406 - Feher: " + e);
+      adapter.log.warn("callluxtronik3406 - Fehler: " + e);
     }
     adapter.log.debug("Daten 3406 fertig verarbeitet.")
     clientconnection = false;
@@ -1440,7 +1433,7 @@ function callluxtronik3506(statemodusww) {
         adapter.setState("status.ModusWW", statemodusww, true);
       }
     } catch (e) {
-      adapter.log.warn("callluxtronik3506 - Feher: " + e);
+      adapter.log.warn("callluxtronik3506 - Fehler: " + e);
     }
     adapter.log.debug("Daten 3506 fertig verarbeitet.")
     clientconnection = false;
@@ -1519,7 +1512,7 @@ function callluxtronik3501(statebws) {
         }
       }
     } catch (e) {
-      adapter.log.warn("callluxtronik3501 - Feher: " + e);
+      adapter.log.warn("callluxtronik3501 - Fehler: " + e);
     }
     adapter.log.debug("Daten 3501 fertig verarbeitet.");
     clientconnection = false;
@@ -1587,12 +1580,13 @@ function callluxtronik3201(data3201array) {
       if (datastring != "") {
         var data3201array = datastring.split('\r\n');
         adapter.log.debug("Schaltzeiten neu: " + data3201array);
+        setTimeout(callluxtronik3200, 2000)
         if (errorcount == 1) {
           errorcount = 0;
         }
       }
     } catch (e) {
-      adapter.log.warn("callluxtronik3201 - Feher: " + e);
+      adapter.log.warn("callluxtronik3201 - Fehler: " + e);
     }
     adapter.log.debug("Daten 3201 fertig verarbeitet.");
     clientconnection = false;
@@ -1657,7 +1651,7 @@ function setfehlertext(fehlerinfo) {
     var fehlertext = fehlercodetext + " " + fehlerzeit;
     return fehlertext;
   } catch (e) {
-    adapter.log.warn("setfehlertext - Feher: " + e);
+    adapter.log.warn("setfehlertext - Fehler: " + e);
   }
 } //end setfehlertext
 
@@ -1681,7 +1675,7 @@ function setabschalttext(abschaltinfo) {
     var abschalttext = abschaltcodetext + " " + abschaltzeit;
     return abschalttext;
   } catch (e) {
-    adapter.log.warn("setabschalttext - Feher: " + e);
+    adapter.log.warn("setabschalttext - Fehler: " + e);
   }
 } //end setabschalttext
 
@@ -1712,7 +1706,7 @@ function setstatustext(statuscode) {
     }
     return statusa;
   } catch (e) {
-    adapter.log.warn("statusa - Feher: " + e);
+    adapter.log.warn("statusa - Fehler: " + e);
   }
 } //end setstatustext
 
@@ -1725,7 +1719,7 @@ function toTimeString(totalseconds) {
     var result = (hours < 10 ? "0" + hours : hours) + "h " + (minutes < 10 ? "0" + minutes : minutes) + "min " + (seconds < 10 ? "0" + seconds : seconds) + "s";
     return result;
   } catch (e) {
-    adapter.log.warn("toTimeString - Feher: " + e);
+    adapter.log.warn("toTimeString - Fehler: " + e);
   }
 } //end toTimeString
 

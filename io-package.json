@@ -1711,7 +1711,7 @@
         "role": "control.Schaltz",
         "read": true,
         "write": true,
-        "def": "0:0",
+        "def": "00:00",
         "desc": "Schaltzeiten Woche BW, Sperrbeginn1"
 
       },
@@ -1728,7 +1728,7 @@
         "role": "control.Schaltz",
         "read": true,
         "write": true,
-        "def": "0:0",
+        "def": "00:00",
         "desc": "Schaltzeiten Woche BW, Sperrende1"
 
       },
@@ -1745,7 +1745,7 @@
         "role": "control.Schaltz",
         "read": true,
         "write": true,
-        "def": "0:0",
+        "def": "00:00",
         "desc": "Schaltzeiten Woche BW, Sperrbeginn2"
 
       },
@@ -1762,7 +1762,7 @@
         "role": "control.Schaltz",
         "read": true,
         "write": true,
-        "def": "0:0",
+        "def": "00:00",
         "desc": "Schaltzeiten Woche BW, Sperrende2"
 
       },
