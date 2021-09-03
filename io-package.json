@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "luxtronik1",
-    "version": "0.3.3",
+    "version": "0.3.4",
     "news": {
+      "0.3.4": {
+        "en": "control timer hot water added",
+        "de": "Sperrzeiten Warmwasser - Steuerung hinzugefügt"
+      },
       "0.3.3": {
         "en": "data exchange optimized",
         "de": "Datenaustausch verbessert"
