@@ -30,7 +30,7 @@ var anlstat = [];
 var modus = ['AUTO', 'ZWE', 'Party', 'Ferien', 'Aus', 'Aus'];
 var data3400array = [];
 var data2100array = [];
-var data3201array = [3201;8]; //BW-Sperre alle Tage
+var data3201array = ['3201', '8']; //BW-Sperre alle Tage
 var hkdata;
 var instance;
 var errorcount;
@@ -221,44 +221,44 @@ function controlluxtronik(id, state) {
         controlhysthk(state * 10);
         break;
 
-      case "control.SchaltzWoBW.senden"
-      adapter.log.debug("Sende Schaltzeiten BW Woche");
+      case "control.SchaltzWoBW.senden":
+        adapter.log.debug("Sende Schaltzeiten BW Woche");
 
-      adapter.getState("control.SchaltzWoBW.Start1", function(err, state) {
-        if (state) {
-          data3201array[2] = (state.val).slice(0, 2);
-          data3201array[3] = (state.val).slice(-2);
-          adapter.getState("control.SchaltzWoBW.Ende1", function(err, state) {
-            if (state) {
-              data3201array[4] = (state.val).slice(0, 2);
-              data3201array[5] = (state.val).slice(-2);
-              adapter.getState("control.SchaltzWoBW.Start2", function(err, state) {
-                if (state) {
-                  data3201array[6] = (state.val).slice(0, 2);
-                  data3201array[7] = (state.val).slice(-2);
-                  adapter.getState("control.SchaltzWoBW.Ende2", function(err, state) {
-                    if (state) {
-                      data3201array[8] = (state.val).slice(0, 2);
-                      data3201array[9] = (state.val).slice(-2);
-                    } else {
-                      adapterl.log.debug("Fehler beim Auslesen der BW-Schaltzeiten Woche");
-                    }
-                  });
-                } else {
-                  adapterl.log.debug("Fehler beim Auslesen der BW-Schaltzeiten Woche");
-                }
-              });
-            } else {
-              adapterl.log.debug("Fehler beim Auslesen der BW-Schaltzeiten Woche");
-            }
-          });
-        } else {
-          adapterl.log.debug("Fehler beim Auslesen der BW-Schaltzeiten Woche");
-        }
-      });
-      controlSchaltzWoBW(data3201array);
+        adapter.getState("control.SchaltzWoBW.Start1", function(err, state) {
+          if (state) {
+            data3201array[2] = (state.val).slice(0, 2);
+            data3201array[3] = (state.val).slice(-2);
+            adapter.getState("control.SchaltzWoBW.Ende1", function(err, state) {
+              if (state) {
+                data3201array[4] = (state.val).slice(0, 2);
+                data3201array[5] = (state.val).slice(-2);
+                adapter.getState("control.SchaltzWoBW.Start2", function(err, state) {
+                  if (state) {
+                    data3201array[6] = (state.val).slice(0, 2);
+                    data3201array[7] = (state.val).slice(-2);
+                    adapter.getState("control.SchaltzWoBW.Ende2", function(err, state) {
+                      if (state) {
+                        data3201array[8] = (state.val).slice(0, 2);
+                        data3201array[9] = (state.val).slice(-2);
+                      } else {
+                        adapterl.log.debug("Fehler beim Auslesen der BW-Schaltzeiten Woche");
+                      }
+                    });
+                  } else {
+                    adapterl.log.debug("Fehler beim Auslesen der BW-Schaltzeiten Woche");
+                  }
+                });
+              } else {
+                adapterl.log.debug("Fehler beim Auslesen der BW-Schaltzeiten Woche");
+              }
+            });
+          } else {
+            adapterl.log.debug("Fehler beim Auslesen der BW-Schaltzeiten Woche");
+          }
+        });
+        controlSchaltzWoBW(data3201array);
 
-      break
+        break
     }
   } catch (e) {
     adapter.log.warn("controlluxtronik-Fehler: " + e)
@@ -989,6 +989,95 @@ function callluxtronik3505() {
     }
   });
 } //endcallluxtronik3505
+
+function callluxtronik3200() {
+  clientconnection = true;
+  warteauf = "callluxtronik3200";
+  var datacount3400 = 0;
+  var client = new net.Socket();
+
+  var client = client.connect(port, deviceIpAdress, function() {
+    // write out connection details
+    adapter.log.debug('Connected to Luxtronik');
+    datastring = "";
+    client.write('3200\r\n'); // send data to through the client to the host
+  });
+
+  client.on('error', function(ex) {
+    adapter.log.warn("3200 connection error: " + ex);
+  });
+
+  client.on('data', function(data) {
+    datastring += data;
+    datacount3400++;
+    if (datastring.includes("3200;8") === true && (datastring.split(';')).length === (parseInt((datastring.split(';'))[1]) + 2)) {
+      datacount3400 = 0;
+      adapter.log.debug("Data complete, destroy connection")
+      client.destroy();
+    } else if (datacount3400 > 5) {
+      datacount3400 = 0;
+      adapter.log.debug("Data3400 NOT complete, destroy connection")
+      client.destroy();
+    }
+  });
+
+  client.on('close', function() {
+    adapter.log.debug("Connection closed");
+    adapter.log.debug("Datenset: " + datastring);
+    adapter.log.debug("Anzahl Elemente Datenset: " + datastring.length);
+    try {
+      if (datastring.length > 20) {
+        var data3400array = datastring.split(';');
+        adapter.log.debug("Anzahl Elemente data3400array: " + data3400array.length);
+        adapter.log.debug("Anzahl Elemente data3400array SOLL: " + (parseInt(data3400array[1]) + 2));
+        if (data3400array.length == 11) {
+          adapter.log.debug("Datensatz 3400: " + data3400array);
+          adapter.log.debug("Abweichung Rücklauf Soll: " + data3400array[2]);
+          adapter.log.debug("Endpunkt: " + data3400array[3]);
+          adapter.log.debug("Parallelverschiebung: " + data3400array[4]);
+          adapter.log.debug("Nachtabsenkung: " + data3400array[5]);
+
+          adapter.setState("heizkurve.AbwRLs", data3400array[2] / 10, true);
+          adapter.setState("heizkurve.Endpunkt", data3400array[3] / 10, true);
+          adapter.setState("heizkurve.ParaV", data3400array[4] / 10, true);
+          adapter.setState("heizkurve.NachtAbs", data3400array[5] / 10, true);
+          if (pollfunction == true) {
+            adapter.setState("control.AbwRLs", data3400array[2] / 10, true);
+            adapter.setState("control.EndpunktHK", data3400array[3] / 10, true);
+            adapter.setState("control.ParaVHK", data3400array[4] / 10, true);
+            adapter.setState("control.NachtAbs", data3400array[5] / 10, true);
+          }
+          data3400error = 0;
+        } else {
+          adapter.log.debug("Datenarray3400 unvollständig, keine Werte gesetzt");
+          data3400error++;
+        }
+      } else {
+        adapter.log.debug("Datensatz3400 unvollständig, keine Werte gesetzt");
+        data3400error++;
+      }
+      if (data3400error > 4) {
+        adapter.log.warn("Achtung, mehrfach unvollständiger Datensatz 3400");
+        adapter.log.warn("Adapter wird neu gestartet");
+        restartAdapter();
+      }
+    } catch (e) {
+      adapter.log.warn("callluxtronik3400 - Feher: " + e);
+    }
+    adapter.log.debug("Daten 3400 fertig verarbeitet.")
+    if (hkfunction == true) {
+      hkfunction = false;
+      adapter.log.debug("Heizkurvenfunktion beendet");
+
+    } else {
+      clientconnection = false;
+    }
+    if (pollfunction == true) {
+      pollfunction = false;
+      clientconnection = false;
+    }
+  });
+} //endcallluxtronik3200
 
 function callluxtronik3400() {
   clientconnection = true;

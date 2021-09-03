@@ -1779,7 +1779,6 @@
         "role": "button",
         "read": true,
         "write": true,
-        "def": "0",
         "desc": "Schaltzeiten Woche BW senden"
 
       },
