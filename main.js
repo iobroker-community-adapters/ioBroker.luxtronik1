@@ -30,6 +30,7 @@ var anlstat = [];
 var modus = ['AUTO', 'ZWE', 'Party', 'Ferien', 'Aus', 'Aus'];
 var data3400array = [];
 var data2100array = [];
+var data3201array = [3201;8]; //BW-Sperre alle Tage
 var hkdata;
 var instance;
 var errorcount;
@@ -219,6 +220,45 @@ function controlluxtronik(id, state) {
         adapter.log.debug("Setze Hystere Brauchwasser auf: " + state + "°C");
         controlhysthk(state * 10);
         break;
+
+      case "control.SchaltzWoBW.senden"
+      adapter.log.debug("Sende Schaltzeiten BW Woche");
+
+      adapter.getState("control.SchaltzWoBW.Start1", function(err, state) {
+        if (state) {
+          data3201array[2] = (state.val).slice(0, 2);
+          data3201array[3] = (state.val).slice(-2);
+          adapter.getState("control.SchaltzWoBW.Ende1", function(err, state) {
+            if (state) {
+              data3201array[4] = (state.val).slice(0, 2);
+              data3201array[5] = (state.val).slice(-2);
+              adapter.getState("control.SchaltzWoBW.Start2", function(err, state) {
+                if (state) {
+                  data3201array[6] = (state.val).slice(0, 2);
+                  data3201array[7] = (state.val).slice(-2);
+                  adapter.getState("control.SchaltzWoBW.Ende2", function(err, state) {
+                    if (state) {
+                      data3201array[8] = (state.val).slice(0, 2);
+                      data3201array[9] = (state.val).slice(-2);
+                    } else {
+                      adapterl.log.debug("Fehler beim Auslesen der BW-Schaltzeiten Woche");
+                    }
+                  });
+                } else {
+                  adapterl.log.debug("Fehler beim Auslesen der BW-Schaltzeiten Woche");
+                }
+              });
+            } else {
+              adapterl.log.debug("Fehler beim Auslesen der BW-Schaltzeiten Woche");
+            }
+          });
+        } else {
+          adapterl.log.debug("Fehler beim Auslesen der BW-Schaltzeiten Woche");
+        }
+      });
+      controlSchaltzWoBW(data3201array);
+
+      break
     }
   } catch (e) {
     adapter.log.warn("controlluxtronik-Fehler: " + e)
@@ -439,6 +479,23 @@ function controlhysthk(statehysthk) {
   }, 2000);
   setTimeout(callluxtronik2100, 7000);
 } //end controlhysthk
+
+function controlSchaltzWoBW(data3201array) {
+  if (clientconnection == true) {
+    adapter.log.debug("warte auf " + warteauf);
+    clientconnectionerror++;
+    if (clientconnectionerror > 10) {
+      adapter.log.warn("Verbindungsprobleme, starte Adapter neu");
+      restartAdapter();
+    }
+    setTimeout(function() {
+      controlSchaltzWoBW(data3201array);
+    }, 1000);
+    return;
+  }
+  clientconnectionerror = 0;
+  callluxtronik3201(data3201array);
+} //end controlSchaltzWoBW
 
 function callluxtronik1100() {
   clientconnection = true;
@@ -1383,6 +1440,79 @@ function callluxtronik3501(statebws) {
     clientconnection = false;
   });
 } //endcallluxtronik3501
+
+
+
+function callluxtronik3201(data3201array) {
+  clientconnection = true;
+  warteauf = "callluxtronik3201";
+  var client = new net.Socket();
+
+  var client = client.connect(port, deviceIpAdress, function() {
+    // write out connection details
+    adapter.log.debug('Connected to Luxtronik');
+    datastring = "";
+    errorcount = 0;
+    client.write('3201\r\n'); // send data to through the client to the host
+    setTimeout(function() {
+      client.write(data3201array.toString().replace(/,/g, ';') + '\r\n');
+    }, 2000);
+    setTimeout(function() {
+      client.write('999\r\n');
+    }, 4000);
+  });
+
+  client.on('error', function(ex) {
+    adapter.log.warn("3201 connection error: " + ex);
+  });
+
+  client.on('data', function(data) {
+    datastring += data;
+    try {
+      if (datastring.includes("779") === true && errorcount == 0) {
+        errorcount = 1;
+        adapter.log.warn("Befehlsverarbeitung unvollständig, bitte nochmal starten");
+        adapter.log.warn("Kommunikationsstörung wird behoben gestartet");
+
+        client.write('3201\r\n'); // send data to through the client to the host
+        setTimeout(function() {
+          client.write('3201;0\r\n');
+        }, 100);
+        setTimeout(function() {
+          client.write('999\r\n');
+
+        }, 200);
+
+      }
+
+      if (datastring.includes("993\r\n999") === true) {
+        client.destroy();
+      }
+    } catch (e) {
+      adapter.log.debug("Fehler Störungsbehebung " + e);
+    }
+  });
+
+  client.on('close', function() {
+    adapter.log.debug("Connection closed");
+    adapter.log.debug("Datenset: " + datastring);
+    adapter.log.debug("Anzahl Elemente Datenset: " + datastring.length);
+    try {
+
+      if (datastring != "") {
+        var data3201array = datastring.split('\r\n');
+        adapter.log.debug("Schaltzeiten neu: " + data3201array);
+        if (errorcount == 1) {
+          errorcount = 0;
+        }
+      }
+    } catch (e) {
+      adapter.log.warn("callluxtronik3201 - Feher: " + e);
+    }
+    adapter.log.debug("Daten 3201 fertig verarbeitet.");
+    clientconnection = false;
+  });
+} //end callluxtronik3201
 
 function setfehlertext(fehlerinfo) {
   try {

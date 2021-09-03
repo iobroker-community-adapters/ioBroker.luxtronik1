@@ -264,12 +264,12 @@
       "_id": "temperaturen.WQa",
       "type": "state",
       "common": {
-        "name": "Waermequellen Austtstemperatur",
+        "name": "Waermequellen Austrittstemperatur",
         "type": "number",
         "role": "value.temperature",
         "read": true,
         "write": false,
-        "desc": "Waermequellen Austtstemperatur, Ablauf",
+        "desc": "Waermequellen Austrittstemperatur, Ablauf",
         "unit": "°C"
       },
       "native": {
@@ -1702,6 +1702,92 @@
 
       }
     },
+    {
+      "_id": "control.SchaltzWoBW.Start1",
+      "type": "state",
+      "common": {
+        "name": "Sperrbeginn1 (hh:mm)",
+        "type": "string",
+        "role": "control.Schaltz",
+        "read": true,
+        "write": true,
+        "def": "0",
+        "desc": "Schaltzeiten Woche BW, Sperrbeginn1"
+
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "control.SchaltzWoBW.Ende1",
+      "type": "state",
+      "common": {
+        "name": "Sperrende1 (hh:mm)",
+        "type": "string",
+        "role": "control.Schaltz",
+        "read": true,
+        "write": true,
+        "def": "0",
+        "desc": "Schaltzeiten Woche BW, Sperrende1"
+
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "control.SchaltzWoBW.Start2",
+      "type": "state",
+      "common": {
+        "name": "Sperrbeginn2 (hh:mm)",
+        "type": "string",
+        "role": "control.Schaltz",
+        "read": true,
+        "write": true,
+        "def": "0",
+        "desc": "Schaltzeiten Woche BW, Sperrbeginn2"
+
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "control.SchaltzWoBW.Ende2",
+      "type": "state",
+      "common": {
+        "name": "Sperrende2 (hh:mm)",
+        "type": "number",
+        "role": "control.Schaltz",
+        "read": true,
+        "write": true,
+        "def": "0",
+        "desc": "Schaltzeiten Woche BW, Sperrende2"
+
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "control.SchaltzWoBW.senden",
+      "type": "state",
+      "common": {
+        "name": "Schaltzeiten BW Woche senden",
+        "type": "boolean",
+        "role": "button",
+        "read": true,
+        "write": true,
+        "def": "0",
+        "desc": "Schaltzeiten Woche BW senden"
+
+      },
+      "native": {
+
+      }
+    },
+
     {
       "_id": "temperaturen.einstellungen.RLBegr",
       "type": "state",
