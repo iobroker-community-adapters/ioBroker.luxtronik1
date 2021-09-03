@@ -1711,7 +1711,7 @@
         "role": "control.Schaltz",
         "read": true,
         "write": true,
-        "def": "0",
+        "def": "0:0",
         "desc": "Schaltzeiten Woche BW, Sperrbeginn1"
 
       },
@@ -1728,7 +1728,7 @@
         "role": "control.Schaltz",
         "read": true,
         "write": true,
-        "def": "0",
+        "def": "0:0",
         "desc": "Schaltzeiten Woche BW, Sperrende1"
 
       },
@@ -1745,7 +1745,7 @@
         "role": "control.Schaltz",
         "read": true,
         "write": true,
-        "def": "0",
+        "def": "0:0",
         "desc": "Schaltzeiten Woche BW, Sperrbeginn2"
 
       },
@@ -1758,11 +1758,11 @@
       "type": "state",
       "common": {
         "name": "Sperrende2 (hh:mm)",
-        "type": "number",
+        "type": "string",
         "role": "control.Schaltz",
         "read": true,
         "write": true,
-        "def": "0",
+        "def": "0:0",
         "desc": "Schaltzeiten Woche BW, Sperrende2"
 
       },

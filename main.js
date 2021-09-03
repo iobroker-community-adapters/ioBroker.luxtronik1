@@ -993,7 +993,7 @@ function callluxtronik3505() {
 function callluxtronik3200() {
   clientconnection = true;
   warteauf = "callluxtronik3200";
-  var datacount3400 = 0;
+  var datacount3200 = 0;
   var client = new net.Socket();
 
   var client = client.connect(port, deviceIpAdress, function() {
@@ -1011,12 +1011,12 @@ function callluxtronik3200() {
     datastring += data;
     datacount3400++;
     if (datastring.includes("3200;8") === true && (datastring.split(';')).length === (parseInt((datastring.split(';'))[1]) + 2)) {
-      datacount3400 = 0;
+      datacount3200 = 0;
       adapter.log.debug("Data complete, destroy connection")
       client.destroy();
-    } else if (datacount3400 > 5) {
+    } else if (datacount3200 > 5) {
       datacount3400 = 0;
-      adapter.log.debug("Data3400 NOT complete, destroy connection")
+      adapter.log.debug("Data3200 NOT complete, destroy connection")
       client.destroy();
     }
   });
@@ -1026,35 +1026,31 @@ function callluxtronik3200() {
     adapter.log.debug("Datenset: " + datastring);
     adapter.log.debug("Anzahl Elemente Datenset: " + datastring.length);
     try {
-      if (datastring.length > 20) {
-        var data3400array = datastring.split(';');
-        adapter.log.debug("Anzahl Elemente data3400array: " + data3400array.length);
-        adapter.log.debug("Anzahl Elemente data3400array SOLL: " + (parseInt(data3400array[1]) + 2));
-        if (data3400array.length == 11) {
-          adapter.log.debug("Datensatz 3400: " + data3400array);
-          adapter.log.debug("Abweichung Rücklauf Soll: " + data3400array[2]);
-          adapter.log.debug("Endpunkt: " + data3400array[3]);
-          adapter.log.debug("Parallelverschiebung: " + data3400array[4]);
-          adapter.log.debug("Nachtabsenkung: " + data3400array[5]);
+      if (datastring.length > 15) {
+        var data3200array = datastring.split(';');
+        adapter.log.debug("Anzahl Elemente datacount3200array: " + data3400array.length);
+        adapter.log.debug("Anzahl Elemente data3200array SOLL: " + (parseInt(data3200array[1]) + 2));
+        if ((datastring.split(';')).length === (parseInt((datastring.split(';'))[1]) + 2)) {
+          adapter.log.debug("Datensatz 3200: " + data3200array);
+          adapter.log.debug("Schaltzeiten BW Woche: ");
+          adapter.log.debug("Start1: " + data3200array[2] + ":" + data3200array[3]);
+          adapter.log.debug("Ende1: " + data3200array[4] + ":" + data3200array[5]);
+          adapter.log.debug("Start2: " + data3200array[6] + ":" + data3200array[7]);
+          adapter.log.debug("Ende1: " + data3200array[8] + ":" + data3200array[9]);
 
-          adapter.setState("heizkurve.AbwRLs", data3400array[2] / 10, true);
-          adapter.setState("heizkurve.Endpunkt", data3400array[3] / 10, true);
-          adapter.setState("heizkurve.ParaV", data3400array[4] / 10, true);
-          adapter.setState("heizkurve.NachtAbs", data3400array[5] / 10, true);
-          if (pollfunction == true) {
-            adapter.setState("control.AbwRLs", data3400array[2] / 10, true);
-            adapter.setState("control.EndpunktHK", data3400array[3] / 10, true);
-            adapter.setState("control.ParaVHK", data3400array[4] / 10, true);
-            adapter.setState("control.NachtAbs", data3400array[5] / 10, true);
-          }
-          data3400error = 0;
+          adapter.setState("control.SchaltzWoBW.Start1", data3200array[2] + ":" + data3200array[3], true);
+          adapter.setState("control.SchaltzWoBW.Ende1", data3200array[4] + ":" + data3200array[5], true);
+          adapter.setState("control.SchaltzWoBW.Start2", data3200array[6] + ":" + data3200array[7], true);
+          adapter.setState("control.SchaltzWoBW.Ende2", data3200array[8] + ":" + data3200array[9], true);
+
+          data3200error = 0;
         } else {
-          adapter.log.debug("Datenarray3400 unvollständig, keine Werte gesetzt");
-          data3400error++;
+          adapter.log.debug("Datenarray3200 unvollständig, keine Werte gesetzt");
+          data3200error++;
         }
       } else {
         adapter.log.debug("Datensatz3400 unvollständig, keine Werte gesetzt");
-        data3400error++;
+        data3200error++;
       }
       if (data3400error > 4) {
         adapter.log.warn("Achtung, mehrfach unvollständiger Datensatz 3400");
