@@ -171,8 +171,8 @@ function pollluxtronik() {
     setTimeout(callluxtronik3405, 4000);
     setTimeout(callluxtronik3505, 6000);
     setTimeout(callluxtronik3400, 8000);
-    setTimeout(callluxtronik3200), 10000);
-}
+    setTimeout(callluxtronik3200, 10000);
+  }
 } //endPollluxtronik
 
 function controlluxtronik(id, state) {
