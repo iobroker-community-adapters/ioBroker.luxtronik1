@@ -35,6 +35,7 @@ var data3201array = ['3201', '8']; //BW-Sperre alle Tage
 var hkdata;
 var instance;
 var errorcount;
+var schaltzbwblock = false;
 var clientconnection = false;
 var hkfunction = false;
 var hystfunction = false;
@@ -170,7 +171,8 @@ function pollluxtronik() {
     setTimeout(callluxtronik3405, 4000);
     setTimeout(callluxtronik3505, 6000);
     setTimeout(callluxtronik3400, 8000);
-  }
+    setTimeout(callluxtronik3200), 10000);
+}
 } //endPollluxtronik
 
 function controlluxtronik(id, state) {
@@ -260,6 +262,14 @@ function controlluxtronik(id, state) {
         controlSchaltzWoBW(data3201array);
 
         break
+
+      default:
+        if (id.includes("control.SchaltzWoBW.Start") || id.includes("control.SchaltzWoBW.Ende")) {
+          schaltzbwblock = true;
+          setTimeout(function() {
+            schaltzbwblock = false;
+          }, 60000);
+        }
     }
   } catch (e) {
     adapter.log.warn("controlluxtronik-Fehler: " + e)
@@ -495,6 +505,7 @@ function controlSchaltzWoBW(data3201array) {
     return;
   }
   clientconnectionerror = 0;
+  schaltzbwblock = false;
   callluxtronik3201(data3201array);
 } //end controlSchaltzWoBW
 
@@ -1038,11 +1049,16 @@ function callluxtronik3200() {
           adapter.log.debug("Ende1: " + data3200array[4].padStart(2, '0') + ":" + data3200array[5].padStart(2, '0'));
           adapter.log.debug("Start2: " + data3200array[6].padStart(2, '0') + ":" + data3200array[7].padStart(2, '0'));
           adapter.log.debug("Ende2: " + data3200array[8].padStart(2, '0') + ":" + data3200array[9].padStart(2, '0'));
-
-          adapter.setState("control.SchaltzWoBW.Start1", data3200array[2].padStart(2, '0') + ":" + data3200array[3].padStart(2, '0'), true);
-          adapter.setState("control.SchaltzWoBW.Ende1", data3200array[4].padStart(2, '0') + ":" + data3200array[5].padStart(2, '0'), true);
-          adapter.setState("control.SchaltzWoBW.Start2", data3200array[6].padStart(2, '0') + ":" + data3200array[7].padStart(2, '0'), true);
-          adapter.setState("control.SchaltzWoBW.Ende2", data3200array[8].padStart(2, '0') + ":" + data3200array[9].padStart(2, '0'), true);
+          if (schaltzbwblock == false) {
+            adapter.setState("control.SchaltzWoBW.Start1", data3200array[2].padStart(2, '0') + ":" + data3200array[3].padStart(2, '0'), true);
+            adapter.setState("control.SchaltzWoBW.Ende1", data3200array[4].padStart(2, '0') + ":" + data3200array[5].padStart(2, '0'), true);
+            adapter.setState("control.SchaltzWoBW.Start2", data3200array[6].padStart(2, '0') + ":" + data3200array[7].padStart(2, '0'), true);
+            adapter.setState("control.SchaltzWoBW.Ende2", data3200array[8].padStart(2, '0') + ":" + data3200array[9].padStart(2, '0'), true);
+          }
+          adapter.setState("status.SchaltzWoBW.Start1", data3200array[2].padStart(2, '0') + ":" + data3200array[3].padStart(2, '0'), true);
+          adapter.setState("status.SchaltzWoBW.Ende1", data3200array[4].padStart(2, '0') + ":" + data3200array[5].padStart(2, '0'), true);
+          adapter.setState("status.SchaltzWoBW.Start2", data3200array[6].padStart(2, '0') + ":" + data3200array[7].padStart(2, '0'), true);
+          adapter.setState("status.SchaltzWoBW.Ende2", data3200array[8].padStart(2, '0') + ":" + data3200array[9].padStart(2, '0'), true);
 
           data3200error = 0;
         } else {
@@ -1063,7 +1079,13 @@ function callluxtronik3200() {
     }
     adapter.log.debug("Daten 3200 fertig verarbeitet.")
 
-    clientconnection = false;
+    if (pollfunction == true) {
+      pollfunction = false;
+      clientconnection = false;
+    } else {
+      clientconnection = false;
+    }
+
 
   });
 } //endcallluxtronik3200

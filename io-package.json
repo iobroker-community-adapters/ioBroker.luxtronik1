@@ -1399,6 +1399,74 @@
       }
     },
     {
+      "_id": "status.SchaltzWoBW.Start1",
+      "type": "state",
+      "common": {
+        "name": "Sperrbeginn1 (hh:mm)",
+        "type": "string",
+        "role": "status.Schaltz",
+        "read": true,
+        "write": true,
+        "def": "00:00",
+        "desc": "Schaltzeiten Woche BW, Sperrbeginn1"
+
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "status.SchaltzWoBW.Ende1",
+      "type": "state",
+      "common": {
+        "name": "Sperrende1 (hh:mm)",
+        "type": "string",
+        "role": "status.Schaltz",
+        "read": true,
+        "write": true,
+        "def": "00:00",
+        "desc": "Schaltzeiten Woche BW, Sperrende1"
+
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "status.SchaltzWoBW.Start2",
+      "type": "state",
+      "common": {
+        "name": "Sperrbeginn2 (hh:mm)",
+        "type": "string",
+        "role": "status.Schaltz",
+        "read": true,
+        "write": true,
+        "def": "00:00",
+        "desc": "Schaltzeiten Woche BW, Sperrbeginn2"
+
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "status.SchaltzWoBW.Ende2",
+      "type": "state",
+      "common": {
+        "name": "Sperrende2 (hh:mm)",
+        "type": "string",
+        "role": "status.Schaltz",
+        "read": true,
+        "write": true,
+        "def": "00:00",
+        "desc": "Schaltzeiten Woche BW, Sperrende2"
+
+      },
+      "native": {
+
+      }
+    },
+    {
       "_id": "heizkurve",
       "type": "channel",
       "common": {
