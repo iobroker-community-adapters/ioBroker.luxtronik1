@@ -1825,6 +1825,83 @@
     },
 
     {
+      "_id": "control.Zeit.senden",
+      "type": "state",
+      "common": {
+        "name": "Zeit / Datum senden",
+        "type": "boolean",
+        "role": "button",
+        "read": true,
+        "write": true,
+        "desc": "Zeit- und Datumswerte senden"
+
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "control.Zeit.uhrzeit",
+      "type": "state",
+      "common": {
+        "name": "Uhrzeit (hh:mm:ss)",
+        "type": "string",
+        "role": "control.time",
+        "read": true,
+        "write": true,
+        "def": "00:00",
+        "desc": "Uhrzeit, hh:mm:ss"
+
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "control.Zeit.datum",
+      "type": "state",
+      "common": {
+        "name": "Datum (dd.mm.yy)",
+        "type": "string",
+        "role": "control.time",
+        "read": true,
+        "write": true,
+        "def": "01.01.20",
+        "desc": "Datum (dd.mm.yy)"
+
+      },
+      "native": {
+
+      }
+    },
+    {
+      "_id": "control.Zeit.dow",
+      "type": "state",
+      "common": {
+        "name": "Wochentag",
+        "type": "number",
+        "role": "control.time",
+        "states": {
+          "0": "Sonntag",
+          "1": "Montag",
+          "2": "Dienstag",
+          "3": "Mittwoch",
+          "4": "Donnerstag",
+          "5": "Freitag",
+          "6": "Samstag"
+        },
+        "read": true,
+        "write": true,
+        "def": "0",
+        "desc": "Datum (dd.mm.yy)"
+
+      },
+      "native": {
+
+      }
+    },
+
+    {
       "_id": "temperaturen.einstellungen.RLBegr",
       "type": "state",
       "common": {
