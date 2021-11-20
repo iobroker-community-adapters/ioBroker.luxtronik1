@@ -65,6 +65,7 @@ function startAdapter(options) {
       adapter.setState('info.connection', false, true);
       callback();
     } catch (e) {
+      adapter.log && adapter.log.warn("[END 7 catch] adapter stopped " + e);
       callback();
     }
   });
