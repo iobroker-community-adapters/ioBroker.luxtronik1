@@ -151,7 +151,7 @@ function main() {
   } // endIf
 
   // all states changes inside the adapters namespace are subscribed
-  adapter.subscribeStates('*');
+  adapter.subscribeStates('control.*');
 
 } // endMain
 
