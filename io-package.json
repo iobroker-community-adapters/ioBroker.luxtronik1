@@ -943,7 +943,6 @@
         "role": "value.hours",
         "read": true,
         "write": false,
-        "def": 0,
         "desc": "Betriebsstunden Verdichter 1"
       },
       "native": {
@@ -959,7 +958,6 @@
         "role": "value.hours",
         "read": true,
         "write": false,
-        "def": 0,
         "desc": "Imulse Verdichter 1"
       },
       "native": {
@@ -975,7 +973,6 @@
         "role": "value.hours",
         "read": true,
         "write": false,
-        "def": false,
         "desc": "Durchscnittliche Laufzeit Verdichter 1"
       },
       "native": {
@@ -991,7 +988,6 @@
         "role": "value.hours",
         "read": true,
         "write": false,
-        "def": 0,
         "desc": "Betriebsstunden Verdichter 2"
       },
       "native": {
@@ -1007,7 +1003,6 @@
         "role": "value.hours",
         "read": true,
         "write": false,
-        "def": 0,
         "desc": "Impulse Verdichter 2"
       },
       "native": {
@@ -1023,7 +1018,6 @@
         "role": "value.hours",
         "read": true,
         "write": false,
-        "def": false,
         "desc": "Durchscnittliche Laufzeit Verdichter 2"
       },
       "native": {
@@ -1039,7 +1033,6 @@
         "role": "value.hours",
         "read": true,
         "write": false,
-        "def": false,
         "desc": "Betriebsstunden ZWE 1"
       },
       "native": {
@@ -1055,7 +1048,6 @@
         "role": "value.hours",
         "read": true,
         "write": false,
-        "def": false,
         "desc": "Betriebsstunden ZWE 2"
       },
       "native": {
@@ -1071,7 +1063,6 @@
         "role": "value.hours",
         "read": true,
         "write": false,
-        "def": false,
         "desc": "Betriebsstunden Waermepumpe"
       },
       "native": {
@@ -1097,7 +1088,6 @@
         "role": "info.fehler",
         "read": true,
         "write": false,
-        "def": false,
         "desc": "letzer Fehler"
       },
       "native": {
@@ -1113,7 +1103,6 @@
         "role": "info.fehler",
         "read": true,
         "write": false,
-        "def": false,
         "desc": "vorletzer Fehler"
       },
       "native": {
@@ -1129,7 +1118,6 @@
         "role": "info.fehler",
         "read": true,
         "write": false,
-        "def": false,
         "desc": "vorvorletzer Fehler"
       },
       "native": {
@@ -1145,7 +1133,6 @@
         "role": "info.fehler",
         "read": true,
         "write": false,
-        "def": false,
         "desc": "vorvorvorletzer Fehler"
       },
       "native": {
@@ -1161,7 +1148,6 @@
         "role": "info.fehler",
         "read": true,
         "write": false,
-        "def": false,
         "desc": "vor5letzer Fehler"
       },
       "native": {
@@ -1187,7 +1173,6 @@
         "role": "info.abschaltung",
         "read": true,
         "write": false,
-        "def": false,
         "desc": "letze Abschaltung"
       },
       "native": {
@@ -1203,7 +1188,6 @@
         "role": "info.abschaltung",
         "read": true,
         "write": false,
-        "def": false,
         "desc": "vorletze Abschaltung"
       },
       "native": {
@@ -1219,7 +1203,6 @@
         "role": "info.abschaltung",
         "read": true,
         "write": false,
-        "def": false,
         "desc": "vorvorletze Abschaltung"
       },
       "native": {
@@ -1235,7 +1218,6 @@
         "role": "info.abschaltung",
         "read": true,
         "write": false,
-        "def": false,
         "desc": "vorvorvorletze Abschaltung"
       },
       "native": {
@@ -1251,7 +1233,6 @@
         "role": "info.abschaltung",
         "read": true,
         "write": false,
-        "def": false,
         "desc": "vor5letze Abschaltung"
       },
       "native": {
@@ -1277,7 +1258,6 @@
         "role": "info.status",
         "read": true,
         "write": false,
-        "def": false,
         "desc": "Betriebsmodus Anlage"
       },
       "native": {
@@ -1310,7 +1290,6 @@
           "13": "L2G Luft/Wasser Grossgerät 2 Verdichter",
           "14": "WZS Wärmezentrale Sole/Wasser"
         },
-        "def": false,
         "desc": "Wärmepumpentyp"
       },
       "native": {
@@ -1326,7 +1305,6 @@
         "role": "info.status",
         "read": true,
         "write": false,
-        "def": false,
         "desc": "Stand Software - Version"
       },
       "native": {
@@ -1502,7 +1480,6 @@
         "role": "info.status",
         "read": true,
         "write": false,
-        "def": false,
         "desc": "Endpunkt Heizkurve",
         "unit": "°C"
       },
@@ -1536,7 +1513,6 @@
         "role": "info.status",
         "read": true,
         "write": false,
-        "def": false,
         "desc": "Nachtabsenkung Heizkurve",
         "unit": "°C"
       },
@@ -1626,7 +1602,6 @@
         "role": "control.temperature",
         "read": true,
         "write": true,
-        "def": false,
         "desc": "Nachtabsenkung setzen",
         "unit": "°C"
       },
@@ -1643,7 +1618,6 @@
         "role": "control.status",
         "read": true,
         "write": true,
-        "def": false,
         "states": {
           "0": "AUTO",
           "1": "ZWE",
