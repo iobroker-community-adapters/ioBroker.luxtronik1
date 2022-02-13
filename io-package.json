@@ -1866,7 +1866,6 @@
         },
         "read": true,
         "write": true,
-        "def": "0",
         "desc": "Datum (dd.mm.yy)"
 
       },
