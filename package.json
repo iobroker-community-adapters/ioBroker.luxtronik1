@@ -27,8 +27,7 @@
     "url": "https://github.com/iobroker-community-adapters/ioBroker.luxtronik1"
   },
   "dependencies": {
-    "@iobroker/adapter-core": "^2.6.0",
-    "js-controller": ">=3.3.22"
+    "@iobroker/adapter-core": "^2.6.0"
   },
   "deprecated": false,
   "devDependencies": {
