@@ -57,14 +57,30 @@
         "de": "Erste veröffentlichte Version (latest repo)"
       }
     },
-    "title": "luxtronik1",
+
     "titleLang": {
-      "en": "luxtronik1Control",
-      "de": "Luxtronik1Steuerung"
+      "en": "Luxtronik1Control",
+      "de": "Luxtronik1Control",
+      "ru": "Luxtronik1Контроль",
+      "pt": "Luxtronik1Control",
+      "nl": "Luxtronik1Control",
+      "fr": "Luxtronik1Control",
+      "it": "Luxtronik1Control",
+      "es": "Luxtronik1Control",
+      "pl": "Lukstronik1",
+      "zh-cn": "Luxtronik1Control"
     },
     "desc": {
-      "en": "Control your Luxtronik 1 heatpump contorller",
-      "de": "Bediene deine Luxtronik 1 Heizungssteuerung"
+      "en": "Control your Luxtronik 1 heatpump controler",
+      "de": "Steuern Sie Ihren Luxtronik 1 Wärmepumpenregler",
+      "ru": "Контролируйте свой Luxtronik 1 нагреватель",
+      "pt": "Controle seu controle de calor Luxtronik 1",
+      "nl": "Controleer je Luxtronik 1 verwarmingscontrole",
+      "fr": "Contrôlez votre Luxtronik 1 régulateur de puissance",
+      "it": "Controlla il tuo Luxtronik 1 dissipatore di calore",
+      "es": "Controle su control de bomba de calor Luxtronik 1",
+      "pl": "Kontrola nad Luxtronikiem 1",
+      "zh-cn": "控制你的Lxtronik 1个热能控制"
     },
     "authors": [
       "forelleblau <marceladam@gmx.ch>"
