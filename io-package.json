@@ -106,6 +106,10 @@
     "connectionType": "local",
     "dataSource": "poll"
   },
+  "dependencies": {
+    "@iobroker/adapter-core": "^2.6.0",
+    "js-controller": ">=3.3.22"
+  },
   "native": {
     "host": "",
     "pollInterval": 300000,
