@@ -27,8 +27,10 @@
     "url": "https://github.com/iobroker-community-adapters/ioBroker.luxtronik1"
   },
   "dependencies": {
-    "@iobroker/adapter-core": "^2.6.0"
+    "@iobroker/adapter-core": "^2.6.0",
+    "js-controller": ">=3.3.22"
   },
+  "deprecated": false,
   "devDependencies": {
     "@iobroker/testing": "^3.0.2",
     "@types/chai": "^4.3.3",
@@ -54,7 +56,11 @@
     "test": "npm run test:package && npm run test:unit",
     "test:package": "mocha test/package --exit",
     "test:unit": "mocha test/unit --exit",
-    "test:integration": "mocha test/integration --exit"
+    "test:integration": "mocha test/integration --exit",
+    "release": "release-script",
+    "release-patch": "release-script patch --yes --no-update-lockfile",
+    "release-minor": "release-script minor --yes --no-update-lockfile",
+    "release-major": "release-script major --yes --no-update-lockfile"
   },
   "bugs": {
     "url": "https://github.com/iobroker-community-adapters/ioBroker.luxtronik1/issues"
