@@ -104,12 +104,12 @@
     "license": "MIT",
     "messagebox": false,
     "connectionType": "local",
-    "dataSource": "poll"
+    "dataSource": "poll",
+    "dependencies": [{
+      "js-controller": ">=3.3.22"
+    }]
   },
-  "dependencies": {
-    "@iobroker/adapter-core": "^2.6.0",
-    "js-controller": ">=3.3.22"
-  },
+
   "native": {
     "host": "",
     "pollInterval": 300000,
