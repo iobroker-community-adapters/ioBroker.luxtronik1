@@ -26,6 +26,9 @@
     "type": "git",
     "url": "https://github.com/iobroker-community-adapters/ioBroker.luxtronik1"
   },
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "dependencies": {
     "@iobroker/adapter-core": "^2.6.8"
   },
