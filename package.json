@@ -32,6 +32,7 @@
   "deprecated": false,
   "devDependencies": {
     "@iobroker/testing": "^4.1.0",
+    "@iobroker/adapter-dev": "^1.2.0",
     "@types/chai": "^4.3.9",
     "@types/chai-as-promised": "^7.1.7",
     "@types/gulp": "^4.0.16",
@@ -58,7 +59,9 @@
     "release": "release-script",
     "release-patch": "release-script patch --yes --no-update-lockfile",
     "release-minor": "release-script minor --yes --no-update-lockfile",
-    "release-major": "release-script major --yes --no-update-lockfile"
+    "release-major": "release-script major --yes --no-update-lockfile",
+    "translate": "translate-adapter",
+    "build": "build-adapter"
   },
   "bugs": {
     "url": "https://github.com/iobroker-community-adapters/ioBroker.luxtronik1/issues"
