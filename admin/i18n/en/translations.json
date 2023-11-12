@@ -1,12 +1,10 @@
 {
-    "Auto": "Auto",
-    "Manual": "Manual",
-    "My select": "My select",
-    "host": "Solarlog IP:",
-    "on save adapter restarts with new config immediately": "on save adapter restarts with new config immediately",
-    "pollInterval": "Polling - Interval (ms):",
-    "port": "Port",
-    "template adapter settings": "template adapter settings",
-    "test1": "",
-    "test2": ""
+  "Auto": "Auto",
+  "Manual": "Manual",
+  "My select": "My select",
+  "host": "Luxtronik IP:",
+  "on save adapter restarts with new config immediately": "on save adapter restarts with new config immediately",
+  "pollInterval": "Polling - Interval (ms):",
+  "port": "Port",
+  "template adapter settings": "template adapter settings"
 }

@@ -1,2032 +1,2028 @@
 {
-    "common": {
-        "name": "luxtronik1",
-        "version": "0.3.6",
-        "news": {
-            "0.3.6": {
-                "en": "testing and dependencies updated",
-                "de": "Tests und Abhängigkeiten aktualisiert",
-                "ru": "обновление тестирования и зависимостей",
-                "pt": "testes e dependências atualizadas",
-                "nl": "test en afhankelijkheid",
-                "fr": "tests et dépendances mis à jour",
-                "it": "test e dipendenze aggiornate",
-                "es": "pruebas y dependencias actualizadas",
-                "pl": "testy i zależności",
-                "zh-cn": "试验和依赖更新",
-                "uk": "тестування та залежності оновлено"
-            },
-            "0.3.5": {
-                "en": "set ready for js-controller 4.0",
-                "de": "bereit für js-controller 4.0",
-                "ru": "готово для js-контроллера 4.0",
-                "pt": "pronto para js-controller 4.0",
-                "nl": "klaar voor js-controller 4.0",
-                "fr": "prêt pour js-controller 4.0",
-                "it": "pronto per js-controller 4.0",
-                "es": "listo para js-controller 4.0",
-                "pl": "gotowy na kontroler js 4.0",
-                "uk": "набір готовий для js-контролера 4.0",
-                "zh-cn": "为 js-controller 4.0 做好准备"
-            },
-            "0.3.4": {
-                "en": "control timer hot water added",
-                "de": "Sperrzeiten Warmwasser - Steuerung hinzugefügt",
-                "ru": "добавлен таймер управления горячей водой",
-                "pt": "controle temporizador água quente adicionada",
-                "nl": "controle timer warm water toegevoegd",
-                "fr": "minuterie de contrôle eau chaude ajoutée",
-                "it": "timer di controllo acqua calda aggiunta",
-                "es": "temporizador de control de agua caliente añadido",
-                "pl": "timer sterujący dodania ciepłej wody",
-                "uk": "контрольний таймер доданої гарячої води",
-                "zh-cn": "控制定时器热水添加"
-            },
-            "0.3.3": {
-                "en": "data exchange optimized",
-                "de": "Datenaustausch verbessert",
-                "ru": "оптимизирован обмен данными",
-                "pt": "troca de dados otimizada",
-                "nl": "gegevensuitwisseling geoptimaliseerd",
-                "fr": "échange de données optimisé",
-                "it": "scambio dati ottimizzato",
-                "es": "intercambio de datos optimizado",
-                "pl": "zoptymalizowana wymiana danych",
-                "uk": "оптимізований обмін даними",
-                "zh-cn": "数据交换优化"
-            },
-            "0.3.1": {
-                "en": "bugfixes related to js-controller 3.3x",
-                "de": "Behebung von Fehlern bei update auf js-controller 3.3x",
-                "ru": "исправления, связанные с js-контроллером 3.3x",
-                "pt": "correções de bugs relacionadas ao js-controller 3.3x",
-                "nl": "bugfixes gerelateerd aan js-controller 3.3x",
-                "fr": "corrections de bugs liés à js-controller 3.3x",
-                "it": "correzioni di bug relativi a js-controller 3.3x",
-                "es": "correcciones de errores relacionados con js-controller 3.3x",
-                "pl": "poprawki błędów związane z kontrolerem js 3.3x",
-                "uk": "виправлення помилок, пов'язаних з js-контролером 3.3x",
-                "zh-cn": "与 js-controller 3.3x 相关的错误修复"
-            },
-            "0.3.0": {
-                "en": "info on temperature - settings and hysteresis - control added",
-                "de": "Menu Einstellungen-Temperaturen abgebildet und Hysterese-Werte setzen",
-                "ru": "добавлена ​​информация по температуре - настройки и гистерезис - управление",
-                "pt": "informações sobre temperatura - configurações e histerese - controle adicionado",
-                "nl": "info over temperatuur - instellingen en hysterese - regeling toegevoegd",
-                "fr": "informations sur la température - réglages et hystérésis - contrôle ajouté",
-                "it": "informazioni su temperatura - impostazioni e isteresi - controllo aggiunto",
-                "es": "información sobre temperatura - configuración e histéresis - control añadido",
-                "pl": "informacja o temperaturze - ustawienia i histereza - dodano sterowanie",
-                "uk": "інформація про температуру - налаштування та гістерезис - контроль додано",
-                "zh-cn": "有关温度的信息 - 设置和滞后 - 添加了控制"
-            },
-            "0.2.7": {
-                "en": "status-info added",
-                "de": "Statusinformation erweitert.",
-                "ru": "информация о статусе добавлена",
-                "pt": "informações de status adicionadas",
-                "nl": "statusinfo toegevoegd",
-                "fr": "informations sur le statut ajoutées",
-                "it": "informazioni sullo stato aggiunte",
-                "es": "información de estado agregada",
-                "pl": "Dodano informacje o statusie",
-                "uk": "інформація про статус додана",
-                "zh-cn": "添加状态信息"
-            },
-            "0.2.6": {
-                "en": "input - data and timers added",
-                "de": "Daten zu Eingängen und Ablaufzeiten ergänzt.",
-                "ru": "input - добавлены данные и таймеры",
-                "pt": "entrada - dados e temporizadores adicionados",
-                "nl": "invoer - gegevens en timers toegevoegd",
-                "fr": "entrée - données et minuteries ajoutées",
-                "it": "input: dati e timer aggiunti",
-                "es": "entrada - datos y temporizadores agregados",
-                "pl": "wejście - dodano dane i timery",
-                "uk": "введення - додано дані та таймери",
-                "zh-cn": "输入 - 添加数据和计时器"
-            },
-            "0.2.5": {
-                "en": "outlet - data added",
-                "de": "Daten zu Ausgängen ergänzt.",
-                "ru": "торговая точка - данные добавлены",
-                "pt": "outlet - dados adicionados",
-                "nl": "outlet - gegevens toegevoegd",
-                "fr": "prise - données ajoutées",
-                "it": "presa - dati aggiunti",
-                "es": "salida - datos añadidos",
-                "pl": "outlet - dane dodano",
-                "uk": "розетка - дані додані",
-                "zh-cn": "出口 - 添加数据"
-            },
-            "0.2.0": {
-                "en": "missing temperature values added",
-                "de": "Fehlende Temperaturwerte ergänzt (Wärmequelle, Mischkreis, Raumstation).",
-                "ru": "добавлены недостающие значения температуры",
-                "pt": "valores de temperatura ausentes adicionados",
-                "nl": "ontbrekende temperatuurwaarden toegevoegd",
-                "fr": "valeurs de température manquantes ajoutées",
-                "it": "aggiunti i valori di temperatura mancanti",
-                "es": "Se agregaron los valores de temperatura faltantes.",
-                "pl": "dodano brakujące wartości temperatur",
-                "uk": "додано відсутні значення температури",
-                "zh-cn": "添加了缺失的温度值"
-            },
-            "0.1.0": {
-                "en": "error - handling on communication errors optimized, adapter restart in case ofmultiple communication errors.",
-                "de": "Fehlerhandling für Kommunikationsfehler verbessert, automatischer Adapter - Neustart bei Kommunikationstörungen.",
-                "ru": "ошибка - оптимизирована обработка ошибок связи, перезапуск адаптера в случае нескольких ошибок связи.",
-                "pt": "erro - tratamento otimizado de erros de comunicação, reinicialização do adaptador em caso de múltiplos erros de comunicação.",
-                "nl": "fout - afhandeling van communicatiefouten geoptimaliseerd, adapter opnieuw opstarten in geval van meerdere communicatiefouten.",
-                "fr": "error - gestion des erreurs de communication optimisée, redémarrage de l'adaptateur en cas d'erreurs de communication multiples.",
-                "it": "errore: gestione ottimizzata degli errori di comunicazione, riavvio dell'adattatore in caso di più errori di comunicazione.",
-                "es": "error: manejo de errores de comunicación optimizado, reinicio del adaptador en caso de múltiples errores de comunicación.",
-                "pl": "error - zoptymalizowana obsługa błędów komunikacji, restart adaptera w przypadku wielokrotnych błędów komunikacji.",
-                "uk": "помилка – оптимізовано обробку помилок зв’язку, перезапуск адаптера у разі кількох помилок зв’язку.",
-                "zh-cn": "错误 - 优化了通信错误的处理，在出现多个通信错误时适配器重新启动。"
-            },
-            "0.0.5": {
-                "en": "controls hotwater-temperature, heating- & hotwater - mode and heating-curve setting.",
-                "de": "Steuerung von Warmwasser-Soll, Heizungs- und Warmwasser-Modus sowie der Heizkurven-Werte.",
-                "ru": "контролирует температуру горячей воды, режим отопления и горячей воды и настройку кривой отопления.",
-                "pt": "controla a temperatura da água quente, o modo de aquecimento e água quente e a configuração da curva de aquecimento.",
-                "nl": "regelt de warmwatertemperatuur, de verwarmings- en warmwatermodus en de instelling van de stooklijn.",
-                "fr": "contrôle la température de l'eau chaude, le mode de chauffage et d'eau chaude et le réglage de la courbe de chauffage.",
-                "it": "controlla la temperatura dell'acqua calda, la modalità riscaldamento e acqua calda e l'impostazione della curva di riscaldamento.",
-                "es": "controla la temperatura del agua caliente, el modo de calefacción y agua caliente y el ajuste de la curva de calefacción.",
-                "pl": "steruje temperaturą ciepłej wody, trybem ogrzewania i ciepłej wody oraz ustawieniem krzywej grzewczej.",
-                "uk": "контролює температуру гарячої води, режим опалення та гарячої води та налаштування кривої опалення.",
-                "zh-cn": "控制热水温度、加热和热水模式以及加热曲线设置。"
-            },
-            "0.0.3": {
-                "en": "Reads also mode heating, water and heating-curve",
-                "de": "Liest auch Modus Heizung und Warmwasser sowie die Heizkurve",
-                "ru": "Считывает также режим отопления, воды и кривую отопления.",
-                "pt": "Lê também modo aquecimento, água e curva de aquecimento",
-                "nl": "Leest ook modus verwarming, water en stooklijn",
-                "fr": "Lit également les modes chauffage, eau et courbe de chauffage",
-                "it": "Legge anche la modalità riscaldamento, acqua e curva di riscaldamento",
-                "es": "Lee también el modo calefacción, agua y curva de calefacción.",
-                "pl": "Odczytuje także tryb ogrzewania, wodę i krzywą grzania",
-                "uk": "Читає також режими опалення, води та опалювальної кривої",
-                "zh-cn": "还读取加热模式、水和加热曲线"
-            },
-            "0.0.2": {
-                "en": "First published version (latest repo)",
-                "de": "Erste veröffentlichte Version (latest repo)",
-                "ru": "Первая опубликованная версия (последний репозиторий)",
-                "pt": "Primeira versão publicada (último repositório)",
-                "nl": "Eerste gepubliceerde versie (laatste repository)",
-                "fr": "Première version publiée (dernier dépôt)",
-                "it": "Prima versione pubblicata (ultimo repository)",
-                "es": "Primera versión publicada (último repositorio)",
-                "pl": "Pierwsza opublikowana wersja (najnowsze repozytorium)",
-                "uk": "Перша опублікована версія (останнє репо)",
-                "zh-cn": "第一个发布版本（最新存储库）"
-            }
-        },
-        "titleLang": {
-            "en": "Luxtronik1Control",
-            "de": "Luxtronik1Control",
-            "ru": "Luxtronik1Контроль",
-            "pt": "Luxtronik1Control",
-            "nl": "Luxtronik1Control",
-            "fr": "Luxtronik1Control",
-            "it": "Luxtronik1Control",
-            "es": "Luxtronik1Control",
-            "pl": "Lukstronik1",
-            "zh-cn": "Luxtronik1Control",
-            "uk": "Luxtronik1Control"
-        },
-        "desc": {
-            "en": "Control your Luxtronik 1 heatpump controler",
-            "de": "Steuern Sie Ihren Luxtronik 1 Wärmepumpenregler",
-            "ru": "Контролируйте свой Luxtronik 1 нагреватель",
-            "pt": "Controle seu controle de calor Luxtronik 1",
-            "nl": "Controleer je Luxtronik 1 verwarmingscontrole",
-            "fr": "Contrôlez votre Luxtronik 1 régulateur de puissance",
-            "it": "Controlla il tuo Luxtronik 1 dissipatore di calore",
-            "es": "Controle su control de bomba de calor Luxtronik 1",
-            "pl": "Kontrola nad Luxtronikiem 1",
-            "zh-cn": "控制你的Lxtronik 1个热能控制",
-            "uk": "Керуйте своїм контролером теплового насоса Luxtronik 1"
-        },
-        "authors": [
-            "forelleblau <marceladam@gmx.ch>"
-        ],
-        "platform": "Javascript/Node.js",
-        "mode": "daemon",
-        "compact": true,
-        "icon": "luxtronik1.png",
-        "materialize": true,
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.luxtronik1/master/admin/luxtronik1.png",
-        "keywords": [
-            "luxtronik",
-            "heatpump",
-            "smart",
-            "home"
-        ],
-        "readme": "https://github.com/iobroker-community-adapters/ioBroker.luxtronik1/blob/master/README.md",
-        "loglevel": "info",
-        "type": "climate-control",
-        "license": "MIT",
-        "messagebox": false,
-        "connectionType": "local",
-        "dataSource": "poll",
-        "dependencies": [
-            {
-                "js-controller": ">=3.3.22"
-            }
-        ],
-        "installedFrom": "iobroker-community-adapters/ioBroker.luxtronik1"
+  "common": {
+    "name": "luxtronik1",
+    "version": "0.3.6",
+    "news": {
+      "0.3.6": {
+        "en": "testing and dependencies updated",
+        "de": "Tests und Abhängigkeiten aktualisiert",
+        "ru": "обновление тестирования и зависимостей",
+        "pt": "testes e dependências atualizadas",
+        "nl": "test en afhankelijkheid",
+        "fr": "tests et dépendances mis à jour",
+        "it": "test e dipendenze aggiornate",
+        "es": "pruebas y dependencias actualizadas",
+        "pl": "testy i zależności",
+        "zh-cn": "试验和依赖更新",
+        "uk": "тестування та залежності оновлено"
+      },
+      "0.3.5": {
+        "en": "set ready for js-controller 4.0",
+        "de": "bereit für js-controller 4.0",
+        "ru": "готово для js-контроллера 4.0",
+        "pt": "pronto para js-controller 4.0",
+        "nl": "klaar voor js-controller 4.0",
+        "fr": "prêt pour js-controller 4.0",
+        "it": "pronto per js-controller 4.0",
+        "es": "listo para js-controller 4.0",
+        "pl": "gotowy na kontroler js 4.0",
+        "uk": "набір готовий для js-контролера 4.0",
+        "zh-cn": "为 js-controller 4.0 做好准备"
+      },
+      "0.3.4": {
+        "en": "control timer hot water added",
+        "de": "Sperrzeiten Warmwasser - Steuerung hinzugefügt",
+        "ru": "добавлен таймер управления горячей водой",
+        "pt": "controle temporizador água quente adicionada",
+        "nl": "controle timer warm water toegevoegd",
+        "fr": "minuterie de contrôle eau chaude ajoutée",
+        "it": "timer di controllo acqua calda aggiunta",
+        "es": "temporizador de control de agua caliente añadido",
+        "pl": "timer sterujący dodania ciepłej wody",
+        "uk": "контрольний таймер доданої гарячої води",
+        "zh-cn": "控制定时器热水添加"
+      },
+      "0.3.3": {
+        "en": "data exchange optimized",
+        "de": "Datenaustausch verbessert",
+        "ru": "оптимизирован обмен данными",
+        "pt": "troca de dados otimizada",
+        "nl": "gegevensuitwisseling geoptimaliseerd",
+        "fr": "échange de données optimisé",
+        "it": "scambio dati ottimizzato",
+        "es": "intercambio de datos optimizado",
+        "pl": "zoptymalizowana wymiana danych",
+        "uk": "оптимізований обмін даними",
+        "zh-cn": "数据交换优化"
+      },
+      "0.3.1": {
+        "en": "bugfixes related to js-controller 3.3x",
+        "de": "Behebung von Fehlern bei update auf js-controller 3.3x",
+        "ru": "исправления, связанные с js-контроллером 3.3x",
+        "pt": "correções de bugs relacionadas ao js-controller 3.3x",
+        "nl": "bugfixes gerelateerd aan js-controller 3.3x",
+        "fr": "corrections de bugs liés à js-controller 3.3x",
+        "it": "correzioni di bug relativi a js-controller 3.3x",
+        "es": "correcciones de errores relacionados con js-controller 3.3x",
+        "pl": "poprawki błędów związane z kontrolerem js 3.3x",
+        "uk": "виправлення помилок, пов'язаних з js-контролером 3.3x",
+        "zh-cn": "与 js-controller 3.3x 相关的错误修复"
+      },
+      "0.3.0": {
+        "en": "info on temperature - settings and hysteresis - control added",
+        "de": "Menu Einstellungen-Temperaturen abgebildet und Hysterese-Werte setzen",
+        "ru": "добавлена ​​информация по температуре - настройки и гистерезис - управление",
+        "pt": "informações sobre temperatura - configurações e histerese - controle adicionado",
+        "nl": "info over temperatuur - instellingen en hysterese - regeling toegevoegd",
+        "fr": "informations sur la température - réglages et hystérésis - contrôle ajouté",
+        "it": "informazioni su temperatura - impostazioni e isteresi - controllo aggiunto",
+        "es": "información sobre temperatura - configuración e histéresis - control añadido",
+        "pl": "informacja o temperaturze - ustawienia i histereza - dodano sterowanie",
+        "uk": "інформація про температуру - налаштування та гістерезис - контроль додано",
+        "zh-cn": "有关温度的信息 - 设置和滞后 - 添加了控制"
+      },
+      "0.2.7": {
+        "en": "status-info added",
+        "de": "Statusinformation erweitert.",
+        "ru": "информация о статусе добавлена",
+        "pt": "informações de status adicionadas",
+        "nl": "statusinfo toegevoegd",
+        "fr": "informations sur le statut ajoutées",
+        "it": "informazioni sullo stato aggiunte",
+        "es": "información de estado agregada",
+        "pl": "Dodano informacje o statusie",
+        "uk": "інформація про статус додана",
+        "zh-cn": "添加状态信息"
+      },
+      "0.2.6": {
+        "en": "input - data and timers added",
+        "de": "Daten zu Eingängen und Ablaufzeiten ergänzt.",
+        "ru": "input - добавлены данные и таймеры",
+        "pt": "entrada - dados e temporizadores adicionados",
+        "nl": "invoer - gegevens en timers toegevoegd",
+        "fr": "entrée - données et minuteries ajoutées",
+        "it": "input: dati e timer aggiunti",
+        "es": "entrada - datos y temporizadores agregados",
+        "pl": "wejście - dodano dane i timery",
+        "uk": "введення - додано дані та таймери",
+        "zh-cn": "输入 - 添加数据和计时器"
+      },
+      "0.2.5": {
+        "en": "outlet - data added",
+        "de": "Daten zu Ausgängen ergänzt.",
+        "ru": "торговая точка - данные добавлены",
+        "pt": "outlet - dados adicionados",
+        "nl": "outlet - gegevens toegevoegd",
+        "fr": "prise - données ajoutées",
+        "it": "presa - dati aggiunti",
+        "es": "salida - datos añadidos",
+        "pl": "outlet - dane dodano",
+        "uk": "розетка - дані додані",
+        "zh-cn": "出口 - 添加数据"
+      },
+      "0.2.0": {
+        "en": "missing temperature values added",
+        "de": "Fehlende Temperaturwerte ergänzt (Wärmequelle, Mischkreis, Raumstation).",
+        "ru": "добавлены недостающие значения температуры",
+        "pt": "valores de temperatura ausentes adicionados",
+        "nl": "ontbrekende temperatuurwaarden toegevoegd",
+        "fr": "valeurs de température manquantes ajoutées",
+        "it": "aggiunti i valori di temperatura mancanti",
+        "es": "Se agregaron los valores de temperatura faltantes.",
+        "pl": "dodano brakujące wartości temperatur",
+        "uk": "додано відсутні значення температури",
+        "zh-cn": "添加了缺失的温度值"
+      },
+      "0.1.0": {
+        "en": "error - handling on communication errors optimized, adapter restart in case ofmultiple communication errors.",
+        "de": "Fehlerhandling für Kommunikationsfehler verbessert, automatischer Adapter - Neustart bei Kommunikationstörungen.",
+        "ru": "ошибка - оптимизирована обработка ошибок связи, перезапуск адаптера в случае нескольких ошибок связи.",
+        "pt": "erro - tratamento otimizado de erros de comunicação, reinicialização do adaptador em caso de múltiplos erros de comunicação.",
+        "nl": "fout - afhandeling van communicatiefouten geoptimaliseerd, adapter opnieuw opstarten in geval van meerdere communicatiefouten.",
+        "fr": "error - gestion des erreurs de communication optimisée, redémarrage de l'adaptateur en cas d'erreurs de communication multiples.",
+        "it": "errore: gestione ottimizzata degli errori di comunicazione, riavvio dell'adattatore in caso di più errori di comunicazione.",
+        "es": "error: manejo de errores de comunicación optimizado, reinicio del adaptador en caso de múltiples errores de comunicación.",
+        "pl": "error - zoptymalizowana obsługa błędów komunikacji, restart adaptera w przypadku wielokrotnych błędów komunikacji.",
+        "uk": "помилка – оптимізовано обробку помилок зв’язку, перезапуск адаптера у разі кількох помилок зв’язку.",
+        "zh-cn": "错误 - 优化了通信错误的处理，在出现多个通信错误时适配器重新启动。"
+      },
+      "0.0.5": {
+        "en": "controls hotwater-temperature, heating- & hotwater - mode and heating-curve setting.",
+        "de": "Steuerung von Warmwasser-Soll, Heizungs- und Warmwasser-Modus sowie der Heizkurven-Werte.",
+        "ru": "контролирует температуру горячей воды, режим отопления и горячей воды и настройку кривой отопления.",
+        "pt": "controla a temperatura da água quente, o modo de aquecimento e água quente e a configuração da curva de aquecimento.",
+        "nl": "regelt de warmwatertemperatuur, de verwarmings- en warmwatermodus en de instelling van de stooklijn.",
+        "fr": "contrôle la température de l'eau chaude, le mode de chauffage et d'eau chaude et le réglage de la courbe de chauffage.",
+        "it": "controlla la temperatura dell'acqua calda, la modalità riscaldamento e acqua calda e l'impostazione della curva di riscaldamento.",
+        "es": "controla la temperatura del agua caliente, el modo de calefacción y agua caliente y el ajuste de la curva de calefacción.",
+        "pl": "steruje temperaturą ciepłej wody, trybem ogrzewania i ciepłej wody oraz ustawieniem krzywej grzewczej.",
+        "uk": "контролює температуру гарячої води, режим опалення та гарячої води та налаштування кривої опалення.",
+        "zh-cn": "控制热水温度、加热和热水模式以及加热曲线设置。"
+      },
+      "0.0.3": {
+        "en": "Reads also mode heating, water and heating-curve",
+        "de": "Liest auch Modus Heizung und Warmwasser sowie die Heizkurve",
+        "ru": "Считывает также режим отопления, воды и кривую отопления.",
+        "pt": "Lê também modo aquecimento, água e curva de aquecimento",
+        "nl": "Leest ook modus verwarming, water en stooklijn",
+        "fr": "Lit également les modes chauffage, eau et courbe de chauffage",
+        "it": "Legge anche la modalità riscaldamento, acqua e curva di riscaldamento",
+        "es": "Lee también el modo calefacción, agua y curva de calefacción.",
+        "pl": "Odczytuje także tryb ogrzewania, wodę i krzywą grzania",
+        "uk": "Читає також режими опалення, води та опалювальної кривої",
+        "zh-cn": "还读取加热模式、水和加热曲线"
+      },
+      "0.0.2": {
+        "en": "First published version (latest repo)",
+        "de": "Erste veröffentlichte Version (latest repo)",
+        "ru": "Первая опубликованная версия (последний репозиторий)",
+        "pt": "Primeira versão publicada (último repositório)",
+        "nl": "Eerste gepubliceerde versie (laatste repository)",
+        "fr": "Première version publiée (dernier dépôt)",
+        "it": "Prima versione pubblicata (ultimo repository)",
+        "es": "Primera versión publicada (último repositorio)",
+        "pl": "Pierwsza opublikowana wersja (najnowsze repozytorium)",
+        "uk": "Перша опублікована версія (останнє репо)",
+        "zh-cn": "第一个发布版本（最新存储库）"
+      }
     },
-    "native": {
-        "host": "",
-        "pollInterval": 300000,
-        "port": 0
+    "titleLang": {
+      "en": "Luxtronik1Control",
+      "de": "Luxtronik1Control",
+      "ru": "Luxtronik1Контроль",
+      "pt": "Luxtronik1Control",
+      "nl": "Luxtronik1Control",
+      "fr": "Luxtronik1Control",
+      "it": "Luxtronik1Control",
+      "es": "Luxtronik1Control",
+      "pl": "Lukstronik1",
+      "zh-cn": "Luxtronik1Control",
+      "uk": "Luxtronik1Control"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "temperaturen",
-            "type": "channel",
-            "common": {
-                "name": "Temperaturen"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.AUT",
-            "type": "state",
-            "common": {
-                "name": "Aussentemperatur",
-                "type": "number",
-                "role": "value.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Aussentemperatur Fühler",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.VL",
-            "type": "state",
-            "common": {
-                "name": "Vorlauf",
-                "type": "number",
-                "role": "value.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Vorlauftemperatur",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.RL",
-            "type": "state",
-            "common": {
-                "name": "Ruecklauf",
-                "type": "number",
-                "role": "value.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Ruecklauftemperatur",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.RLs",
-            "type": "state",
-            "common": {
-                "name": "Ruecklauf SOLL",
-                "type": "number",
-                "role": "value.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Soll - Ruecklauftemperatur",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.HG",
-            "type": "state",
-            "common": {
-                "name": "Heissgas",
-                "type": "number",
-                "role": "value.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Heissgastemperatur",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.BWi",
-            "type": "state",
-            "common": {
-                "name": "Warmwassertemperatur IST",
-                "type": "number",
-                "role": "value.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Warmwassertemperatur",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.BWs",
-            "type": "state",
-            "common": {
-                "name": "Warmwassertemperatur SOLL",
-                "type": "number",
-                "role": "value.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Soll - Warmwassertemperatur",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.WQe",
-            "type": "state",
-            "common": {
-                "name": "Waermequellen Eintrittstemperatur",
-                "type": "number",
-                "role": "value.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Waermequellen Eintrittstemperatur, Zulauf",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.WQa",
-            "type": "state",
-            "common": {
-                "name": "Waermequellen Austrittstemperatur",
-                "type": "number",
-                "role": "value.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Waermequellen Austrittstemperatur, Ablauf",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.MK1VLi",
-            "type": "state",
-            "common": {
-                "name": "Mischkreis1 Vorlauf Ist",
-                "type": "number",
-                "role": "value.temperature",
-                "read": true,
-                "write": false,
-                "desc": "IST Vorlauftemperatur im Mischkreis 1",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.MK1VLs",
-            "type": "state",
-            "common": {
-                "name": "Mischkreis1 Vorlauf Soll",
-                "type": "number",
-                "role": "value.temperature",
-                "read": true,
-                "write": false,
-                "desc": "SOLL Vorlauftemperatur Mischkreis 1",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.RS",
-            "type": "state",
-            "common": {
-                "name": "Raumstation",
-                "type": "number",
-                "role": "value.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Temperatur Raumstation",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "eingaenge",
-            "type": "channel",
-            "common": {
-                "name": "Eingänge"
-            },
-            "native": {}
-        },
-        {
-            "_id": "eingaenge.ASD",
-            "type": "state",
-            "common": {
-                "name": "Eingang ASD",
-                "type": "boolean",
-                "role": "info.status",
-                "read": true,
-                "write": false,
-                "states": {
-                    "false": "AUS",
-                    "true": "EIN"
-                },
-                "def": false,
-                "desc": "Eingang ASD"
-            },
-            "native": {}
-        },
-        {
-            "_id": "eingaenge.EVU",
-            "type": "state",
-            "common": {
-                "name": "Eingang EVU",
-                "type": "boolean",
-                "role": "info.status",
-                "read": true,
-                "write": false,
-                "states": {
-                    "false": "AUS",
-                    "true": "EIN"
-                },
-                "def": false,
-                "desc": "Eingang EVU"
-            },
-            "native": {}
-        },
-        {
-            "_id": "eingaenge.HD",
-            "type": "state",
-            "common": {
-                "name": "Eingang HD",
-                "type": "boolean",
-                "role": "info.status",
-                "read": true,
-                "write": false,
-                "states": {
-                    "false": "AUS",
-                    "true": "EIN"
-                },
-                "def": false,
-                "desc": "Eingang HD"
-            },
-            "native": {}
-        },
-        {
-            "_id": "eingaenge.MOT",
-            "type": "state",
-            "common": {
-                "name": "Eingang MOT",
-                "type": "boolean",
-                "role": "info.status",
-                "read": true,
-                "write": false,
-                "states": {
-                    "false": "AUS",
-                    "true": "EIN"
-                },
-                "def": false,
-                "desc": "Eingang MOT"
-            },
-            "native": {}
-        },
-        {
-            "_id": "eingaenge.ND",
-            "type": "state",
-            "common": {
-                "name": "Eingang ND",
-                "type": "boolean",
-                "role": "info.status",
-                "read": true,
-                "write": false,
-                "states": {
-                    "false": "AUS",
-                    "true": "EIN"
-                },
-                "def": false,
-                "desc": "Eingang ND"
-            },
-            "native": {}
-        },
-        {
-            "_id": "eingaenge.PEX",
-            "type": "state",
-            "common": {
-                "name": "Eingang PEX",
-                "type": "boolean",
-                "role": "info.status",
-                "read": true,
-                "write": false,
-                "states": {
-                    "false": "AUS",
-                    "true": "EIN"
-                },
-                "def": false,
-                "desc": "Eingang PEX"
-            },
-            "native": {}
-        },
-        {
-            "_id": "ausgaenge",
-            "type": "channel",
-            "common": {
-                "name": "Ausgänge"
-            },
-            "native": {}
-        },
-        {
-            "_id": "ausgaenge.Abtauventil",
-            "type": "state",
-            "common": {
-                "name": "Abtauventil",
-                "type": "boolean",
-                "role": "",
-                "read": true,
-                "write": false,
-                "def": false,
-                "desc": "Abtauventil ein/aus",
-                "states": {
-                    "false": "AUS",
-                    "true": "EIN"
-                }
-            },
-            "native": {}
-        },
-        {
-            "_id": "ausgaenge.Brauchwarmwasserumwaelzpumpe",
-            "type": "state",
-            "common": {
-                "name": "Brauchwarmwasserumwaelzpumpe",
-                "type": "boolean",
-                "role": "",
-                "read": true,
-                "write": false,
-                "def": false,
-                "desc": "Brauchwarmwasserumwaelzpumpe ein/aus",
-                "states": {
-                    "false": "AUS",
-                    "true": "EIN"
-                }
-            },
-            "native": {}
-        },
-        {
-            "_id": "ausgaenge.Fussbodenheizungsumwaelzpumpe",
-            "type": "state",
-            "common": {
-                "name": "Fussbodenheizungsumwaelzpumpe",
-                "type": "boolean",
-                "role": "",
-                "read": true,
-                "write": false,
-                "def": false,
-                "desc": "Fussbodenheizungsumwaelzpumpe ein/aus",
-                "states": {
-                    "false": "AUS",
-                    "true": "EIN"
-                }
-            },
-            "native": {}
-        },
-        {
-            "_id": "ausgaenge.Heizungsumwaelzpumpe",
-            "type": "state",
-            "common": {
-                "name": "Heizungsumwaelzpumpe",
-                "type": "boolean",
-                "role": "",
-                "read": true,
-                "write": false,
-                "def": false,
-                "desc": "Heizungsumwaelzpumpe ein/aus",
-                "states": {
-                    "false": "AUS",
-                    "true": "EIN"
-                }
-            },
-            "native": {}
-        },
-        {
-            "_id": "ausgaenge.Mischer_1_Auf",
-            "type": "state",
-            "common": {
-                "name": "Mischer_1_Auf",
-                "type": "boolean",
-                "role": "",
-                "read": true,
-                "write": false,
-                "def": false,
-                "desc": "Mischer_1_Auf ein/aus",
-                "states": {
-                    "false": "AUS",
-                    "true": "EIN"
-                }
-            },
-            "native": {}
-        },
-        {
-            "_id": "ausgaenge.Mischer_1_Zu",
-            "type": "state",
-            "common": {
-                "name": "Mischer_1_Zu",
-                "type": "boolean",
-                "role": "",
-                "read": true,
-                "write": false,
-                "def": false,
-                "desc": "Mischer_1_Zu ein/aus",
-                "states": {
-                    "false": "AUS",
-                    "true": "EIN"
-                }
-            },
-            "native": {}
-        },
-        {
-            "_id": "ausgaenge.Ventilation_des_Waermepumpengehaeuses",
-            "type": "state",
-            "common": {
-                "name": "Ventilation_des_Waermepumpengehaeuses",
-                "type": "boolean",
-                "role": "",
-                "read": true,
-                "write": false,
-                "def": false,
-                "desc": "Ventilation_des_Waermepumpengehaeuses ein/aus",
-                "states": {
-                    "false": "AUS",
-                    "true": "EIN"
-                }
-            },
-            "native": {}
-        },
-        {
-            "_id": "ausgaenge.Ventilator_Brunnen_oder_Soleumwaelzpumpe",
-            "type": "state",
-            "common": {
-                "name": "Ventilator_Brunnen_oder_Soleumwaelzpumpe",
-                "type": "boolean",
-                "role": "",
-                "read": true,
-                "write": false,
-                "def": false,
-                "desc": "Ventilator_Brunnen_oder_Soleumwaelzpumpe ein/aus",
-                "states": {
-                    "false": "AUS",
-                    "true": "EIN"
-                }
-            },
-            "native": {}
-        },
-        {
-            "_id": "ausgaenge.Verdichter_1_in_Waermepumpe",
-            "type": "state",
-            "common": {
-                "name": "Verdichter_1_in_Waermepumpe",
-                "type": "boolean",
-                "role": "",
-                "read": true,
-                "write": false,
-                "def": false,
-                "desc": "Verdichter_1_in_Waermepumpe ein/aus",
-                "states": {
-                    "false": "AUS",
-                    "true": "EIN"
-                }
-            },
-            "native": {}
-        },
-        {
-            "_id": "ausgaenge.Verdichter_2_in_Waermepumpe",
-            "type": "state",
-            "common": {
-                "name": "Verdichter_2_in_Waermepumpe",
-                "type": "boolean",
-                "role": "",
-                "read": true,
-                "write": false,
-                "def": false,
-                "desc": "Verdichter_2_in_Waermepumpe ein/aus",
-                "states": {
-                    "false": "AUS",
-                    "true": "EIN"
-                }
-            },
-            "native": {}
-        },
-        {
-            "_id": "ausgaenge.Zusatzumwaelzpumpe_Zirkulationspumpe",
-            "type": "state",
-            "common": {
-                "name": "Zusatzumwaelzpumpe_Zirkulationspumpe",
-                "type": "boolean",
-                "role": "",
-                "read": true,
-                "write": false,
-                "def": false,
-                "desc": "Zusatzumwaelzpumpe_Zirkulationspumpe ein/aus",
-                "states": {
-                    "false": "AUS",
-                    "true": "EIN"
-                }
-            },
-            "native": {}
-        },
-        {
-            "_id": "ausgaenge.Zweiter_Waermeerzeuger_1",
-            "type": "state",
-            "common": {
-                "name": "Zweiter_Waermeerzeuger_1",
-                "type": "boolean",
-                "role": "",
-                "read": true,
-                "write": false,
-                "def": false,
-                "desc": "Zweiter_Waermeerzeuger_1 ein/aus",
-                "states": {
-                    "false": "AUS",
-                    "true": "EIN"
-                }
-            },
-            "native": {}
-        },
-        {
-            "_id": "ausgaenge.Zweiter_Waermeerzeuger_2_Sammelstoerung",
-            "type": "state",
-            "common": {
-                "name": "Zweiter_Waermeerzeuger_2_Sammelstoerung",
-                "type": "boolean",
-                "role": "",
-                "read": true,
-                "write": false,
-                "def": false,
-                "desc": "Zweiter_Waermeerzeuger_2_Sammelstoerung ein/aus",
-                "states": {
-                    "false": "AUS",
-                    "true": "EIN"
-                }
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.connection",
-            "type": "state",
-            "common": {
-                "name": "luxtronik connected",
-                "type": "boolean",
-                "role": "indicator.connected",
-                "read": true,
-                "write": false,
-                "def": false,
-                "desc": "Is luxtronik connected?"
-            },
-            "native": {}
-        },
-        {
-            "_id": "ablaufzeiten",
-            "type": "channel",
-            "common": {
-                "name": "Ablaufzeiten"
-            },
-            "native": {}
-        },
-        {
-            "_id": "ablaufzeiten.WPseit",
-            "type": "state",
-            "common": {
-                "name": "Wärmepumpe läuft seit",
-                "type": "number",
-                "role": "value.seconds",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "desc": "Wärmepumpe läuft seit",
-                "unit": "s"
-            },
-            "native": {}
-        },
-        {
-            "_id": "ablaufzeiten.WPseitlast",
-            "type": "state",
-            "common": {
-                "name": "Wärmepumpe letzte Laufzeit",
-                "type": "number",
-                "role": "value.seconds",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "desc": "Wärmepumpe letzte Laufzeit (+/- Abfrageintervall)",
-                "unit": "s"
-            },
-            "native": {}
-        },
-        {
-            "_id": "ablaufzeiten.ZWE1seit",
-            "type": "state",
-            "common": {
-                "name": "ZWE1 läuft seit",
-                "type": "number",
-                "role": "value.seconds",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "desc": "Zweiter Wärmeerzeuger 1 läuft seit",
-                "unit": "s"
-            },
-            "native": {}
-        },
-        {
-            "_id": "ablaufzeiten.ZWE2seit",
-            "type": "state",
-            "common": {
-                "name": "ZWE2 läuft seit",
-                "type": "number",
-                "role": "value.seconds",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "desc": "Zweiter Wärmeerzeuger 2 läuft seit",
-                "unit": "s"
-            },
-            "native": {}
-        },
-        {
-            "_id": "ablaufzeiten.Netzeinv",
-            "type": "state",
-            "common": {
-                "name": "Netzeinschaltverzögerung",
-                "type": "number",
-                "role": "value.seconds",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "desc": "Netzeinschaltverzögerung",
-                "unit": "s"
-            },
-            "native": {}
-        },
-        {
-            "_id": "ablaufzeiten.SSPstand",
-            "type": "state",
-            "common": {
-                "name": "SSP-Zeit-Standzeit",
-                "type": "number",
-                "role": "value.seconds",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "desc": "Schaltspielsperre Standzeit",
-                "unit": "s"
-            },
-            "native": {}
-        },
-        {
-            "_id": "ablaufzeiten.SSPverz",
-            "type": "state",
-            "common": {
-                "name": "SSP-Zeit-Einschaltverzögerung",
-                "type": "number",
-                "role": "value.seconds",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "desc": "Schaltspielsperre Einschaltverzögerung",
-                "unit": "s"
-            },
-            "native": {}
-        },
-        {
-            "_id": "ablaufzeiten.VDstand",
-            "type": "state",
-            "common": {
-                "name": "Verdichter-Standzeit",
-                "type": "number",
-                "role": "value.seconds",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "desc": "Verdichter-Standzeit",
-                "unit": "s"
-            },
-            "native": {}
-        },
-        {
-            "_id": "ablaufzeiten.HRM",
-            "type": "state",
-            "common": {
-                "name": "Heizungsregler Mehr-Zeit",
-                "type": "number",
-                "role": "value.seconds",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "desc": "Heizungsregler Mehr-Zeit",
-                "unit": "s"
-            },
-            "native": {}
-        },
-        {
-            "_id": "ablaufzeiten.HRW",
-            "type": "state",
-            "common": {
-                "name": "Heizungsregler Weniger-Zeit",
-                "type": "number",
-                "role": "value.seconds",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "desc": "Heizungsregler Weniger-Zeit",
-                "unit": "s"
-            },
-            "native": {}
-        },
-        {
-            "_id": "ablaufzeiten.TDIseit",
-            "type": "state",
-            "common": {
-                "name": "Thermische Desinfektion seit",
-                "type": "number",
-                "role": "value.seconds",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "desc": "Thermische Desinfektion seit",
-                "unit": "s"
-            },
-            "native": {}
-        },
-        {
-            "_id": "ablaufzeiten.BWsperre",
-            "type": "state",
-            "common": {
-                "name": "Sperre BW",
-                "type": "number",
-                "role": "value.seconds",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "desc": "Sperre Brauchwarmwasser",
-                "unit": "s"
-            },
-            "native": {}
-        },
-        {
-            "_id": "betriebsstunden",
-            "type": "channel",
-            "common": {
-                "name": "Betriebsstunden"
-            },
-            "native": {}
-        },
-        {
-            "_id": "betriebsstunden.VD1",
-            "type": "state",
-            "common": {
-                "name": "Betriebsstunden Verdichter 1",
-                "type": "string",
-                "role": "value.hours",
-                "read": true,
-                "write": false,
-                "desc": "Betriebsstunden Verdichter 1"
-            },
-            "native": {}
-        },
-        {
-            "_id": "betriebsstunden.Imp1",
-            "type": "state",
-            "common": {
-                "name": "Impulse Verdichter 1",
-                "type": "string",
-                "role": "value.hours",
-                "read": true,
-                "write": false,
-                "desc": "Imulse Verdichter 1"
-            },
-            "native": {}
-        },
-        {
-            "_id": "betriebsstunden.AvVD1",
-            "type": "state",
-            "common": {
-                "name": "Durchschn Laufzeit VD 1",
-                "type": "string",
-                "role": "value.hours",
-                "read": true,
-                "write": false,
-                "desc": "Durchscnittliche Laufzeit Verdichter 1"
-            },
-            "native": {}
-        },
-        {
-            "_id": "betriebsstunden.VD2",
-            "type": "state",
-            "common": {
-                "name": "Betriebsstunden Verdichter 2",
-                "type": "string",
-                "role": "value.hours",
-                "read": true,
-                "write": false,
-                "desc": "Betriebsstunden Verdichter 2"
-            },
-            "native": {}
-        },
-        {
-            "_id": "betriebsstunden.Imp2",
-            "type": "state",
-            "common": {
-                "name": "Impulse Verdichter 2",
-                "type": "string",
-                "role": "value.hours",
-                "read": true,
-                "write": false,
-                "desc": "Impulse Verdichter 2"
-            },
-            "native": {}
-        },
-        {
-            "_id": "betriebsstunden.AvVD2",
-            "type": "state",
-            "common": {
-                "name": "Durchschn Laufzeit VD 2",
-                "type": "string",
-                "role": "value.hours",
-                "read": true,
-                "write": false,
-                "desc": "Durchscnittliche Laufzeit Verdichter 2"
-            },
-            "native": {}
-        },
-        {
-            "_id": "betriebsstunden.ZWE1",
-            "type": "state",
-            "common": {
-                "name": "Betriebsstunden ZWE 1",
-                "type": "string",
-                "role": "value.hours",
-                "read": true,
-                "write": false,
-                "desc": "Betriebsstunden ZWE 1"
-            },
-            "native": {}
-        },
-        {
-            "_id": "betriebsstunden.ZWE2",
-            "type": "state",
-            "common": {
-                "name": "Betriebsstunden ZWE 2",
-                "type": "string",
-                "role": "value.hours",
-                "read": true,
-                "write": false,
-                "desc": "Betriebsstunden ZWE 2"
-            },
-            "native": {}
-        },
-        {
-            "_id": "betriebsstunden.WP",
-            "type": "state",
-            "common": {
-                "name": "Betriebsstunden Waermepumpe",
-                "type": "string",
-                "role": "value.hours",
-                "read": true,
-                "write": false,
-                "desc": "Betriebsstunden Waermepumpe"
-            },
-            "native": {}
-        },
-        {
-            "_id": "fehler",
-            "type": "channel",
-            "common": {
-                "name": "Fehlerspeicher"
-            },
-            "native": {}
-        },
-        {
-            "_id": "fehler.1",
-            "type": "state",
-            "common": {
-                "name": "Fehler 1",
-                "type": "string",
-                "role": "info.fehler",
-                "read": true,
-                "write": false,
-                "desc": "letzer Fehler"
-            },
-            "native": {}
-        },
-        {
-            "_id": "fehler.2",
-            "type": "state",
-            "common": {
-                "name": "Fehler 2",
-                "type": "string",
-                "role": "info.fehler",
-                "read": true,
-                "write": false,
-                "desc": "vorletzer Fehler"
-            },
-            "native": {}
-        },
-        {
-            "_id": "fehler.3",
-            "type": "state",
-            "common": {
-                "name": "Fehler 3",
-                "type": "string",
-                "role": "info.fehler",
-                "read": true,
-                "write": false,
-                "desc": "vorvorletzer Fehler"
-            },
-            "native": {}
-        },
-        {
-            "_id": "fehler.4",
-            "type": "state",
-            "common": {
-                "name": "Fehler 4",
-                "type": "string",
-                "role": "info.fehler",
-                "read": true,
-                "write": false,
-                "desc": "vorvorvorletzer Fehler"
-            },
-            "native": {}
-        },
-        {
-            "_id": "fehler.5",
-            "type": "state",
-            "common": {
-                "name": "Fehler 5",
-                "type": "string",
-                "role": "info.fehler",
-                "read": true,
-                "write": false,
-                "desc": "vor5letzer Fehler"
-            },
-            "native": {}
-        },
-        {
-            "_id": "abschaltungen",
-            "type": "channel",
-            "common": {
-                "name": "Abschaltungen"
-            },
-            "native": {}
-        },
-        {
-            "_id": "abschaltungen.1",
-            "type": "state",
-            "common": {
-                "name": "Abschaltung 1",
-                "type": "string",
-                "role": "info.abschaltung",
-                "read": true,
-                "write": false,
-                "desc": "letze Abschaltung"
-            },
-            "native": {}
-        },
-        {
-            "_id": "abschaltungen.2",
-            "type": "state",
-            "common": {
-                "name": "Abschaltung 2",
-                "type": "string",
-                "role": "info.abschaltung",
-                "read": true,
-                "write": false,
-                "desc": "vorletze Abschaltung"
-            },
-            "native": {}
-        },
-        {
-            "_id": "abschaltungen.3",
-            "type": "state",
-            "common": {
-                "name": "Abschaltung 3",
-                "type": "string",
-                "role": "info.abschaltung",
-                "read": true,
-                "write": false,
-                "desc": "vorvorletze Abschaltung"
-            },
-            "native": {}
-        },
-        {
-            "_id": "abschaltungen.4",
-            "type": "state",
-            "common": {
-                "name": "Abschaltung 4",
-                "type": "string",
-                "role": "info.abschaltung",
-                "read": true,
-                "write": false,
-                "desc": "vorvorvorletze Abschaltung"
-            },
-            "native": {}
-        },
-        {
-            "_id": "abschaltungen.5",
-            "type": "state",
-            "common": {
-                "name": "Abschaltung 5",
-                "type": "string",
-                "role": "info.abschaltung",
-                "read": true,
-                "write": false,
-                "desc": "vor5letze Abschaltung"
-            },
-            "native": {}
-        },
-        {
-            "_id": "status",
-            "type": "channel",
-            "common": {
-                "name": "Status"
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.ANL",
-            "type": "state",
-            "common": {
-                "name": "Status Anlage",
-                "type": "string",
-                "role": "info.status",
-                "read": true,
-                "write": false,
-                "desc": "Betriebsmodus Anlage"
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.WPtyp",
-            "type": "state",
-            "common": {
-                "name": "Wärmepumpentyp",
-                "type": "string",
-                "role": "info.status",
-                "read": true,
-                "write": false,
-                "states": {
-                    "0": "ERC nicht belegt",
-                    "1": "SW1 Sole/Wasser 1 Verdichter",
-                    "2": "SW2 Sole/Wasser 2 Veridchter",
-                    "3": "WW1 Wasser/Wasser 1 Verdichter",
-                    "4": "WW2 Wasser/Wasser 2 Verichter",
-                    "5": "L1I Luft/Wasser 1 Verdichter Innen",
-                    "6": "L2I Luft/Wasser 2 Verdichter Innen",
-                    "7": "L1A Luft/Wasser 1 Verdichter Aussen",
-                    "8": "L2A Luft/Wasser 2 Verdichter Aussen",
-                    "9": "KSW Kompaktheizzentrale Sole/Wasser",
-                    "10": "KLW Kompaktheizzentrale Luft/Wasser",
-                    "11": "SWC Sole/Wasser Compact",
-                    "12": "LWC Luft/Wasser Compact",
-                    "13": "L2G Luft/Wasser Grossgerät 2 Verdichter",
-                    "14": "WZS Wärmezentrale Sole/Wasser"
-                },
-                "desc": "Wärmepumpentyp"
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.SW",
-            "type": "state",
-            "common": {
-                "name": "Software-Version",
-                "type": "string",
-                "role": "info.status",
-                "read": true,
-                "write": false,
-                "desc": "Stand Software - Version"
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.BivStufe",
-            "type": "state",
-            "common": {
-                "name": "Bivalenzstufe",
-                "type": "string",
-                "role": "info.status",
-                "read": true,
-                "write": false,
-                "states": {
-                    "1": "ein Verdichter darf laufen",
-                    "2": "zwei Verdichter dürfen laufen",
-                    "3": "zus. Wärmeerz. darf mitlaufen"
-                },
-                "desc": "Bivalenzstufe"
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.ModusHeizung",
-            "type": "state",
-            "common": {
-                "name": "Betriebsmodus Heizung",
-                "type": "number",
-                "role": "info.status",
-                "read": true,
-                "write": false,
-                "states": {
-                    "0": "AUTO",
-                    "1": "ZWE",
-                    "2": "Party",
-                    "3": "Ferien",
-                    "4": "AUS",
-                    "224": "Ausheizprogramm"
-                },
-                "desc": "Betriebsmodus Heizung"
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.ModusWW",
-            "type": "state",
-            "common": {
-                "name": "Betriebsmodus Warmwasser",
-                "type": "number",
-                "role": "info.status",
-                "read": true,
-                "write": false,
-                "states": {
-                    "0": "AUTO",
-                    "1": "ZWE",
-                    "2": "Party",
-                    "3": "Ferien",
-                    "4": "AUS"
-                },
-                "desc": "Betriebsmodus Warmwasser"
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.SchaltzWoBW.Start1",
-            "type": "state",
-            "common": {
-                "name": "Sperrbeginn1 (hh:mm)",
-                "type": "string",
-                "role": "status.Schaltz",
-                "read": true,
-                "write": true,
-                "def": "00:00",
-                "desc": "Schaltzeiten Woche BW, Sperrbeginn1"
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.SchaltzWoBW.Ende1",
-            "type": "state",
-            "common": {
-                "name": "Sperrende1 (hh:mm)",
-                "type": "string",
-                "role": "status.Schaltz",
-                "read": true,
-                "write": true,
-                "def": "00:00",
-                "desc": "Schaltzeiten Woche BW, Sperrende1"
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.SchaltzWoBW.Start2",
-            "type": "state",
-            "common": {
-                "name": "Sperrbeginn2 (hh:mm)",
-                "type": "string",
-                "role": "status.Schaltz",
-                "read": true,
-                "write": true,
-                "def": "00:00",
-                "desc": "Schaltzeiten Woche BW, Sperrbeginn2"
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.SchaltzWoBW.Ende2",
-            "type": "state",
-            "common": {
-                "name": "Sperrende2 (hh:mm)",
-                "type": "string",
-                "role": "status.Schaltz",
-                "read": true,
-                "write": true,
-                "def": "00:00",
-                "desc": "Schaltzeiten Woche BW, Sperrende2"
-            },
-            "native": {}
-        },
-        {
-            "_id": "heizkurve",
-            "type": "channel",
-            "common": {
-                "name": "Heizkurve"
-            },
-            "native": {}
-        },
-        {
-            "_id": "heizkurve.AbwRLs",
-            "type": "state",
-            "common": {
-                "name": "Soll-Abweichung Rücklauf",
-                "type": "number",
-                "role": "info.status",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "desc": "Soll-Abweichung Rücklauf (Startbildschirm)",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "heizkurve.Endpunkt",
-            "type": "state",
-            "common": {
-                "name": "Endpunkt",
-                "type": "number",
-                "role": "info.status",
-                "read": true,
-                "write": false,
-                "desc": "Endpunkt Heizkurve",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "heizkurve.ParaV",
-            "type": "state",
-            "common": {
-                "name": "Parallelverschiebung",
-                "type": "number",
-                "role": "info.status",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "desc": "Parallelverschiebung Heizkurve",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "heizkurve.NachtAbs",
-            "type": "state",
-            "common": {
-                "name": "Nachtabsenkung",
-                "type": "number",
-                "role": "info.status",
-                "read": true,
-                "write": false,
-                "desc": "Nachtabsenkung Heizkurve",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "control",
-            "type": "channel",
-            "common": {
-                "name": "Steuerung"
-            },
-            "native": {}
-        },
-        {
-            "_id": "control.AbwRLs",
-            "type": "state",
-            "common": {
-                "name": "Soll-Abweichung Rücklauf (-5 - 5, +/-0.5)",
-                "type": "number",
-                "role": "control.temperature",
-                "min": -5.5,
-                "max": 5.5,
-                "step": 0.5,
-                "read": true,
-                "write": true,
-                "def": 0,
-                "desc": "Soll-Abweichung Rücklauf (Startbildschirm) setzen",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "control.EndpunktHK",
-            "type": "state",
-            "common": {
-                "name": "Endpunkt Heizkurve (20 - 70, +/-0.5 )",
-                "type": "number",
-                "min": 20,
-                "max": 70,
-                "step": 0.5,
-                "role": "control.temperature",
-                "read": true,
-                "write": true,
-                "def": 0,
-                "desc": "Endpunkt Heizkurve setzen",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "control.ParaVHK",
-            "type": "state",
-            "common": {
-                "name": "Parallelverschiebung Heizkurve (5 - 35, +/-0.5)",
-                "type": "number",
-                "min": 5,
-                "max": 35,
-                "step": 0.5,
-                "role": "control.temperature",
-                "read": true,
-                "write": true,
-                "def": 0,
-                "desc": "Parallelverschiebung Heizkurve setzen",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "control.NachtAbs",
-            "type": "state",
-            "common": {
-                "name": "Nachtabsenkung (-15 - 0, +/-0.5)",
-                "type": "number",
-                "min": -15,
-                "max": 0,
-                "step": 0.5,
-                "role": "control.temperature",
-                "read": true,
-                "write": true,
-                "desc": "Nachtabsenkung setzen",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "control.ModusHeizung",
-            "type": "state",
-            "common": {
-                "name": "Betriebsmodus Heizung",
-                "type": "number",
-                "role": "control.status",
-                "read": true,
-                "write": true,
-                "states": {
-                    "0": "AUTO",
-                    "1": "ZWE",
-                    "2": "Party",
-                    "3": "Ferien",
-                    "4": "AUS",
-                    "224": "Ausheizprogramm - hier nicht auswählen!!"
-                },
-                "desc": "Betriebsmodus Heizung setzen"
-            },
-            "native": {}
-        },
-        {
-            "_id": "control.ModusWW",
-            "type": "state",
-            "common": {
-                "name": "Betriebsmodus Warmwasser",
-                "type": "number",
-                "role": "control.status",
-                "read": true,
-                "write": true,
-                "states": {
-                    "0": "AUTO",
-                    "1": "ZWE",
-                    "2": "Party",
-                    "3": "Ferien",
-                    "4": "AUS"
-                },
-                "desc": "Betriebsmodus Warmwasser setzen"
-            },
-            "native": {}
-        },
-        {
-            "_id": "control.BWs",
-            "type": "state",
-            "common": {
-                "name": "Warmwassertemperatur SOLL (30 - 65, +/-0.5)",
-                "type": "number",
-                "min": 30,
-                "max": 65,
-                "step": 0.5,
-                "role": "control.temperature",
-                "read": true,
-                "write": true,
-                "desc": "Soll - Warmwassertemperatur setzen",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "control.HystBWs",
-            "type": "state",
-            "common": {
-                "name": "Hysterese Brauchwasser Soll  (1 -30, +/-1)",
-                "type": "number",
-                "min": 1,
-                "max": 30,
-                "step": 0,
-                "role": "control.temperature",
-                "read": true,
-                "write": true,
-                "desc": "Hysterese Brauchwasser setzen",
-                "unit": "°K"
-            },
-            "native": {}
-        },
-        {
-            "_id": "control.HystHKs",
-            "type": "state",
-            "common": {
-                "name": "Hysterese Heizkreis SOLL (0.5-3, +/-0.5)",
-                "type": "number",
-                "min": 0.5,
-                "max": 3,
-                "step": 0.5,
-                "role": "control.temperature",
-                "read": true,
-                "write": true,
-                "desc": "Hysterese Heizkreis setzen",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "control.SchaltzWoBW.Start1",
-            "type": "state",
-            "common": {
-                "name": "Sperrbeginn1 (hh:mm)",
-                "type": "string",
-                "role": "control.Schaltz",
-                "read": true,
-                "write": true,
-                "def": "00:00",
-                "desc": "Schaltzeiten Woche BW, Sperrbeginn1"
-            },
-            "native": {}
-        },
-        {
-            "_id": "control.SchaltzWoBW.Ende1",
-            "type": "state",
-            "common": {
-                "name": "Sperrende1 (hh:mm)",
-                "type": "string",
-                "role": "control.Schaltz",
-                "read": true,
-                "write": true,
-                "def": "00:00",
-                "desc": "Schaltzeiten Woche BW, Sperrende1"
-            },
-            "native": {}
-        },
-        {
-            "_id": "control.SchaltzWoBW.Start2",
-            "type": "state",
-            "common": {
-                "name": "Sperrbeginn2 (hh:mm)",
-                "type": "string",
-                "role": "control.Schaltz",
-                "read": true,
-                "write": true,
-                "def": "00:00",
-                "desc": "Schaltzeiten Woche BW, Sperrbeginn2"
-            },
-            "native": {}
-        },
-        {
-            "_id": "control.SchaltzWoBW.Ende2",
-            "type": "state",
-            "common": {
-                "name": "Sperrende2 (hh:mm)",
-                "type": "string",
-                "role": "control.Schaltz",
-                "read": true,
-                "write": true,
-                "def": "00:00",
-                "desc": "Schaltzeiten Woche BW, Sperrende2"
-            },
-            "native": {}
-        },
-        {
-            "_id": "control.SchaltzWoBW.senden",
-            "type": "state",
-            "common": {
-                "name": "Schaltzeiten BW Woche senden",
-                "type": "boolean",
-                "role": "button",
-                "read": true,
-                "write": true,
-                "desc": "Schaltzeiten Woche BW senden"
-            },
-            "native": {}
-        },
-        {
-            "_id": "control.Zeit.senden",
-            "type": "state",
-            "common": {
-                "name": "Zeit / Datum senden",
-                "type": "boolean",
-                "role": "button",
-                "read": true,
-                "write": true,
-                "desc": "Zeit- und Datumswerte senden"
-            },
-            "native": {}
-        },
-        {
-            "_id": "control.Zeit.uhrzeit",
-            "type": "state",
-            "common": {
-                "name": "Uhrzeit (hh:mm:ss)",
-                "type": "string",
-                "role": "control.time",
-                "read": true,
-                "write": true,
-                "def": "00:00",
-                "desc": "Uhrzeit, hh:mm:ss"
-            },
-            "native": {}
-        },
-        {
-            "_id": "control.Zeit.datum",
-            "type": "state",
-            "common": {
-                "name": "Datum (dd.mm.yy)",
-                "type": "string",
-                "role": "control.time",
-                "read": true,
-                "write": true,
-                "def": "01.01.20",
-                "desc": "Datum (dd.mm.yy)"
-            },
-            "native": {}
-        },
-        {
-            "_id": "control.Zeit.dow",
-            "type": "state",
-            "common": {
-                "name": "Wochentag",
-                "type": "number",
-                "role": "control.time",
-                "states": {
-                    "0": "Sonntag",
-                    "1": "Montag",
-                    "2": "Dienstag",
-                    "3": "Mittwoch",
-                    "4": "Donnerstag",
-                    "5": "Freitag",
-                    "6": "Samstag"
-                },
-                "read": true,
-                "write": true,
-                "desc": "Datum (dd.mm.yy)"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.einstellungen.RLBegr",
-            "type": "state",
-            "common": {
-                "name": "Rücklauf Begrenzung (35-70, +/-0.5)",
-                "type": "number",
-                "role": "einstellungen.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Rücklauf Begrenzung setzen",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.einstellungen.HystHR",
-            "type": "state",
-            "common": {
-                "name": "Hysterese HR",
-                "type": "number",
-                "role": "einstellungen.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Hysterese Heizkreis",
-                "unit": "°K"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.einstellungen.TRErhMax",
-            "type": "state",
-            "common": {
-                "name": "Rücklauferhöhung maximal (1-10, +/-1)",
-                "type": "number",
-                "role": "einstellungen.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Rücklauferhöhung maximal setzen",
-                "unit": "°K"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.einstellungen.Freig2VD",
-            "type": "state",
-            "common": {
-                "name": "Freigabe 2. Verdichter",
-                "type": "number",
-                "role": "einstellungen.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Minmale Temperatur für Freigabe VD2",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.einstellungen.FreigZWE",
-            "type": "state",
-            "common": {
-                "name": "Freigabe ZWE",
-                "type": "number",
-                "role": "einstellung.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Minimale Temperatur für Freigabe ZWE",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.einstellungen.T-Luftabt",
-            "type": "state",
-            "common": {
-                "name": "Temperatur-Luftabtauung",
-                "type": "number",
-                "role": "einstellung.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Minimale Temperatur für Luftabtauung",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.einstellungen.TDIsoll",
-            "type": "state",
-            "common": {
-                "name": "Solltemperatur thermische Desinfektion",
-                "type": "number",
-                "role": "einstellung.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Solltemperatur thermische Desinfektion Brauchwarmwasser",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.einstellungen.HystBW",
-            "type": "state",
-            "common": {
-                "name": "Hysterese BW",
-                "type": "number",
-                "role": "einstellungen.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Hysterese Brauchwarmwasser",
-                "unit": "°K"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.einstellungen.VL2VDBW",
-            "type": "state",
-            "common": {
-                "name": "VL 2. Verdichter BW",
-                "type": "number",
-                "role": "einstellung.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Vorlauftemperatur für Einsatz 2. Verdichter zur Erzeugung Brauchwarmwasser",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.einstellungen.TAussenMax",
-            "type": "state",
-            "common": {
-                "name": "maximale Aussentemperatur",
-                "type": "number",
-                "role": "einstellung.temperature",
-                "read": true,
-                "write": false,
-                "desc": "maximale Aussentemperatur über der die WP gesperrt ist",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.einstellungen.TAussenMin",
-            "type": "state",
-            "common": {
-                "name": "minimale Aussentemperatur",
-                "type": "number",
-                "role": "einstellung.temperature",
-                "read": true,
-                "write": false,
-                "desc": "minimale Aussentemperatur unter der die WP gesperrt ist",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.einstellungen.TWQMin",
-            "type": "state",
-            "common": {
-                "name": "minimale Wärmequellentemperatur",
-                "type": "number",
-                "role": "einstellung.temperature",
-                "read": true,
-                "write": false,
-                "desc": "minimale Wärmequellentemperatur unter der die WP gesperrt ist",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.einstellungen.THGMax",
-            "type": "state",
-            "common": {
-                "name": "maximale Heissgastemperatur",
-                "type": "number",
-                "role": "einstellung.temperature",
-                "read": true,
-                "write": false,
-                "desc": "maximale Heissgastemperatur",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.einstellungen.TLAbtEnde",
-            "type": "state",
-            "common": {
-                "name": "Temperatur Luftabtauung Ende",
-                "type": "number",
-                "role": "einstellung.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Temperatur, bei der die Luftabtauung beendet wird",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.einstellungen.AbsenkBis",
-            "type": "state",
-            "common": {
-                "name": "maximale Absenkung",
-                "type": "number",
-                "role": "einstellung.temperature",
-                "read": true,
-                "write": false,
-                "desc": "minimale Aussentemperatur, bei welcher eine Nachtabsenkung noch gemacht wird",
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        {
-            "_id": "temperaturen.einstellungen.VLmax",
-            "type": "state",
-            "common": {
-                "name": "maximale Vorlauftemperatur",
-                "type": "number",
-                "role": "einstellung.temperature",
-                "read": true,
-                "write": false,
-                "desc": "Vorlauftemperatur bei deren Erreichen der Kompressor ausgeschaltet wird.",
-                "unit": "°C"
-            },
-            "native": {}
+    "desc": {
+      "en": "Control your Luxtronik 1 heatpump controler",
+      "de": "Steuern Sie Ihren Luxtronik 1 Wärmepumpenregler",
+      "ru": "Контролируйте свой Luxtronik 1 нагреватель",
+      "pt": "Controle seu controle de calor Luxtronik 1",
+      "nl": "Controleer je Luxtronik 1 verwarmingscontrole",
+      "fr": "Contrôlez votre Luxtronik 1 régulateur de puissance",
+      "it": "Controlla il tuo Luxtronik 1 dissipatore di calore",
+      "es": "Controle su control de bomba de calor Luxtronik 1",
+      "pl": "Kontrola nad Luxtronikiem 1",
+      "zh-cn": "控制你的Lxtronik 1个热能控制",
+      "uk": "Керуйте своїм контролером теплового насоса Luxtronik 1"
+    },
+    "authors": [
+      "forelleblau <marceladam@gmx.ch>"
+    ],
+    "platform": "Javascript/Node.js",
+    "mode": "daemon",
+    "compact": true,
+    "icon": "luxtronik1.png",
+    "materialize": true,
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.luxtronik1/master/admin/luxtronik1.png",
+    "keywords": [
+      "luxtronik",
+      "heatpump",
+      "smart",
+      "home"
+    ],
+    "readme": "https://github.com/iobroker-community-adapters/ioBroker.luxtronik1/blob/master/README.md",
+    "loglevel": "info",
+    "type": "climate-control",
+    "license": "MIT",
+    "messagebox": false,
+    "connectionType": "local",
+    "dataSource": "poll",
+    "dependencies": [{
+      "js-controller": ">=3.3.22"
+    }]
+  },
+  "native": {
+    "host": "",
+    "pollInterval": 300000,
+    "port": 0
+  },
+  "objects": [],
+  "instanceObjects": [{
+      "_id": "temperaturen",
+      "type": "channel",
+      "common": {
+        "name": "Temperaturen"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.AUT",
+      "type": "state",
+      "common": {
+        "name": "Aussentemperatur",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Aussentemperatur Fühler",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.VL",
+      "type": "state",
+      "common": {
+        "name": "Vorlauf",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Vorlauftemperatur",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.RL",
+      "type": "state",
+      "common": {
+        "name": "Ruecklauf",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Ruecklauftemperatur",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.RLs",
+      "type": "state",
+      "common": {
+        "name": "Ruecklauf SOLL",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Soll - Ruecklauftemperatur",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.HG",
+      "type": "state",
+      "common": {
+        "name": "Heissgas",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Heissgastemperatur",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.BWi",
+      "type": "state",
+      "common": {
+        "name": "Warmwassertemperatur IST",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Warmwassertemperatur",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.BWs",
+      "type": "state",
+      "common": {
+        "name": "Warmwassertemperatur SOLL",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Soll - Warmwassertemperatur",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.WQe",
+      "type": "state",
+      "common": {
+        "name": "Waermequellen Eintrittstemperatur",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Waermequellen Eintrittstemperatur, Zulauf",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.WQa",
+      "type": "state",
+      "common": {
+        "name": "Waermequellen Austrittstemperatur",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Waermequellen Austrittstemperatur, Ablauf",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.MK1VLi",
+      "type": "state",
+      "common": {
+        "name": "Mischkreis1 Vorlauf Ist",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "IST Vorlauftemperatur im Mischkreis 1",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.MK1VLs",
+      "type": "state",
+      "common": {
+        "name": "Mischkreis1 Vorlauf Soll",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "SOLL Vorlauftemperatur Mischkreis 1",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.RS",
+      "type": "state",
+      "common": {
+        "name": "Raumstation",
+        "type": "number",
+        "role": "value.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Temperatur Raumstation",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "eingaenge",
+      "type": "channel",
+      "common": {
+        "name": "Eingänge"
+      },
+      "native": {}
+    },
+    {
+      "_id": "eingaenge.ASD",
+      "type": "state",
+      "common": {
+        "name": "Eingang ASD",
+        "type": "boolean",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "states": {
+          "false": "AUS",
+          "true": "EIN"
+        },
+        "def": false,
+        "desc": "Eingang ASD"
+      },
+      "native": {}
+    },
+    {
+      "_id": "eingaenge.EVU",
+      "type": "state",
+      "common": {
+        "name": "Eingang EVU",
+        "type": "boolean",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "states": {
+          "false": "AUS",
+          "true": "EIN"
+        },
+        "def": false,
+        "desc": "Eingang EVU"
+      },
+      "native": {}
+    },
+    {
+      "_id": "eingaenge.HD",
+      "type": "state",
+      "common": {
+        "name": "Eingang HD",
+        "type": "boolean",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "states": {
+          "false": "AUS",
+          "true": "EIN"
+        },
+        "def": false,
+        "desc": "Eingang HD"
+      },
+      "native": {}
+    },
+    {
+      "_id": "eingaenge.MOT",
+      "type": "state",
+      "common": {
+        "name": "Eingang MOT",
+        "type": "boolean",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "states": {
+          "false": "AUS",
+          "true": "EIN"
+        },
+        "def": false,
+        "desc": "Eingang MOT"
+      },
+      "native": {}
+    },
+    {
+      "_id": "eingaenge.ND",
+      "type": "state",
+      "common": {
+        "name": "Eingang ND",
+        "type": "boolean",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "states": {
+          "false": "AUS",
+          "true": "EIN"
+        },
+        "def": false,
+        "desc": "Eingang ND"
+      },
+      "native": {}
+    },
+    {
+      "_id": "eingaenge.PEX",
+      "type": "state",
+      "common": {
+        "name": "Eingang PEX",
+        "type": "boolean",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "states": {
+          "false": "AUS",
+          "true": "EIN"
+        },
+        "def": false,
+        "desc": "Eingang PEX"
+      },
+      "native": {}
+    },
+    {
+      "_id": "ausgaenge",
+      "type": "channel",
+      "common": {
+        "name": "Ausgänge"
+      },
+      "native": {}
+    },
+    {
+      "_id": "ausgaenge.Abtauventil",
+      "type": "state",
+      "common": {
+        "name": "Abtauventil",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Abtauventil ein/aus",
+        "states": {
+          "false": "AUS",
+          "true": "EIN"
         }
-    ]
+      },
+      "native": {}
+    },
+    {
+      "_id": "ausgaenge.Brauchwarmwasserumwaelzpumpe",
+      "type": "state",
+      "common": {
+        "name": "Brauchwarmwasserumwaelzpumpe",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Brauchwarmwasserumwaelzpumpe ein/aus",
+        "states": {
+          "false": "AUS",
+          "true": "EIN"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "ausgaenge.Fussbodenheizungsumwaelzpumpe",
+      "type": "state",
+      "common": {
+        "name": "Fussbodenheizungsumwaelzpumpe",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Fussbodenheizungsumwaelzpumpe ein/aus",
+        "states": {
+          "false": "AUS",
+          "true": "EIN"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "ausgaenge.Heizungsumwaelzpumpe",
+      "type": "state",
+      "common": {
+        "name": "Heizungsumwaelzpumpe",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Heizungsumwaelzpumpe ein/aus",
+        "states": {
+          "false": "AUS",
+          "true": "EIN"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "ausgaenge.Mischer_1_Auf",
+      "type": "state",
+      "common": {
+        "name": "Mischer_1_Auf",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Mischer_1_Auf ein/aus",
+        "states": {
+          "false": "AUS",
+          "true": "EIN"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "ausgaenge.Mischer_1_Zu",
+      "type": "state",
+      "common": {
+        "name": "Mischer_1_Zu",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Mischer_1_Zu ein/aus",
+        "states": {
+          "false": "AUS",
+          "true": "EIN"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "ausgaenge.Ventilation_des_Waermepumpengehaeuses",
+      "type": "state",
+      "common": {
+        "name": "Ventilation_des_Waermepumpengehaeuses",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Ventilation_des_Waermepumpengehaeuses ein/aus",
+        "states": {
+          "false": "AUS",
+          "true": "EIN"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "ausgaenge.Ventilator_Brunnen_oder_Soleumwaelzpumpe",
+      "type": "state",
+      "common": {
+        "name": "Ventilator_Brunnen_oder_Soleumwaelzpumpe",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Ventilator_Brunnen_oder_Soleumwaelzpumpe ein/aus",
+        "states": {
+          "false": "AUS",
+          "true": "EIN"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "ausgaenge.Verdichter_1_in_Waermepumpe",
+      "type": "state",
+      "common": {
+        "name": "Verdichter_1_in_Waermepumpe",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Verdichter_1_in_Waermepumpe ein/aus",
+        "states": {
+          "false": "AUS",
+          "true": "EIN"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "ausgaenge.Verdichter_2_in_Waermepumpe",
+      "type": "state",
+      "common": {
+        "name": "Verdichter_2_in_Waermepumpe",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Verdichter_2_in_Waermepumpe ein/aus",
+        "states": {
+          "false": "AUS",
+          "true": "EIN"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "ausgaenge.Zusatzumwaelzpumpe_Zirkulationspumpe",
+      "type": "state",
+      "common": {
+        "name": "Zusatzumwaelzpumpe_Zirkulationspumpe",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Zusatzumwaelzpumpe_Zirkulationspumpe ein/aus",
+        "states": {
+          "false": "AUS",
+          "true": "EIN"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "ausgaenge.Zweiter_Waermeerzeuger_1",
+      "type": "state",
+      "common": {
+        "name": "Zweiter_Waermeerzeuger_1",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Zweiter_Waermeerzeuger_1 ein/aus",
+        "states": {
+          "false": "AUS",
+          "true": "EIN"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "ausgaenge.Zweiter_Waermeerzeuger_2_Sammelstoerung",
+      "type": "state",
+      "common": {
+        "name": "Zweiter_Waermeerzeuger_2_Sammelstoerung",
+        "type": "boolean",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Zweiter_Waermeerzeuger_2_Sammelstoerung ein/aus",
+        "states": {
+          "false": "AUS",
+          "true": "EIN"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "name": "luxtronik connected",
+        "type": "boolean",
+        "role": "indicator.connected",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": "Is luxtronik connected?"
+      },
+      "native": {}
+    },
+    {
+      "_id": "ablaufzeiten",
+      "type": "channel",
+      "common": {
+        "name": "Ablaufzeiten"
+      },
+      "native": {}
+    },
+    {
+      "_id": "ablaufzeiten.WPseit",
+      "type": "state",
+      "common": {
+        "name": "Wärmepumpe läuft seit",
+        "type": "number",
+        "role": "value.seconds",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "desc": "Wärmepumpe läuft seit",
+        "unit": "s"
+      },
+      "native": {}
+    },
+    {
+      "_id": "ablaufzeiten.WPseitlast",
+      "type": "state",
+      "common": {
+        "name": "Wärmepumpe letzte Laufzeit",
+        "type": "number",
+        "role": "value.seconds",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "desc": "Wärmepumpe letzte Laufzeit (+/- Abfrageintervall)",
+        "unit": "s"
+      },
+      "native": {}
+    },
+    {
+      "_id": "ablaufzeiten.ZWE1seit",
+      "type": "state",
+      "common": {
+        "name": "ZWE1 läuft seit",
+        "type": "number",
+        "role": "value.seconds",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "desc": "Zweiter Wärmeerzeuger 1 läuft seit",
+        "unit": "s"
+      },
+      "native": {}
+    },
+    {
+      "_id": "ablaufzeiten.ZWE2seit",
+      "type": "state",
+      "common": {
+        "name": "ZWE2 läuft seit",
+        "type": "number",
+        "role": "value.seconds",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "desc": "Zweiter Wärmeerzeuger 2 läuft seit",
+        "unit": "s"
+      },
+      "native": {}
+    },
+    {
+      "_id": "ablaufzeiten.Netzeinv",
+      "type": "state",
+      "common": {
+        "name": "Netzeinschaltverzögerung",
+        "type": "number",
+        "role": "value.seconds",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "desc": "Netzeinschaltverzögerung",
+        "unit": "s"
+      },
+      "native": {}
+    },
+    {
+      "_id": "ablaufzeiten.SSPstand",
+      "type": "state",
+      "common": {
+        "name": "SSP-Zeit-Standzeit",
+        "type": "number",
+        "role": "value.seconds",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "desc": "Schaltspielsperre Standzeit",
+        "unit": "s"
+      },
+      "native": {}
+    },
+    {
+      "_id": "ablaufzeiten.SSPverz",
+      "type": "state",
+      "common": {
+        "name": "SSP-Zeit-Einschaltverzögerung",
+        "type": "number",
+        "role": "value.seconds",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "desc": "Schaltspielsperre Einschaltverzögerung",
+        "unit": "s"
+      },
+      "native": {}
+    },
+    {
+      "_id": "ablaufzeiten.VDstand",
+      "type": "state",
+      "common": {
+        "name": "Verdichter-Standzeit",
+        "type": "number",
+        "role": "value.seconds",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "desc": "Verdichter-Standzeit",
+        "unit": "s"
+      },
+      "native": {}
+    },
+    {
+      "_id": "ablaufzeiten.HRM",
+      "type": "state",
+      "common": {
+        "name": "Heizungsregler Mehr-Zeit",
+        "type": "number",
+        "role": "value.seconds",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "desc": "Heizungsregler Mehr-Zeit",
+        "unit": "s"
+      },
+      "native": {}
+    },
+    {
+      "_id": "ablaufzeiten.HRW",
+      "type": "state",
+      "common": {
+        "name": "Heizungsregler Weniger-Zeit",
+        "type": "number",
+        "role": "value.seconds",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "desc": "Heizungsregler Weniger-Zeit",
+        "unit": "s"
+      },
+      "native": {}
+    },
+    {
+      "_id": "ablaufzeiten.TDIseit",
+      "type": "state",
+      "common": {
+        "name": "Thermische Desinfektion seit",
+        "type": "number",
+        "role": "value.seconds",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "desc": "Thermische Desinfektion seit",
+        "unit": "s"
+      },
+      "native": {}
+    },
+    {
+      "_id": "ablaufzeiten.BWsperre",
+      "type": "state",
+      "common": {
+        "name": "Sperre BW",
+        "type": "number",
+        "role": "value.seconds",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "desc": "Sperre Brauchwarmwasser",
+        "unit": "s"
+      },
+      "native": {}
+    },
+    {
+      "_id": "betriebsstunden",
+      "type": "channel",
+      "common": {
+        "name": "Betriebsstunden"
+      },
+      "native": {}
+    },
+    {
+      "_id": "betriebsstunden.VD1",
+      "type": "state",
+      "common": {
+        "name": "Betriebsstunden Verdichter 1",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "desc": "Betriebsstunden Verdichter 1"
+      },
+      "native": {}
+    },
+    {
+      "_id": "betriebsstunden.Imp1",
+      "type": "state",
+      "common": {
+        "name": "Impulse Verdichter 1",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "desc": "Imulse Verdichter 1"
+      },
+      "native": {}
+    },
+    {
+      "_id": "betriebsstunden.AvVD1",
+      "type": "state",
+      "common": {
+        "name": "Durchschn Laufzeit VD 1",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "desc": "Durchscnittliche Laufzeit Verdichter 1"
+      },
+      "native": {}
+    },
+    {
+      "_id": "betriebsstunden.VD2",
+      "type": "state",
+      "common": {
+        "name": "Betriebsstunden Verdichter 2",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "desc": "Betriebsstunden Verdichter 2"
+      },
+      "native": {}
+    },
+    {
+      "_id": "betriebsstunden.Imp2",
+      "type": "state",
+      "common": {
+        "name": "Impulse Verdichter 2",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "desc": "Impulse Verdichter 2"
+      },
+      "native": {}
+    },
+    {
+      "_id": "betriebsstunden.AvVD2",
+      "type": "state",
+      "common": {
+        "name": "Durchschn Laufzeit VD 2",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "desc": "Durchscnittliche Laufzeit Verdichter 2"
+      },
+      "native": {}
+    },
+    {
+      "_id": "betriebsstunden.ZWE1",
+      "type": "state",
+      "common": {
+        "name": "Betriebsstunden ZWE 1",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "desc": "Betriebsstunden ZWE 1"
+      },
+      "native": {}
+    },
+    {
+      "_id": "betriebsstunden.ZWE2",
+      "type": "state",
+      "common": {
+        "name": "Betriebsstunden ZWE 2",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "desc": "Betriebsstunden ZWE 2"
+      },
+      "native": {}
+    },
+    {
+      "_id": "betriebsstunden.WP",
+      "type": "state",
+      "common": {
+        "name": "Betriebsstunden Waermepumpe",
+        "type": "string",
+        "role": "value.hours",
+        "read": true,
+        "write": false,
+        "desc": "Betriebsstunden Waermepumpe"
+      },
+      "native": {}
+    },
+    {
+      "_id": "fehler",
+      "type": "channel",
+      "common": {
+        "name": "Fehlerspeicher"
+      },
+      "native": {}
+    },
+    {
+      "_id": "fehler.1",
+      "type": "state",
+      "common": {
+        "name": "Fehler 1",
+        "type": "string",
+        "role": "info.fehler",
+        "read": true,
+        "write": false,
+        "desc": "letzer Fehler"
+      },
+      "native": {}
+    },
+    {
+      "_id": "fehler.2",
+      "type": "state",
+      "common": {
+        "name": "Fehler 2",
+        "type": "string",
+        "role": "info.fehler",
+        "read": true,
+        "write": false,
+        "desc": "vorletzer Fehler"
+      },
+      "native": {}
+    },
+    {
+      "_id": "fehler.3",
+      "type": "state",
+      "common": {
+        "name": "Fehler 3",
+        "type": "string",
+        "role": "info.fehler",
+        "read": true,
+        "write": false,
+        "desc": "vorvorletzer Fehler"
+      },
+      "native": {}
+    },
+    {
+      "_id": "fehler.4",
+      "type": "state",
+      "common": {
+        "name": "Fehler 4",
+        "type": "string",
+        "role": "info.fehler",
+        "read": true,
+        "write": false,
+        "desc": "vorvorvorletzer Fehler"
+      },
+      "native": {}
+    },
+    {
+      "_id": "fehler.5",
+      "type": "state",
+      "common": {
+        "name": "Fehler 5",
+        "type": "string",
+        "role": "info.fehler",
+        "read": true,
+        "write": false,
+        "desc": "vor5letzer Fehler"
+      },
+      "native": {}
+    },
+    {
+      "_id": "abschaltungen",
+      "type": "channel",
+      "common": {
+        "name": "Abschaltungen"
+      },
+      "native": {}
+    },
+    {
+      "_id": "abschaltungen.1",
+      "type": "state",
+      "common": {
+        "name": "Abschaltung 1",
+        "type": "string",
+        "role": "info.abschaltung",
+        "read": true,
+        "write": false,
+        "desc": "letze Abschaltung"
+      },
+      "native": {}
+    },
+    {
+      "_id": "abschaltungen.2",
+      "type": "state",
+      "common": {
+        "name": "Abschaltung 2",
+        "type": "string",
+        "role": "info.abschaltung",
+        "read": true,
+        "write": false,
+        "desc": "vorletze Abschaltung"
+      },
+      "native": {}
+    },
+    {
+      "_id": "abschaltungen.3",
+      "type": "state",
+      "common": {
+        "name": "Abschaltung 3",
+        "type": "string",
+        "role": "info.abschaltung",
+        "read": true,
+        "write": false,
+        "desc": "vorvorletze Abschaltung"
+      },
+      "native": {}
+    },
+    {
+      "_id": "abschaltungen.4",
+      "type": "state",
+      "common": {
+        "name": "Abschaltung 4",
+        "type": "string",
+        "role": "info.abschaltung",
+        "read": true,
+        "write": false,
+        "desc": "vorvorvorletze Abschaltung"
+      },
+      "native": {}
+    },
+    {
+      "_id": "abschaltungen.5",
+      "type": "state",
+      "common": {
+        "name": "Abschaltung 5",
+        "type": "string",
+        "role": "info.abschaltung",
+        "read": true,
+        "write": false,
+        "desc": "vor5letze Abschaltung"
+      },
+      "native": {}
+    },
+    {
+      "_id": "status",
+      "type": "channel",
+      "common": {
+        "name": "Status"
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.ANL",
+      "type": "state",
+      "common": {
+        "name": "Status Anlage",
+        "type": "string",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "desc": "Betriebsmodus Anlage"
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.WPtyp",
+      "type": "state",
+      "common": {
+        "name": "Wärmepumpentyp",
+        "type": "string",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "ERC nicht belegt",
+          "1": "SW1 Sole/Wasser 1 Verdichter",
+          "2": "SW2 Sole/Wasser 2 Veridchter",
+          "3": "WW1 Wasser/Wasser 1 Verdichter",
+          "4": "WW2 Wasser/Wasser 2 Verichter",
+          "5": "L1I Luft/Wasser 1 Verdichter Innen",
+          "6": "L2I Luft/Wasser 2 Verdichter Innen",
+          "7": "L1A Luft/Wasser 1 Verdichter Aussen",
+          "8": "L2A Luft/Wasser 2 Verdichter Aussen",
+          "9": "KSW Kompaktheizzentrale Sole/Wasser",
+          "10": "KLW Kompaktheizzentrale Luft/Wasser",
+          "11": "SWC Sole/Wasser Compact",
+          "12": "LWC Luft/Wasser Compact",
+          "13": "L2G Luft/Wasser Grossgerät 2 Verdichter",
+          "14": "WZS Wärmezentrale Sole/Wasser"
+        },
+        "desc": "Wärmepumpentyp"
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.SW",
+      "type": "state",
+      "common": {
+        "name": "Software-Version",
+        "type": "string",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "desc": "Stand Software - Version"
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.BivStufe",
+      "type": "state",
+      "common": {
+        "name": "Bivalenzstufe",
+        "type": "string",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "states": {
+          "1": "ein Verdichter darf laufen",
+          "2": "zwei Verdichter dürfen laufen",
+          "3": "zus. Wärmeerz. darf mitlaufen"
+        },
+        "desc": "Bivalenzstufe"
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.ModusHeizung",
+      "type": "state",
+      "common": {
+        "name": "Betriebsmodus Heizung",
+        "type": "number",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "AUTO",
+          "1": "ZWE",
+          "2": "Party",
+          "3": "Ferien",
+          "4": "AUS",
+          "224": "Ausheizprogramm"
+        },
+        "desc": "Betriebsmodus Heizung"
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.ModusWW",
+      "type": "state",
+      "common": {
+        "name": "Betriebsmodus Warmwasser",
+        "type": "number",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "AUTO",
+          "1": "ZWE",
+          "2": "Party",
+          "3": "Ferien",
+          "4": "AUS"
+        },
+        "desc": "Betriebsmodus Warmwasser"
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.SchaltzWoBW.Start1",
+      "type": "state",
+      "common": {
+        "name": "Sperrbeginn1 (hh:mm)",
+        "type": "string",
+        "role": "status.Schaltz",
+        "read": true,
+        "write": true,
+        "def": "00:00",
+        "desc": "Schaltzeiten Woche BW, Sperrbeginn1"
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.SchaltzWoBW.Ende1",
+      "type": "state",
+      "common": {
+        "name": "Sperrende1 (hh:mm)",
+        "type": "string",
+        "role": "status.Schaltz",
+        "read": true,
+        "write": true,
+        "def": "00:00",
+        "desc": "Schaltzeiten Woche BW, Sperrende1"
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.SchaltzWoBW.Start2",
+      "type": "state",
+      "common": {
+        "name": "Sperrbeginn2 (hh:mm)",
+        "type": "string",
+        "role": "status.Schaltz",
+        "read": true,
+        "write": true,
+        "def": "00:00",
+        "desc": "Schaltzeiten Woche BW, Sperrbeginn2"
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.SchaltzWoBW.Ende2",
+      "type": "state",
+      "common": {
+        "name": "Sperrende2 (hh:mm)",
+        "type": "string",
+        "role": "status.Schaltz",
+        "read": true,
+        "write": true,
+        "def": "00:00",
+        "desc": "Schaltzeiten Woche BW, Sperrende2"
+      },
+      "native": {}
+    },
+    {
+      "_id": "heizkurve",
+      "type": "channel",
+      "common": {
+        "name": "Heizkurve"
+      },
+      "native": {}
+    },
+    {
+      "_id": "heizkurve.AbwRLs",
+      "type": "state",
+      "common": {
+        "name": "Soll-Abweichung Rücklauf",
+        "type": "number",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "desc": "Soll-Abweichung Rücklauf (Startbildschirm)",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "heizkurve.Endpunkt",
+      "type": "state",
+      "common": {
+        "name": "Endpunkt",
+        "type": "number",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "desc": "Endpunkt Heizkurve",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "heizkurve.ParaV",
+      "type": "state",
+      "common": {
+        "name": "Parallelverschiebung",
+        "type": "number",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "desc": "Parallelverschiebung Heizkurve",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "heizkurve.NachtAbs",
+      "type": "state",
+      "common": {
+        "name": "Nachtabsenkung",
+        "type": "number",
+        "role": "info.status",
+        "read": true,
+        "write": false,
+        "desc": "Nachtabsenkung Heizkurve",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "control",
+      "type": "channel",
+      "common": {
+        "name": "Steuerung"
+      },
+      "native": {}
+    },
+    {
+      "_id": "control.AbwRLs",
+      "type": "state",
+      "common": {
+        "name": "Soll-Abweichung Rücklauf (-5 - 5, +/-0.5)",
+        "type": "number",
+        "role": "control.temperature",
+        "min": -5.5,
+        "max": 5.5,
+        "step": 0.5,
+        "read": true,
+        "write": true,
+        "def": 0,
+        "desc": "Soll-Abweichung Rücklauf (Startbildschirm) setzen",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "control.EndpunktHK",
+      "type": "state",
+      "common": {
+        "name": "Endpunkt Heizkurve (20 - 70, +/-0.5 )",
+        "type": "number",
+        "min": 20,
+        "max": 70,
+        "step": 0.5,
+        "role": "control.temperature",
+        "read": true,
+        "write": true,
+        "def": 0,
+        "desc": "Endpunkt Heizkurve setzen",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "control.ParaVHK",
+      "type": "state",
+      "common": {
+        "name": "Parallelverschiebung Heizkurve (5 - 35, +/-0.5)",
+        "type": "number",
+        "min": 5,
+        "max": 35,
+        "step": 0.5,
+        "role": "control.temperature",
+        "read": true,
+        "write": true,
+        "def": 0,
+        "desc": "Parallelverschiebung Heizkurve setzen",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "control.NachtAbs",
+      "type": "state",
+      "common": {
+        "name": "Nachtabsenkung (-15 - 0, +/-0.5)",
+        "type": "number",
+        "min": -15,
+        "max": 0,
+        "step": 0.5,
+        "role": "control.temperature",
+        "read": true,
+        "write": true,
+        "desc": "Nachtabsenkung setzen",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "control.ModusHeizung",
+      "type": "state",
+      "common": {
+        "name": "Betriebsmodus Heizung",
+        "type": "number",
+        "role": "control.status",
+        "read": true,
+        "write": true,
+        "states": {
+          "0": "AUTO",
+          "1": "ZWE",
+          "2": "Party",
+          "3": "Ferien",
+          "4": "AUS",
+          "224": "Ausheizprogramm - hier nicht auswählen!!"
+        },
+        "desc": "Betriebsmodus Heizung setzen"
+      },
+      "native": {}
+    },
+    {
+      "_id": "control.ModusWW",
+      "type": "state",
+      "common": {
+        "name": "Betriebsmodus Warmwasser",
+        "type": "number",
+        "role": "control.status",
+        "read": true,
+        "write": true,
+        "states": {
+          "0": "AUTO",
+          "1": "ZWE",
+          "2": "Party",
+          "3": "Ferien",
+          "4": "AUS"
+        },
+        "desc": "Betriebsmodus Warmwasser setzen"
+      },
+      "native": {}
+    },
+    {
+      "_id": "control.BWs",
+      "type": "state",
+      "common": {
+        "name": "Warmwassertemperatur SOLL (30 - 65, +/-0.5)",
+        "type": "number",
+        "min": 30,
+        "max": 65,
+        "step": 0.5,
+        "role": "control.temperature",
+        "read": true,
+        "write": true,
+        "desc": "Soll - Warmwassertemperatur setzen",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "control.HystBWs",
+      "type": "state",
+      "common": {
+        "name": "Hysterese Brauchwasser Soll  (1 -30, +/-1)",
+        "type": "number",
+        "min": 1,
+        "max": 30,
+        "step": 0,
+        "role": "control.temperature",
+        "read": true,
+        "write": true,
+        "desc": "Hysterese Brauchwasser setzen",
+        "unit": "°K"
+      },
+      "native": {}
+    },
+    {
+      "_id": "control.HystHKs",
+      "type": "state",
+      "common": {
+        "name": "Hysterese Heizkreis SOLL (0.5-3, +/-0.5)",
+        "type": "number",
+        "min": 0.5,
+        "max": 3,
+        "step": 0.5,
+        "role": "control.temperature",
+        "read": true,
+        "write": true,
+        "desc": "Hysterese Heizkreis setzen",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "control.SchaltzWoBW.Start1",
+      "type": "state",
+      "common": {
+        "name": "Sperrbeginn1 (hh:mm)",
+        "type": "string",
+        "role": "control.Schaltz",
+        "read": true,
+        "write": true,
+        "def": "00:00",
+        "desc": "Schaltzeiten Woche BW, Sperrbeginn1"
+      },
+      "native": {}
+    },
+    {
+      "_id": "control.SchaltzWoBW.Ende1",
+      "type": "state",
+      "common": {
+        "name": "Sperrende1 (hh:mm)",
+        "type": "string",
+        "role": "control.Schaltz",
+        "read": true,
+        "write": true,
+        "def": "00:00",
+        "desc": "Schaltzeiten Woche BW, Sperrende1"
+      },
+      "native": {}
+    },
+    {
+      "_id": "control.SchaltzWoBW.Start2",
+      "type": "state",
+      "common": {
+        "name": "Sperrbeginn2 (hh:mm)",
+        "type": "string",
+        "role": "control.Schaltz",
+        "read": true,
+        "write": true,
+        "def": "00:00",
+        "desc": "Schaltzeiten Woche BW, Sperrbeginn2"
+      },
+      "native": {}
+    },
+    {
+      "_id": "control.SchaltzWoBW.Ende2",
+      "type": "state",
+      "common": {
+        "name": "Sperrende2 (hh:mm)",
+        "type": "string",
+        "role": "control.Schaltz",
+        "read": true,
+        "write": true,
+        "def": "00:00",
+        "desc": "Schaltzeiten Woche BW, Sperrende2"
+      },
+      "native": {}
+    },
+    {
+      "_id": "control.SchaltzWoBW.senden",
+      "type": "state",
+      "common": {
+        "name": "Schaltzeiten BW Woche senden",
+        "type": "boolean",
+        "role": "button",
+        "read": true,
+        "write": true,
+        "desc": "Schaltzeiten Woche BW senden"
+      },
+      "native": {}
+    },
+    {
+      "_id": "control.Zeit.senden",
+      "type": "state",
+      "common": {
+        "name": "Zeit / Datum senden",
+        "type": "boolean",
+        "role": "button",
+        "read": true,
+        "write": true,
+        "desc": "Zeit- und Datumswerte senden"
+      },
+      "native": {}
+    },
+    {
+      "_id": "control.Zeit.uhrzeit",
+      "type": "state",
+      "common": {
+        "name": "Uhrzeit (hh:mm:ss)",
+        "type": "string",
+        "role": "control.time",
+        "read": true,
+        "write": true,
+        "def": "00:00",
+        "desc": "Uhrzeit, hh:mm:ss"
+      },
+      "native": {}
+    },
+    {
+      "_id": "control.Zeit.datum",
+      "type": "state",
+      "common": {
+        "name": "Datum (dd.mm.yy)",
+        "type": "string",
+        "role": "control.time",
+        "read": true,
+        "write": true,
+        "def": "01.01.20",
+        "desc": "Datum (dd.mm.yy)"
+      },
+      "native": {}
+    },
+    {
+      "_id": "control.Zeit.dow",
+      "type": "state",
+      "common": {
+        "name": "Wochentag",
+        "type": "number",
+        "role": "control.time",
+        "states": {
+          "0": "Sonntag",
+          "1": "Montag",
+          "2": "Dienstag",
+          "3": "Mittwoch",
+          "4": "Donnerstag",
+          "5": "Freitag",
+          "6": "Samstag"
+        },
+        "read": true,
+        "write": true,
+        "desc": "Datum (dd.mm.yy)"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.einstellungen.RLBegr",
+      "type": "state",
+      "common": {
+        "name": "Rücklauf Begrenzung (35-70, +/-0.5)",
+        "type": "number",
+        "role": "einstellungen.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Rücklauf Begrenzung setzen",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.einstellungen.HystHR",
+      "type": "state",
+      "common": {
+        "name": "Hysterese HR",
+        "type": "number",
+        "role": "einstellungen.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Hysterese Heizkreis",
+        "unit": "°K"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.einstellungen.TRErhMax",
+      "type": "state",
+      "common": {
+        "name": "Rücklauferhöhung maximal (1-10, +/-1)",
+        "type": "number",
+        "role": "einstellungen.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Rücklauferhöhung maximal setzen",
+        "unit": "°K"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.einstellungen.Freig2VD",
+      "type": "state",
+      "common": {
+        "name": "Freigabe 2. Verdichter",
+        "type": "number",
+        "role": "einstellungen.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Minmale Temperatur für Freigabe VD2",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.einstellungen.FreigZWE",
+      "type": "state",
+      "common": {
+        "name": "Freigabe ZWE",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Minimale Temperatur für Freigabe ZWE",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.einstellungen.T-Luftabt",
+      "type": "state",
+      "common": {
+        "name": "Temperatur-Luftabtauung",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Minimale Temperatur für Luftabtauung",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.einstellungen.TDIsoll",
+      "type": "state",
+      "common": {
+        "name": "Solltemperatur thermische Desinfektion",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Solltemperatur thermische Desinfektion Brauchwarmwasser",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.einstellungen.HystBW",
+      "type": "state",
+      "common": {
+        "name": "Hysterese BW",
+        "type": "number",
+        "role": "einstellungen.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Hysterese Brauchwarmwasser",
+        "unit": "°K"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.einstellungen.VL2VDBW",
+      "type": "state",
+      "common": {
+        "name": "VL 2. Verdichter BW",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Vorlauftemperatur für Einsatz 2. Verdichter zur Erzeugung Brauchwarmwasser",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.einstellungen.TAussenMax",
+      "type": "state",
+      "common": {
+        "name": "maximale Aussentemperatur",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "maximale Aussentemperatur über der die WP gesperrt ist",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.einstellungen.TAussenMin",
+      "type": "state",
+      "common": {
+        "name": "minimale Aussentemperatur",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "minimale Aussentemperatur unter der die WP gesperrt ist",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.einstellungen.TWQMin",
+      "type": "state",
+      "common": {
+        "name": "minimale Wärmequellentemperatur",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "minimale Wärmequellentemperatur unter der die WP gesperrt ist",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.einstellungen.THGMax",
+      "type": "state",
+      "common": {
+        "name": "maximale Heissgastemperatur",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "maximale Heissgastemperatur",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.einstellungen.TLAbtEnde",
+      "type": "state",
+      "common": {
+        "name": "Temperatur Luftabtauung Ende",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Temperatur, bei der die Luftabtauung beendet wird",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.einstellungen.AbsenkBis",
+      "type": "state",
+      "common": {
+        "name": "maximale Absenkung",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "minimale Aussentemperatur, bei welcher eine Nachtabsenkung noch gemacht wird",
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    {
+      "_id": "temperaturen.einstellungen.VLmax",
+      "type": "state",
+      "common": {
+        "name": "maximale Vorlauftemperatur",
+        "type": "number",
+        "role": "einstellung.temperature",
+        "read": true,
+        "write": false,
+        "desc": "Vorlauftemperatur bei deren Erreichen der Kompressor ausgeschaltet wird.",
+        "unit": "°C"
+      },
+      "native": {}
+    }
+  ]
 }
