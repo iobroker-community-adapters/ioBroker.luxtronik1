@@ -1,0 +1,12 @@
+{
+    "Auto": "Automatyczny",
+    "Manual": "podręcznik",
+    "My select": "Mój wybór",
+    "host": "Adres IP Solarloga:",
+    "on save adapter restarts with new config immediately": "po zapisaniu adapter natychmiast uruchamia się ponownie z nową konfiguracją",
+    "pollInterval": "Odpytywanie — interwał (ms):",
+    "port": "Port",
+    "template adapter settings": "ustawienia adaptera szablonu",
+    "test1": "",
+    "test2": ""
+}

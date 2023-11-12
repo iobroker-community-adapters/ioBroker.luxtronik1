@@ -1,9 +1,12 @@
 {
-  "Auto": "Auto",
-  "Manual": "Manual",
-  "My select": "Meu selecionado",
-  "on save adapter restarts with new config immediately": "no adaptador de salvar reinicia com nova configuração imediatamente",
-  "template adapter settings": "configurações do adaptador de modelo",
-  "test1": "Teste 1",
-  "test2": "Teste 2"
+    "Auto": "Auto",
+    "Manual": "Manual",
+    "My select": "Meu selecionado",
+    "host": "IP Solarlog:",
+    "on save adapter restarts with new config immediately": "no adaptador de salvar reinicia com nova configuração imediatamente",
+    "pollInterval": "Pesquisa - Intervalo (ms):",
+    "port": "Porta",
+    "template adapter settings": "configurações do adaptador de modelo",
+    "test1": "Teste 1",
+    "test2": "Teste 2"
 }
