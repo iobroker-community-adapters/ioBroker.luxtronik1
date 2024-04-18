@@ -2,7 +2,7 @@
   "name": "iobroker.luxtronik1",
   "version": "0.3.6",
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=18"
   },
   "description": "luxtronik1",
   "author": {
@@ -11,8 +11,7 @@
   },
   "contributors": [{
     "name": "Marcel Adam",
-    "email": "marceladam@gmx.ch",
-    "name": "pingus01"
+    "email": "marceladam@gmx.ch"
   }],
   "homepage": "https://github.com/iobroker-community-adapters/ioBroker.luxtronik1",
   "license": "MIT",
@@ -29,39 +28,43 @@
   "dependencies": {
     "@iobroker/adapter-core": "^3.0.6"
   },
-  "deprecated": false,
   "devDependencies": {
-    "@iobroker/testing": "^4.1.1",
+    "@alcalzone/release-script": "^3.7.0",
+    "@alcalzone/release-script-plugin-iobroker": "^3.7.0",
+    "@alcalzone/release-script-plugin-license": "^3.7.0",
+    "@alcalzone/release-script-plugin-manual-review": "^3.7.0",
     "@iobroker/adapter-dev": "^1.3.0",
-    "@types/chai": "^4.3.14",
+    "@iobroker/testing": "^4.1.3",
+    "@tsconfig/node14": "^14.1.0",
+    "@types/chai": "^4.3.11",
     "@types/chai-as-promised": "^7.1.8",
-    "@types/gulp": "^4.0.17",
     "@types/mocha": "^10.0.6",
-    "@types/node": "^20.12.2",
+    "@types/node": "^20.11.25",
     "@types/proxyquire": "^1.3.31",
     "@types/sinon": "^17.0.3",
     "@types/sinon-chai": "^3.2.12",
-    "chai": "^4.3.10",
+    "chai": "^4.4.1",
     "chai-as-promised": "^7.1.1",
     "eslint": "^8.57.0",
-    "gulp": "^4.0.2",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
     "mocha": "^10.4.0",
+    "prettier": "^3.2.5",
     "proxyquire": "^2.1.3",
     "sinon": "^17.0.1",
-    "sinon-chai": "^3.7.0"
+    "sinon-chai": "^3.7.0",
+    "typescript": "~5.4.2"
   },
   "main": "main.js",
   "scripts": {
-    "test": "npm run test:package && npm run test:unit",
+    "test:js": "mocha --config test/mocharc.custom.json \"{!(node_modules|test)/**/*.test.js,*.test.js,test/**/test!(PackageFiles|Startup).js}\"",
     "test:package": "mocha test/package --exit",
-    "test:unit": "mocha test/unit --exit",
     "test:integration": "mocha test/integration --exit",
-    "release": "release-script",
-    "release-patch": "release-script patch --yes --no-update-lockfile",
-    "release-minor": "release-script minor --yes --no-update-lockfile",
-    "release-major": "release-script major --yes --no-update-lockfile",
+    "test": "npm run test:js && npm run test:package",
+    "check": "tsc --noEmit -p tsconfig.check.json",
+    "lint": "eslint",
     "translate": "translate-adapter",
-    "build": "build-adapter"
+    "release": "release-script"
   },
   "bugs": {
     "url": "https://github.com/iobroker-community-adapters/ioBroker.luxtronik1/issues"

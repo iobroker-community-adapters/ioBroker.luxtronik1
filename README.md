@@ -33,6 +33,14 @@ Controls Luxtronik 1 by setting values in the 'control' - channel. Controls the 
 Values in the 'control' - channel have to be set with ack=false to trigger an action.
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+
 
 ### 0.3.6
 
@@ -130,6 +138,7 @@ Values in the 'control' - channel have to be set with ack=false to trigger an ac
 
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2018-2023 forelleblau marceladam@gmx.ch
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
