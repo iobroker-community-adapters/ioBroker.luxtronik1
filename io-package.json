@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "luxtronik1",
-    "version": "0.3.6",
+    "version": "0.4.0",
     "news": {
+      "0.4.0": {
+        "en": "Adapter requires node.js >= 18 and js-controller >= 5 now\nDependencies have been updated",
+        "de": "Adapter benötigt node.js >= 18 und js-controller >= 5 jetzt\nAbhängigkeiten wurden aktualisiert",
+        "ru": "Адаптер требует node.js >= 18 и js-контроллер >= 5 сейчас\nЗависимость обновлена",
+        "pt": "Adapter requer node.js >= 18 e js-controller >= 5 agora\nAs dependências foram atualizadas",
+        "nl": "Voor adaptor zijn node.js < 18 en js-controller > Nu 5\nAfhankelijkheden zijn bijgewerkt",
+        "fr": "L'adaptateur nécessite node.js >= 18 et js-controller >= 5 maintenant\nLes dépendances ont été actualisées",
+        "it": "Adattatore richiede node.js >= 18 e js-controller >= 5 ora\nLe dipendenze sono state aggiornate",
+        "es": "Adaptador requiere node.js √≥= 18 y js-controller 5 ahora\nSe han actualizado las dependencias",
+        "pl": "Adapter wymaga node.js > = 18 i kontroler js- > = 5 teraz\nZaktualizowano zależności",
+        "uk": "Адаптер вимагає node.js >= 18 і js-controller >= 5 тепер\nЗалежність було оновлено",
+        "zh-cn": "适配器需要节点.js QQ18和js控制器 QQ 现在5号\n依赖关系已更新"
+      },
       "0.3.6": {
         "en": "testing and dependencies updated",
         "de": "Tests und Abhängigkeiten aktualisiert",
@@ -80,110 +93,6 @@
         "pl": "informacja o temperaturze - ustawienia i histereza - dodano sterowanie",
         "uk": "інформація про температуру - налаштування та гістерезис - контроль додано",
         "zh-cn": "有关温度的信息 - 设置和滞后 - 添加了控制"
-      },
-      "0.2.7": {
-        "en": "status-info added",
-        "de": "Statusinformation erweitert.",
-        "ru": "информация о статусе добавлена",
-        "pt": "informações de status adicionadas",
-        "nl": "statusinfo toegevoegd",
-        "fr": "informations sur le statut ajoutées",
-        "it": "informazioni sullo stato aggiunte",
-        "es": "información de estado agregada",
-        "pl": "Dodano informacje o statusie",
-        "uk": "інформація про статус додана",
-        "zh-cn": "添加状态信息"
-      },
-      "0.2.6": {
-        "en": "input - data and timers added",
-        "de": "Daten zu Eingängen und Ablaufzeiten ergänzt.",
-        "ru": "input - добавлены данные и таймеры",
-        "pt": "entrada - dados e temporizadores adicionados",
-        "nl": "invoer - gegevens en timers toegevoegd",
-        "fr": "entrée - données et minuteries ajoutées",
-        "it": "input: dati e timer aggiunti",
-        "es": "entrada - datos y temporizadores agregados",
-        "pl": "wejście - dodano dane i timery",
-        "uk": "введення - додано дані та таймери",
-        "zh-cn": "输入 - 添加数据和计时器"
-      },
-      "0.2.5": {
-        "en": "outlet - data added",
-        "de": "Daten zu Ausgängen ergänzt.",
-        "ru": "торговая точка - данные добавлены",
-        "pt": "outlet - dados adicionados",
-        "nl": "outlet - gegevens toegevoegd",
-        "fr": "prise - données ajoutées",
-        "it": "presa - dati aggiunti",
-        "es": "salida - datos añadidos",
-        "pl": "outlet - dane dodano",
-        "uk": "розетка - дані додані",
-        "zh-cn": "出口 - 添加数据"
-      },
-      "0.2.0": {
-        "en": "missing temperature values added",
-        "de": "Fehlende Temperaturwerte ergänzt (Wärmequelle, Mischkreis, Raumstation).",
-        "ru": "добавлены недостающие значения температуры",
-        "pt": "valores de temperatura ausentes adicionados",
-        "nl": "ontbrekende temperatuurwaarden toegevoegd",
-        "fr": "valeurs de température manquantes ajoutées",
-        "it": "aggiunti i valori di temperatura mancanti",
-        "es": "Se agregaron los valores de temperatura faltantes.",
-        "pl": "dodano brakujące wartości temperatur",
-        "uk": "додано відсутні значення температури",
-        "zh-cn": "添加了缺失的温度值"
-      },
-      "0.1.0": {
-        "en": "error - handling on communication errors optimized, adapter restart in case ofmultiple communication errors.",
-        "de": "Fehlerhandling für Kommunikationsfehler verbessert, automatischer Adapter - Neustart bei Kommunikationstörungen.",
-        "ru": "ошибка - оптимизирована обработка ошибок связи, перезапуск адаптера в случае нескольких ошибок связи.",
-        "pt": "erro - tratamento otimizado de erros de comunicação, reinicialização do adaptador em caso de múltiplos erros de comunicação.",
-        "nl": "fout - afhandeling van communicatiefouten geoptimaliseerd, adapter opnieuw opstarten in geval van meerdere communicatiefouten.",
-        "fr": "error - gestion des erreurs de communication optimisée, redémarrage de l'adaptateur en cas d'erreurs de communication multiples.",
-        "it": "errore: gestione ottimizzata degli errori di comunicazione, riavvio dell'adattatore in caso di più errori di comunicazione.",
-        "es": "error: manejo de errores de comunicación optimizado, reinicio del adaptador en caso de múltiples errores de comunicación.",
-        "pl": "error - zoptymalizowana obsługa błędów komunikacji, restart adaptera w przypadku wielokrotnych błędów komunikacji.",
-        "uk": "помилка – оптимізовано обробку помилок зв’язку, перезапуск адаптера у разі кількох помилок зв’язку.",
-        "zh-cn": "错误 - 优化了通信错误的处理，在出现多个通信错误时适配器重新启动。"
-      },
-      "0.0.5": {
-        "en": "controls hotwater-temperature, heating- & hotwater - mode and heating-curve setting.",
-        "de": "Steuerung von Warmwasser-Soll, Heizungs- und Warmwasser-Modus sowie der Heizkurven-Werte.",
-        "ru": "контролирует температуру горячей воды, режим отопления и горячей воды и настройку кривой отопления.",
-        "pt": "controla a temperatura da água quente, o modo de aquecimento e água quente e a configuração da curva de aquecimento.",
-        "nl": "regelt de warmwatertemperatuur, de verwarmings- en warmwatermodus en de instelling van de stooklijn.",
-        "fr": "contrôle la température de l'eau chaude, le mode de chauffage et d'eau chaude et le réglage de la courbe de chauffage.",
-        "it": "controlla la temperatura dell'acqua calda, la modalità riscaldamento e acqua calda e l'impostazione della curva di riscaldamento.",
-        "es": "controla la temperatura del agua caliente, el modo de calefacción y agua caliente y el ajuste de la curva de calefacción.",
-        "pl": "steruje temperaturą ciepłej wody, trybem ogrzewania i ciepłej wody oraz ustawieniem krzywej grzewczej.",
-        "uk": "контролює температуру гарячої води, режим опалення та гарячої води та налаштування кривої опалення.",
-        "zh-cn": "控制热水温度、加热和热水模式以及加热曲线设置。"
-      },
-      "0.0.3": {
-        "en": "Reads also mode heating, water and heating-curve",
-        "de": "Liest auch Modus Heizung und Warmwasser sowie die Heizkurve",
-        "ru": "Считывает также режим отопления, воды и кривую отопления.",
-        "pt": "Lê também modo aquecimento, água e curva de aquecimento",
-        "nl": "Leest ook modus verwarming, water en stooklijn",
-        "fr": "Lit également les modes chauffage, eau et courbe de chauffage",
-        "it": "Legge anche la modalità riscaldamento, acqua e curva di riscaldamento",
-        "es": "Lee también el modo calefacción, agua y curva de calefacción.",
-        "pl": "Odczytuje także tryb ogrzewania, wodę i krzywą grzania",
-        "uk": "Читає також режими опалення, води та опалювальної кривої",
-        "zh-cn": "还读取加热模式、水和加热曲线"
-      },
-      "0.0.2": {
-        "en": "First published version (latest repo)",
-        "de": "Erste veröffentlichte Version (latest repo)",
-        "ru": "Первая опубликованная версия (последний репозиторий)",
-        "pt": "Primeira versão publicada (último repositório)",
-        "nl": "Eerste gepubliceerde versie (laatste repository)",
-        "fr": "Première version publiée (dernier dépôt)",
-        "it": "Prima versione pubblicata (ultimo repository)",
-        "es": "Primera versión publicada (último repositorio)",
-        "pl": "Pierwsza opublikowana wersja (najnowsze repozytorium)",
-        "uk": "Перша опублікована версія (останнє репо)",
-        "zh-cn": "第一个发布版本（最新存储库）"
       }
     },
     "titleLang": {
@@ -256,7 +165,8 @@
     "port": 0
   },
   "objects": [],
-  "instanceObjects": [{
+  "instanceObjects": [
+    {
       "_id": "temperaturen",
       "type": "channel",
       "common": {
