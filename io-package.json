@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "luxtronik1",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "news": {
+      "0.4.1": {
+        "en": "Workflow has been fixed",
+        "de": "Der Workflow wurde behoben",
+        "ru": "Зафиксирован рабочий процесс",
+        "pt": "Fluxo de trabalho foi corrigido",
+        "nl": "Werkstroom is vastgesteld",
+        "fr": "Le flux de travail a été corrigé",
+        "it": "Il flusso di lavoro è stato fissato",
+        "es": "Se ha fijado el flujo de trabajo",
+        "pl": "Przepływ pracy został ustalony",
+        "uk": "Закріплений робочий процес",
+        "zh-cn": "工作流量已经固定"
+      },
       "0.4.0": {
         "en": "Adapter requires node.js >= 18 and js-controller >= 5 now\nDependencies have been updated",
         "de": "Adapter benötigt node.js >= 18 und js-controller >= 5 jetzt\nAbhängigkeiten wurden aktualisiert",
@@ -80,19 +93,6 @@
         "pl": "poprawki błędów związane z kontrolerem js 3.3x",
         "uk": "виправлення помилок, пов'язаних з js-контролером 3.3x",
         "zh-cn": "与 js-controller 3.3x 相关的错误修复"
-      },
-      "0.3.0": {
-        "en": "info on temperature - settings and hysteresis - control added",
-        "de": "Menu Einstellungen-Temperaturen abgebildet und Hysterese-Werte setzen",
-        "ru": "добавлена ​​информация по температуре - настройки и гистерезис - управление",
-        "pt": "informações sobre temperatura - configurações e histerese - controle adicionado",
-        "nl": "info over temperatuur - instellingen en hysterese - regeling toegevoegd",
-        "fr": "informations sur la température - réglages et hystérésis - contrôle ajouté",
-        "it": "informazioni su temperatura - impostazioni e isteresi - controllo aggiunto",
-        "es": "información sobre temperatura - configuración e histéresis - control añadido",
-        "pl": "informacja o temperaturze - ustawienia i histereza - dodano sterowanie",
-        "uk": "інформація про температуру - налаштування та гістерезис - контроль додано",
-        "zh-cn": "有关温度的信息 - 设置和滞后 - 添加了控制"
       }
     },
     "titleLang": {

@@ -37,7 +37,7 @@ Values in the 'control' - channel have to be set with ack=false to trigger an ac
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.4.1 (2024-04-18)
 - (mcm1957) Workflow has been fixed
 
 ### 0.4.0 (2024-04-18)
