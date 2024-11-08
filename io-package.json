@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "luxtronik1",
-    "version": "0.4.1",
+    "version": "0.4.2",
     "news": {
+      "0.4.2": {
+        "en": "testing and dependencies updated",
+        "de": "tests und abhängigkeiten aktualisiert",
+        "ru": "обновление тестов и зависимостей",
+        "pt": "testes e dependências atualizados",
+        "nl": "testen en afhankelijkheden bijgewerkt",
+        "fr": "mise à jour des tests et des dépendances",
+        "it": "test e dipendenze aggiornate",
+        "es": "pruebas y dependencias actualizadas",
+        "pl": "testowanie i uaktualnianie zależności",
+        "uk": "тестування та залежності оновлено",
+        "zh-cn": "测试和依赖更新"
+      },
       "0.4.1": {
         "en": "Workflow has been fixed",
         "de": "Der Workflow wurde behoben",
@@ -135,16 +148,12 @@
     "messagebox": false,
     "connectionType": "local",
     "dataSource": "poll",
-    "dependencies": [
-      {
-        "js-controller": ">=5.0.19"
-      }
-    ],
-    "globalDependencies": [
-      {
-        "admin": ">=6.13.16"
-      }
-    ]
+    "dependencies": [{
+      "js-controller": ">=5.0.19"
+    }],
+    "globalDependencies": [{
+      "admin": ">=6.13.16"
+    }]
   },
   "native": {
     "host": "",
@@ -152,8 +161,7 @@
     "port": 0
   },
   "objects": [],
-  "instanceObjects": [
-    {
+  "instanceObjects": [{
       "_id": "temperaturen",
       "type": "channel",
       "common": {
