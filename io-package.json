@@ -29,19 +29,6 @@
         "uk": "Адаптер вимагає node.js >= 18 і js-controller >= 5 тепер\nЗалежність було оновлено",
         "zh-cn": "适配器需要节点.js QQ18和js控制器 QQ 现在5号\n依赖关系已更新"
       },
-      "0.3.6": {
-        "en": "testing and dependencies updated",
-        "de": "Tests und Abhängigkeiten aktualisiert",
-        "ru": "обновление тестирования и зависимостей",
-        "pt": "testes e dependências atualizadas",
-        "nl": "test en afhankelijkheid",
-        "fr": "tests et dépendances mis à jour",
-        "it": "test e dipendenze aggiornate",
-        "es": "pruebas y dependencias actualizadas",
-        "pl": "testy i zależności",
-        "zh-cn": "试验和依赖更新",
-        "uk": "тестування та залежності оновлено"
-      },
       "0.3.5": {
         "en": "set ready for js-controller 4.0",
         "de": "bereit für js-controller 4.0",
