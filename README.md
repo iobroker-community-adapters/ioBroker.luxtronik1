@@ -148,7 +148,7 @@ Values in the 'control' - channel have to be set with ack=false to trigger an ac
 
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <mailto:iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2025 iobroker-community-adapters <mailto:iobroker-community-adapters@gmx.de>
 Copyright (c) 2018-2023 forelleblau marceladam@gmx.ch
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
