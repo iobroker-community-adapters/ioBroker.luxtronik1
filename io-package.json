@@ -122,7 +122,8 @@
       "uk": "Керуйте своїм контролером теплового насоса Luxtronik 1"
     },
     "authors": [
-      "forelleblau <marceladam@gmx.ch>"
+      "forelleblau <marceladam@gmx.ch>",
+      "iobroker-community-adapters <iobroker-community-adapters@gmx.de>"
     ],
     "platform": "Javascript/Node.js",
     "mode": "daemon",
@@ -148,12 +149,16 @@
     "messagebox": false,
     "connectionType": "local",
     "dataSource": "poll",
-    "dependencies": [{
-      "js-controller": ">=5.0.19"
-    }],
-    "globalDependencies": [{
-      "admin": ">=6.13.16"
-    }]
+    "dependencies": [
+      {
+        "js-controller": ">=6.0.11"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=7.6.17"
+      }
+    ]
   },
   "native": {
     "host": "",
@@ -161,7 +166,8 @@
     "port": 0
   },
   "objects": [],
-  "instanceObjects": [{
+  "instanceObjects": [
+    {
       "_id": "temperaturen",
       "type": "channel",
       "common": {
