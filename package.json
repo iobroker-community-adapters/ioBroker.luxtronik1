@@ -5,14 +5,11 @@
     "node": ">=18"
   },
   "description": "luxtronik1",
-  "author": {
-    "name": "Marcel Adam",
-    "email": "marceladam@gmx.ch"
-  },
-  "contributors": [{
-    "name": "Marcel Adam",
-    "email": "marceladam@gmx.ch"
-  }],
+  "author": "Marcel Adam <marceladam@gmx.ch>",
+  "contributors": [
+    "Marcel Adam <marceladam@gmx.ch>",
+    "iobroker-community-adapters <iobroker-community-adapters@gmx.de>"
+  ],
   "homepage": "https://github.com/iobroker-community-adapters/ioBroker.luxtronik1",
   "license": "MIT",
   "keywords": [
