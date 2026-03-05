@@ -2,7 +2,7 @@
   "name": "iobroker.luxtronik1",
   "version": "0.4.2",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "description": "luxtronik1",
   "author": "Marcel Adam <marceladam@gmx.ch>",
