@@ -10,7 +10,7 @@ const utils = require('@iobroker/adapter-core'); // Get common adapter utils
 let adapter;
 var deviceIpAdress;
 var port;
-var net = require('net');
+var net = require('node:net');
 var datastring = "";
 var data1800array = [];
 var data1100error = 0;
