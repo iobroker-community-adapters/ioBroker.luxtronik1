@@ -150,6 +150,8 @@ Values in the 'control' - channel have to be set with ack=false to trigger an ac
 
 -   In development stage
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
