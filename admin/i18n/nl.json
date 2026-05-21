@@ -1,8 +1,8 @@
 {
     "Auto": "Auto",
-    "host": "Confoair-IP:",
     "Manual": "Met de hand",
     "My select": "Mijn select",
+    "host": "Luxtronik-IP:",
     "on save adapter restarts with new config immediately": "on save-adapter wordt onmiddellijk opnieuw opgestart met nieuwe config",
     "pollInterval": "Polling - Interval (ms):",
     "port": "Haven",

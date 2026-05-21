@@ -15,7 +15,6 @@
         "host": {
             "type": "text",
             "label": "host",
-            "help": "host",
             "newLine": true,
             "xs": 12,
             "sm": 6,
@@ -36,7 +35,6 @@
         "pollInterval": {
             "type": "number",
             "label": "pollInterval",
-            "help": "pollInterval",
             "min": 10000,
             "newLine": true,
             "xs": 12,

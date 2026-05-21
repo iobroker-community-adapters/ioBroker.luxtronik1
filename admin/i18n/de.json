@@ -1,8 +1,8 @@
 {
     "Auto": "Auto",
-    "host": "Comfoair IP:",
     "Manual": "Manual",
     "My select": "Mein Auswahl",
+    "host": "Luxtronik IP:",
     "on save adapter restarts with new config immediately": "Beim Speichern von Einstellungen der Adapter wird sofort neu gestartet.",
     "pollInterval": "Abfrage - Intervall (ms):",
     "port": "Port",
