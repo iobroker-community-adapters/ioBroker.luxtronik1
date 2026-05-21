@@ -2,11 +2,9 @@
     "Auto": "Auto",
     "Manual": "Manuel",
     "My select": "Mon choix",
-    "host": "IP du journal solaire :",
+    "host": "IP du Luxtronik :",
     "on save adapter restarts with new config immediately": "sur l'adaptateur de sauvegarde redémarre avec la nouvelle config immédiatement",
     "pollInterval": "Interrogation - Intervalle (ms) :",
     "port": "Port",
-    "template adapter settings": "paramètres de l'adaptateur de modèle",
-    "test1": "Test 1",
-    "test2": "Test 2"
+    "template adapter settings": "paramètres de l'adaptateur de modèle"
 }

@@ -1,12 +1,10 @@
 {
     "Auto": "Auto",
+    "host": "IP de SolarLog:",
     "Manual": "Manual",
     "My select": "Mi seleccion",
-    "host": "IP de SolarLog:",
     "on save adapter restarts with new config immediately": "en el adaptador de guardar se reinicia con nueva configuración de inmediato",
     "pollInterval": "Sondeo - Intervalo (ms):",
     "port": "Puerto",
-    "template adapter settings": "configuración del adaptador de plantilla",
-    "test1": "Prueba 1",
-    "test2": "Prueba 2"
+    "template adapter settings": "configuración del adaptador de plantilla"
 }
