@@ -1,12 +1,10 @@
 {
     "Auto": "Авто",
+    "host": "Solarlog IP:",
     "Manual": "Інструкція",
     "My select": "Мій вибір",
-    "host": "Solarlog IP:",
     "on save adapter restarts with new config immediately": "під час збереження адаптер негайно перезавантажується з новою конфігурацією",
     "pollInterval": "Опитування - Інтервал (мс):",
     "port": "Порт",
-    "template adapter settings": "налаштування адаптера шаблону",
-    "test1": "",
-    "test2": ""
+    "template adapter settings": "налаштування адаптера шаблону"
 }

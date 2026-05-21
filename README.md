@@ -41,6 +41,7 @@ Values in the 'control' - channel have to be set with ack=false to trigger an ac
 
 
 ### **WORK IN PROGRESS**
+- (copilot) **ENHANCED**: Migrated admin configuration UI to jsonConfig and removed legacy admin config files.
 - (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now

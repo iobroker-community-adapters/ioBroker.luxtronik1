@@ -129,7 +129,9 @@
     "mode": "daemon",
     "compact": true,
     "icon": "luxtronik1.png",
-    "materialize": true,
+    "adminUI": {
+      "config": "json"
+    },
     "enabled": true,
     "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.luxtronik1/master/admin/luxtronik1.png",
     "keywords": [

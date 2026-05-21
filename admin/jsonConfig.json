@@ -1,0 +1,59 @@
+{
+    "i18n": true,
+    "type": "panel",
+    "items": {
+        "logo": {
+            "type": "staticImage",
+            "src": "luxtronik1.png",
+            "newLine": true,
+            "xs": 12,
+            "sm": 12,
+            "md": 6,
+            "lg": 4,
+            "xl": 3
+        },
+        "host": {
+            "type": "text",
+            "label": "host",
+            "help": "host",
+            "newLine": true,
+            "xs": 12,
+            "sm": 6,
+            "md": 4,
+            "lg": 4,
+            "xl": 3
+        },
+        "port": {
+            "type": "number",
+            "label": "port",
+            "newLine": false,
+            "xs": 12,
+            "sm": 6,
+            "md": 2,
+            "lg": 2,
+            "xl": 2
+        },
+        "pollInterval": {
+            "type": "number",
+            "label": "pollInterval",
+            "help": "pollInterval",
+            "min": 10000,
+            "newLine": true,
+            "xs": 12,
+            "sm": 6,
+            "md": 4,
+            "lg": 4,
+            "xl": 3
+        },
+        "restartHint": {
+            "type": "staticText",
+            "text": "on save adapter restarts with new config immediately",
+            "newLine": true,
+            "xs": 12,
+            "sm": 12,
+            "md": 12,
+            "lg": 12,
+            "xl": 12
+        }
+    }
+}

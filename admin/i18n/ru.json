@@ -1,12 +1,10 @@
 {
     "Auto": "Автоматически",
+    "host": "Соларлог IP:",
     "Manual": "Вручную",
     "My select": "Выбор",
-    "host": "Соларлог IP:",
     "on save adapter restarts with new config immediately": "При сохранении настроек адаптера он сразу же перезапускается",
     "pollInterval": "Опрос - Интервал (мс):",
     "port": "Порт",
-    "template adapter settings": "Пример",
-    "test1": "Тест 1",
-    "test2": "Тест 2"
+    "template adapter settings": "Пример"
 }
